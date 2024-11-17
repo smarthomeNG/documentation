@@ -179,6 +179,7 @@ sonos_dpt3_step
 Relatives dpt3 Inkrement
 
  - Datentyp: **int**
+ - Standardwert: **2**
 
 
 sonos_dpt3_time
@@ -188,6 +189,7 @@ sonos_dpt3_time
 Dpt3 Zeitinkrement
 
  - Datentyp: **int**
+ - Standardwert: **1**
 
 
 sonos_recv
