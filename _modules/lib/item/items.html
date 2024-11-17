@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>lib.item.items &mdash; Dokumentation v1.10.0.3 v1.10.0.3 develop (Stand 17. November 2024, commit 0948296) Dokumentation</title>
+  <title>lib.item.items &mdash; Dokumentation v1.10.0.3 v1.10.0.3 develop (Stand 17. November 2024, commit c1fa99e) Dokumentation</title>
       <link rel="stylesheet" type="text/css" href="../../../_static/pygments.css" />
       <link rel="stylesheet" type="text/css" href="../../../_static/css/theme.css" />
       <link rel="stylesheet" type="text/css" href="../../../_static/custom.css" />
@@ -6186,7 +6186,9 @@
 <span class="sd">        At the moment, it stops fading of all items</span>
 <span class="sd">        &quot;&quot;&quot;</span>
         <span class="k">for</span> <span class="n">item</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">__items</span><span class="p">:</span>
-            <span class="bp">self</span><span class="o">.</span><span class="n">__item_dict</span><span class="p">[</span><span class="n">item</span><span class="p">]</span><span class="o">.</span><span class="n">_fading</span> <span class="o">=</span> <span class="kc">False</span></div>
+            <span class="bp">self</span><span class="o">.</span><span class="n">__item_dict</span><span class="p">[</span><span class="n">item</span><span class="p">]</span><span class="o">.</span><span class="n">_fading</span> <span class="o">=</span> <span class="kc">False</span>
+            <span class="k">with</span> <span class="bp">self</span><span class="o">.</span><span class="n">__item_dict</span><span class="p">[</span><span class="n">item</span><span class="p">]</span><span class="o">.</span><span class="n">_lock</span><span class="p">:</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">__item_dict</span><span class="p">[</span><span class="n">item</span><span class="p">]</span><span class="o">.</span><span class="n">_lock</span><span class="o">.</span><span class="n">notify_all</span><span class="p">()</span></div>
 
 
 <div class="viewcode-block" id="Items.add_plugin_attribute"><a class="viewcode-back" href="../../../lib/item_class_items.html#lib.item.Items.add_plugin_attribute">[Doku]</a>    <span class="k">def</span> <span class="nf">add_plugin_attribute</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">plugin_name</span><span class="p">,</span> <span class="n">attribute_name</span><span class="p">,</span> <span class="n">attribute</span><span class="p">):</span>
