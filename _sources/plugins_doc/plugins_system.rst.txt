@@ -14,6 +14,7 @@
    /plugins/datalog/user_doc
    /plugins/db_addon/user_doc
    /plugins/executor/user_doc
+   /plugins/githubplugin/user_doc
    /plugins/influxdb/user_doc
    /plugins/influxdb2/user_doc
    /plugins/memlog/user_doc
@@ -73,6 +74,14 @@
    |                                                                   |          |                                                                                                                                                                       |                 |                 |
    |                                                                   |          | - `executor zusätzliche Infos <https://www.smarthomeng.de/user/plugins/executor/user_doc.html>`_                                                                      |                 |                 |
    |                                                                   |          | - `executor Unterstützung <https://knx-user-forum.de/forum/supportforen/smarthome-py/1425152-support-thread-plugin-executor>`_                                        |                 |                 |
+   +-------------------------------------------------------------------+----------+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------+-----------------+-----------------+
+   | :doc:`githubplugin <config/githubplugin>`                         | v1.0.0   | Plugin zur Installation von Plugins aus fremden GitHub-Repositories                                                                                                   | Morg42          |                 |
+   |                                                                   |          |                                                                                                                                                                       |                 |                 |
+   |                                                                   |          |                                                                                                                                                                       |                 |                 |
+   |                                                                   |          | .                                                                                                                                                                     |                 |                 |
+   |                                                                   |          |                                                                                                                                                                       |                 |                 |
+   |                                                                   |          |                                                                                                                                                                       |                 |                 |
+   |                                                                   |          | Plugin Status: **develop**                                                                                                                                            |                 |                 |
    +-------------------------------------------------------------------+----------+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------+-----------------+-----------------+
    | :doc:`influxdata <config/influxdata>`                             | v1.0.0   | Ermöglicht Speicherung von Daten in InfluxData TSDB z.B. zur Erzeugung von Graphen                                                                                    | rthill          | brandst         |
    |                                                                   |          | mit Grafana oder Chronograf (Plugin aus 2016)                                                                                                                         |                 |                 |

@@ -45,6 +45,7 @@
    eta_pu.rst
    executor.rst
    garminconnect.rst
+   githubplugin.rst
    gpio.rst
    harmony.rst
    helios.rst
