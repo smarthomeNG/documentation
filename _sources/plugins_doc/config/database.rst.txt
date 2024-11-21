@@ -183,6 +183,8 @@ Genauigkeit der aus der Datenbank ausgelesenen Zeitwerte (Nachkommastellen (für
  - Datentyp: **int**
  - Standardwert: **3**
 
+ - Minimalwert: **0**
+ - Maximalwert: **3**
 
 ==============
 Item Attribute
