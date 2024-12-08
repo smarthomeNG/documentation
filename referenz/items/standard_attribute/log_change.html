@@ -4,7 +4,7 @@
   <meta charset="utf-8" /><meta name="generator" content="Docutils 0.19: https://docutils.sourceforge.io/" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>log_change und log_text &mdash; Dokumentation v1.10.0.3 v1.10.0.3 develop (Stand 6. Dezember 2024, commit dec0d3f) Dokumentation</title>
+  <title>log_change und log_text &mdash; Dokumentation v1.10.0.3 v1.10.0.3 develop (Stand 8. Dezember 2024, commit 9486165) Dokumentation</title>
       <link rel="stylesheet" type="text/css" href="../../../_static/pygments.css" />
       <link rel="stylesheet" type="text/css" href="../../../_static/css/theme.css" />
       <link rel="stylesheet" type="text/css" href="../../../_static/custom.css" />
@@ -5759,12 +5759,16 @@ vor dem Schreiben eines jeden Logging-Eintrags neu evaluiert.</p>
 </section>
 <section id="attribut-log-text">
 <h2>Attribut <em>log_text</em><a class="headerlink" href="#attribut-log-text" title="Permalink to this heading"></a></h2>
-<p>Das Attribut <strong>log_text</strong> ermöglicht es einen eigenen Text für den Logeintrag festzulegen. <strong>log_text</strong> kann dabei
-eine Reihe von Variablen und eval-Ausdrücken enthalten.</p>
+<p>Das Attribut <strong>log_text</strong> ermöglicht es, einen eigenen Text für den Logeintrag festzulegen.
+Wird das Attribut nicht angegeben, wird versucht, das im smarthome.yaml hinterlegte Attribut <code class="docutils literal notranslate"><span class="pre">default_logtext</span></code>
+heranzuziehen. Dieses kann die unten angegebenen Variablen enthalten. Ist auch dieses
+Attribut nicht angegeben, wird folgende Muster herangezogen:
+<code class="docutils literal notranslate"><span class="pre">Item</span> <span class="pre">Change:</span> <span class="pre">{id}</span> <span class="pre">=</span> <span class="pre">{value}</span>&#160; <span class="pre">-</span>&#160; <span class="pre">caller:</span> <span class="pre">{caller}{source}{dest}</span></code></p>
+<p>Wird <strong>log_text</strong> angegeben, kann dabei eine Reihe von Variablen und eval-Ausdrücken genutzt werden.</p>
 <div class="admonition attention">
 <p class="admonition-title">Achtung</p>
 <p><strong>Achtung:</strong> log_text darf keine Single-Quotes (<code class="docutils literal notranslate"><span class="pre">'</span></code>) enthalten!</p>
-<p>Falls es aufgrund des YAML Syntaxes notwendig kann der gesamte String für log_text in Single-Quotes (‚)
+<p>Falls es aufgrund des YAML Syntaxes notwendig ist, kann der gesamte String für log_text in Single-Quotes (‚)
 eingeschlossen werden.</p>
 <p><strong>Beispiel:</strong> <code class="docutils literal notranslate"><span class="pre">log_text:</span> <span class="pre">'Alter={age}'</span></code></p>
 </div>
@@ -5852,39 +5856,37 @@ eingeschlossen werden.</p>
 <p>Zusätzlich zu den Variaben, können in den Log Text auch eval Ausdrücke eingeschlossen werden. Diese sind in
 geschwungene Klammern zu setzen.</p>
 <p>Es können auch mehrere eval-Ausdrücke in einen Log Text eingebunden und mit Variablen konfiguriert werden.</p>
-<p><strong>Beispiel:</strong> <code class="docutils literal notranslate"><span class="pre">log_text:</span> <span class="pre">Ergebnis={1+value}</span> <span class="pre">für</span> <span class="pre">item</span> <span class="pre">{id}</span></code>
-<strong>Beispiel:</strong> <code class="docutils literal notranslate"><span class="pre">log_text:</span> <span class="pre">Ergebnis={&quot;Eins&quot;</span> <span class="pre">if</span> <span class="pre">value</span> <span class="pre">==</span> <span class="pre">1</span> <span class="pre">else</span> <span class="pre">&quot;Zwei&quot;</span> <span class="pre">if</span> <span class="pre">value</span> <span class="pre">==</span> <span class="pre">2</span> <span class="pre">else</span> <span class="pre">1+value}</span> <span class="pre">für</span> <span class="pre">item</span> <span class="pre">{id}</span></code></p>
+<p><strong>Beispiel:</strong> <code class="docutils literal notranslate"><span class="pre">log_text:</span> <span class="pre">Ergebnis={1+value}</span> <span class="pre">für</span> <span class="pre">item</span> <span class="pre">{id}</span></code></p>
+<p><strong>Beispiel:</strong> <code class="docutils literal notranslate"><span class="pre">log_text:</span> <span class="pre">Ergebnis={&quot;Eins&quot;</span> <span class="pre">if</span> <span class="pre">value</span> <span class="pre">==</span> <span class="pre">1</span> <span class="pre">else</span> <span class="pre">&quot;Zwei&quot;</span> <span class="pre">if</span> <span class="pre">value</span> <span class="pre">==</span> <span class="pre">2</span> <span class="pre">else</span> <span class="pre">1+value}</span> <span class="pre">für</span> <span class="pre">item</span> <span class="pre">{id}</span></code></p>
 </section>
 </section>
 <section id="attribut-log-mapping">
 <h2>Attribut <em>log_mapping</em><a class="headerlink" href="#attribut-log-mapping" title="Permalink to this heading"></a></h2>
 <p>Über das <strong>log_mapping</strong> Attribut kann festgelegt werden, auf welche Werte/Strings der Wert eines Items für das
-Logging gemappt werden soll. Das Attribut <strong>log_mapping</strong> enthält dazu in einem String die Beschreibung eines
-dicts. Wobei der Key den zu übersetzenden/mappenden Wert angibt und der dazu gehörige Value des dicts den String
-angibt, der über die Variable <code class="docutils literal notranslate"><span class="pre">{mvalue}</span></code> ausgegeben wird.</p>
+Logging gemappt werden soll. Das Attribut <strong>log_mapping</strong> enthält dazu eine Liste mit Wertzuweisungen im folgenden Format:
+zu übersetzender/mappender Wert: String, der über die Variable <code class="docutils literal notranslate"><span class="pre">{mvalue}</span></code> ausgegeben wird</p>
 <p><strong>Beispiel:</strong></p>
-<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="nt">log_mapping</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;{</span>
-<span class="w">    </span><span class="s">&#39;1&#39;:</span><span class="nv"> </span><span class="s">&#39;Eins&#39;,</span>
-<span class="w">    </span><span class="s">&#39;2&#39;:</span><span class="nv"> </span><span class="s">&#39;Zwei&#39;,</span>
-<span class="w">    </span><span class="s">&#39;3&#39;:</span><span class="nv"> </span><span class="s">&#39;Drei&#39;</span>
-<span class="w">    </span><span class="s">}&quot;</span>
+<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="nt">log_mapping</span><span class="p">:</span>
+<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">1</span><span class="p">:</span><span class="w"> </span><span class="s">&#39;Eins&#39;</span>
+<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">2</span><span class="p">:</span><span class="w"> </span><span class="s">&#39;Zwei&#39;</span>
+<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">3</span><span class="p">:</span><span class="w"> </span><span class="s">&#39;Drei&#39;</span>
 </pre></div>
 </div>
 </section>
 <section id="attribut-log-rules">
 <h2>Attribut <em>log_rules</em><a class="headerlink" href="#attribut-log-rules" title="Permalink to this heading"></a></h2>
 <p>Über das <strong>log_rules</strong> Attribut kann festgelegt werden, welche zusätzliche Regeln für das Erzeugen des Log-Eintrages
-anzuwenden sind. Das Attribut <strong>log_rules</strong> enthält dazu in einem String die Beschreibung eines dicts.</p>
+anzuwenden sind. Das Attribut <strong>log_rules</strong> enthält dazu eine Liste mit den folgenden möglichen Definitionen:
+<code class="docutils literal notranslate"><span class="pre">lowlimit</span></code>, <code class="docutils literal notranslate"><span class="pre">highlimit</span></code>, <code class="docutils literal notranslate"><span class="pre">filter</span></code>, <code class="docutils literal notranslate"><span class="pre">exclude</span></code>, <code class="docutils literal notranslate"><span class="pre">itemvalue</span></code></p>
 <p><strong>Beispiel:</strong></p>
 <div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="nt">item</span><span class="p">:</span>
 <span class="w">    </span><span class="nt">type</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">num</span>
-<span class="w">    </span><span class="nt">log_rules</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;{</span>
-<span class="w">        </span><span class="s">&#39;lowlimit&#39;</span><span class="nv"> </span><span class="s">:</span><span class="nv"> </span><span class="s">-1.0,</span>
-<span class="w">        </span><span class="s">&#39;highlimit&#39;:</span><span class="nv"> </span><span class="s">10.0,</span>
-<span class="w">        </span><span class="s">&#39;filter&#39;:</span><span class="nv"> </span><span class="s">[1,</span><span class="nv"> </span><span class="s">2,</span><span class="nv"> </span><span class="s">5],</span>
-<span class="w">        </span><span class="s">&#39;exclude&#39;:</span><span class="nv"> </span><span class="s">&#39;.exclude_values&#39;,</span>
-<span class="w">        </span><span class="s">&#39;itemvalue&#39;:</span><span class="nv"> </span><span class="s">&#39;.text&#39;</span>
-<span class="w">        </span><span class="s">}&quot;</span>
+<span class="w">    </span><span class="nt">log_rules</span><span class="p">:</span>
+<span class="w">        </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="s">&#39;lowlimit&#39;</span><span class="w"> </span><span class="p p-Indicator">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">-1.0</span>
+<span class="w">        </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="s">&#39;highlimit&#39;</span><span class="p p-Indicator">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">10.0</span>
+<span class="w">        </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="s">&#39;filter&#39;</span><span class="p p-Indicator">:</span><span class="w"> </span><span class="p p-Indicator">[</span><span class="nv">1</span><span class="p p-Indicator">,</span><span class="w"> </span><span class="nv">2</span><span class="p p-Indicator">,</span><span class="w"> </span><span class="nv">5</span><span class="p p-Indicator">]</span>
+<span class="w">        </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="s">&#39;exclude&#39;</span><span class="p p-Indicator">:</span><span class="w"> </span><span class="s">&#39;.exclude_values&#39;</span>
+<span class="w">        </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="s">&#39;itemvalue&#39;</span><span class="p p-Indicator">:</span><span class="w"> </span><span class="s">&#39;.text&#39;</span>
 
 <span class="w">    </span><span class="nt">exclude_values</span><span class="p">:</span>
 <span class="w">        </span><span class="nt">type</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">list</span>
@@ -5906,33 +5908,33 @@ Der Verweis auf das jeweilige Item erfolgt dabei durch den absoluten oder relati
 </div>
 <section id="lowlimit">
 <h3>lowlimit<a class="headerlink" href="#lowlimit" title="Permalink to this heading"></a></h3>
-<p><code class="docutils literal notranslate"><span class="pre">lowlimit</span></code> Ein Wert, der angibt, unterhalb welchen Wertes des Items <strong>kein</strong> Logeintrag geschrieben werden soll.
+<p>Ein Wert, der angibt, unterhalb welchen Wertes des Items <strong>kein</strong> Logeintrag geschrieben werden soll.
 Werte werden geschrieben, Wenn <strong>lowlimit</strong> &lt;= <strong>value</strong> ist.</p>
 <p><strong>low_limit</strong> kann nur auf Items vom Typ <strong>num</strong> angewendet werden.</p>
 </section>
 <section id="highlimit">
 <h3>highlimit<a class="headerlink" href="#highlimit" title="Permalink to this heading"></a></h3>
-<p><code class="docutils literal notranslate"><span class="pre">highlimit</span></code> Ein Wert, der angibt, oberhalb welchen Wertes des Items <strong>kein</strong> Logeintrag geschrieben werden soll.
+<p>Ein Wert, der angibt, oberhalb welchen Wertes des Items <strong>kein</strong> Logeintrag geschrieben werden soll.
 Werte werden geschrieben, Wenn <strong>value</strong> &lt; <strong>highlimit</strong> ist.</p>
 <p><strong>highlimit</strong> kann nur auf Items vom Typ <strong>num</strong> angewendet werden.</p>
 </section>
 <section id="filter">
 <h3>filter<a class="headerlink" href="#filter" title="Permalink to this heading"></a></h3>
-<p><code class="docutils literal notranslate"><span class="pre">filter</span></code> Eine Werteliste, die angibt, bei welchen Werten des Items ein Logeintrag geschrieben werden soll.</p>
+<p>Eine Werteliste, die angibt, bei welchen Werten des Items ein Logeintrag geschrieben werden soll.</p>
 <p>Wenn das Item vom Typ <strong>num</strong> ist, muss die Liste auch numerische Werte (int oder float) enthalten
 (<code class="docutils literal notranslate"><span class="pre">'filter':</span> <span class="pre">[1,</span> <span class="pre">2,</span> <span class="pre">5,</span> <span class="pre">2.1]</span></code>). Falls das Item von einem anderen Datentyp ist, muss die Liste Strings
 enthalten (<code class="docutils literal notranslate"><span class="pre">'filter':</span> <span class="pre">['1',</span> <span class="pre">'2',</span> <span class="pre">'5']</span></code>).</p>
 </section>
 <section id="exclude">
 <h3>exclude<a class="headerlink" href="#exclude" title="Permalink to this heading"></a></h3>
-<p><code class="docutils literal notranslate"><span class="pre">exclude</span></code> Eine Werteliste, die angibt, bei welchen Werten des Items ein Logeintrag nicht geschrieben werden soll.</p>
+<p>Eine Werteliste, die angibt, bei welchen Werten des Items ein Logeintrag nicht geschrieben werden soll.</p>
 <p>Wenn das Item vom Typ <strong>num</strong> ist, muss die Liste auch numerische Werte (int oder float) enthalten
 (<code class="docutils literal notranslate"><span class="pre">'exclude':</span> <span class="pre">[1,</span> <span class="pre">2,</span> <span class="pre">5,</span> <span class="pre">2.1]</span></code>). Falls das Item von einem anderen Datentyp ist, muss die Liste Strings
 enthalten (<code class="docutils literal notranslate"><span class="pre">'exclude':</span> <span class="pre">['1',</span> <span class="pre">'2',</span> <span class="pre">'5']</span></code>).</p>
 </section>
 <section id="itemvalue">
 <h3>itemvalue<a class="headerlink" href="#itemvalue" title="Permalink to this heading"></a></h3>
-<p><code class="docutils literal notranslate"><span class="pre">itemvalue</span></code> Der absolute oder relative Pfad zu einem Item, dessen Wert ausgelesen werden soll.
+<p>Der absolute oder relative Pfad zu einem Item, dessen Wert ausgelesen werden soll.
 Dies kann beispielsweise dazu genutzt werden, die Lognachricht zur Laufzeit anzupassen.</p>
 </section>
 </section>
