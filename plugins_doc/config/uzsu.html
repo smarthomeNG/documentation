@@ -4,7 +4,7 @@
   <meta charset="utf-8" /><meta name="generator" content="Docutils 0.19: https://docutils.sourceforge.io/" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Plugin ‚uzsu‘ Konfiguration &mdash; Dokumentation v1.10.0.3 v1.10.0.3 develop (Stand 22. Dezember 2024, commit 7306397) Dokumentation</title>
+  <title>Plugin ‚uzsu‘ Konfiguration &mdash; Dokumentation v1.10.0.3 v1.10.0.3 develop (Stand 23. Dezember 2024, commit 7306397) Dokumentation</title>
       <link rel="stylesheet" type="text/css" href="../../_static/pygments.css" />
       <link rel="stylesheet" type="text/css" href="../../_static/css/theme.css" />
       <link rel="stylesheet" type="text/css" href="../../_static/custom.css" />
@@ -825,6 +825,7 @@
 <li class="toctree-l4"><a class="reference internal" href="../../plugins/uzsu/user_doc.html#konfiguration">Konfiguration</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../../plugins/uzsu/user_doc.html#smartvisu">SmartVISU</a><ul>
 <li class="toctree-l5"><a class="reference internal" href="../../plugins/uzsu/user_doc.html#standard-einstellungen">Standard Einstellungen</a></li>
+<li class="toctree-l5"><a class="reference internal" href="../../plugins/uzsu/user_doc.html#einmal-schaltung">Einmal-Schaltung</a></li>
 <li class="toctree-l5"><a class="reference internal" href="../../plugins/uzsu/user_doc.html#experteneinstellungen">Experteneinstellungen</a></li>
 <li class="toctree-l5"><a class="reference internal" href="../../plugins/uzsu/user_doc.html#zeitserie">Zeitserie</a></li>
 </ul>
@@ -3724,6 +3725,7 @@
 <li class="toctree-l4"><a class="reference internal" href="../../plugins/uzsu/user_doc.html#konfiguration">Konfiguration</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../../plugins/uzsu/user_doc.html#smartvisu">SmartVISU</a><ul>
 <li class="toctree-l5"><a class="reference internal" href="../../plugins/uzsu/user_doc.html#standard-einstellungen">Standard Einstellungen</a></li>
+<li class="toctree-l5"><a class="reference internal" href="../../plugins/uzsu/user_doc.html#einmal-schaltung">Einmal-Schaltung</a></li>
 <li class="toctree-l5"><a class="reference internal" href="../../plugins/uzsu/user_doc.html#experteneinstellungen">Experteneinstellungen</a></li>
 <li class="toctree-l5"><a class="reference internal" href="../../plugins/uzsu/user_doc.html#zeitserie">Zeitserie</a></li>
 </ul>
@@ -5768,6 +5770,16 @@ Außerdem ermöglicht eine Interpolationsfunktion das Errechnen von Werten zwisc
 </ul>
 </div></blockquote>
 </section>
+<section id="ignore-once-entries">
+<h2>ignore_once_entries<a class="headerlink" href="#ignore-once-entries" title="Permalink to this heading"></a></h2>
+<p>Falls False, werden Einträge, die durch „Once“ heute inaktiv geschaltet wurden, für eine etwaige Interpolation oder Berechnung des letzten Werts herangezogen.</p>
+<blockquote>
+<div><ul class="simple">
+<li><p>Datentyp: <strong>bool</strong></p></li>
+<li><p>Standardwert: <strong>False</strong></p></li>
+</ul>
+</div></blockquote>
+</section>
 <section id="interpolation-interval">
 <h2>interpolation_interval<a class="headerlink" href="#interpolation-interval" title="Permalink to this heading"></a></h2>
 <p>Standardintervall in Minuten, in dem ein interpolierter Wert erneut errechnet werden soll. Kann pro UZSU individuell konfiguriert werden.</p>
@@ -5995,7 +6007,7 @@ Im items Ordner ist pro Item, das geschaltet werden soll, ein UZSU Item-Eintrag 
 </section>
 <section id="lastvalue-by-none-item">
 <h2>lastvalue(by= ‚None‘, item)<a class="headerlink" href="#lastvalue-by-none-item" title="Permalink to this heading"></a></h2>
-<p>Abfrage des zuletzt gesetzten Werts. Kann z.B. beim Aktivieren der UZSU genutzt werden, um sofort auf den gewünschten Wert zu schalten.</p>
+<p>Abfrage des zuletzt gesetzten/evaluierten Werts. Kann z.B. beim Aktivieren der UZSU genutzt werden, um sofort auf den gewünschten Wert zu schalten.</p>
 <blockquote>
 <div><ul class="simple">
 <li><p>Ergebnistyp der Funktion: <strong>foo</strong></p></li>
@@ -6058,6 +6070,35 @@ Im items Ordner ist pro Item, das geschaltet werden soll, ein UZSU Item-Eintrag 
 </section>
 <section id="id9">
 <h3>item<a class="headerlink" href="#id9" title="Permalink to this heading"></a></h3>
+<p>Das Item-Objekt</p>
+<blockquote>
+<div><ul class="simple">
+<li><p>Datentyp: <strong>foo</strong></p></li>
+</ul>
+</div></blockquote>
+</section>
+</section>
+<section id="set-activetoday-set-item">
+<h2>set_activetoday(set, item)<a class="headerlink" href="#set-activetoday-set-item" title="Permalink to this heading"></a></h2>
+<dl class="simple">
+<dt>Setzen der activeToday Einträge eines Items.</dt><dd><ul class="simple">
+<li><p>False: Setzen der Einträge auf False, praktisch ein Reset</p></li>
+<li><p>True: Setzen der Einträge auf True - im Normalfall nicht hilfreich, lediglich für Debuggingzwecke</p></li>
+<li><p>Ergebnistyp der Funktion: <strong>bool</strong></p></li>
+</ul>
+</dd>
+</dl>
+<section id="set">
+<h3>set<a class="headerlink" href="#set" title="Permalink to this heading"></a></h3>
+<p>True, um die activeToday Einträge zu aktivieren, False um sie zu deaktivieren/zurückzusetzen.</p>
+<blockquote>
+<div><ul class="simple">
+<li><p>Datentyp: <strong>bool</strong></p></li>
+</ul>
+</div></blockquote>
+</section>
+<section id="id10">
+<h3>item<a class="headerlink" href="#id10" title="Permalink to this heading"></a></h3>
 <p>Das Item-Objekt</p>
 <blockquote>
 <div><ul class="simple">

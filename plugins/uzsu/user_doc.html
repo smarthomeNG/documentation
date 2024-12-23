@@ -4,7 +4,7 @@
   <meta charset="utf-8" /><meta name="generator" content="Docutils 0.19: https://docutils.sourceforge.io/" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>uzsu &mdash; Dokumentation v1.10.0.3 v1.10.0.3 develop (Stand 22. Dezember 2024, commit 7306397) Dokumentation</title>
+  <title>uzsu &mdash; Dokumentation v1.10.0.3 v1.10.0.3 develop (Stand 23. Dezember 2024, commit 7306397) Dokumentation</title>
       <link rel="stylesheet" type="text/css" href="../../_static/pygments.css" />
       <link rel="stylesheet" type="text/css" href="../../_static/css/theme.css" />
       <link rel="stylesheet" type="text/css" href="../../_static/custom.css" />
@@ -827,6 +827,7 @@
 <li class="toctree-l4"><a class="reference internal" href="#konfiguration">Konfiguration</a></li>
 <li class="toctree-l4"><a class="reference internal" href="#smartvisu">SmartVISU</a><ul>
 <li class="toctree-l5"><a class="reference internal" href="#standard-einstellungen">Standard Einstellungen</a></li>
+<li class="toctree-l5"><a class="reference internal" href="#einmal-schaltung">Einmal-Schaltung</a></li>
 <li class="toctree-l5"><a class="reference internal" href="#experteneinstellungen">Experteneinstellungen</a></li>
 <li class="toctree-l5"><a class="reference internal" href="#zeitserie">Zeitserie</a></li>
 </ul>
@@ -3726,6 +3727,7 @@
 <li class="toctree-l4"><a class="reference internal" href="#konfiguration">Konfiguration</a></li>
 <li class="toctree-l4"><a class="reference internal" href="#smartvisu">SmartVISU</a><ul>
 <li class="toctree-l5"><a class="reference internal" href="#standard-einstellungen">Standard Einstellungen</a></li>
+<li class="toctree-l5"><a class="reference internal" href="#einmal-schaltung">Einmal-Schaltung</a></li>
 <li class="toctree-l5"><a class="reference internal" href="#experteneinstellungen">Experteneinstellungen</a></li>
 <li class="toctree-l5"><a class="reference internal" href="#zeitserie">Zeitserie</a></li>
 </ul>
@@ -5741,11 +5743,15 @@
 <p>Dieses Plugin ermöglicht gezielte Schaltvorgänge von Items zu bestimmten Uhrzeiten oder abhängig vom
 Sonnenstand. Die automatischen Schaltungen können dabei pro Wochentag separat definiert werden.</p>
 <p>Außerdem ermöglicht eine Interpolationsfunktion das Errechnen von Werten zwischen zwei manuell
-angelegten Schaltzeiten, wodurch z.B. Lichtkurven über den Tagesverlauf umgesetzt werden können</p>
+angelegten Schaltzeiten, wodurch z.B. Lichtkurven über den Tagesverlauf umgesetzt werden können.</p>
 <section id="einfuhrung">
 <h2>Einführung<a class="headerlink" href="#einfuhrung" title="Permalink to this heading"></a></h2>
 <p>Die Funktionsweise der universellen Zeitschaltuhr wird auf dem <a class="reference external" href="https://www.smarthomeng.de/tag/uzsu">SmarthomeNG Blog</a>
 beschrieben. Dort finden sich auch einige praktische Beispiele.</p>
+<p>Setzen mehrere UZSU Einträge einen Wert zum selben Zeitpunkt, hat der früher definierte Listeneintrag Vorrang,
+weitere später gereihte Schaltvorgänge werden nicht ausgeführt.
+Beispiel: Erster Eintrag in der Liste setzt um 20:02 Uhr den Wert auf 0, der zweite Eintrag würde den Wert zur selben Zeit,
+also 20:02 Uhr auf 100 setzen. De facto wird um 20:02 Uhr der Wert auf 0 gesetzt, der zweite Eintrag wird ignoriert.</p>
 </section>
 <section id="konfiguration">
 <h2>Konfiguration<a class="headerlink" href="#konfiguration" title="Permalink to this heading"></a></h2>
@@ -5805,7 +5811,16 @@ Außerdem ist es möglich, die Struct Items „next.value“ und „next.time“
 <li><p>Wert: Der zu schaltende Wert</p></li>
 <li><p>Zeit: Die Uhrzeit, zu der der gewünschte Wert geschaltet werden soll. Im Experten- und Serienmodus kann dieser Parameter auch detaillierter konfiguriert werden.</p></li>
 <li><p>Aktivieren: Eintrag aktivieren oder deaktivieren.</p></li>
+<li><p>Einmal-Schaltung („Once“): Sowohl auf globaler Ebene als auch pro Eintrag kann eingestellt werden, dass ein Schaltvorgang nur ein Mal ausgeführt wird.</p></li>
 </ul>
+</section>
+<section id="einmal-schaltung">
+<h3>Einmal-Schaltung<a class="headerlink" href="#einmal-schaltung" title="Permalink to this heading"></a></h3>
+<p>Für jeden Eintrag in der UZSU Liste kann eingestellt werden, ob der Eintrag nur ein einziges Mal aktiv sein soll, oder „normal“ aktiv bleibt.
+Bei aktiviertem „1x“ bei einem Eintrag wird dieser sofort nach dem ersten Schaltvorgang deaktiviert, es sei denn, es handelt sich um eine Serie.
+Diese wird komplett bis zum Ende abgearbeitet und erst dann deaktiviert.</p>
+<p>Die globale Einmal-Schaltung sorgt für eine Deaktivierung der UZSU direkt nach dem nächsten Schaltvorgang, unabhängig davon, ob dieser durch eine Serie oder einen
+Standardeintrag ausgelöst wurde. Serien werden in dem Fall also nicht bis zum Ende abgearbeitet.</p>
 </section>
 <section id="experteneinstellungen">
 <h3>Experteneinstellungen<a class="headerlink" href="#experteneinstellungen" title="Permalink to this heading"></a></h3>
@@ -5817,40 +5832,49 @@ wenn die sonnenbasierte Schaltung über diese Grenzwerte hinaus berechnet werden
 <section id="zeitserie">
 <h3>Zeitserie<a class="headerlink" href="#zeitserie" title="Permalink to this heading"></a></h3>
 <p>Für wiederkehrende Schaltungen können auch Serien angelegt werden. Dabei ist ein Startzeitpunkt und ein Intervall zu definieren. Das Ende kann entweder über einen Zeitpunkt oder die Anzahl Wiederholungen definiert werden. Start- und Endzeitpunkte können wie bei der normalen UZSU auch sonnenstandsabhängig deklariert werden.</p>
+<p>Wird bei einer Serie die Einmal-Funktion aktiviert, wird die Serie (erst) nach Abarbeiten aller Wiederholungen deaktiviert.</p>
 </section>
 </section>
 <section id="interpolation">
 <h2>Interpolation<a class="headerlink" href="#interpolation" title="Permalink to this heading"></a></h2>
 <div class="admonition important">
 <p class="admonition-title">Wichtig</p>
-<p>Wenn die Interpolation aktiviert ist, wird das UZSU Item im gegebenen Intervall aktualisiert, auch wenn der nächste UZSU Eintrag über die Tagesgrenze hinaus geht. Gibt es beispielsweise heute um 23:00 einen Eintrag mit dem Wert 100 und morgen um 1:00 einen Eintrag mit dem Wert 0, wird zwischen den beiden Zeitpunkten der Wert kontinuierlich abnehmen. Bei linearer Interpolation wird um Mitternacht der Wert 50 geschrieben.</p>
+<p>Wenn die Interpolation aktiviert und der „per day“ Parameter auf False gesetzt ist, wird das UZSU Item im gegebenen Intervall
+aktualisiert, auch wenn der nächste UZSU Eintrag über die Tagesgrenze hinaus geht. Gibt es beispielsweise heute um 23:00 einen
+Eintrag mit dem Wert 100 und morgen um 1:00 einen Eintrag mit dem Wert 0, wird zwischen den beiden Zeitpunkten der Wert
+kontinuierlich abnehmen. Bei linearer Interpolation wird um Mitternacht der Wert 50 geschrieben.
+Dieses Verhalten kann durch Setzen von <code class="docutils literal notranslate"><span class="pre">perday</span></code> auf True insofern geändert werden, dass dann nur die Einträge des aktuellen
+Tages für die Interpolation herangezogen werden. Vor dem ersten und nach dem letzten Tageseintrag wird nicht interpoliert.</p>
 </div>
 <p>Interpolation ist ein eigenes Dict innerhalb des UZSU Dictionary mit folgenden Einträgen:</p>
 <ul class="simple">
-<li><p><strong>type</strong>: string, setzt die mathematische Interpolationsfunktion cubic, linear oder none. Ist der Wert cubic oder linear gesetzt, wird der für die aktuelle Zeit interpolierte Wert sowohl beim Pluginstart als auch im entsprechenden Intervall gesetzt.</p></li>
+<li><p><strong>type</strong>: string (Standard ‚none‘), setzt die mathematische Interpolationsfunktion cubic, linear oder none. Ist der Wert cubic oder linear gesetzt, wird der für die aktuelle Zeit interpolierte Wert sowohl beim Pluginstart als auch im entsprechenden Intervall gesetzt.</p></li>
 <li><p><strong>interval</strong>: integer, setzt den zeitlichen Abstand (in Sekunden) der automatischen UZSU Auslösungen</p></li>
 <li><p><strong>initage</strong>: integer, definiert die Anzahl Sekunden, innerhalb der beim Pluginstart etwaige versäumte UZSU Einträge gesucht werden sollen. Diese Einstellung ist obsolet, wenn die Interpolation nicht auf none ist, weil dann beim Pluginstart der errechnete Wert automatisch gesetzt wird.</p></li>
 <li><p><strong>itemtype</strong>: Der Item-Typ des uzsu_item, das durch die UZSU gesetzt werden soll. Dieser Wert wird beim Pluginstart automatisch ermittelt und sollte nicht verändert werden.</p></li>
-<li><p><strong>initizialized</strong>: bool, wird beim Pluginstart automatisch gesetzt, sobald ein gültiger Eintrag innerhalb der initage Zeit gefunden wurde und diese Initialisierung tatsächlich ausgeführt wurde.</p></li>
+<li><p><strong>initizialized</strong>: bool, wird beim Pluginstart automatisch gesetzt, sobald ein gültiger Eintrag innerhalb der initage Zeit gefunden  und diese Initialisierung tatsächlich ausgeführt wurde.</p></li>
+<li><p><strong>perday</strong>: bool (Standard False), bestimmt, ob die Interpolation nur Schaltpunkte des aktuellen Tages berücksichtigen soll (True) oder sämtliche Einträge, die unter Umständen über die ganze Woche verteilt sind (False).</p></li>
 </ul>
+<p>Ist die Interpolation und die Einmal-Funktion (global oder für einen Eintrag) aktiviert, so werden so viele interpolierte Schaltvorgänge durchgeführt, bis der tatsächlich hinterlegte Wert erreich ist. Erst dann wird der Eintrag oder die UZSU deaktiviert.</p>
 </section>
 <section id="pluginfunktionen">
 <h2>Pluginfunktionen<a class="headerlink" href="#pluginfunktionen" title="Permalink to this heading"></a></h2>
 <p>Detaillierte Informationen zu den Funktionen des Plugins sind unter <a class="reference internal" href="../../plugins_doc/config/uzsu.html"><span class="doc">Plugin ‚uzsu‘ Konfiguration</span></a> zu finden.
 Sämtliche Pluginfunktionen funktionieren auch als Itemfunktionen für UZSU Items. Dabei muss beim Funktionsaufruf das Item nicht angegeben werden.
-Beispiel: Die Pluginfunktion sh.uzsu.activate(True, sh.test.uzsu) ist identisch mit dem Aufruf sh.test.uzsu.activate(True)</p>
+Beispiel: Die Pluginfunktion sh.uzsu.activate(True, sh.test.uzsu) ist identisch mit dem Aufruf sh.test.uzsu.activate(True)
+Es wird allerdings empfohlen, den ersten Ansatz zu wählen, um etwaige Überschneidungen mit anderen Itemfunktionen zu vermeiden.</p>
 </section>
 <section id="web-interface">
 <h2>Web Interface<a class="headerlink" href="#web-interface" title="Permalink to this heading"></a></h2>
 <p>Das Webinterface bietet folgende Informationen:</p>
 <ul class="simple">
 <li><p><strong>Allgemeines</strong>: Oben rechts werden die berechneten Sonnenauf- und Sonnenuntergänge der nächsten 7 Tage und die Anzahl der UZSU Items angezeigt.</p></li>
-<li><p><strong>UZSUs</strong>: Liste aller UZSU Items mit farbkodierter Information über den Status (inaktiv = grau, aktiv = grün, Problem = rot)</p></li>
+<li><p><strong>UZSUs</strong>: Liste aller UZSU Items mit farbkodierter Information über den Status (inaktiv = grau, aktiv = grün, aktive Serie = orange, Problem = rot)</p></li>
 <li><p><strong>UZSU Items</strong>: Info zu den Items, die über die UZSU geschaltet werden (inkl. Typ)</p></li>
 <li><p><strong>UZSU Item Wert</strong>: Aktueller Wert des Items, das durch die UZSU geschaltet wird.</p></li>
 <li><p><strong>Nächster Wert</strong>: geplanter nächster Wert und Zeitpunkt der Schaltung</p></li>
 <li><p><strong>Nächstes Update</strong>: geplanter nächster Zeitpunkt der Schaltung</p></li>
-<li><p><strong>Letzter Wert</strong>: zuletzt berechneter Wert (relevant bei Interpolation). Dies ist NICHT ident mit property.last_value!</p></li>
+<li><p><strong>Letzter Wert</strong>: zuletzt berechneter Wert. Dies ist NICHT ident mit property.last_value!</p></li>
 <li><p><strong>Interpolation</strong>: Interpolationstyp und Intervall</p></li>
 <li><p><strong>Init</strong>: Back in Time bzw. init age Wert</p></li>
 <li><p><strong>dict</strong>: Durch Klicken auf das Plus am Beginn jeder Zeile wird das gesamte Dictionary einer UZSU angezeigt.</p></li>
@@ -5863,20 +5887,22 @@ Beispiel: Die Pluginfunktion sh.uzsu.activate(True, sh.test.uzsu) ist identisch 
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">sh</span><span class="o">.</span><span class="n">eg</span><span class="o">.</span><span class="n">wohnen</span><span class="o">.</span><span class="n">leuchte</span><span class="o">.</span><span class="n">uzsu</span><span class="p">({</span><span class="s1">&#39;active&#39;</span><span class="p">:</span><span class="kc">True</span><span class="p">,</span> <span class="s1">&#39;list&#39;</span><span class="p">:[</span>
 <span class="p">{</span><span class="s1">&#39;value&#39;</span><span class="p">:</span><span class="mi">100</span><span class="p">,</span> <span class="s1">&#39;active&#39;</span><span class="p">:</span><span class="kc">True</span><span class="p">,</span> <span class="s1">&#39;rrule&#39;</span><span class="p">:</span><span class="s1">&#39;FREQ=DAILY;INTERVAL=2&#39;</span><span class="p">,</span> <span class="s1">&#39;time&#39;</span><span class="p">:</span> <span class="s1">&#39;16:30&#39;</span><span class="p">},</span>
 <span class="p">{</span><span class="s1">&#39;value&#39;</span><span class="p">:</span><span class="mi">0</span><span class="p">,</span> <span class="s1">&#39;active&#39;</span><span class="p">:</span><span class="kc">True</span><span class="p">,</span> <span class="s1">&#39;rrule&#39;</span><span class="p">:</span><span class="s1">&#39;FREQ=DAILY;INTERVAL=2&#39;</span><span class="p">,</span> <span class="s1">&#39;time&#39;</span><span class="p">:</span> <span class="s1">&#39;17:30&#39;</span><span class="p">}],</span>
-<span class="s1">&#39;interpolation&#39;</span><span class="p">:</span> <span class="p">{</span><span class="s1">&#39;interval&#39;</span><span class="p">:</span> <span class="mi">5</span><span class="p">,</span> <span class="s1">&#39;type&#39;</span><span class="p">:</span> <span class="s1">&#39;cubic&#39;</span><span class="p">,</span> <span class="s1">&#39;initialized&#39;</span><span class="p">:</span> <span class="kc">False</span><span class="p">,</span> <span class="s1">&#39;itemtype&#39;</span><span class="p">:</span> <span class="s1">&#39;num&#39;</span><span class="p">,</span> <span class="s1">&#39;initage&#39;</span><span class="p">:</span> <span class="mi">0</span><span class="p">},</span> <span class="s1">&#39;sunrise&#39;</span><span class="p">:</span> <span class="s1">&#39;07:45&#39;</span><span class="p">,</span> <span class="s1">&#39;sunset&#39;</span><span class="p">:</span> <span class="s1">&#39;17:23&#39;</span><span class="p">,</span> <span class="s1">&#39;SunCalculated&#39;</span><span class="p">:</span> <span class="p">{</span><span class="s1">&#39;sunrise&#39;</span><span class="p">:</span>
+<span class="s1">&#39;interpolation&#39;</span><span class="p">:</span> <span class="p">{</span><span class="s1">&#39;interval&#39;</span><span class="p">:</span> <span class="mi">5</span><span class="p">,</span> <span class="s1">&#39;type&#39;</span><span class="p">:</span> <span class="s1">&#39;cubic&#39;</span><span class="p">,</span> <span class="s1">&#39;initialized&#39;</span><span class="p">:</span> <span class="kc">False</span><span class="p">,</span> <span class="s1">&#39;itemtype&#39;</span><span class="p">:</span> <span class="s1">&#39;num&#39;</span><span class="p">,</span> <span class="s1">&#39;initage&#39;</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span> <span class="s1">&#39;perday&#39;</span><span class="p">:</span> <span class="kc">False</span><span class="p">},</span>
+<span class="s1">&#39;sunrise&#39;</span><span class="p">:</span> <span class="s1">&#39;07:45&#39;</span><span class="p">,</span> <span class="s1">&#39;sunset&#39;</span><span class="p">:</span> <span class="s1">&#39;17:23&#39;</span><span class="p">,</span> <span class="s1">&#39;SunCalculated&#39;</span><span class="p">:</span> <span class="p">{</span><span class="s1">&#39;sunrise&#39;</span><span class="p">:</span>
 <span class="p">{</span><span class="s1">&#39;TU&#39;</span><span class="p">:</span> <span class="s1">&#39;07:36&#39;</span><span class="p">,</span> <span class="s1">&#39;WE&#39;</span><span class="p">:</span> <span class="s1">&#39;07:38&#39;</span><span class="p">,</span> <span class="s1">&#39;TH&#39;</span><span class="p">:</span> <span class="s1">&#39;07:34&#39;</span><span class="p">,</span> <span class="s1">&#39;FR&#39;</span><span class="p">:</span> <span class="s1">&#39;07:32&#39;</span><span class="p">,</span> <span class="s1">&#39;SA&#39;</span><span class="p">:</span> <span class="s1">&#39;07:30&#39;</span><span class="p">,</span> <span class="s1">&#39;SU&#39;</span><span class="p">:</span> <span class="s1">&#39;07:28&#39;</span><span class="p">,</span> <span class="s1">&#39;MO&#39;</span><span class="p">:</span> <span class="s1">&#39;07:26&#39;</span><span class="p">},</span>
-<span class="s1">&#39;sunset&#39;</span><span class="p">:</span> <span class="p">{</span><span class="s1">&#39;TU&#39;</span><span class="p">:</span> <span class="s1">&#39;17:16&#39;</span><span class="p">,</span> <span class="s1">&#39;WE&#39;</span><span class="p">:</span> <span class="s1">&#39;17:18&#39;</span><span class="p">,</span> <span class="s1">&#39;TH&#39;</span><span class="p">:</span> <span class="s1">&#39;17:20&#39;</span><span class="p">,</span> <span class="s1">&#39;FR&#39;</span><span class="p">:</span> <span class="s1">&#39;17:22&#39;</span><span class="p">,</span> <span class="s1">&#39;SA&#39;</span><span class="p">:</span> <span class="s1">&#39;17:23&#39;</span><span class="p">,</span> <span class="s1">&#39;SU&#39;</span><span class="p">:</span> <span class="s1">&#39;17:25&#39;</span><span class="p">,</span> <span class="s1">&#39;MO&#39;</span><span class="p">:</span> <span class="s1">&#39;17:27&#39;</span><span class="p">}},</span>
-<span class="s1">&#39;plugin_version&#39;</span><span class="p">:</span> <span class="s1">&#39;1.6.1&#39;</span><span class="p">})</span>
+<span class="s1">&#39;sunset&#39;</span><span class="p">:</span> <span class="p">{</span><span class="s1">&#39;TU&#39;</span><span class="p">:</span> <span class="s1">&#39;17:16&#39;</span><span class="p">,</span> <span class="s1">&#39;WE&#39;</span><span class="p">:</span> <span class="s1">&#39;17:18&#39;</span><span class="p">,</span> <span class="s1">&#39;TH&#39;</span><span class="p">:</span> <span class="s1">&#39;17:20&#39;</span><span class="p">,</span> <span class="s1">&#39;FR&#39;</span><span class="p">:</span> <span class="s1">&#39;17:22&#39;</span><span class="p">,</span> <span class="s1">&#39;SA&#39;</span><span class="p">:</span> <span class="s1">&#39;17:23&#39;</span><span class="p">,</span> <span class="s1">&#39;SU&#39;</span><span class="p">:</span> <span class="s1">&#39;17:25&#39;</span><span class="p">,</span> <span class="s1">&#39;MO&#39;</span><span class="p">:</span> <span class="s1">&#39;17:27&#39;</span><span class="p">}}</span>
+<span class="p">})</span>
 </pre></div>
 </div>
 </section>
 <section id="datenformat">
 <h2>Datenformat<a class="headerlink" href="#datenformat" title="Permalink to this heading"></a></h2>
-<p>Jedes USZU Item wird als dict-Typ gespeichert. Jeder Listen-Eintrag ist wiederum ein dict, das aus Key und Value-Paaren besteht. Im Folgenden werden die möglichen Dictionary-Keys gelistet. Nutzt man das USZU Widget der SmartVISU, muss man sich um diese Einträge nicht kümmern.</p>
+<p>Jedes USZU Item wird als dict-Typ gespeichert. Darin enthalten sind einige allgemeine Informationen und Berechnungen und das Herzstück - die Liste mit den Schaltvorgängen. Jeder Listen-Eintrag ist wiederum ein dict, das aus Key und Value-Paaren besteht. Im Folgenden werden die möglichen Dictionary-Keys gelistet. Nutzt man das USZU Widget der SmartVISU, muss man sich um diese Einträge nicht kümmern.</p>
 <ul class="simple">
 <li><p><strong>dtstart</strong>: Ein datetime Objekt, das den exakten Startwert für den rrule Algorithmus bestimmt. Dieser Parameter ist besonders bei FREQ=MINUTELY rrules relevant.</p></li>
 <li><p><strong>value</strong>: Der Wert, auf den das uzsu_item gesetzt werden soll.</p></li>
 <li><p><strong>active</strong>: <code class="docutils literal notranslate"><span class="pre">True</span></code> wenn die UZSU aktiviert ist, <code class="docutils literal notranslate"><span class="pre">False</span></code> wenn keine Aktualisierungen vorgenommen werden sollen. Dieser Wert kann über die Pluginfunktion activate gesteuert werden.</p></li>
+<li><p><strong>once</strong>: <code class="docutils literal notranslate"><span class="pre">True</span></code> wenn ein Eintrag nach einmaligem Schalten deaktiviert werden soll, <code class="docutils literal notranslate"><span class="pre">False</span></code> wenn ein Eintrag weiterhin evaluiert werden bzw. aktiv bleiben soll. Serien bleiben bis zur letzten Schaltung aktiv.</p></li>
 <li><p><strong>time</strong>: Zeit als String. Entweder eine direkte Zeitangabe wie <code class="docutils literal notranslate"><span class="pre">17:00</span></code> oder eine Kombination mit Sonnenauf- und Untergang wie bei einem crontab, z.B. <code class="docutils literal notranslate"><span class="pre">17:00&lt;sunset</span></code>, <code class="docutils literal notranslate"><span class="pre">sunrise&gt;8:00</span></code>, <code class="docutils literal notranslate"><span class="pre">17:00&lt;sunset</span></code>.</p></li>
 <li><p><strong>rrule</strong>: Hier können Wiederholungsregeln wie in <a class="reference external" href="https://dateutil.readthedocs.io/en/stable/rrule.html">rrule</a> beschrieben festgelegt werden.</p></li>
 </ul>
