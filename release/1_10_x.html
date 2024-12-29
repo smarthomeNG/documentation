@@ -4,7 +4,7 @@
   <meta charset="utf-8" /><meta name="generator" content="Docutils 0.19: https://docutils.sourceforge.io/" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Release 1.10.x - tt. mmm 2024 &mdash; Dokumentation v1.10.0.3 v1.10.0.3 develop (Stand 24. Dezember 2024, commit 7306397) Dokumentation</title>
+  <title>Release 1.10.x - tt. mmm 2024 &mdash; Dokumentation v1.10.0.3 v1.10.0.3 develop (Stand 29. Dezember 2024, commit 10a1684) Dokumentation</title>
       <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
       <link rel="stylesheet" type="text/css" href="../_static/css/theme.css" />
       <link rel="stylesheet" type="text/css" href="../_static/custom.css" />
@@ -5748,8 +5748,8 @@ sowie einige neue Plugins.</p>
 <p>Diese Release Notes sind ein Arbeitsstand.</p>
 <blockquote>
 <div><ul class="simple">
-<li><p>Berücksichtigt sind Commits im smarthome Repository bis incl. 22. März 2024
-(Bumped core version to 1.10.0.2…)</p></li>
+<li><p>Berücksichtigt sind Commits im smarthome Repository bis incl. 28. Dezember 2024
+(…)</p></li>
 <li><p>Berücksichtigt sind Commits im plugins Repository bis incl. 13. März 2024
 (…)</p></li>
 </ul>
@@ -5782,9 +5782,10 @@ zu unterstützten Python Versionen)</p>
 <section id="allgmein">
 <h3>Allgmein<a class="headerlink" href="#allgmein" title="Permalink to this heading"></a></h3>
 <ul class="simple">
-<li><p>Workflows:</p>
+<li><p>github:</p>
 <ul>
-<li><p>Fix unittest for forked repos in core</p></li>
+<li><p>Workflows: Fix unittest for forked repos in core</p></li>
+<li><p>Modify gitignore structure</p></li>
 </ul>
 </li>
 </ul>
@@ -5792,12 +5793,18 @@ zu unterstützten Python Versionen)</p>
 <section id="bugfixes-im-core">
 <h3>Bugfixes im CORE<a class="headerlink" href="#bugfixes-im-core" title="Permalink to this heading"></a></h3>
 <ul class="simple">
-<li><p>…</p></li>
+<li><p>Fix pathname/conffile access</p></li>
 </ul>
 </section>
 <section id="updates-in-the-core">
 <h3>Updates in the CORE<a class="headerlink" href="#updates-in-the-core" title="Permalink to this heading"></a></h3>
 <ul>
+<li><p>Move templates for logics and userfucntions to new template dir, adjust api_files</p></li>
+<li><p>Replace static file/dir references by constants</p></li>
+<li><p>Move to get_config_dir/get_config_file</p></li>
+<li><p>Rename templates_dir var</p></li>
+<li><p>Add metadata checks for sdp version</p></li>
+<li><p>Add pyrightconfig.json to gitignore</p></li>
 <li><p>bin</p>
 <ul class="simple">
 <li><p>smarthome</p>
@@ -5824,10 +5831,12 @@ zu unterstützten Python Versionen)</p>
 </li>
 <li><p>Libs:</p>
 <ul>
+<li><p>requirements.txt: Some libs received overhauling and bugs were fixed</p></li>
 <li><p>lib.backup:</p>
 <blockquote>
 <div><ul class="simple">
 <li><p>Added support for option -e (–config_etc)</p></li>
+<li><p>Added the output of ‚pip list‘ to the configuration backup file</p></li>
 </ul>
 </div></blockquote>
 </li>
@@ -5837,6 +5846,17 @@ zu unterstützten Python Versionen)</p>
 <li><p>Add struct syntax checking</p></li>
 </ul>
 </li>
+<li><p>lib.db:</p>
+<ul class="simple">
+<li><p>Handle numeric passwords and OrderedDict lists</p></li>
+</ul>
+</li>
+<li><p>lib.env:</p>
+<ul class="simple">
+<li><p>Modified error handling for location_name()</p></li>
+<li><p>Added some logging</p></li>
+</ul>
+</li>
 <li><p>lib.item:</p>
 <ul class="simple">
 <li><p>Replace item.path() with item.property.path</p></li>
@@ -5844,6 +5864,23 @@ zu unterstützten Python Versionen)</p>
 <li><p>Speedup name collision check</p></li>
 <li><p>Add methods for list/dict manipulation</p></li>
 <li><p>Remove old list/dict methods</p></li>
+<li><p>Add ancestor item/attr methods</p></li>
+<li><p>Replace return_parent and _get_attribute_value</p></li>
+<li><p>Rename find_attr to find_attribute</p></li>
+<li><p>find_attribute: Return default value</p></li>
+<li><p>Allow log level to be set by eval expression</p></li>
+<li><p>Fader introduce stop_fade, continue_fade, instant_set and update functionality</p></li>
+<li><p>Fader check if stop/continue_fade is list and handle issues</p></li>
+<li><p>on_update and on_change now support special vars ‚caller‘, ‚source‘ and ‚dest‘ in addition to ‚value‘</p></li>
+<li><p>Fix dynamic log_level</p></li>
+<li><p>Allow for default log text in smarthome.yaml, used by log_change</p></li>
+<li><p>log_mapping and log_rules are now expected to be stated as a list. However, putting a dict as string is still possible (non-breaking)</p></li>
+<li><p>Revert _items_instance.return_item</p></li>
+<li><p>Fader method: fix caching after successful fade</p></li>
+<li><p>Log rules: log warning if invalid parameter is set</p></li>
+<li><p>Remove debug code</p></li>
+<li><p>log_rules: Detailed warnings on wrong configuration, only log the same entry once</p></li>
+<li><p>log_rules: Ignore same low- and highlimit values, only lowlimit counts</p></li>
 </ul>
 </li>
 <li><p>lib.log:</p>
@@ -5852,6 +5889,13 @@ zu unterstützten Python Versionen)</p>
 <li><p>Log issues with logging.yaml to standard shng logger additionally</p></li>
 <li><p>Allow weekly, monthly and yearly rotation when using DateTimeRotatingFileHandler</p></li>
 <li><p>Fix for bug introduced with v 1.10 in ShngTimedRotatingFileHandler: Log content and file name had an offset</p></li>
+<li><p>custom_replace function: add r in front of regex including d</p></li>
+<li><p>Add develop level (9) for easier debugging when developing</p></li>
+</ul>
+</li>
+<li><p>lib.logic:</p>
+<ul class="simple">
+<li><p>Introduce class-wide logic conf filename</p></li>
 </ul>
 </li>
 <li><p>lib.model:</p>
@@ -5868,42 +5912,135 @@ zu unterstützten Python Versionen)</p>
 <li><p>Implement read after write</p></li>
 <li><p>Fix attr resolving</p></li>
 <li><p>Fix long cyclic recovery</p></li>
+<li><p>Several minor fixes/updates</p></li>
+<li><p>Adjust to smartplugin changes</p></li>
+<li><p>suspend/resume</p></li>
+<li><p>Fix missing parameter</p></li>
+<li><p>Move to sdp v1.0.2</p></li>
+<li><p>Pass plugin reference to connection/protocol</p></li>
+<li><p>Change to scheduler_remove_all</p></li>
+<li><p>Modify run logics</p></li>
+<li><p>Propose resend protocol</p></li>
+<li><p>Move command storing</p></li>
+<li><p>Set protocol to resend if send_retries &gt; 0</p></li>
+<li><p>Query current value for command that was not successfully sent</p></li>
+<li><p>Fix and improve read command for querying after resend is not successful</p></li>
+<li><p>Rename check_command to check_reply as this is more suitable</p></li>
+<li><p>Join resend/jsonrpc parameters, cleanup</p></li>
+<li><p>Add minimum version check</p></li>
+<li><p>Make resending work with custom command values</p></li>
+<li><p>Correctly handle reply_patterns defined as lists for resend protocol</p></li>
+<li><p>Parse custom_parameters correctly for reply_pattern used for resend protocol</p></li>
+<li><p>Improve struct generation</p></li>
+<li><p>Add delivery queue to serial connection for better timing</p></li>
+<li><p>Connection.py aktualisieren</p></li>
+<li><p>Fix order of connect initialization, fix struct generation</p></li>
+<li><p>Fix sdp references</p></li>
 </ul>
 </li>
 <li><p>smartplugin:</p>
 <ul>
 <li><p>Replace item.path() with item.property.path</p></li>
 <li><p>Added support for the use of asyncio in plugins</p></li>
+<li><p>Improved error handling in stop_asyncio()</p></li>
+<li><p>run_async_coro can now return the result of the coro to the calling method</p></li>
+<li><p>Added option to run_async_coro to return Exception to the calling method</p></li>
+<li><p>Added method asyncio_state()</p></li>
+<li><p>Implemented _start_known_asyncio_coro()</p></li>
+<li><p>Implemented put_command_to_run_queue() and get_command_from_run_queue()</p></li>
+<li><p>Alternative way to track schedulers</p></li>
+<li><p>Move suspend item to pause item, cleanup</p></li>
+<li><p>Add mqttplugin</p></li>
+<li><p>Fix default _cycle</p></li>
+<li><p>Remove warning if scheduler entry not found</p></li>
 </ul>
 </li>
+</ul>
+</li>
+<li><p>lib.network:</p>
+<ul class="simple">
+<li><p>Add serial connection reset error handling</p></li>
+</ul>
+</li>
+<li><p>lib.shpypi:</p>
+<ul class="simple">
+<li><p>Bugfix to prevent plugin requirements from being written to base.txt</p></li>
+<li><p>Calculate versions for requiremens above/below given version</p></li>
+<li><p>Added the output of ‚pip list‘ to the configuration backup file</p></li>
+<li><p>Removed logging from create_pip_list method</p></li>
+<li><p>Fixed bug in installing requirements, when a wrong pip-command was used</p></li>
 </ul>
 </li>
 <li><p>lib.smarthome:</p>
-<blockquote>
-<div><ul class="simple">
+<ul class="simple">
 <li><p>Added support for option -e (–config_etc)</p></li>
 <li><p>Log issues with logging.yaml to standard shng logger additionally</p></li>
+<li><p>Added state print when running in forground mode</p></li>
+<li><p>Catched exception in objects_refcount()</p></li>
+<li><p><strong>c1</strong></p></li>
+<li><p>Clean up directory vars</p></li>
+<li><p>Add generic get conffile/confdir method</p></li>
+<li><p>Create necessary dirs</p></li>
+<li><p>Skip deprecation warnings for decrepit ciphers on macOS</p></li>
 </ul>
-</div></blockquote>
 </li>
 <li><p>lib.struct:</p>
 <ul class="simple">
 <li><p>Add struct syntax checking</p></li>
 </ul>
 </li>
+<li><p>lib.utils:</p>
+<ul class="simple">
+<li><p>Added functions to return lists with all local ipv4/ipv6 addresses</p></li>
+<li><p>Removed logging info and changed parameter typing to be compatible with Python 3.9 and under</p></li>
+</ul>
+</li>
+<li><p>lib.whocalledme:</p>
+<ul class="simple">
+<li><p>New module to help debugging core and plugin code</p></li>
+</ul>
+</li>
 </ul>
 </li>
 <li><p>Modules:</p>
 <ul class="simple">
+<li><p>module.admin:</p>
+<ul>
+<li><p>Adjusted a loglevel</p></li>
+<li><p>Display all local ipv4 addresses in systemdata</p></li>
+<li><p>Added option to handle a second webinterface (admin gui)</p></li>
+<li><p>Implemented CORS support in rest.py</p></li>
+<li><p>Addition to /api/server</p></li>
+<li><p>api_config.py updates hashed_password for running instance after password change</p></li>
+<li><p>Added SystemController()</p></li>
+<li><p>Added gui_type for boolean parameters</p></li>
+<li><p>Changed requirements for pyjwt because new version of pyjwt has a breaking change</p></li>
+</ul>
+</li>
 <li><p>modules.http:</p>
 <ul>
 <li><p>Extended base_plugin to support 8 tabs in webinterface</p></li>
 <li><p>Fix issue with datatable when bodytab count changed after cookies have been set</p></li>
+<li><p>Ensure that actual value of password_hash is used for login</p></li>
+<li><p>Added gui_type for boolean parameters</p></li>
+<li><p>Not only update responsive cell when hidden but also when visible</p></li>
 </ul>
 </li>
 <li><p>modules.mqtt:</p>
 <ul>
 <li><p>Changed requirements - the lately released paho client 2.0 has breaking changes</p></li>
+<li><p>Added gui_type for boolean parameters</p></li>
+</ul>
+</li>
+<li><p>modules.websocket:</p>
+<ul>
+<li><p>Added attributes to identity message in smartvisu payload protocol</p></li>
+<li><p>Added gui_type for boolean parameters</p></li>
+<li><p>Added some logging to smartvisu payload protocol</p></li>
+<li><p>Fix for smartvisu protocol</p></li>
+<li><p>Fix item access for smartvisu protocol</p></li>
+<li><p>Requirements: Limit websocket version to prevent error due to incompatible changes in websocket lib with version 13.0</p></li>
+<li><p>Fix smartvisu item monitoring</p></li>
 </ul>
 </li>
 </ul>
@@ -5915,7 +6052,7 @@ zu unterstützten Python Versionen)</p>
 </li>
 <li><p>tests:</p>
 <ul class="simple">
-<li><p>…</p></li>
+<li><p>Update mock core</p></li>
 </ul>
 </li>
 <li><p>tools:</p>
@@ -6176,8 +6313,22 @@ Repositiory aufgenommen.</p>
 <section id="dokumentation">
 <h3>Dokumentation<a class="headerlink" href="#dokumentation" title="Permalink to this heading"></a></h3>
 <ul class="simple">
-<li><p>…</p></li>
-<li><p>…</p></li>
+<li><p>Sample Plugin: Updated with asyncio handling</p></li>
+<li><p>Sample plugins: Aet version numbers in quotes</p></li>
+<li><p>Sample MQTT Plugin: Fix pause item name</p></li>
+<li><p>Update crontab description for items and logics</p></li>
+<li><p>Updates for asyncio support for plugins</p></li>
+<li><p>Added installation of ESPHome dashboard</p></li>
+<li><p>Extended lib.backup to backup and restore ESPHome configurations</p></li>
+<li><p>Added info for ESPHome</p></li>
+<li><p>Updated/corrected docu on log_text</p></li>
+<li><p>Add info on log_level via eval expression</p></li>
+<li><p>Fader update docu for new functionality</p></li>
+<li><p>Update NGINX Reverse Proxy</p></li>
+<li><p>Fix log_change default</p></li>
+<li><p>Komplettanleitung smartVISU updated</p></li>
+<li><p>Build doc local: make script work on Mac OS X, too</p></li>
+<li><p>Build docu: Fallback for locale</p></li>
 </ul>
 </section>
 </section>
