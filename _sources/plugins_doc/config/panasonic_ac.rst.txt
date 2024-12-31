@@ -56,6 +56,16 @@ Parameter
 Das Plugin verfügt über folgende Parameter, die in der Datei ``../etc/plugin.yaml`` konfiguriert werden:
 
 
+cycle
+=====
+
+
+Poll Cycle
+
+ - Datentyp: **int**
+ - Standardwert: **60**
+
+
 password
 ========
 
