@@ -4,7 +4,7 @@
   <meta charset="utf-8" /><meta name="generator" content="Docutils 0.19: https://docutils.sourceforge.io/" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Release 1.10.x - tt. mmm 2024 &mdash; Dokumentation v1.10.0.3 v1.10.0.3 develop (Stand 29. Dezember 2024, commit 10a1684) Dokumentation</title>
+  <title>Release 1.10.x - tt. mmm 2024 &mdash; Dokumentation v1.10.0.3 v1.10.0.3 develop (Stand 31. Dezember 2024, commit df2d65e) Dokumentation</title>
       <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
       <link rel="stylesheet" type="text/css" href="../_static/css/theme.css" />
       <link rel="stylesheet" type="text/css" href="../_static/custom.css" />
@@ -5750,7 +5750,7 @@ sowie einige neue Plugins.</p>
 <div><ul class="simple">
 <li><p>Berücksichtigt sind Commits im smarthome Repository bis incl. 28. Dezember 2024
 (…)</p></li>
-<li><p>Berücksichtigt sind Commits im plugins Repository bis incl. 13. März 2024
+<li><p>Berücksichtigt sind Commits im plugins Repository bis incl. 10. September 2024
 (…)</p></li>
 </ul>
 </div></blockquote>
@@ -5977,7 +5977,7 @@ zu unterstützten Python Versionen)</p>
 <li><p>Log issues with logging.yaml to standard shng logger additionally</p></li>
 <li><p>Added state print when running in forground mode</p></li>
 <li><p>Catched exception in objects_refcount()</p></li>
-<li><p><strong>c1</strong></p></li>
+<li><p>Fix directory calculation for external configuration</p></li>
 <li><p>Clean up directory vars</p></li>
 <li><p>Add generic get conffile/confdir method</p></li>
 <li><p>Create necessary dirs</p></li>
@@ -6078,7 +6078,7 @@ zu unterstützten Python Versionen)</p>
 <ul class="simple">
 <li><p>Workflows:</p>
 <ul>
-<li><p>…</p></li>
+<li><p>Removed Python3.8 from unittests</p></li>
 </ul>
 </li>
 </ul>
@@ -6088,7 +6088,25 @@ zu unterstützten Python Versionen)</p>
 <p>Für Details zu den neuen Plugins, bitte die Dokumentation des jeweiligen Plugins unter
 <a class="reference external" href="http://www.smarthomeng.de/user/plugins_all.html">http://www.smarthomeng.de/user/plugins_all.html</a> konsultieren.</p>
 <ul class="simple">
-<li><p>&lt;Name&gt;: …</p></li>
+<li><p>hue4:</p>
+<ul>
+<li><p>Initial commit of hue_apiv2 plugin - plugin is not feature complete at the moment</p></li>
+<li><p>Connecting to and disconnecting from bridge implemented</p></li>
+<li><p>Bumped version to 0.4.0</p></li>
+<li><p>Completed zigbee_connectivity sensors and some updtaes to user_doc.rst</p></li>
+<li><p>Updated user_doc.rst</p></li>
+<li><p>Bumped version to 0.6.5</p></li>
+<li><p>Changed plugin to final name (from hue_apv2)</p></li>
+<li><p>set version fo 3.0.0</p></li>
+<li><p>Code cleanup and documentation fixes</p></li>
+</ul>
+</li>
+<li><p>panasonic_ac:</p>
+<ul>
+<li><p>New plugin to control Panasonic air conditioning units, still in develop state</p></li>
+<li><p>Updated user_doc.rst and added plugin logo</p></li>
+</ul>
+</li>
 </ul>
 </section>
 <section id="plugin-updates">
@@ -6099,11 +6117,25 @@ zu unterstützten Python Versionen)</p>
 <li><p>avm:</p>
 <ul>
 <li><p>Catch exception after maximum retries exceeded</p></li>
+<li><p>Bugfix get_calllist and get_contact_name_by_phone_number</p></li>
+<li><p>Compatibility edit</p></li>
+</ul>
+</li>
+<li><p>beolink:</p>
+<ul>
+<li><p>Bug fixes</p></li>
+<li><p>Bumped version to 0.8.1</p></li>
 </ul>
 </li>
 <li><p>database:</p>
 <ul>
 <li><p>Corrected inline comment</p></li>
+<li><p>Fix logging error</p></li>
+<li><p>Fixed log message during exception</p></li>
+<li><p>Improve getting sqlite3 file method</p></li>
+<li><p>Copy_database does not disable itself after success anymore (why should it…?)</p></li>
+<li><p>Change log message of copy database to info (instead of warning)</p></li>
+<li><p>Added logging</p></li>
 </ul>
 </li>
 <li><p>db_addon:</p>
@@ -6113,17 +6145,72 @@ zu unterstützten Python Versionen)</p>
 <li><p>Fix bug in database queries for „next“-function</p></li>
 <li><p>Fix bug in kaeltesumme</p></li>
 <li><p>Bugfix in wachstumsgradtage and docu update</p></li>
+<li><p>Bugfix in _query_log_timestamp for „next“ function</p></li>
+<li><p>Changed to 1.2.9</p></li>
+<li><p>Bugfix handling on-change items</p></li>
+<li><p>Ease dbaddon function parameter set</p></li>
+<li><p>Adjust to smartplugin changes</p></li>
+<li><p>Bugfix use of oldest entry</p></li>
+</ul>
+</li>
+<li><p>denon:</p>
+<ul>
+<li><p>Fix initial maxvolume check (it’s not available)</p></li>
+<li><p>Add readafterwrite parameter</p></li>
+<li><p>Add resend options on plugin.yaml</p></li>
+<li><p>Query most relevant commands after powering on a zone</p></li>
+<li><p>Add resend function</p></li>
+<li><p>Add on_suspend/resume functions</p></li>
+<li><p>Implement delay for initial value read</p></li>
+<li><p>Fix resend_info</p></li>
+<li><p>Add resume_initial_read and protocol (for resend)</p></li>
+<li><p>Revert resend changes as it is now included as a protocol on a global level</p></li>
+<li><p>Remove reading of volumemax from structs (it is not available)</p></li>
+<li><p>Remove threading import</p></li>
+<li><p>Remove protocol and command_class from plugin.yaml</p></li>
+<li><p>Auto set command class</p></li>
+<li><p>Add sdp metadata</p></li>
+<li><p>Move custom inputnames to dataype</p></li>
+<li><p>Update plugin.yaml</p></li>
+<li><p>Do not overwrite on_connect anymore, but read custom inputs with other „initial reads“</p></li>
+<li><p>Update commands and plugin.yaml</p></li>
+</ul>
+</li>
+<li><p>dlms:</p>
+<ul>
+<li><p>Fix typos in user_doc</p></li>
+</ul>
+</li>
+<li><p>drexelundweiss:</p>
+<ul>
+<li><p>Prevent division by 0</p></li>
+<li><p>Fix all configs were divisor is 0</p></li>
 </ul>
 </li>
 <li><p>enocean:</p>
 <ul>
 <li><p>Adapted caller to global smarthomeNG convention -&gt; enocean instead of EnOcean</p></li>
+<li><p>Modify connect logics, include refactoring by hasenradball</p></li>
+<li><p>Added 0 connect retries for unlimited</p></li>
+<li><p>Update plugin.yaml</p></li>
+<li><p>Fix sh min version number</p></li>
+<li><p>Marked the plugin as being restartable</p></li>
 </ul>
 </li>
 <li><p>homematic:</p>
 <ul>
 <li><p>Added name to an unnamed thread</p></li>
 <li><p>Fixed webinterface for items with the same name</p></li>
+</ul>
+</li>
+<li><p>hue2:</p>
+<ul>
+<li><p>Small improvement to webinterface</p></li>
+</ul>
+</li>
+<li><p>husky2:</p>
+<ul>
+<li><p>Fixed loop caused by caller name check</p></li>
 </ul>
 </li>
 <li><p>ical:</p>
@@ -6140,9 +6227,45 @@ zu unterstützten Python Versionen)</p>
 <li><p>Bump version to 1.0.4</p></li>
 </ul>
 </li>
+<li><p>knx:</p>
+<ul>
+<li><p>Improve logging for sending and polling</p></li>
+<li><p>Only log poll when plugin is alive</p></li>
+<li><p>Add super().__init__() to init</p></li>
+</ul>
+</li>
+<li><p>kodi:</p>
+<ul>
+<li><p>Update plugin.yaml</p></li>
+<li><p>Adjust to current sdp version</p></li>
+<li><p>Adjust to latest sdp changes, cleanup plugin.yaml</p></li>
+</ul>
+</li>
 <li><p>ksemmodbus:</p>
 <ul>
 <li><p>Removed support for pymodbus2</p></li>
+</ul>
+</li>
+<li><p>lms:</p>
+<ul>
+<li><p>Fix commands for querying data</p></li>
+<li><p>Fix reply pattern for some commands</p></li>
+<li><p>Fix and update structs</p></li>
+<li><p>Autoset command class and connection</p></li>
+<li><p>Add resend and initial read parameters</p></li>
+<li><p>Add sdp metadata</p></li>
+<li><p>Adjust sdp metadata</p></li>
+<li><p>Convert specific replies to correct boolean</p></li>
+</ul>
+</li>
+<li><p>modbus_tcp:</p>
+<ul>
+<li><p>Fixed error writing registers, conversion byte/word to endian</p></li>
+<li><p>Reduced logger output during repeated connection issues, connection pause/resume controllable</p></li>
+<li><p>Suspend and resume the connection via item</p></li>
+<li><p>Fixed issue with writing without modBusObjectType</p></li>
+<li><p>Fixed startup issue with active suspend</p></li>
+<li><p>Move to pause_item support</p></li>
 </ul>
 </li>
 <li><p>neato:</p>
@@ -6160,6 +6283,45 @@ zu unterstützten Python Versionen)</p>
 <li><p>Added timeout to request handling against api to prevent unlimited blocks of lock</p></li>
 </ul>
 </li>
+<li><p>onewire:</p>
+<ul>
+<li><p>Changed some Log levels from info to dbghigh</p></li>
+</ul>
+</li>
+<li><p>oppo:</p>
+<ul>
+<li><p>Remove _send method, not needed</p></li>
+<li><p>Set command class automatically, remove some unneccessary entries from plugin.yaml</p></li>
+<li><p>Add parameters to plugin.yaml</p></li>
+<li><p>Add min_sdp_version and bump version to 1.0.1</p></li>
+<li><p>Fix metadata, remove protocol from plugin.yaml</p></li>
+<li><p>Fix command class</p></li>
+<li><p>Add sdp metadata</p></li>
+<li><p>Remove useless lists in commands</p></li>
+</ul>
+</li>
+<li><p>pioneer:</p>
+<ul>
+<li><p>Set command class automatically</p></li>
+<li><p>Add resend and initial_read parameters</p></li>
+<li><p>Bump version to 1.0.3</p></li>
+<li><p>Add sdp metadata</p></li>
+<li><p>Adjust sdp metadata</p></li>
+<li><p>Fix command class handling</p></li>
+<li><p>Fix multizone command</p></li>
+<li><p>Fix plugin.yaml (instance included, other fixes)</p></li>
+</ul>
+</li>
+<li><p>raumfeld_ng:</p>
+<ul>
+<li><p>Fix typos in user_doc</p></li>
+</ul>
+</li>
+<li><p>resol:</p>
+<ul>
+<li><p>Fixed an issue preventing the plugin from being restartable</p></li>
+</ul>
+</li>
 <li><p>robonect:</p>
 <ul>
 <li><p>Removed strange / in version number</p></li>
@@ -6171,12 +6333,18 @@ zu unterstützten Python Versionen)</p>
 <li><p>Fix docu</p></li>
 </ul>
 </li>
+<li><p>russound:</p>
+<ul>
+<li><p>Move to pause_item support</p></li>
+</ul>
+</li>
 <li><p>shelly:</p>
 <ul>
 <li><p>Extended plugin to support generation 3 devices</p></li>
 <li><p>Catch exception in update_item if ID is not known yet</p></li>
 <li><p>Minor typo fixes in documentation</p></li>
 <li><p>Fix docu</p></li>
+<li><p>Bumped version to 1.8.3</p></li>
 </ul>
 </li>
 <li><p>simulation:</p>
@@ -6192,26 +6360,78 @@ zu unterstützten Python Versionen)</p>
 <li><p>smartvisu:</p>
 <ul>
 <li><p>Fix for display of datetime object</p></li>
+<li><p>Avoid nested anchors</p></li>
+<li><p>Improve z-index</p></li>
+<li><p>Added attributes to identity message in smartvisu payload protocol</p></li>
+<li><p>Bumped version to 1.8.15</p></li>
+<li><p>Fixed version-check bug in widget installation</p></li>
+<li><p>Bumped version to 1.8.16</p></li>
 </ul>
 </li>
 <li><p>solarforecast:</p>
 <ul>
 <li><p>Catch exception if return value is not json conform</p></li>
+<li><p>Add hourly forecase and power checks as items and plugin function</p></li>
 </ul>
 </li>
 <li><p>sonos:</p>
 <ul>
 <li><p>Minor robustness fix</p></li>
+<li><p>Adjusted requirements</p></li>
+<li><p>Update to SoCo 0.30.4 (refer to SoCo changelog for a full list of robustness fixes)</p></li>
+<li><p>Bumped to version 1.8.7</p></li>
+<li><p>Fix for collections import for python &gt;= 3.10</p></li>
+<li><p>Removed debug logs with warning level</p></li>
 </ul>
 </li>
 <li><p>stateengine:</p>
 <ul>
 <li><p>Fix logging of header when directory is not created yet</p></li>
+<li><p>Update logging</p></li>
+<li><p>Remove status from action log, not needed</p></li>
+<li><p>Correct eval_status evaluation order</p></li>
+<li><p>Fix issues finding attributes when using se_use</p></li>
+<li><p>Fix status_eval</p></li>
+<li><p>try/except finding parent item as this is not always possible (esp. when using structs)</p></li>
+<li><p>Get correct current item for action when using se_eval</p></li>
+<li><p>Fix value conversion for strings!</p></li>
+<li><p>Fix se_status_eval when using structs (e.g. in se_use)</p></li>
+<li><p>Add se_name to attribute parameters</p></li>
+<li><p>Fix docu</p></li>
+<li><p>Fix web interface.. corrct handling of „force set“, delay and conditions</p></li>
+<li><p>Fix condition handling, now it’s working as OR, was AND first by accident</p></li>
+<li><p>Update SetForce Action</p></li>
+<li><p>Code cleanup, fixes, improvements</p></li>
+<li><p>Write log message when log is turned off (set to 0)</p></li>
+<li><p>Bump version to 2.0.1</p></li>
+<li><p>Improve and extend issue reporting when getting values</p></li>
+<li><p>Attributes from items, structs, etc. referenced by se_use are now evaluated correctly, even if they are defined as lists</p></li>
+<li><p>Don’t expand item pathes at beginning so relative item attributes are correctly assigned when using structs and se_use</p></li>
+<li><p>Improve se_use handling when searching for attributes (gets evaluated only once in the beginning)</p></li>
+<li><p>„set“ function now also returns original value, necessary for optimal „se_use“ handling</p></li>
+<li><p>set_from_attribute function now takes an ignore list of entries that should not be checked</p></li>
+<li><p>Massive update of se_use handling. Now the item config gets correctly scanned and only at init. Multiple fixes, improvements and better issue handling</p></li>
+<li><p>Bump version to 2.1 as there were quite some edits</p></li>
+<li><p>Improve condition check of actions (much faster)</p></li>
+<li><p>Fix previousstate_conditions set valuation</p></li>
+<li><p>Introduce next_conditionset to check conditionset of upcoming state(condition)</p></li>
+<li><p>Update docu for next conditionset</p></li>
+<li><p>Introduce caching of eval results to improve performance</p></li>
+<li><p>Add nextconditionset to web interface</p></li>
+<li><p>Add nextcondition to source evaluation method</p></li>
+<li><p>Minor improvements</p></li>
+<li><p>Add action_type to action(s) for better webif handling (coming)</p></li>
+<li><p>Fix previousonditionset variable</p></li>
 </ul>
 </li>
 <li><p>tasmota:</p>
 <ul>
 <li><p>Add input button</p></li>
+</ul>
+</li>
+<li><p>telegram:</p>
+<ul>
+<li><p>Plugin controllable with stop/run/pause_item</p></li>
 </ul>
 </li>
 <li><p>uzsu:</p>
@@ -6220,28 +6440,86 @@ zu unterstützten Python Versionen)</p>
 <li><p>Improve handling of invalid items</p></li>
 <li><p>Improve logging</p></li>
 <li><p>Bump version to 2.0.1</p></li>
+<li><p>Remove old version due to scipy security issues</p></li>
+<li><p>Add seconds to info on next UZSU setting</p></li>
+<li><p>Add „next“ item to struct to read value and time of next UZSU setting</p></li>
+<li><p>Update parameters for plugin functions</p></li>
+<li><p>Bump version to 2.0.2</p></li>
+<li><p>Remove English user doc as it is outdated</p></li>
+<li><p>Update docu on new struct as well as item functions</p></li>
+<li><p>Add super().__init__() to init</p></li>
+<li><p>Improve struct for „next“ item</p></li>
 </ul>
 </li>
 <li><p>vicare:</p>
 <ul>
 <li><p>If multiple devices are available, readout the first device with valid boiler serial number</p></li>
 <li><p>Added list of available devices to webinterface</p></li>
+<li><p>Allow commands without additional parameters (only command urls)</p></li>
+<li><p>Minor fixes for update_item function shortly after start-up (commands are not read out yet)</p></li>
+<li><p>Added control helper items for „one time charge“ command feature to plugin.yaml struct</p></li>
+<li><p>Added preliminary webinterface feature description</p></li>
+<li><p>Further work on plugin docu</p></li>
+<li><p>Fix table in user_doc</p></li>
+</ul>
+</li>
+<li><p>withings_health:</p>
+<ul>
+<li><p>Changed methode to derive callback IPv4 address</p></li>
 </ul>
 </li>
 <li><p>zigbee2mqtt:</p>
 <ul>
 <li><p>Add new structs</p></li>
+<li><p>Accept mixed case topics</p></li>
+<li><p>Shorten bridge messages for INFO logging</p></li>
+<li><p>Adjust for suspend updates</p></li>
+<li><p>Add pause_item functions</p></li>
+<li><p>Fix pause item</p></li>
 </ul>
 </li>
 <li><p>Multiple plugins:</p>
 <ul>
 <li><p>Replace item.path() with item.property.path</p></li>
+<li><p>Move sh|py_min|max_version to str definition in plugin.yaml</p></li>
 </ul>
 </li>
 </ul>
 </section>
 <section id="outdated-plugins">
 <h3>Outdated Plugins<a class="headerlink" href="#outdated-plugins" title="Permalink to this heading"></a></h3>
+<p>Die folgenden Plugins wurden als veraltet (deprecated markiert und werden in einem der nächsten Releases
+aus dem Plugin-Repo entfernt und in das Archive-Repo verschoben:</p>
+<ul class="simple">
+<li><p>System Plugins</p>
+<ul>
+<li><p>datalog</p></li>
+<li><p>influxdata</p></li>
+<li><p>memlog</p></li>
+<li><p>operationlog</p></li>
+<li><p>visu_smartvisu</p></li>
+<li><p>visu_websocket</p></li>
+</ul>
+</li>
+<li><p>Gateway Plugins</p>
+<ul>
+<li><p>raumfeld</p></li>
+</ul>
+</li>
+<li><p>Interface Plugins</p>
+<ul>
+<li><p>avdevice</p></li>
+<li><p>avm_smarthome</p></li>
+<li><p>husky</p></li>
+</ul>
+</li>
+<li><p>Web/Cloud Plugins</p>
+<ul>
+<li><p>alexa</p></li>
+<li><p>darksky - the free API is not provided anymore - switch to the <strong>piratewthr</strong> or <strong>openweathermap</strong> plugin</p></li>
+</ul>
+</li>
+</ul>
 <p>Die folgenden Plugins wurden bereits in v1.6 als <em>deprecated</em> (veraltet) markiert. Das bedeutet, dass diese
 Plugins zwar noch funktionsfähig sind, aber nicht mehr weiter entwickelt werden. Sie werden in einem kommenden
 Release von SmartHomeNG entfernt werden. Anwender dieser Plugins sollten auf geeignete Nachfolge-Plugins
@@ -6249,44 +6527,15 @@ wechseln.</p>
 <ul class="simple">
 <li><p>System Plugins</p>
 <ul>
-<li><p>backend - use the administration interface instead</p></li>
 <li><p>sqlite_visu2_8 - switch to the <strong>database</strong> plugin</p></li>
 </ul>
 </li>
 <li><p>Web Plugins</p>
 <ul>
-<li><p>wunderground - the free API is not provided anymore by Wunderground</p></li>
+<li><p>wunderground - the free API is not provided anymore by Wunderground - switch to the <strong>piratewthr</strong> or <strong>openweathermap</strong> plugin</p></li>
 </ul>
 </li>
 </ul>
-<p>Die folgenden Plugins wurden in v1.7 als <em>deprecated</em> (veraltet) markiert, weil kein Nutzer oder Tester
-dieser Plugins gefunden werden konnte:</p>
-<ul class="simple">
-<li><p>Gateway Plugins</p>
-<ul>
-<li><p>ecmd</p></li>
-<li><p>elro</p></li>
-<li><p>iaqstick</p></li>
-<li><p>snom</p></li>
-<li><p>tellstick</p></li>
-</ul>
-</li>
-<li><p>Interface Plugins</p>
-<ul>
-<li><p>easymeter</p></li>
-<li><p>smawb</p></li>
-<li><p>vr100</p></li>
-</ul>
-</li>
-<li><p>Web Plugins</p>
-<ul>
-<li><p>nma</p></li>
-</ul>
-</li>
-</ul>
-<p>Weiterhin wurde das bisherige mqtt Plugin zu mqtt1 umbenannt und als <em>deprecated</em> markiert, da das neue mqtt
-Plugin diese Funktionalität übernimmt. Das neue mqtt Plugin nutzt dazu das mqtt Modul des aktuellen Cores
-von SmartHomeNG.</p>
 </section>
 <section id="retired-plugins">
 <h3>Retired Plugins<a class="headerlink" href="#retired-plugins" title="Permalink to this heading"></a></h3>
