@@ -4,7 +4,7 @@
   <meta charset="utf-8" /><meta name="generator" content="Docutils 0.19: https://docutils.sourceforge.io/" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Release 1.10.x - tt. mmm 2024 &mdash; Dokumentation v1.10.0.3 v1.10.0.3 develop (Stand 2. Januar 2025, commit 800c97e) Dokumentation</title>
+  <title>Release 1.11.0 - tt. mmm 2025 &mdash; Dokumentation v1.10.0.3 v1.10.0.3 develop (Stand 3. Januar 2025, commit 0f356b0) Dokumentation</title>
       <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
       <link rel="stylesheet" type="text/css" href="../_static/css/theme.css" />
       <link rel="stylesheet" type="text/css" href="../_static/custom.css" />
@@ -5351,7 +5351,7 @@
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../faq.html">FAQ - Häufig gestellte Fragen</a></li>
 <li class="toctree-l1 current"><a class="reference internal" href="release.html">Release Notes</a><ul class="current">
-<li class="toctree-l2 current"><a class="current reference internal" href="#">Release 1.10.x - tt. mmm 2024</a><ul>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">Release 1.11.0 - tt. mmm 2025</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="#uberblick">Überblick</a><ul>
 <li class="toctree-l4"><a class="reference internal" href="#minimum-python-version">Minimum Python Version</a></li>
 <li class="toctree-l4"><a class="reference internal" href="#unterstutzte-python-versionen">Unterstützte Python Versionen</a></li>
@@ -5727,7 +5727,7 @@
   <ul class="wy-breadcrumbs">
       <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
           <li class="breadcrumb-item"><a href="release.html">Release Notes</a></li>
-      <li class="breadcrumb-item active">Release 1.10.x - tt. mmm 2024</li>
+      <li class="breadcrumb-item active">Release 1.11.0 - tt. mmm 2025</li>
       <li class="wy-breadcrumbs-aside">
       </li>
   </ul>
@@ -5736,8 +5736,8 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
              
-  <section id="release-1-10-x-tt-mmm-2024">
-<h1>Release 1.10.x - tt. mmm 2024<a class="headerlink" href="#release-1-10-x-tt-mmm-2024" title="Permalink to this heading"></a></h1>
+  <section id="release-1-11-0-tt-mmm-2025">
+<h1>Release 1.11.0 - tt. mmm 2025<a class="headerlink" href="#release-1-11-0-tt-mmm-2025" title="Permalink to this heading"></a></h1>
 <p>Dieses Release ist ein Wartungs-Release. Außer Bugfixes gibt es einige neue Features im Core von SmartHomeNG,
 sowie einige neue Plugins.</p>
 <div class="line-block">
@@ -5745,7 +5745,7 @@ sowie einige neue Plugins.</p>
 </div>
 <div class="admonition note">
 <p class="admonition-title">Bemerkung</p>
-<p>Diese Release Notes sind ein Arbeitsstand.</p>
+<p>Diese Release Notes sind ein Arbeitsstand des <strong>develop</strong> Branches.</p>
 <blockquote>
 <div><ul class="simple">
 <li><p>Berücksichtigt sind Commits im smarthome Repository bis incl. 31. Dezember 2024
@@ -5768,7 +5768,7 @@ Community Support für Python 3.7 am 27. Juni 2023 endete.</p>
 </section>
 <section id="unterstutzte-python-versionen">
 <h3>Unterstützte Python Versionen<a class="headerlink" href="#unterstutzte-python-versionen" title="Permalink to this heading"></a></h3>
-<p>Die älteste offiziell unterstützte Python Version für SmartHomeNG Release 1.10.x ist <strong>Python 3.8</strong>.
+<p>Die älteste offiziell unterstützte Python Version für SmartHomeNG Release 1.11.0 ist <strong>Python 3.8</strong>.
 Automatisierte Tests von SmartHomeNG werden nur in den unterstützten Python Versionen durchgeführt.
 (Siehe auch <a class="reference internal" href="../installation/anforderungen.html#python-versionen"><span class="std std-ref">Hard- u. Software Anforderungen</span></a> im Abschnitt <strong>Installation</strong>
 zu unterstützten Python Versionen)</p>
@@ -5815,6 +5815,7 @@ zu unterstützten Python Versionen)</p>
 <li><p>shngversion:</p>
 <ul>
 <li><p>Bumped core version to 1.10.0.2 -&gt; added support for asyncio in plugins</p></li>
+<li><p>Bumped core version to 1.10.0.3 -&gt; Added support for suspend/resume and functions for pause_item</p></li>
 </ul>
 </li>
 </ul>
@@ -6103,7 +6104,6 @@ zu unterstützten Python Versionen)</p>
 <li><p>Implemented plugin selection</p></li>
 <li><p>Implemented plugin installation</p></li>
 <li><p>Webif, install working</p></li>
-<li><p>Bumped version to 1.0.0</p></li>
 <li><p>Enable updating forks/branches/PRs from github</p></li>
 <li><p>Use user-definable name as plugin name, removed repoitem item</p></li>
 <li><p>Improve code, show rate limit, check clean work tree</p></li>
@@ -6130,17 +6130,9 @@ zu unterstützten Python Versionen)</p>
 <li><p>Fix detection of clean/ahead/behind</p></li>
 </ul>
 </li>
-<li><p>hue4:</p>
+<li><p>hue3: Anbindung des Philips/Signify Hue Systems über eine Hue Bridge unter Nutzung des neuen API v2</p>
 <ul>
-<li><p>Initial commit of hue_apiv2 plugin - plugin is not feature complete at the moment</p></li>
-<li><p>Connecting to and disconnecting from bridge implemented</p></li>
-<li><p>Bumped version to 0.4.0</p></li>
-<li><p>Completed zigbee_connectivity sensors and some updtaes to user_doc.rst</p></li>
-<li><p>Updated user_doc.rst</p></li>
-<li><p>Bumped version to 0.6.5</p></li>
-<li><p>Changed plugin to final name (from hue_apv2)</p></li>
-<li><p>set version fo 3.0.0</p></li>
-<li><p>Code cleanup and documentation fixes</p></li>
+<li><p>set version to 3.0.1</p></li>
 </ul>
 </li>
 <li><p>panasonic_ac:</p>
@@ -6208,7 +6200,6 @@ zu unterstützten Python Versionen)</p>
 <li><p>Fix bug in kaeltesumme</p></li>
 <li><p>Bugfix in wachstumsgradtage and docu update</p></li>
 <li><p>Bugfix in _query_log_timestamp for „next“ function</p></li>
-<li><p>Changed to 1.2.9</p></li>
 <li><p>Bugfix handling on-change items</p></li>
 <li><p>Ease dbaddon function parameter set</p></li>
 <li><p>Adjust to smartplugin changes</p></li>
@@ -6223,7 +6214,7 @@ zu unterstützten Python Versionen)</p>
 <li><p>Add deinit() if plugin start fails</p></li>
 <li><p>Rework parse_item sub methods</p></li>
 <li><p>Extend some functions to get result as sum or list</p></li>
-<li><p>Bump to 1.2..10 in plugin.yaml</p></li>
+<li><p>Bump to 1.2.10</p></li>
 <li><p>Bugfix verbrauch</p></li>
 </ul>
 </li>
@@ -6476,7 +6467,6 @@ zu unterstützten Python Versionen)</p>
 <li><p>Avoid nested anchors</p></li>
 <li><p>Improve z-index</p></li>
 <li><p>Added attributes to identity message in smartvisu payload protocol</p></li>
-<li><p>Bumped version to 1.8.15</p></li>
 <li><p>Fixed version-check bug in widget installation</p></li>
 <li><p>Bumped version to 1.8.16</p></li>
 <li><p>Important fix in logger message when visu style unknown</p></li>
@@ -6493,10 +6483,8 @@ zu unterstützten Python Versionen)</p>
 <li><p>Minor robustness fix</p></li>
 <li><p>Adjusted requirements</p></li>
 <li><p>Update to SoCo 0.30.4 (refer to SoCo changelog for a full list of robustness fixes)</p></li>
-<li><p>Bumped to version 1.8.7</p></li>
 <li><p>Fix for collections import for python &gt;= 3.10</p></li>
 <li><p>Removed debug logs with warning level</p></li>
-<li><p>Bump to 1.8.8</p></li>
 <li><p>Introduce item handling from smartplugin</p></li>
 <li><p>Code cleanup</p></li>
 <li><p>Update WebIf</p></li>
@@ -6525,7 +6513,6 @@ zu unterstützten Python Versionen)</p>
 <li><p>Update SetForce Action</p></li>
 <li><p>Code cleanup, fixes, improvements</p></li>
 <li><p>Write log message when log is turned off (set to 0)</p></li>
-<li><p>Bump version to 2.0.1</p></li>
 <li><p>Improve and extend issue reporting when getting values</p></li>
 <li><p>Attributes from items, structs, etc. referenced by se_use are now evaluated correctly, even if they are defined as lists</p></li>
 <li><p>Don’t expand item pathes at beginning so relative item attributes are correctly assigned when using structs and se_use</p></li>
@@ -6533,7 +6520,6 @@ zu unterstützten Python Versionen)</p>
 <li><p>„set“ function now also returns original value, necessary for optimal „se_use“ handling</p></li>
 <li><p>set_from_attribute function now takes an ignore list of entries that should not be checked</p></li>
 <li><p>Massive update of se_use handling. Now the item config gets correctly scanned and only at init. Multiple fixes, improvements and better issue handling</p></li>
-<li><p>Bump version to 2.1 as there were quite some edits</p></li>
 <li><p>Improve condition check of actions (much faster)</p></li>
 <li><p>Fix previousstate_conditions set valuation</p></li>
 <li><p>Introduce next_conditionset to check conditionset of upcoming state(condition)</p></li>
@@ -6604,12 +6590,10 @@ zu unterstützten Python Versionen)</p>
 <li><p>Fix previously introduced problem with series rrule</p></li>
 <li><p>Improve handling of invalid items</p></li>
 <li><p>Improve logging</p></li>
-<li><p>Bump version to 2.0.1</p></li>
 <li><p>Remove old version due to scipy security issues</p></li>
 <li><p>Add seconds to info on next UZSU setting</p></li>
 <li><p>Add „next“ item to struct to read value and time of next UZSU setting</p></li>
 <li><p>Update parameters for plugin functions</p></li>
-<li><p>Bump version to 2.0.2</p></li>
 <li><p>Remove English user doc as it is outdated</p></li>
 <li><p>Update docu on new struct as well as item functions</p></li>
 <li><p>Add super().__init__() to init</p></li>
