@@ -65,6 +65,15 @@ App-Token zum Zugriff auf GitHub (optional)
  - Datentyp: **str**
 
 
+supermode
+=========
+
+
+Nur zu Entwicklungszwecken. Nicht verwenden.
+
+ - Datentyp: **str**
+
+
 ==============
 Item Attribute
 ==============
