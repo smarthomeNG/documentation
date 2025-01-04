@@ -4,7 +4,7 @@
   <meta charset="utf-8" /><meta name="generator" content="Docutils 0.19: https://docutils.sourceforge.io/" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Der Core von SmartHomeNG &mdash; Dokumentation v1.10.0.3 v1.10.0.3 develop (Stand 4. Januar 2025, commit d19b92c) Dokumentation</title>
+  <title>Plugin ‚smartmeter‘ Konfiguration &mdash; Dokumentation v1.10.0.3 v1.10.0.3 develop (Stand 4. Januar 2025, commit d19b92c) Dokumentation</title>
       <link rel="stylesheet" type="text/css" href="../../_static/pygments.css" />
       <link rel="stylesheet" type="text/css" href="../../_static/css/theme.css" />
       <link rel="stylesheet" type="text/css" href="../../_static/custom.css" />
@@ -24,9 +24,7 @@
         <script src="../../_static/translations.js"></script>
     <script src="../../_static/js/theme.js"></script>
     <link rel="index" title="Stichwortverzeichnis" href="../../genindex.html" />
-    <link rel="search" title="Suche" href="../../search.html" />
-    <link rel="next" title="Programm Module" href="core_libraries.html" />
-    <link rel="prev" title="Entwicklung des Core" href="core.html" /> 
+    <link rel="search" title="Suche" href="../../search.html" /> 
 </head>
 
 <body class="wy-body-for-nav"> 
@@ -49,7 +47,7 @@
   </form>
 </div>
         </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
-              <ul class="current">
+              <ul>
 <li class="toctree-l1"><a class="reference internal" href="../../einleitung.html">Einleitung</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../was_ist_neu.html">Neuerungen im Release v1.11</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../was_war_neu.html">Neuerungen der letzten Releases</a><ul>
@@ -457,7 +455,7 @@
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../../plugins_all.html">Plugins</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="../../plugins_doc/plugins_system.html">System Plugins</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../plugins_system.html">System Plugins</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="../../plugins/blockly/user_doc.html">blockly</a><ul>
 <li class="toctree-l4"><a class="reference internal" href="../../plugins/blockly/user_doc.html#voraussetzungen">Voraussetzungen</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../../plugins/blockly/user_doc.html#konfiguration">Konfiguration</a></li>
@@ -865,7 +863,7 @@
 </li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="../../plugins_doc/plugins_gateway.html">Gateway Plugins</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../plugins_gateway.html">Gateway Plugins</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="../../plugins/artnet/user_doc.html">artnet</a><ul>
 <li class="toctree-l4"><a class="reference internal" href="../../plugins/artnet/user_doc.html#anforderungen">Anforderungen</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../../plugins/artnet/user_doc.html#unterstutzte-hardware">Unterstützte Hardware</a></li>
@@ -1344,7 +1342,7 @@
 </li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="../../plugins_doc/plugins_interface.html">Interface Plugins</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../plugins_interface.html">Interface Plugins</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="../../plugins/apcups/user_doc.html">apcups</a><ul>
 <li class="toctree-l4"><a class="reference internal" href="../../plugins/apcups/user_doc.html#anforderungen">Anforderungen</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../../plugins/apcups/user_doc.html#unterstutzte-gerate">Unterstützte Geräte</a></li>
@@ -1826,7 +1824,7 @@
 </li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="../../plugins_doc/plugins_protocol.html">Protokoll Plugins</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../plugins_protocol.html">Protokoll Plugins</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="../../plugins/mqtt/user_doc.html">mqtt</a><ul>
 <li class="toctree-l4"><a class="reference internal" href="../../plugins/mqtt/user_doc.html#konfiguration">Konfiguration</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../../plugins/mqtt/user_doc.html#web-interface">Web Interface</a><ul>
@@ -1903,7 +1901,7 @@
 </li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="../../plugins_doc/plugins_web.html">Web/Cloud Plugins</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../plugins_web.html">Web/Cloud Plugins</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="../../plugins/alexa4p3/user_doc.html">alexa4p3</a><ul>
 <li class="toctree-l4"><a class="reference internal" href="../../plugins/alexa4p3/user_doc.html#konfiguration">Konfiguration</a><ul>
 <li class="toctree-l5"><a class="reference internal" href="../../plugins/alexa4p3/user_doc.html#webinterface">Webinterface</a></li>
@@ -2195,8 +2193,8 @@
 </li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="../../plugins_doc/plugins_unclassified.html">Nicht klassifizierte Plugins</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../../plugins_doc/plugins_all.html">Alle Plugins</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../plugins_unclassified.html">Nicht klassifizierte Plugins</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../plugins_all.html">Alle Plugins</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="../../plugins/alexa4p3/user_doc.html">alexa4p3</a><ul>
 <li class="toctree-l4"><a class="reference internal" href="../../plugins/alexa4p3/user_doc.html#konfiguration">Konfiguration</a><ul>
 <li class="toctree-l5"><a class="reference internal" href="../../plugins/alexa4p3/user_doc.html#webinterface">Webinterface</a></li>
@@ -4198,62 +4196,62 @@
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../../fehlersuche.html">Fehlersuche</a></li>
-<li class="toctree-l1 current"><a class="reference internal" href="../entwicklung.html">Entwicklung</a><ul class="current">
-<li class="toctree-l2"><a class="reference internal" href="../logiken/logiken.html">Logiken <span class="bluesup">under construction</span></a><ul>
-<li class="toctree-l3"><a class="reference internal" href="../logiken/logiken.html#einfuhrung">Einführung</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="../logiken/logiken.html#behandlung-von-fehlern-in-der-logik">Behandlung von Fehlern in der Logik</a><ul>
-<li class="toctree-l5"><a class="reference internal" href="../logiken/logiken.html#syntaktische-fehler">Syntaktische Fehler</a></li>
-<li class="toctree-l5"><a class="reference internal" href="../logiken/logiken.html#laufzeit-fehler">Laufzeit Fehler</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../entwicklung/entwicklung.html">Entwicklung</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../entwicklung/logiken/logiken.html">Logiken <span class="bluesup">under construction</span></a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../entwicklung/logiken/logiken.html#einfuhrung">Einführung</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../entwicklung/logiken/logiken.html#behandlung-von-fehlern-in-der-logik">Behandlung von Fehlern in der Logik</a><ul>
+<li class="toctree-l5"><a class="reference internal" href="../../entwicklung/logiken/logiken.html#syntaktische-fehler">Syntaktische Fehler</a></li>
+<li class="toctree-l5"><a class="reference internal" href="../../entwicklung/logiken/logiken.html#laufzeit-fehler">Laufzeit Fehler</a></li>
 </ul>
 </li>
-<li class="toctree-l4"><a class="reference internal" href="../logiken/logiken.html#template-fur-eine-neue-logik">Template für eine neue Logik</a></li>
-<li class="toctree-l4"><a class="reference internal" href="../logiken/logiken.html#verlassen-einer-logik">Verlassen einer Logik</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../entwicklung/logiken/logiken.html#template-fur-eine-neue-logik">Template für eine neue Logik</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../entwicklung/logiken/logiken.html#verlassen-einer-logik">Verlassen einer Logik</a></li>
 </ul>
 </li>
-<li class="toctree-l3"><a class="reference internal" href="../logiken/logiken.html#beispiele">Beispiele</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../entwicklung/logiken/logiken.html#beispiele">Beispiele</a></li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="../plugins/plugins.html">Plugins <span class="bluesup">Update</span></a><ul>
-<li class="toctree-l3"><a class="reference internal" href="../plugins/vorueberlegungen.html">Vorüberlegungen</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="../plugins/vorueberlegungen.html#fragestellungen">Fragestellungen</a></li>
-<li class="toctree-l4"><a class="reference internal" href="../plugins/vorueberlegungen.html#typ-des-plugins">Typ des Plugins</a><ul>
-<li class="toctree-l5"><a class="reference internal" href="../plugins/vorueberlegungen.html#system-plugin">System Plugin</a></li>
-<li class="toctree-l5"><a class="reference internal" href="../plugins/vorueberlegungen.html#interface-plugin">Interface Plugin</a></li>
-<li class="toctree-l5"><a class="reference internal" href="../plugins/vorueberlegungen.html#gateway-plugin">Gateway Plugin</a></li>
-<li class="toctree-l5"><a class="reference internal" href="../plugins/vorueberlegungen.html#protokoll-plugin">Protokoll Plugin</a></li>
-<li class="toctree-l5"><a class="reference internal" href="../plugins/vorueberlegungen.html#web-cloud-plugin">Web/Cloud Plugin</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../entwicklung/plugins/plugins.html">Plugins <span class="bluesup">Update</span></a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../entwicklung/plugins/vorueberlegungen.html">Vorüberlegungen</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../entwicklung/plugins/vorueberlegungen.html#fragestellungen">Fragestellungen</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../entwicklung/plugins/vorueberlegungen.html#typ-des-plugins">Typ des Plugins</a><ul>
+<li class="toctree-l5"><a class="reference internal" href="../../entwicklung/plugins/vorueberlegungen.html#system-plugin">System Plugin</a></li>
+<li class="toctree-l5"><a class="reference internal" href="../../entwicklung/plugins/vorueberlegungen.html#interface-plugin">Interface Plugin</a></li>
+<li class="toctree-l5"><a class="reference internal" href="../../entwicklung/plugins/vorueberlegungen.html#gateway-plugin">Gateway Plugin</a></li>
+<li class="toctree-l5"><a class="reference internal" href="../../entwicklung/plugins/vorueberlegungen.html#protokoll-plugin">Protokoll Plugin</a></li>
+<li class="toctree-l5"><a class="reference internal" href="../../entwicklung/plugins/vorueberlegungen.html#web-cloud-plugin">Web/Cloud Plugin</a></li>
 </ul>
 </li>
-<li class="toctree-l4"><a class="reference internal" href="../plugins/vorueberlegungen.html#plugin-vorlagen">Plugin Vorlagen</a></li>
-<li class="toctree-l4"><a class="reference internal" href="../plugins/vorueberlegungen.html#nutzung-von-python-packages">Nutzung von Python Packages</a></li>
-<li class="toctree-l4"><a class="reference internal" href="../plugins/vorueberlegungen.html#python-version">Python Version</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../entwicklung/plugins/vorueberlegungen.html#plugin-vorlagen">Plugin Vorlagen</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../entwicklung/plugins/vorueberlegungen.html#nutzung-von-python-packages">Nutzung von Python Packages</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../entwicklung/plugins/vorueberlegungen.html#python-version">Python Version</a></li>
 </ul>
 </li>
-<li class="toctree-l3"><a class="reference internal" href="../plugins/entwicklungsrichtlinien.html">Entwicklungsrichtlinien <span class="bluesup">under construction</span></a><ul>
-<li class="toctree-l4"><a class="reference internal" href="../plugins/entwicklungsrichtlinien.html#nutzung-von-git-und-github">Nutzung von git und GitHub</a></li>
-<li class="toctree-l4"><a class="reference internal" href="../plugins/entwicklungsrichtlinien.html#die-repositories-von-smarthomeng">Die Repositories von SmartHomeNG</a><ul>
-<li class="toctree-l5"><a class="reference internal" href="../plugins/entwicklungsrichtlinien.html#repositories-und-branches">Repositories und Branches</a></li>
-<li class="toctree-l5"><a class="reference internal" href="../plugins/entwicklungsrichtlinien.html#die-quellen-finden-installieren">Die Quellen finden/installieren</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../entwicklung/plugins/entwicklungsrichtlinien.html">Entwicklungsrichtlinien <span class="bluesup">under construction</span></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../entwicklung/plugins/entwicklungsrichtlinien.html#nutzung-von-git-und-github">Nutzung von git und GitHub</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../entwicklung/plugins/entwicklungsrichtlinien.html#die-repositories-von-smarthomeng">Die Repositories von SmartHomeNG</a><ul>
+<li class="toctree-l5"><a class="reference internal" href="../../entwicklung/plugins/entwicklungsrichtlinien.html#repositories-und-branches">Repositories und Branches</a></li>
+<li class="toctree-l5"><a class="reference internal" href="../../entwicklung/plugins/entwicklungsrichtlinien.html#die-quellen-finden-installieren">Die Quellen finden/installieren</a></li>
 </ul>
 </li>
-<li class="toctree-l4"><a class="reference internal" href="../plugins/entwicklungsrichtlinien.html#code-stil">Code Stil</a></li>
-<li class="toctree-l4"><a class="reference internal" href="../plugins/entwicklungsrichtlinien.html#programmieren-beginnen">Programmieren beginnen</a><ul>
-<li class="toctree-l5"><a class="reference internal" href="../plugins/entwicklungsrichtlinien.html#tools">Tools</a></li>
-<li class="toctree-l5"><a class="reference internal" href="../plugins/entwicklungsrichtlinien.html#testen-und-dokumentieren">Testen und Dokumentieren</a></li>
-<li class="toctree-l5"><a class="reference internal" href="../plugins/entwicklungsrichtlinien.html#basic-rules">Basic Rules</a></li>
-<li class="toctree-l5"><a class="reference internal" href="../plugins/entwicklungsrichtlinien.html#fork-erstellen">Fork erstellen</a></li>
-<li class="toctree-l5"><a class="reference internal" href="../plugins/entwicklungsrichtlinien.html#merge-description-is-deprecated-has-to-be-updated">Merge (description is deprecated, has to be updated)</a></li>
-<li class="toctree-l5"><a class="reference internal" href="../plugins/entwicklungsrichtlinien.html#arbeiten-mit-dem-git-befehlszeilen-client">Arbeiten mit dem Git-Befehlszeilen-Client</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../entwicklung/plugins/entwicklungsrichtlinien.html#code-stil">Code Stil</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../entwicklung/plugins/entwicklungsrichtlinien.html#programmieren-beginnen">Programmieren beginnen</a><ul>
+<li class="toctree-l5"><a class="reference internal" href="../../entwicklung/plugins/entwicklungsrichtlinien.html#tools">Tools</a></li>
+<li class="toctree-l5"><a class="reference internal" href="../../entwicklung/plugins/entwicklungsrichtlinien.html#testen-und-dokumentieren">Testen und Dokumentieren</a></li>
+<li class="toctree-l5"><a class="reference internal" href="../../entwicklung/plugins/entwicklungsrichtlinien.html#basic-rules">Basic Rules</a></li>
+<li class="toctree-l5"><a class="reference internal" href="../../entwicklung/plugins/entwicklungsrichtlinien.html#fork-erstellen">Fork erstellen</a></li>
+<li class="toctree-l5"><a class="reference internal" href="../../entwicklung/plugins/entwicklungsrichtlinien.html#merge-description-is-deprecated-has-to-be-updated">Merge (description is deprecated, has to be updated)</a></li>
+<li class="toctree-l5"><a class="reference internal" href="../../entwicklung/plugins/entwicklungsrichtlinien.html#arbeiten-mit-dem-git-befehlszeilen-client">Arbeiten mit dem Git-Befehlszeilen-Client</a></li>
 </ul>
 </li>
 </ul>
 </li>
-<li class="toctree-l3"><a class="reference internal" href="../plugins/plugin_checker.html">Plugin-Checker <span class="redsup">neu</span></a></li>
-<li class="toctree-l3"><a class="reference internal" href="../plugins/kurzanleitung/kurzanleitung.html">Kurzanleitung  <span class="bluesup">update</span></a><ul>
-<li class="toctree-l4"><a class="reference internal" href="../plugins/kurzanleitung/plugin_in5minutes.html">In wenigen Minuten zum eigenen Plugin</a><ul>
-<li class="toctree-l5"><a class="reference internal" href="../plugins/kurzanleitung/plugin_in5minutes.html#beschreibung-des-plugins">Beschreibung des Plugins</a></li>
-<li class="toctree-l5"><a class="reference internal" href="../plugins/kurzanleitung/plugin_in5minutes.html#vordefinierte-funktionen-des-plugins">Vordefinierte Funktionen des Plugins</a></li>
-<li class="toctree-l5"><a class="reference internal" href="../plugins/kurzanleitung/plugin_in5minutes.html#funktionen-von-smarthomeng">Funktionen von SmartHomeNG</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../entwicklung/plugins/plugin_checker.html">Plugin-Checker <span class="redsup">neu</span></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../entwicklung/plugins/kurzanleitung/kurzanleitung.html">Kurzanleitung  <span class="bluesup">update</span></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../entwicklung/plugins/kurzanleitung/plugin_in5minutes.html">In wenigen Minuten zum eigenen Plugin</a><ul>
+<li class="toctree-l5"><a class="reference internal" href="../../entwicklung/plugins/kurzanleitung/plugin_in5minutes.html#beschreibung-des-plugins">Beschreibung des Plugins</a></li>
+<li class="toctree-l5"><a class="reference internal" href="../../entwicklung/plugins/kurzanleitung/plugin_in5minutes.html#vordefinierte-funktionen-des-plugins">Vordefinierte Funktionen des Plugins</a></li>
+<li class="toctree-l5"><a class="reference internal" href="../../entwicklung/plugins/kurzanleitung/plugin_in5minutes.html#funktionen-von-smarthomeng">Funktionen von SmartHomeNG</a></li>
 </ul>
 </li>
 <li class="toctree-l4"><a class="reference internal" href="../../referenz/plugins/plugin_typen/smartplugin_class.html">Class SmartPlugin</a><ul>
@@ -4277,52 +4275,52 @@
 <li class="toctree-l5"><a class="reference internal" href="../../referenz/plugins/plugin_typen/smartdeviceplugin_class.html#lib.model.smartdeviceplugin.SmartDevicePlugin"><code class="docutils literal notranslate"><span class="pre">SmartDevicePlugin</span></code></a></li>
 </ul>
 </li>
-<li class="toctree-l4"><a class="reference internal" href="../plugins/kurzanleitung/plugin_metadata.html">Plugin-Metadata <span class="bluesup">update</span></a><ul>
-<li class="toctree-l5"><a class="reference internal" href="../plugins/kurzanleitung/plugin_metadata.html#detaillierte-beschreibung">Detaillierte Beschreibung</a></li>
-<li class="toctree-l5"><a class="reference internal" href="../plugins/kurzanleitung/plugin_metadata.html#plugin">plugin</a></li>
-<li class="toctree-l5"><a class="reference internal" href="../plugins/kurzanleitung/plugin_metadata.html#parameters">parameters</a></li>
-<li class="toctree-l5"><a class="reference internal" href="../plugins/kurzanleitung/plugin_metadata.html#item-attributes">item_attributes</a></li>
-<li class="toctree-l5"><a class="reference internal" href="../plugins/kurzanleitung/plugin_metadata.html#item-structs">item_structs</a></li>
-<li class="toctree-l5"><a class="reference internal" href="../plugins/kurzanleitung/plugin_metadata.html#logic-parameters">logic_parameters</a></li>
-<li class="toctree-l5"><a class="reference internal" href="../plugins/kurzanleitung/plugin_metadata.html#plugin-functions">plugin_functions</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../entwicklung/plugins/kurzanleitung/plugin_metadata.html">Plugin-Metadata <span class="bluesup">update</span></a><ul>
+<li class="toctree-l5"><a class="reference internal" href="../../entwicklung/plugins/kurzanleitung/plugin_metadata.html#detaillierte-beschreibung">Detaillierte Beschreibung</a></li>
+<li class="toctree-l5"><a class="reference internal" href="../../entwicklung/plugins/kurzanleitung/plugin_metadata.html#plugin">plugin</a></li>
+<li class="toctree-l5"><a class="reference internal" href="../../entwicklung/plugins/kurzanleitung/plugin_metadata.html#parameters">parameters</a></li>
+<li class="toctree-l5"><a class="reference internal" href="../../entwicklung/plugins/kurzanleitung/plugin_metadata.html#item-attributes">item_attributes</a></li>
+<li class="toctree-l5"><a class="reference internal" href="../../entwicklung/plugins/kurzanleitung/plugin_metadata.html#item-structs">item_structs</a></li>
+<li class="toctree-l5"><a class="reference internal" href="../../entwicklung/plugins/kurzanleitung/plugin_metadata.html#logic-parameters">logic_parameters</a></li>
+<li class="toctree-l5"><a class="reference internal" href="../../entwicklung/plugins/kurzanleitung/plugin_metadata.html#plugin-functions">plugin_functions</a></li>
 </ul>
 </li>
-<li class="toctree-l4"><a class="reference internal" href="../plugins/kurzanleitung/plugin_documentation_files.html">Plugin-Dokumentation</a><ul>
-<li class="toctree-l5"><a class="reference internal" href="../plugins/kurzanleitung/plugin_documentation_files.html#user-doc-rst">user_doc.rst</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../entwicklung/plugins/kurzanleitung/plugin_documentation_files.html">Plugin-Dokumentation</a><ul>
+<li class="toctree-l5"><a class="reference internal" href="../../entwicklung/plugins/kurzanleitung/plugin_documentation_files.html#user-doc-rst">user_doc.rst</a></li>
 </ul>
 </li>
-<li class="toctree-l4"><a class="reference internal" href="../plugins/kurzanleitung/webinterface.html">Webinterface <span class="bluesup">update</span></a><ul>
-<li class="toctree-l5"><a class="reference internal" href="../plugins/kurzanleitung/webinterface.html#allgemeines">Allgemeines</a></li>
-<li class="toctree-l5"><a class="reference internal" href="../plugins/kurzanleitung/webinterface.html#tooltips">Tooltips</a></li>
-<li class="toctree-l5"><a class="reference internal" href="../plugins/kurzanleitung/webinterface.html#cookies">Cookies</a></li>
-<li class="toctree-l5"><a class="reference internal" href="../plugins/kurzanleitung/webinterface.html#icons">Icons</a></li>
-<li class="toctree-l5"><a class="reference internal" href="../plugins/kurzanleitung/webinterface.html#kalenderansicht">Kalenderansicht</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../entwicklung/plugins/kurzanleitung/webinterface.html">Webinterface <span class="bluesup">update</span></a><ul>
+<li class="toctree-l5"><a class="reference internal" href="../../entwicklung/plugins/kurzanleitung/webinterface.html#allgemeines">Allgemeines</a></li>
+<li class="toctree-l5"><a class="reference internal" href="../../entwicklung/plugins/kurzanleitung/webinterface.html#tooltips">Tooltips</a></li>
+<li class="toctree-l5"><a class="reference internal" href="../../entwicklung/plugins/kurzanleitung/webinterface.html#cookies">Cookies</a></li>
+<li class="toctree-l5"><a class="reference internal" href="../../entwicklung/plugins/kurzanleitung/webinterface.html#icons">Icons</a></li>
+<li class="toctree-l5"><a class="reference internal" href="../../entwicklung/plugins/kurzanleitung/webinterface.html#kalenderansicht">Kalenderansicht</a></li>
 </ul>
 </li>
-<li class="toctree-l4"><a class="reference internal" href="../plugins/kurzanleitung/multilanguage.html">Unterstützung mehrerer Sprachen <span class="bluesup">Update</span></a><ul>
-<li class="toctree-l5"><a class="reference internal" href="../plugins/kurzanleitung/multilanguage.html#text-als-mehrsprachig-kennzeichnen">Text als mehrsprachig kennzeichnen</a></li>
-<li class="toctree-l5"><a class="reference internal" href="../plugins/kurzanleitung/multilanguage.html#wie-mehrsprachigkeit-funktioniert">Wie Mehrsprachigkeit funktioniert</a></li>
-<li class="toctree-l5"><a class="reference internal" href="../plugins/kurzanleitung/multilanguage.html#sprachen-und-ubersetzungen-hinzufugen">Sprachen und Übersetzungen hinzufügen</a></li>
-<li class="toctree-l5"><a class="reference internal" href="../plugins/kurzanleitung/multilanguage.html#platzhalter-in-ubersetzungen-nutzen-neu">Platzhalter in Übersetzungen nutzen <span class="redsup">Neu</span></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../entwicklung/plugins/kurzanleitung/multilanguage.html">Unterstützung mehrerer Sprachen <span class="bluesup">Update</span></a><ul>
+<li class="toctree-l5"><a class="reference internal" href="../../entwicklung/plugins/kurzanleitung/multilanguage.html#text-als-mehrsprachig-kennzeichnen">Text als mehrsprachig kennzeichnen</a></li>
+<li class="toctree-l5"><a class="reference internal" href="../../entwicklung/plugins/kurzanleitung/multilanguage.html#wie-mehrsprachigkeit-funktioniert">Wie Mehrsprachigkeit funktioniert</a></li>
+<li class="toctree-l5"><a class="reference internal" href="../../entwicklung/plugins/kurzanleitung/multilanguage.html#sprachen-und-ubersetzungen-hinzufugen">Sprachen und Übersetzungen hinzufügen</a></li>
+<li class="toctree-l5"><a class="reference internal" href="../../entwicklung/plugins/kurzanleitung/multilanguage.html#platzhalter-in-ubersetzungen-nutzen-neu">Platzhalter in Übersetzungen nutzen <span class="redsup">Neu</span></a></li>
 </ul>
 </li>
-<li class="toctree-l4"><a class="reference internal" href="../plugins/kurzanleitung/sampleplugin.html">Beispielplugin <span class="bluesup">update</span></a><ul>
-<li class="toctree-l5"><a class="reference internal" href="../plugins/kurzanleitung/sampleplugin.html#die-metadaten-datei">Die Metadaten-Datei:</a></li>
-<li class="toctree-l5"><a class="reference internal" href="../plugins/kurzanleitung/sampleplugin.html#der-quelltext">Der Quelltext:</a></li>
-<li class="toctree-l5"><a class="reference internal" href="../plugins/kurzanleitung/sampleplugin.html#das-webinterface-template-file">Das Webinterface (template file):</a></li>
-<li class="toctree-l5"><a class="reference internal" href="../plugins/kurzanleitung/sampleplugin.html#die-datei-fur-mehrsprachigkeit">Die Datei für Mehrsprachigkeit:</a></li>
-<li class="toctree-l5"><a class="reference internal" href="../plugins/kurzanleitung/sampleplugin.html#die-dokumentation">Die Dokumentation:</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../entwicklung/plugins/kurzanleitung/sampleplugin.html">Beispielplugin <span class="bluesup">update</span></a><ul>
+<li class="toctree-l5"><a class="reference internal" href="../../entwicklung/plugins/kurzanleitung/sampleplugin.html#die-metadaten-datei">Die Metadaten-Datei:</a></li>
+<li class="toctree-l5"><a class="reference internal" href="../../entwicklung/plugins/kurzanleitung/sampleplugin.html#der-quelltext">Der Quelltext:</a></li>
+<li class="toctree-l5"><a class="reference internal" href="../../entwicklung/plugins/kurzanleitung/sampleplugin.html#das-webinterface-template-file">Das Webinterface (template file):</a></li>
+<li class="toctree-l5"><a class="reference internal" href="../../entwicklung/plugins/kurzanleitung/sampleplugin.html#die-datei-fur-mehrsprachigkeit">Die Datei für Mehrsprachigkeit:</a></li>
+<li class="toctree-l5"><a class="reference internal" href="../../entwicklung/plugins/kurzanleitung/sampleplugin.html#die-dokumentation">Die Dokumentation:</a></li>
 </ul>
 </li>
-<li class="toctree-l4"><a class="reference internal" href="../plugins/kurzanleitung/samplemqttplugin.html">Beispielplugin mit MQTT-Unterstützung</a><ul>
-<li class="toctree-l5"><a class="reference internal" href="../plugins/kurzanleitung/samplemqttplugin.html#die-metadaten-datei">Die Metadaten-Datei:</a></li>
-<li class="toctree-l5"><a class="reference internal" href="../plugins/kurzanleitung/samplemqttplugin.html#der-quelltext">Der Quelltext:</a></li>
-<li class="toctree-l5"><a class="reference internal" href="../plugins/kurzanleitung/samplemqttplugin.html#das-webinterface-template-file">Das Webinterface (template file):</a></li>
-<li class="toctree-l5"><a class="reference internal" href="../plugins/kurzanleitung/samplemqttplugin.html#die-datei-fur-mehrsprachigkeit">Die Datei für Mehrsprachigkeit:</a></li>
-<li class="toctree-l5"><a class="reference internal" href="../plugins/kurzanleitung/samplemqttplugin.html#die-dokumentation">Die Dokumentation:</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../entwicklung/plugins/kurzanleitung/samplemqttplugin.html">Beispielplugin mit MQTT-Unterstützung</a><ul>
+<li class="toctree-l5"><a class="reference internal" href="../../entwicklung/plugins/kurzanleitung/samplemqttplugin.html#die-metadaten-datei">Die Metadaten-Datei:</a></li>
+<li class="toctree-l5"><a class="reference internal" href="../../entwicklung/plugins/kurzanleitung/samplemqttplugin.html#der-quelltext">Der Quelltext:</a></li>
+<li class="toctree-l5"><a class="reference internal" href="../../entwicklung/plugins/kurzanleitung/samplemqttplugin.html#das-webinterface-template-file">Das Webinterface (template file):</a></li>
+<li class="toctree-l5"><a class="reference internal" href="../../entwicklung/plugins/kurzanleitung/samplemqttplugin.html#die-datei-fur-mehrsprachigkeit">Die Datei für Mehrsprachigkeit:</a></li>
+<li class="toctree-l5"><a class="reference internal" href="../../entwicklung/plugins/kurzanleitung/samplemqttplugin.html#die-dokumentation">Die Dokumentation:</a></li>
 </ul>
 </li>
-<li class="toctree-l4"><a class="reference internal" href="../plugins/kurzanleitung/libraries_plugins.html">Programm Module zur Nutzung in Plugins</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../entwicklung/plugins/kurzanleitung/libraries_plugins.html">Programm Module zur Nutzung in Plugins</a><ul>
 <li class="toctree-l5"><a class="reference internal" href="../../lib/db.html">lib.db</a></li>
 <li class="toctree-l5"><a class="reference internal" href="../../lib/logutils.html">lib.logutils</a></li>
 <li class="toctree-l5"><a class="reference internal" href="../../lib/network.html">lib.network</a></li>
@@ -4333,18 +4331,18 @@
 </li>
 </ul>
 </li>
-<li class="toctree-l3"><a class="reference internal" href="../plugins/smartplugin.html">Class SmartPlugin</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../plugins/mqttplugin.html">Class MqttPlugin</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../plugins/async_in_plugins.html">AsyncIO in Plugins <span class="redsup">neu</span></a><ul>
-<li class="toctree-l4"><a class="reference internal" href="../plugins/async_in_plugins.html#methoden-des-plugins">Methoden des Plugins</a></li>
-<li class="toctree-l4"><a class="reference internal" href="../plugins/async_in_plugins.html#asyncio-und-threads-kombinieren">Asyncio und Threads kombinieren</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../entwicklung/plugins/smartplugin.html">Class SmartPlugin</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../entwicklung/plugins/mqttplugin.html">Class MqttPlugin</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../entwicklung/plugins/async_in_plugins.html">AsyncIO in Plugins <span class="redsup">neu</span></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../entwicklung/plugins/async_in_plugins.html#methoden-des-plugins">Methoden des Plugins</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../entwicklung/plugins/async_in_plugins.html#asyncio-und-threads-kombinieren">Asyncio und Threads kombinieren</a></li>
 </ul>
 </li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="../module/module.html">Module</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="../module/module_http.html">Module http</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="../module/module_http.html#api-des-moduls">API des Moduls</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../entwicklung/module/module.html">Module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../entwicklung/module/module_http.html">Module http</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../entwicklung/module/module_http.html#api-des-moduls">API des Moduls</a><ul>
 <li class="toctree-l5"><a class="reference internal" href="../../modules/http/README.html">Module http (README)</a></li>
 </ul>
 </li>
@@ -4371,12 +4369,12 @@
 <li class="toctree-l4"><a class="reference internal" href="../../referenz/module/module_admin.html#metadaten">Metadaten</a></li>
 </ul>
 </li>
-<li class="toctree-l3"><a class="reference internal" href="../module/module_mqtt.html">Module mqtt</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="../module/module_mqtt.html#readme">README</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../entwicklung/module/module_mqtt.html">Module mqtt</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../entwicklung/module/module_mqtt.html#readme">README</a><ul>
 <li class="toctree-l5"><a class="reference internal" href="../../modules/mqtt/README.html">Module mqtt (README)</a></li>
 </ul>
 </li>
-<li class="toctree-l4"><a class="reference internal" href="../module/module_mqtt.html#metadata">Metadata</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../entwicklung/module/module_mqtt.html#metadata">Metadata</a></li>
 </ul>
 </li>
 <li class="toctree-l3"><a class="reference internal" href="../../referenz/module/module_websocket.html">Module websocket</a><ul>
@@ -4385,26 +4383,26 @@
 <li class="toctree-l4"><a class="reference internal" href="../../referenz/module/module_websocket.html#konfiguration">Konfiguration</a></li>
 </ul>
 </li>
-<li class="toctree-l3"><a class="reference internal" href="../module/module.html#metadaten">Metadaten</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="../module/module.html#index-3">module</a></li>
-<li class="toctree-l4"><a class="reference internal" href="../module/module.html#parameters">parameters</a><ul>
-<li class="toctree-l5"><a class="reference internal" href="../module/module.html#plugins-module-ohne-parameter">Plugins/Module ohne Parameter</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../entwicklung/module/module.html#metadaten">Metadaten</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../entwicklung/module/module.html#index-3">module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../entwicklung/module/module.html#parameters">parameters</a><ul>
+<li class="toctree-l5"><a class="reference internal" href="../../entwicklung/module/module.html#plugins-module-ohne-parameter">Plugins/Module ohne Parameter</a></li>
 </ul>
 </li>
 </ul>
 </li>
 </ul>
 </li>
-<li class="toctree-l2 current"><a class="reference internal" href="core.html">Entwicklung des Core</a><ul class="current">
-<li class="toctree-l3 current"><a class="current reference internal" href="#">Der Core von SmartHomeNG</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="#smarthome-py">smarthome.py</a><ul>
-<li class="toctree-l5"><a class="reference internal" href="#lib.smarthome.SmartHome"><code class="docutils literal notranslate"><span class="pre">SmartHome</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../entwicklung/core/core.html">Entwicklung des Core</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../entwicklung/core/core_shng.html">Der Core von SmartHomeNG</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../entwicklung/core/core_shng.html#smarthome-py">smarthome.py</a><ul>
+<li class="toctree-l5"><a class="reference internal" href="../../entwicklung/core/core_shng.html#lib.smarthome.SmartHome"><code class="docutils literal notranslate"><span class="pre">SmartHome</span></code></a></li>
 </ul>
 </li>
-<li class="toctree-l4"><a class="reference internal" href="#lib-item">lib.item</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../entwicklung/core/core_shng.html#lib-item">lib.item</a></li>
 </ul>
 </li>
-<li class="toctree-l3"><a class="reference internal" href="core_libraries.html">Programm Module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../entwicklung/core/core_libraries.html">Programm Module</a><ul>
 <li class="toctree-l4"><a class="reference internal" href="../../lib/config.html">lib.config</a><ul>
 <li class="toctree-l5"><a class="reference internal" href="../../lib/config.html#lib.config.add_struct_to_item_template"><code class="docutils literal notranslate"><span class="pre">add_struct_to_item_template()</span></code></a></li>
 <li class="toctree-l5"><a class="reference internal" href="../../lib/config.html#lib.config.merge"><code class="docutils literal notranslate"><span class="pre">merge()</span></code></a></li>
@@ -4533,15 +4531,15 @@
 </li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="../build_doc.html">Bau der Dokumentation</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="../build_doc.html#checkout-und-bau-der-dokumentation">Checkout und Bau der Dokumentation</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../build_doc.html#optionen-des-build-skripts">Optionen des Build Skripts</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../entwicklung/build_doc.html">Bau der Dokumentation</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../entwicklung/build_doc.html#checkout-und-bau-der-dokumentation">Checkout und Bau der Dokumentation</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../entwicklung/build_doc.html#optionen-des-build-skripts">Optionen des Build Skripts</a></li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="../virtual_env.html">Virtuelle Umgebungen</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="../virtual_env.html#venv">Venv</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../virtual_env.html#pyenv">Pyenv</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../virtual_env.html#pipenv">Pipenv</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../entwicklung/virtual_env.html">Virtuelle Umgebungen</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../entwicklung/virtual_env.html#venv">Venv</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../entwicklung/virtual_env.html#pyenv">Pyenv</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../entwicklung/virtual_env.html#pipenv">Pipenv</a></li>
 </ul>
 </li>
 </ul>
@@ -5726,9 +5724,7 @@
           <div role="navigation" aria-label="Page navigation">
   <ul class="wy-breadcrumbs">
       <li><a href="../../index.html" class="icon icon-home" aria-label="Home"></a></li>
-          <li class="breadcrumb-item"><a href="../entwicklung.html">Entwicklung</a></li>
-          <li class="breadcrumb-item"><a href="core.html">Entwicklung des Core</a></li>
-      <li class="breadcrumb-item active">Der Core von SmartHomeNG</li>
+      <li class="breadcrumb-item active">Plugin ‚smartmeter‘ Konfiguration</li>
       <li class="wy-breadcrumbs-aside">
       </li>
   </ul>
@@ -5737,609 +5733,360 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
              
-  <section id="der-core-von-smarthomeng">
-<h1>Der Core von SmartHomeNG<a class="headerlink" href="#der-core-von-smarthomeng" title="Permalink to this heading"></a></h1>
-<p>Der Core von SmartHomeNG besteht aus einem Haupt-Objekt welches in <code class="docutils literal notranslate"><span class="pre">bin/smarthome.py</span></code> definiert ist und einer
-Reihe von Programm Modulen, die exklusiv für die Nutzung durch den Core Hilfs-Objekte implementieren.
-Die Programm Module sind in dem Ordner <code class="docutils literal notranslate"><span class="pre">../lib</span></code> abgelegt und im Unterpunkt <strong>Programm Modulen</strong> beschrieben.</p>
-<section id="smarthome-py">
-<h2>smarthome.py<a class="headerlink" href="#smarthome-py" title="Permalink to this heading"></a></h2>
-<p>Das Haupt-Objekt von SmartHomeNG ist im folgenden beschrieben:</p>
-<span class="target" id="module-lib.smarthome"></span><dl class="py class">
-<dt class="sig sig-object py" id="lib.smarthome.SmartHome">
-<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">lib.smarthome.</span></span><span class="sig-name descname"><span class="pre">SmartHome</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">MODE</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">extern_conf_dir</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">''</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">config_etc</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/lib/smarthome.html#SmartHome"><span class="viewcode-link"><span class="pre">[Quellcode]</span></span></a><a class="headerlink" href="#lib.smarthome.SmartHome" title="Link zu dieser Definition"></a></dt>
-<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
-<p>SmartHome ist the main class of SmartHomeNG. All other objects can be addressed relative to
-the main oject, which is an instance of this class. Mostly it is referred to as <code class="docutils literal notranslate"><span class="pre">sh</span></code>, <code class="docutils literal notranslate"><span class="pre">_sh</span></code> or <code class="docutils literal notranslate"><span class="pre">smarthome</span></code>.</p>
-<dl class="py attribute">
-<dt class="sig sig-object py" id="lib.smarthome.SmartHome.BASE">
-<span class="sig-name descname"><span class="pre">BASE</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'/home/runner/work/plugins/plugins/smarthomeng'</span></em><a class="headerlink" href="#lib.smarthome.SmartHome.BASE" title="Link zu dieser Definition"></a></dt>
-<dd></dd></dl>
-
-<dl class="py method">
-<dt class="sig sig-object py" id="lib.smarthome.SmartHome.initialize_vars">
-<span class="sig-name descname"><span class="pre">initialize_vars</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/lib/smarthome.html#SmartHome.initialize_vars"><span class="viewcode-link"><span class="pre">[Quellcode]</span></span></a><a class="headerlink" href="#lib.smarthome.SmartHome.initialize_vars" title="Link zu dieser Definition"></a></dt>
-<dd></dd></dl>
-
-<dl class="py method">
-<dt class="sig sig-object py" id="lib.smarthome.SmartHome.initialize_dir_vars">
-<span class="sig-name descname"><span class="pre">initialize_dir_vars</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/lib/smarthome.html#SmartHome.initialize_dir_vars"><span class="viewcode-link"><span class="pre">[Quellcode]</span></span></a><a class="headerlink" href="#lib.smarthome.SmartHome.initialize_dir_vars" title="Link zu dieser Definition"></a></dt>
-<dd></dd></dl>
-
-<dl class="py method">
-<dt class="sig sig-object py" id="lib.smarthome.SmartHome.create_directories">
-<span class="sig-name descname"><span class="pre">create_directories</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/lib/smarthome.html#SmartHome.create_directories"><span class="viewcode-link"><span class="pre">[Quellcode]</span></span></a><a class="headerlink" href="#lib.smarthome.SmartHome.create_directories" title="Link zu dieser Definition"></a></dt>
-<dd><p>Create directories used by SmartHomeNG if they don’t exist</p>
-</dd></dl>
-
-<dl class="py property">
-<dt class="sig sig-object py" id="lib.smarthome.SmartHome.lat">
-<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">lat</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">float</span></em><a class="headerlink" href="#lib.smarthome.SmartHome.lat" title="Link zu dieser Definition"></a></dt>
-<dd><p>Read-Only Property: latitude (from smarthome.yaml)</p>
-<dl class="field-list simple">
-<dt class="field-odd">Rückgabe<span class="colon">:</span></dt>
-<dd class="field-odd"><p>latitude (from smarthome.yaml)</p>
-</dd>
-</dl>
-</dd></dl>
-
-<dl class="py property">
-<dt class="sig sig-object py" id="lib.smarthome.SmartHome.lon">
-<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">lon</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">float</span></em><a class="headerlink" href="#lib.smarthome.SmartHome.lon" title="Link zu dieser Definition"></a></dt>
-<dd><p>Read-Only Property: longitude (from smarthome.yaml)</p>
-<dl class="field-list simple">
-<dt class="field-odd">Rückgabe<span class="colon">:</span></dt>
-<dd class="field-odd"><p>longitude (from smarthome.yaml)</p>
-</dd>
-</dl>
-</dd></dl>
-
-<dl class="py method">
-<dt class="sig sig-object py" id="lib.smarthome.SmartHome.get_defaultlanguage">
-<span class="sig-name descname"><span class="pre">get_defaultlanguage</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/lib/smarthome.html#SmartHome.get_defaultlanguage"><span class="viewcode-link"><span class="pre">[Quellcode]</span></span></a><a class="headerlink" href="#lib.smarthome.SmartHome.get_defaultlanguage" title="Link zu dieser Definition"></a></dt>
-<dd><p>Returns the configured default language of SmartHomeNG</p>
-</dd></dl>
-
-<dl class="py method">
-<dt class="sig sig-object py" id="lib.smarthome.SmartHome.set_defaultlanguage">
-<span class="sig-name descname"><span class="pre">set_defaultlanguage</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">language</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/lib/smarthome.html#SmartHome.set_defaultlanguage"><span class="viewcode-link"><span class="pre">[Quellcode]</span></span></a><a class="headerlink" href="#lib.smarthome.SmartHome.set_defaultlanguage" title="Link zu dieser Definition"></a></dt>
-<dd><p>Sets the default language of SmartHomeNG</p>
-</dd></dl>
-
-<dl class="py method">
-<dt class="sig sig-object py" id="lib.smarthome.SmartHome.get_defaultlogtext">
-<span class="sig-name descname"><span class="pre">get_defaultlogtext</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/lib/smarthome.html#SmartHome.get_defaultlogtext"><span class="viewcode-link"><span class="pre">[Quellcode]</span></span></a><a class="headerlink" href="#lib.smarthome.SmartHome.get_defaultlogtext" title="Link zu dieser Definition"></a></dt>
-<dd><p>Returns the configured default logtext for log_change of SmartHomeNG</p>
-</dd></dl>
-
-<dl class="py method">
-<dt class="sig sig-object py" id="lib.smarthome.SmartHome.set_defaultlogtext">
-<span class="sig-name descname"><span class="pre">set_defaultlogtext</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">log_text</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/lib/smarthome.html#SmartHome.set_defaultlogtext"><span class="viewcode-link"><span class="pre">[Quellcode]</span></span></a><a class="headerlink" href="#lib.smarthome.SmartHome.set_defaultlogtext" title="Link zu dieser Definition"></a></dt>
-<dd><p>Sets the default logtext for log_change of SmartHomeNG</p>
-</dd></dl>
-
-<dl class="py method">
-<dt class="sig sig-object py" id="lib.smarthome.SmartHome.get_basedir">
-<span class="sig-name descname"><span class="pre">get_basedir</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/lib/smarthome.html#SmartHome.get_basedir"><span class="viewcode-link"><span class="pre">[Quellcode]</span></span></a><a class="headerlink" href="#lib.smarthome.SmartHome.get_basedir" title="Link zu dieser Definition"></a></dt>
-<dd><p>Function to return the base directory of the running SmartHomeNG installation</p>
-<dl class="field-list simple">
-<dt class="field-odd">Rückgabe<span class="colon">:</span></dt>
-<dd class="field-odd"><p>Base directory as an absolute path</p>
-</dd>
-<dt class="field-even">Rückgabetyp<span class="colon">:</span></dt>
-<dd class="field-even"><p>str</p>
-</dd>
-</dl>
-</dd></dl>
-
-<dl class="py method">
-<dt class="sig sig-object py" id="lib.smarthome.SmartHome.get_confdir">
-<span class="sig-name descname"><span class="pre">get_confdir</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/lib/smarthome.html#SmartHome.get_confdir"><span class="viewcode-link"><span class="pre">[Quellcode]</span></span></a><a class="headerlink" href="#lib.smarthome.SmartHome.get_confdir" title="Link zu dieser Definition"></a></dt>
-<dd><p>Function to return the config directory (that contain ‚etc‘, ‚logics‘ and ‚items‘ subdirectories)</p>
-<dl class="field-list simple">
-<dt class="field-odd">Rückgabe<span class="colon">:</span></dt>
-<dd class="field-odd"><p>Config directory as an absolute path</p>
-</dd>
-<dt class="field-even">Rückgabetyp<span class="colon">:</span></dt>
-<dd class="field-even"><p>str</p>
-</dd>
-</dl>
-</dd></dl>
-
-<dl class="py method">
-<dt class="sig sig-object py" id="lib.smarthome.SmartHome.get_etcdir">
-<span class="sig-name descname"><span class="pre">get_etcdir</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/lib/smarthome.html#SmartHome.get_etcdir"><span class="viewcode-link"><span class="pre">[Quellcode]</span></span></a><a class="headerlink" href="#lib.smarthome.SmartHome.get_etcdir" title="Link zu dieser Definition"></a></dt>
-<dd><p>Function to return the etc config directory</p>
-<dl class="field-list simple">
-<dt class="field-odd">Rückgabetyp<span class="colon">:</span></dt>
-<dd class="field-odd"><p><code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code></p>
-</dd>
-<dt class="field-even">Rückgabe<span class="colon">:</span></dt>
-<dd class="field-even"><p>Config directory as an absolute path</p>
-</dd>
-</dl>
-</dd></dl>
-
-<dl class="py method">
-<dt class="sig sig-object py" id="lib.smarthome.SmartHome.get_structsdir">
-<span class="sig-name descname"><span class="pre">get_structsdir</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/lib/smarthome.html#SmartHome.get_structsdir"><span class="viewcode-link"><span class="pre">[Quellcode]</span></span></a><a class="headerlink" href="#lib.smarthome.SmartHome.get_structsdir" title="Link zu dieser Definition"></a></dt>
-<dd><p>Function to return the structs config directory</p>
-<dl class="field-list simple">
-<dt class="field-odd">Rückgabetyp<span class="colon">:</span></dt>
-<dd class="field-odd"><p><code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code></p>
-</dd>
-<dt class="field-even">Rückgabe<span class="colon">:</span></dt>
-<dd class="field-even"><p>Config directory as an absolute path</p>
-</dd>
-</dl>
-</dd></dl>
-
-<dl class="py method">
-<dt class="sig sig-object py" id="lib.smarthome.SmartHome.get_vardir">
-<span class="sig-name descname"><span class="pre">get_vardir</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/lib/smarthome.html#SmartHome.get_vardir"><span class="viewcode-link"><span class="pre">[Quellcode]</span></span></a><a class="headerlink" href="#lib.smarthome.SmartHome.get_vardir" title="Link zu dieser Definition"></a></dt>
-<dd><p>Function to return the var directory used by SmartHomeNG</p>
-<dl class="field-list simple">
-<dt class="field-odd">Rückgabe<span class="colon">:</span></dt>
-<dd class="field-odd"><p>var directory as an absolute path</p>
-</dd>
-<dt class="field-even">Rückgabetyp<span class="colon">:</span></dt>
-<dd class="field-even"><p>str</p>
-</dd>
-</dl>
-</dd></dl>
-
-<dl class="py method">
-<dt class="sig sig-object py" id="lib.smarthome.SmartHome.get_config_dir">
-<span class="sig-name descname"><span class="pre">get_config_dir</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">config</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/lib/smarthome.html#SmartHome.get_config_dir"><span class="viewcode-link"><span class="pre">[Quellcode]</span></span></a><a class="headerlink" href="#lib.smarthome.SmartHome.get_config_dir" title="Link zu dieser Definition"></a></dt>
-<dd><p>Function to return a config dir used by SmartHomeNG
-replace / prevent a plethora of get_&lt;foo&gt;dir() functions</p>
-<p>Returns ‚‘ for invalid config strings.</p>
-<dl class="field-list simple">
-<dt class="field-odd">Rückgabe<span class="colon">:</span></dt>
-<dd class="field-odd"><p>directory as an absolute path</p>
-</dd>
-<dt class="field-even">Rückgabetyp<span class="colon">:</span></dt>
-<dd class="field-even"><p>str</p>
-</dd>
-</dl>
-</dd></dl>
-
-<dl class="py method">
-<dt class="sig sig-object py" id="lib.smarthome.SmartHome.get_config_file">
-<span class="sig-name descname"><span class="pre">get_config_file</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">config</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">extension</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'.yaml'</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/lib/smarthome.html#SmartHome.get_config_file"><span class="viewcode-link"><span class="pre">[Quellcode]</span></span></a><a class="headerlink" href="#lib.smarthome.SmartHome.get_config_file" title="Link zu dieser Definition"></a></dt>
-<dd><p>Function to return a config file used by SmartHomeNG</p>
-<p>Returns ‚‘ for invalid config strings.</p>
-<dl class="field-list simple">
-<dt class="field-odd">Rückgabe<span class="colon">:</span></dt>
-<dd class="field-odd"><p>file name as an absolute path</p>
-</dd>
-<dt class="field-even">Rückgabetyp<span class="colon">:</span></dt>
-<dd class="field-even"><p>str</p>
-</dd>
-</dl>
-</dd></dl>
-
-<dl class="py method">
-<dt class="sig sig-object py" id="lib.smarthome.SmartHome.getBaseDir">
-<span class="sig-name descname"><span class="pre">getBaseDir</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/lib/smarthome.html#SmartHome.getBaseDir"><span class="viewcode-link"><span class="pre">[Quellcode]</span></span></a><a class="headerlink" href="#lib.smarthome.SmartHome.getBaseDir" title="Link zu dieser Definition"></a></dt>
-<dd><p>Function to return the base directory of the running SmartHomeNG installation</p>
-<p><strong>getBaseDir()</strong> is deprecated. Use method get_basedir() instead.</p>
-<dl class="field-list simple">
-<dt class="field-odd">Rückgabe<span class="colon">:</span></dt>
-<dd class="field-odd"><p>Base directory as an absolute path</p>
-</dd>
-<dt class="field-even">Rückgabetyp<span class="colon">:</span></dt>
-<dd class="field-even"><p>str</p>
-</dd>
-</dl>
-</dd></dl>
-
-<dl class="py method">
-<dt class="sig sig-object py" id="lib.smarthome.SmartHome.checkConfigFiles">
-<span class="sig-name descname"><span class="pre">checkConfigFiles</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/lib/smarthome.html#SmartHome.checkConfigFiles"><span class="viewcode-link"><span class="pre">[Quellcode]</span></span></a><a class="headerlink" href="#lib.smarthome.SmartHome.checkConfigFiles" title="Link zu dieser Definition"></a></dt>
-<dd><p>This function checks if the needed configuration files exist. It checks for CONF and YAML files.
-If they dont exist, it is checked if a default configuration exist. If so, the default configuration
-is copied to corresponding configuration file.</p>
-<p>The check is done for the files that have to exist (with some content) or SmartHomeNG won’t start:</p>
-<ul class="simple">
-<li><p>smarthome.yaml / smarthome.conf</p></li>
-<li><p>logging.yaml</p></li>
-<li><p>plugin.yaml / plugin.conf</p></li>
-<li><p>module.yaml / module.conf</p></li>
-<li><p>logic.yaml / logic.conf</p></li>
-</ul>
-</dd></dl>
-
-<dl class="py method">
-<dt class="sig sig-object py" id="lib.smarthome.SmartHome.init_logging">
-<span class="sig-name descname"><span class="pre">init_logging</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">conf_basename</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">''</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">MODE</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'default'</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/lib/smarthome.html#SmartHome.init_logging"><span class="viewcode-link"><span class="pre">[Quellcode]</span></span></a><a class="headerlink" href="#lib.smarthome.SmartHome.init_logging" title="Link zu dieser Definition"></a></dt>
-<dd><p>This function initiates the logging for SmartHomeNG.</p>
-</dd></dl>
-
-<dl class="py method">
-<dt class="sig sig-object py" id="lib.smarthome.SmartHome.start">
-<span class="sig-name descname"><span class="pre">start</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/lib/smarthome.html#SmartHome.start"><span class="viewcode-link"><span class="pre">[Quellcode]</span></span></a><a class="headerlink" href="#lib.smarthome.SmartHome.start" title="Link zu dieser Definition"></a></dt>
-<dd><p>This function starts the threads of the main smarthome object.</p>
-<p>The main thread that is beeing started is called <code class="docutils literal notranslate"><span class="pre">Main</span></code></p>
-</dd></dl>
-
-<dl class="py method">
-<dt class="sig sig-object py" id="lib.smarthome.SmartHome.stop">
-<span class="sig-name descname"><span class="pre">stop</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">signum</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">frame</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/lib/smarthome.html#SmartHome.stop"><span class="viewcode-link"><span class="pre">[Quellcode]</span></span></a><a class="headerlink" href="#lib.smarthome.SmartHome.stop" title="Link zu dieser Definition"></a></dt>
-<dd><p>This method is used to stop SmartHomeNG and all it’s threads</p>
-</dd></dl>
-
-<dl class="py method">
-<dt class="sig sig-object py" id="lib.smarthome.SmartHome.restart">
-<span class="sig-name descname"><span class="pre">restart</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">source</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">''</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/lib/smarthome.html#SmartHome.restart"><span class="viewcode-link"><span class="pre">[Quellcode]</span></span></a><a class="headerlink" href="#lib.smarthome.SmartHome.restart" title="Link zu dieser Definition"></a></dt>
-<dd><p>This method is used to restart the python interpreter and SmartHomeNG</p>
-<p>If SmartHomeNG was started in one of the foreground modes (-f, -i, -d),
-just quit and let the user restart manually.</p>
-</dd></dl>
-
-<dl class="py method">
-<dt class="sig sig-object py" id="lib.smarthome.SmartHome.list_threads">
-<span class="sig-name descname"><span class="pre">list_threads</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">txt</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/lib/smarthome.html#SmartHome.list_threads"><span class="viewcode-link"><span class="pre">[Quellcode]</span></span></a><a class="headerlink" href="#lib.smarthome.SmartHome.list_threads" title="Link zu dieser Definition"></a></dt>
-<dd></dd></dl>
-
-<dl class="py method">
-<dt class="sig sig-object py" id="lib.smarthome.SmartHome.add_event_listener">
-<span class="sig-name descname"><span class="pre">add_event_listener</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">events</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">method</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/lib/smarthome.html#SmartHome.add_event_listener"><span class="viewcode-link"><span class="pre">[Quellcode]</span></span></a><a class="headerlink" href="#lib.smarthome.SmartHome.add_event_listener" title="Link zu dieser Definition"></a></dt>
-<dd><p>This Function adds listeners for a list of events. This function is called from
-plugins interfacing with visus (e.g. visu_websocket)</p>
-<dl class="field-list simple">
-<dt class="field-odd">Parameter<span class="colon">:</span></dt>
-<dd class="field-odd"><ul class="simple">
-<li><p><strong>events</strong> (<em>list</em>) – List of events to add listeners for</p></li>
-<li><p><strong>method</strong> (<em>object</em>) – Method used by the visu-interface</p></li>
-</ul>
-</dd>
-</dl>
-</dd></dl>
-
-<dl class="py method">
-<dt class="sig sig-object py" id="lib.smarthome.SmartHome.return_event_listeners">
-<span class="sig-name descname"><span class="pre">return_event_listeners</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">event</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'all'</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/lib/smarthome.html#SmartHome.return_event_listeners"><span class="viewcode-link"><span class="pre">[Quellcode]</span></span></a><a class="headerlink" href="#lib.smarthome.SmartHome.return_event_listeners" title="Link zu dieser Definition"></a></dt>
-<dd><p>This function returns the listeners for a specified event.</p>
-<dl class="field-list simple">
-<dt class="field-odd">Parameter<span class="colon">:</span></dt>
-<dd class="field-odd"><p><strong>event</strong> (<em>str</em>) – Name of the event or ‚all‘ to return all listeners</p>
-</dd>
-<dt class="field-even">Rückgabe<span class="colon">:</span></dt>
-<dd class="field-even"><p>List of listeners</p>
-</dd>
-<dt class="field-odd">Rückgabetyp<span class="colon">:</span></dt>
-<dd class="field-odd"><p>list</p>
-</dd>
-</dl>
-</dd></dl>
-
-<dl class="py method">
-<dt class="sig sig-object py" id="lib.smarthome.SmartHome.object_refcount">
-<span class="sig-name descname"><span class="pre">object_refcount</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/lib/smarthome.html#SmartHome.object_refcount"><span class="viewcode-link"><span class="pre">[Quellcode]</span></span></a><a class="headerlink" href="#lib.smarthome.SmartHome.object_refcount" title="Link zu dieser Definition"></a></dt>
-<dd><p>Function to return the number of defined objects in SmartHomeNG</p>
-<dl class="field-list simple">
-<dt class="field-odd">Rückgabe<span class="colon">:</span></dt>
-<dd class="field-odd"><p>Number of objects</p>
-</dd>
-<dt class="field-even">Rückgabetyp<span class="colon">:</span></dt>
-<dd class="field-even"><p>int</p>
-</dd>
-</dl>
-</dd></dl>
-
-<dl class="py method">
-<dt class="sig sig-object py" id="lib.smarthome.SmartHome.string2bool">
-<span class="sig-name descname"><span class="pre">string2bool</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">string</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/lib/smarthome.html#SmartHome.string2bool"><span class="viewcode-link"><span class="pre">[Quellcode]</span></span></a><a class="headerlink" href="#lib.smarthome.SmartHome.string2bool" title="Link zu dieser Definition"></a></dt>
-<dd><p>Returns the boolean value of a string</p>
-<p>DEPRECATED - Use lib.utils.Utils.to_bool(string) instead</p>
-<dl class="field-list simple">
-<dt class="field-odd">Parameter<span class="colon">:</span></dt>
-<dd class="field-odd"><p><strong>string</strong> (<em>str</em>) – string to convert</p>
-</dd>
-<dt class="field-even">Rückgabe<span class="colon">:</span></dt>
-<dd class="field-even"><p>Parameter converted to bool</p>
-</dd>
-<dt class="field-odd">Rückgabetyp<span class="colon">:</span></dt>
-<dd class="field-odd"><p>bool</p>
-</dd>
-</dl>
-</dd></dl>
-
-<dl class="py method">
-<dt class="sig sig-object py" id="lib.smarthome.SmartHome.add_item">
-<span class="sig-name descname"><span class="pre">add_item</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">path</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">item</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/lib/smarthome.html#SmartHome.add_item"><span class="viewcode-link"><span class="pre">[Quellcode]</span></span></a><a class="headerlink" href="#lib.smarthome.SmartHome.add_item" title="Link zu dieser Definition"></a></dt>
-<dd><p>Function to to add an item to the dictionary of items.
-If the path does not exist, it is created</p>
-<p>DEPRECATED - Use the Items-API instead</p>
-<dl class="field-list simple">
-<dt class="field-odd">Parameter<span class="colon">:</span></dt>
-<dd class="field-odd"><ul class="simple">
-<li><p><strong>path</strong> (<em>str</em>) – Path of the item</p></li>
-<li><p><strong>item</strong> (<em>object</em>) – The item itself</p></li>
-</ul>
-</dd>
-</dl>
-</dd></dl>
-
-<dl class="py method">
-<dt class="sig sig-object py" id="lib.smarthome.SmartHome.return_item">
-<span class="sig-name descname"><span class="pre">return_item</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">string</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/lib/smarthome.html#SmartHome.return_item"><span class="viewcode-link"><span class="pre">[Quellcode]</span></span></a><a class="headerlink" href="#lib.smarthome.SmartHome.return_item" title="Link zu dieser Definition"></a></dt>
-<dd><p>Function to return the item for a given path</p>
-<p>DEPRECATED - Use the Items-API instead</p>
-<dl class="field-list simple">
-<dt class="field-odd">Parameter<span class="colon">:</span></dt>
-<dd class="field-odd"><p><strong>string</strong> (<em>str</em>) – Path of the item to return</p>
-</dd>
-<dt class="field-even">Rückgabe<span class="colon">:</span></dt>
-<dd class="field-even"><p>Item</p>
-</dd>
-<dt class="field-odd">Rückgabetyp<span class="colon">:</span></dt>
-<dd class="field-odd"><p>object</p>
-</dd>
-</dl>
-</dd></dl>
-
-<dl class="py method">
-<dt class="sig sig-object py" id="lib.smarthome.SmartHome.return_items">
-<span class="sig-name descname"><span class="pre">return_items</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/lib/smarthome.html#SmartHome.return_items"><span class="viewcode-link"><span class="pre">[Quellcode]</span></span></a><a class="headerlink" href="#lib.smarthome.SmartHome.return_items" title="Link zu dieser Definition"></a></dt>
-<dd><p>“
-Function to return a list with all items</p>
-<p>DEPRECATED - Use the Items-API instead</p>
-<dl class="field-list simple">
-<dt class="field-odd">Rückgabe<span class="colon">:</span></dt>
-<dd class="field-odd"><p>List of all items</p>
-</dd>
-<dt class="field-even">Rückgabetyp<span class="colon">:</span></dt>
-<dd class="field-even"><p>list</p>
-</dd>
-</dl>
-</dd></dl>
-
-<dl class="py method">
-<dt class="sig sig-object py" id="lib.smarthome.SmartHome.match_items">
-<span class="sig-name descname"><span class="pre">match_items</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">regex</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/lib/smarthome.html#SmartHome.match_items"><span class="viewcode-link"><span class="pre">[Quellcode]</span></span></a><a class="headerlink" href="#lib.smarthome.SmartHome.match_items" title="Link zu dieser Definition"></a></dt>
-<dd><p>Function to match items against a regular expresseion</p>
-<p>DEPRECATED - Use the Items-API instead</p>
-<dl class="field-list simple">
-<dt class="field-odd">Parameter<span class="colon">:</span></dt>
-<dd class="field-odd"><p><strong>regex</strong> (<em>str</em>) – Regular expression to match items against</p>
-</dd>
-<dt class="field-even">Rückgabe<span class="colon">:</span></dt>
-<dd class="field-even"><p>List of matching items</p>
-</dd>
-<dt class="field-odd">Rückgabetyp<span class="colon">:</span></dt>
-<dd class="field-odd"><p>list</p>
-</dd>
-</dl>
-</dd></dl>
-
-<dl class="py method">
-<dt class="sig sig-object py" id="lib.smarthome.SmartHome.find_items">
-<span class="sig-name descname"><span class="pre">find_items</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">conf</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/lib/smarthome.html#SmartHome.find_items"><span class="viewcode-link"><span class="pre">[Quellcode]</span></span></a><a class="headerlink" href="#lib.smarthome.SmartHome.find_items" title="Link zu dieser Definition"></a></dt>
-<dd><p>“
-Function to find items that match the specified configuration</p>
-<p>DEPRECATED - Use the Items-API instead</p>
-<dl class="field-list simple">
-<dt class="field-odd">Parameter<span class="colon">:</span></dt>
-<dd class="field-odd"><p><strong>conf</strong> (<em>str</em>) – Configuration to look for</p>
-</dd>
-<dt class="field-even">Rückgabe<span class="colon">:</span></dt>
-<dd class="field-even"><p>list of matching items</p>
-</dd>
-<dt class="field-odd">Rückgabetyp<span class="colon">:</span></dt>
-<dd class="field-odd"><p>list</p>
-</dd>
-</dl>
-</dd></dl>
-
-<dl class="py method">
-<dt class="sig sig-object py" id="lib.smarthome.SmartHome.find_children">
-<span class="sig-name descname"><span class="pre">find_children</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">parent</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">conf</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/lib/smarthome.html#SmartHome.find_children"><span class="viewcode-link"><span class="pre">[Quellcode]</span></span></a><a class="headerlink" href="#lib.smarthome.SmartHome.find_children" title="Link zu dieser Definition"></a></dt>
-<dd><p>Function to find children with the specified configuration</p>
-<p>DEPRECATED - Use the Items-API instead</p>
-<dl class="field-list simple">
-<dt class="field-odd">Parameter<span class="colon">:</span></dt>
-<dd class="field-odd"><ul class="simple">
-<li><p><strong>parent</strong> (<em>str</em>) – parent item on which to start the search</p></li>
-<li><p><strong>conf</strong> (<em>str</em>) – Configuration to look for</p></li>
-</ul>
-</dd>
-<dt class="field-even">Rückgabe<span class="colon">:</span></dt>
-<dd class="field-even"><p>list or matching child-items</p>
-</dd>
-<dt class="field-odd">Rückgabetyp<span class="colon">:</span></dt>
-<dd class="field-odd"><p>list</p>
-</dd>
-</dl>
-</dd></dl>
-
-<dl class="py method">
-<dt class="sig sig-object py" id="lib.smarthome.SmartHome.return_modules">
-<span class="sig-name descname"><span class="pre">return_modules</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/lib/smarthome.html#SmartHome.return_modules"><span class="viewcode-link"><span class="pre">[Quellcode]</span></span></a><a class="headerlink" href="#lib.smarthome.SmartHome.return_modules" title="Link zu dieser Definition"></a></dt>
-<dd><p>Returns a list with the names of all loaded modules</p>
-<p>DEPRECATED - Use the Modules-API instead</p>
-<dl class="field-list simple">
-<dt class="field-odd">Rückgabe<span class="colon">:</span></dt>
-<dd class="field-odd"><p>list of module names</p>
-</dd>
-<dt class="field-even">Rückgabetyp<span class="colon">:</span></dt>
-<dd class="field-even"><p>list</p>
-</dd>
-</dl>
-</dd></dl>
-
-<dl class="py method">
-<dt class="sig sig-object py" id="lib.smarthome.SmartHome.get_module">
-<span class="sig-name descname"><span class="pre">get_module</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">name</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/lib/smarthome.html#SmartHome.get_module"><span class="viewcode-link"><span class="pre">[Quellcode]</span></span></a><a class="headerlink" href="#lib.smarthome.SmartHome.get_module" title="Link zu dieser Definition"></a></dt>
-<dd><p>Returns the module object for the module named by the parameter
-or None, if the named module is not loaded</p>
-<p>DEPRECATED - Use the Modules-API instead</p>
-<dl class="field-list simple">
-<dt class="field-odd">Parameter<span class="colon">:</span></dt>
-<dd class="field-odd"><p><strong>name</strong> (<em>str</em>) – Name of the module to return</p>
-</dd>
-<dt class="field-even">Rückgabe<span class="colon">:</span></dt>
-<dd class="field-even"><p>list of module names</p>
-</dd>
-<dt class="field-odd">Rückgabetyp<span class="colon">:</span></dt>
-<dd class="field-odd"><p>object</p>
-</dd>
-</dl>
-</dd></dl>
-
-<dl class="py method">
-<dt class="sig sig-object py" id="lib.smarthome.SmartHome.return_plugins">
-<span class="sig-name descname"><span class="pre">return_plugins</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/lib/smarthome.html#SmartHome.return_plugins"><span class="viewcode-link"><span class="pre">[Quellcode]</span></span></a><a class="headerlink" href="#lib.smarthome.SmartHome.return_plugins" title="Link zu dieser Definition"></a></dt>
-<dd><p>Returns a list with the instances of all loaded plugins</p>
-<p>DEPRECATED - Use the Plugins-API instead</p>
-<dl class="field-list simple">
-<dt class="field-odd">Rückgabe<span class="colon">:</span></dt>
-<dd class="field-odd"><p>list of plugin names</p>
-</dd>
-<dt class="field-even">Rückgabetyp<span class="colon">:</span></dt>
-<dd class="field-even"><p>list</p>
-</dd>
-</dl>
-</dd></dl>
-
-<dl class="py method">
-<dt class="sig sig-object py" id="lib.smarthome.SmartHome.reload_logics">
-<span class="sig-name descname"><span class="pre">reload_logics</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">signum</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">frame</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/lib/smarthome.html#SmartHome.reload_logics"><span class="viewcode-link"><span class="pre">[Quellcode]</span></span></a><a class="headerlink" href="#lib.smarthome.SmartHome.reload_logics" title="Link zu dieser Definition"></a></dt>
-<dd><p>Function to reload all logics</p>
-<p>DEPRECATED - Use the Logics-API instead</p>
-</dd></dl>
-
-<dl class="py method">
-<dt class="sig sig-object py" id="lib.smarthome.SmartHome.return_logic">
-<span class="sig-name descname"><span class="pre">return_logic</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">name</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/lib/smarthome.html#SmartHome.return_logic"><span class="viewcode-link"><span class="pre">[Quellcode]</span></span></a><a class="headerlink" href="#lib.smarthome.SmartHome.return_logic" title="Link zu dieser Definition"></a></dt>
-<dd><p>Returns (the object of) one loaded logic with given name</p>
-<p>DEPRECATED - Use the Logics-API instead</p>
-<dl class="field-list simple">
-<dt class="field-odd">Parameter<span class="colon">:</span></dt>
-<dd class="field-odd"><p><strong>name</strong> (<em>str</em>) – name of the logic to get</p>
-</dd>
-<dt class="field-even">Rückgabe<span class="colon">:</span></dt>
-<dd class="field-even"><p>object of the logic</p>
-</dd>
-<dt class="field-odd">Rückgabetyp<span class="colon">:</span></dt>
-<dd class="field-odd"><p>object</p>
-</dd>
-</dl>
-</dd></dl>
-
-<dl class="py method">
-<dt class="sig sig-object py" id="lib.smarthome.SmartHome.return_logics">
-<span class="sig-name descname"><span class="pre">return_logics</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/lib/smarthome.html#SmartHome.return_logics"><span class="viewcode-link"><span class="pre">[Quellcode]</span></span></a><a class="headerlink" href="#lib.smarthome.SmartHome.return_logics" title="Link zu dieser Definition"></a></dt>
-<dd><p>Returns a list with the names of all loaded logics</p>
-<p>DEPRECATED - Use the Logics-API instead</p>
-<dl class="field-list simple">
-<dt class="field-odd">Rückgabe<span class="colon">:</span></dt>
-<dd class="field-odd"><p>list of logic names</p>
-</dd>
-<dt class="field-even">Rückgabetyp<span class="colon">:</span></dt>
-<dd class="field-even"><p>list</p>
-</dd>
-</dl>
-</dd></dl>
-
-<dl class="py method">
-<dt class="sig sig-object py" id="lib.smarthome.SmartHome.now">
-<span class="sig-name descname"><span class="pre">now</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/lib/smarthome.html#SmartHome.now"><span class="viewcode-link"><span class="pre">[Quellcode]</span></span></a><a class="headerlink" href="#lib.smarthome.SmartHome.now" title="Link zu dieser Definition"></a></dt>
-<dd><p>Returns the actual time in a timezone aware format</p>
-<p>DEPRECATED - Use the Shtime-API instead</p>
-<dl class="field-list simple">
-<dt class="field-odd">Rückgabe<span class="colon">:</span></dt>
-<dd class="field-odd"><p>Actual time for the local timezone</p>
-</dd>
-<dt class="field-even">Rückgabetyp<span class="colon">:</span></dt>
-<dd class="field-even"><p>datetime</p>
-</dd>
-</dl>
-</dd></dl>
-
-<dl class="py method">
-<dt class="sig sig-object py" id="lib.smarthome.SmartHome.tzinfo">
-<span class="sig-name descname"><span class="pre">tzinfo</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/lib/smarthome.html#SmartHome.tzinfo"><span class="viewcode-link"><span class="pre">[Quellcode]</span></span></a><a class="headerlink" href="#lib.smarthome.SmartHome.tzinfo" title="Link zu dieser Definition"></a></dt>
-<dd><p>Returns the info about the actual local timezone</p>
-<p>DEPRECATED - Use the Shtime-API instead</p>
-<dl class="field-list simple">
-<dt class="field-odd">Rückgabe<span class="colon">:</span></dt>
-<dd class="field-odd"><p>Timezone info</p>
-</dd>
-<dt class="field-even">Rückgabetyp<span class="colon">:</span></dt>
-<dd class="field-even"><p>str</p>
-</dd>
-</dl>
-</dd></dl>
-
-<dl class="py method">
-<dt class="sig sig-object py" id="lib.smarthome.SmartHome.utcnow">
-<span class="sig-name descname"><span class="pre">utcnow</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/lib/smarthome.html#SmartHome.utcnow"><span class="viewcode-link"><span class="pre">[Quellcode]</span></span></a><a class="headerlink" href="#lib.smarthome.SmartHome.utcnow" title="Link zu dieser Definition"></a></dt>
-<dd><p>Returns the actual time in GMT</p>
-<p>DEPRECATED - Use the Shtime-API instead</p>
-<dl class="field-list simple">
-<dt class="field-odd">Rückgabe<span class="colon">:</span></dt>
-<dd class="field-odd"><p>Actual time in GMT</p>
-</dd>
-<dt class="field-even">Rückgabetyp<span class="colon">:</span></dt>
-<dd class="field-even"><p>datetime</p>
-</dd>
-</dl>
-</dd></dl>
-
-<dl class="py method">
-<dt class="sig sig-object py" id="lib.smarthome.SmartHome.utcinfo">
-<span class="sig-name descname"><span class="pre">utcinfo</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/lib/smarthome.html#SmartHome.utcinfo"><span class="viewcode-link"><span class="pre">[Quellcode]</span></span></a><a class="headerlink" href="#lib.smarthome.SmartHome.utcinfo" title="Link zu dieser Definition"></a></dt>
-<dd><p>Returns the info about the GMT timezone</p>
-<p>DEPRECATED - Use the Shtime-API instead</p>
-<dl class="field-list simple">
-<dt class="field-odd">Rückgabe<span class="colon">:</span></dt>
-<dd class="field-odd"><p>Timezone info</p>
-</dd>
-<dt class="field-even">Rückgabetyp<span class="colon">:</span></dt>
-<dd class="field-even"><p>str</p>
-</dd>
-</dl>
-</dd></dl>
-
-<dl class="py method">
-<dt class="sig sig-object py" id="lib.smarthome.SmartHome.runtime">
-<span class="sig-name descname"><span class="pre">runtime</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/lib/smarthome.html#SmartHome.runtime"><span class="viewcode-link"><span class="pre">[Quellcode]</span></span></a><a class="headerlink" href="#lib.smarthome.SmartHome.runtime" title="Link zu dieser Definition"></a></dt>
-<dd><p>Returns the uptime of SmartHomeNG</p>
-<p>DEPRECATED - Use the Shtime-API instead</p>
-<dl class="field-list simple">
-<dt class="field-odd">Rückgabe<span class="colon">:</span></dt>
-<dd class="field-odd"><p>Uptime in days, hours, minutes and seconds</p>
-</dd>
-<dt class="field-even">Rückgabetyp<span class="colon">:</span></dt>
-<dd class="field-even"><p>str</p>
-</dd>
-</dl>
-</dd></dl>
-
-<dl class="py method">
-<dt class="sig sig-object py" id="lib.smarthome.SmartHome.get_instance">
-<em class="property"><span class="pre">static</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">get_instance</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/lib/smarthome.html#SmartHome.get_instance"><span class="viewcode-link"><span class="pre">[Quellcode]</span></span></a><a class="headerlink" href="#lib.smarthome.SmartHome.get_instance" title="Link zu dieser Definition"></a></dt>
-<dd><p>returns the instance of running smarthome class</p>
-</dd></dl>
-
-</dd></dl>
-
+  <section id="plugin-smartmeter-konfiguration">
+<h1>Plugin ‚smartmeter‘ Konfiguration<a class="headerlink" href="#plugin-smartmeter-konfiguration" title="Permalink to this heading"></a></h1>
+<a class="reference internal image-reference" href="../../_images/interface.svg" id="index-0"><img alt="plugin type logo" class="align-left" height="150px" id="index-0" src="../../_images/interface.svg" width="150px" /></a>
+<p>Im folgenden sind etwaige Anforderungen und unterstützte Hardware beschrieben. Danach folgt die               Beschreibung, wie das Plugin <strong>smartmeter</strong> konfiguriert wird. Außerdem ist im folgenden               beschrieben, wie das Plugin in den Item Definitionen genutzt werden kann. <a class="footnote-reference brackets" href="#f1" id="id1" role="doc-noteref"><span class="fn-bracket">[</span>1<span class="fn-bracket">]</span></a></p>
+<p>Es handelt sich bei diesem Plugin um ein <strong>interface Plugin</strong>.</p>
+<p><strong>ACHTUNG</strong>: Dieses Plugin ist als develop gekennzeichnet. Es kann daher sein, dass es                  noch nicht Feature-Complete oder noch fehlerhaft ist.</p>
+<section id="beschreibung">
+<h2>Beschreibung<a class="headerlink" href="#beschreibung" title="Permalink to this heading"></a></h2>
+<p>Unterstützung für Smartmeter, die DLMS (Device Language Message Specification, IEC 62056-21) oder SML (Smart Message Language) nutzen und OBIS Codes liefern</p>
 </section>
-<section id="lib-item">
-<h2>lib.item<a class="headerlink" href="#lib-item" title="Permalink to this heading"></a></h2>
-<p>Eine der wichtigsten Objekt-Klassen von SmartHomeNG ist die Item Klasse:</p>
+<section id="anforderungen">
+<h2>Anforderungen<a class="headerlink" href="#anforderungen" title="Permalink to this heading"></a></h2>
+<blockquote>
+<div><ul class="simple">
+<li><p>Minimum SmartHomeNG Version: <strong>1.10.0.3</strong></p></li>
+<li><p>Minimum Python Version: <strong>3.9</strong></p></li>
+</ul>
+</div></blockquote>
 </section>
+<section id="konfiguration">
+<h2>Konfiguration<a class="headerlink" href="#konfiguration" title="Permalink to this heading"></a></h2>
+<p>Im folgenden ist beschrieben, wie das Plugin <strong>smartmeter</strong> konfiguriert wird. Außerdem ist im folgenden beschrieben, wie das Plugin in den Item Definitionen genutzt werden kann.</p>
+</section>
+</section>
+<section id="parameter">
+<h1>Parameter<a class="headerlink" href="#parameter" title="Permalink to this heading"></a></h1>
+<p>Das Plugin verfügt über folgende Parameter, die in der Datei <code class="docutils literal notranslate"><span class="pre">../etc/plugin.yaml</span></code> konfiguriert werden:</p>
+<section id="autoreconnect">
+<h2>autoreconnect<a class="headerlink" href="#autoreconnect" title="Permalink to this heading"></a></h2>
+<p>Bei Beenden der Verbindung automatisch erneut verbinden (nur bei ständigem Empfang)</p>
+<blockquote>
+<div><ul class="simple">
+<li><p>Datentyp: <strong>bool</strong></p></li>
+<li><p>Standardwert: <strong>True</strong></p></li>
+</ul>
+</div></blockquote>
+</section>
+<section id="baudrate">
+<h2>baudrate<a class="headerlink" href="#baudrate" title="Permalink to this heading"></a></h2>
+<p>Baudrate, bei der die Kommunikation erfolgen soll</p>
+<blockquote>
+<div><ul class="simple">
+<li><p>Datentyp: <strong>int</strong></p></li>
+<li><p>Standardwert: <strong>9600</strong></p></li>
+<li><p>Minimalwert: <strong>50</strong></p></li>
+</ul>
+</div></blockquote>
+</section>
+<section id="baudrate-min">
+<h2>baudrate_min<a class="headerlink" href="#baudrate-min" title="Permalink to this heading"></a></h2>
+<p>Baudrate, bei der die Kommunikation zuerst erfolgen soll (nur DLMS)</p>
+<blockquote>
+<div><ul class="simple">
+<li><p>Datentyp: <strong>int</strong></p></li>
+<li><p>Standardwert: <strong>300</strong></p></li>
+<li><p>Minimalwert: <strong>50</strong></p></li>
+</ul>
+</div></blockquote>
+</section>
+<section id="buffersize">
+<h2>buffersize<a class="headerlink" href="#buffersize" title="Permalink to this heading"></a></h2>
+<p>Größe des Lesepuffers. Mindestens doppelte Größe der maximalen Nachrichtenlänge in Bytes (nur SML)</p>
+<blockquote>
+<div><ul class="simple">
+<li><p>Datentyp: <strong>int</strong></p></li>
+<li><p>Standardwert: <strong>1024</strong></p></li>
+</ul>
+</div></blockquote>
+</section>
+<section id="crontab">
+<h2>crontab<a class="headerlink" href="#crontab" title="Permalink to this heading"></a></h2>
+<p>Abfragen des Smartmeters mit Festlegung via Crontab</p>
+<blockquote>
+<div><ul class="simple">
+<li><p>Datentyp: <strong>str</strong></p></li>
+</ul>
+</div></blockquote>
+</section>
+<section id="cycle">
+<h2>cycle<a class="headerlink" href="#cycle" title="Permalink to this heading"></a></h2>
+<p>Zeitlicher Abstand zwischen zwei Abfragen des Smartmeters in Sekunden, setzen auf 0 schaltet cycle aus</p>
+<blockquote>
+<div><ul class="simple">
+<li><p>Datentyp: <strong>int</strong></p></li>
+<li><p>Standardwert: <strong>60</strong></p></li>
+<li><p>Minimalwert: <strong>0</strong></p></li>
+</ul>
+</div></blockquote>
+</section>
+<section id="date-offset">
+<h2>date_offset<a class="headerlink" href="#date-offset" title="Permalink to this heading"></a></h2>
+<p>Unix timestamp der Smartmeter Inbetriebnahme (nur SML)</p>
+<blockquote>
+<div><ul class="simple">
+<li><p>Datentyp: <strong>int</strong></p></li>
+<li><p>Standardwert: <strong>0</strong></p></li>
+</ul>
+</div></blockquote>
+</section>
+<section id="device-address">
+<h2>device_address<a class="headerlink" href="#device-address" title="Permalink to this heading"></a></h2>
+<p>Interne Unteradresse des Smartmeters (nur DLMS)</p>
+<blockquote>
+<div><ul class="simple">
+<li><p>Datentyp: <strong>str</strong></p></li>
+</ul>
+</div></blockquote>
+</section>
+<section id="device-type">
+<h2>device_type<a class="headerlink" href="#device-type" title="Permalink to this heading"></a></h2>
+<p>Typ des Gerätes, ggf. notwendig für spezielle Behandlung (nur SML)</p>
+<blockquote>
+<div><ul class="simple">
+<li><p>Datentyp: <strong>str</strong></p></li>
+<li><p>Mögliche Werte:</p>
+<ul>
+<li></li>
+</ul>
+</li>
+</ul>
+</div></blockquote>
+</section>
+<section id="host">
+<h2>host<a class="headerlink" href="#host" title="Permalink to this heading"></a></h2>
+<p>Host der eine IP Schnittstelle bereitstellt (nur SML)</p>
+<blockquote>
+<div><ul class="simple">
+<li><p>Datentyp: <strong>str</strong></p></li>
+</ul>
+</div></blockquote>
+</section>
+<section id="normalize">
+<h2>normalize<a class="headerlink" href="#normalize" title="Permalink to this heading"></a></h2>
+<p>Wenn Einheiten mit Zehnerpräfix geliefert werden, werden Einheit und Wert in die entsprechende Basiseinheit konvertiert (z.B. 12.7 kWh -&gt; 12700 Wh)</p>
+<blockquote>
+<div><ul class="simple">
+<li><p>Datentyp: <strong>bool</strong></p></li>
+<li><p>Standardwert: <strong>True</strong></p></li>
+</ul>
+</div></blockquote>
+</section>
+<section id="only-listen">
+<h2>only_listen<a class="headerlink" href="#only-listen" title="Permalink to this heading"></a></h2>
+<p>Manche Smartmeter können nicht abgefragt werden sondern senden von sich aus Informationen. Für diese Smartmeter auf True setzen und die Baudrate anpassen (nur DLMS)</p>
+<blockquote>
+<div><ul class="simple">
+<li><p>Datentyp: <strong>bool</strong></p></li>
+<li><p>Standardwert: <strong>False</strong></p></li>
+</ul>
+</div></blockquote>
+</section>
+<section id="poll">
+<h2>poll<a class="headerlink" href="#poll" title="Permalink to this heading"></a></h2>
+<p>Gerät regelmäßig abfragen (cycle/crontab) statt ständigem Empfang (nur SML)</p>
+<blockquote>
+<div><ul class="simple">
+<li><p>Datentyp: <strong>bool</strong></p></li>
+<li><p>Standardwert: <strong>True</strong></p></li>
+</ul>
+</div></blockquote>
+</section>
+<section id="port">
+<h2>port<a class="headerlink" href="#port" title="Permalink to this heading"></a></h2>
+<p>Port für die Kommunikation (nur SML)</p>
+<blockquote>
+<div><ul class="simple">
+<li><p>Datentyp: <strong>int</strong></p></li>
+</ul>
+</div></blockquote>
+</section>
+<section id="protocol">
+<h2>protocol<a class="headerlink" href="#protocol" title="Permalink to this heading"></a></h2>
+<p>Protokoll zur Kommunikation mit dem Smartmeter. Leerer Wert bedeutet automatische Erkennung (soweit erfolgreich).</p>
+<blockquote>
+<div><ul class="simple">
+<li><p>Datentyp: <strong>str</strong></p></li>
+<li><p>Mögliche Werte:</p>
+<ul>
+<li><p><strong>DLMS</strong></p></li>
+<li><p><strong>SML</strong></p></li>
+<li><p><strong>dlms</strong></p></li>
+<li><p><strong>sml</strong></p></li>
+<li></li>
+</ul>
+</li>
+</ul>
+</div></blockquote>
+</section>
+<section id="querycode">
+<h2>querycode<a class="headerlink" href="#querycode" title="Permalink to this heading"></a></h2>
+<p>Abfragecode für den Smartmeter, default ist <cite>?</cite>, einige Smartmeter akzeptieren z.B. <cite>2</cite> (nur DLMS)</p>
+<blockquote>
+<div><ul class="simple">
+<li><p>Datentyp: <strong>str</strong></p></li>
+<li><p>Standardwert: <strong>?</strong></p></li>
+</ul>
+</div></blockquote>
+</section>
+<section id="serialport">
+<h2>serialport<a class="headerlink" href="#serialport" title="Permalink to this heading"></a></h2>
+<p>Serieller Port, an dem das Smartmeter angeschlossen ist</p>
+<blockquote>
+<div><ul class="simple">
+<li><p>Datentyp: <strong>str</strong></p></li>
+</ul>
+</div></blockquote>
+</section>
+<section id="time-filter">
+<h2>time_filter<a class="headerlink" href="#time-filter" title="Permalink to this heading"></a></h2>
+<p>Im „ständig empfangen“-Modus Item-Updates nur alle x Sekunden senden. x = 0: alle Updates senden. x = -1: den Wert von „cycle“ verwenden.</p>
+<blockquote>
+<div><ul class="simple">
+<li><p>Datentyp: <strong>int</strong></p></li>
+<li><p>Standardwert: <strong>0</strong></p></li>
+</ul>
+</div></blockquote>
+</section>
+<section id="timeout">
+<h2>timeout<a class="headerlink" href="#timeout" title="Permalink to this heading"></a></h2>
+<p>Timeout in Sekunden nach dem der Lesevorgang automatisch beendet wird</p>
+<blockquote>
+<div><ul class="simple">
+<li><p>Datentyp: <strong>int</strong></p></li>
+<li><p>Standardwert: <strong>2</strong></p></li>
+</ul>
+</div></blockquote>
+</section>
+<section id="use-checksum">
+<h2>use_checksum<a class="headerlink" href="#use-checksum" title="Permalink to this heading"></a></h2>
+<p>Wenn wahr, wird eine Prüfsumme über die ausgelesenen Daten gebildet (nur DLMS)</p>
+<blockquote>
+<div><ul class="simple">
+<li><p>Datentyp: <strong>bool</strong></p></li>
+<li><p>Standardwert: <strong>True</strong></p></li>
+</ul>
+</div></blockquote>
+</section>
+</section>
+<section id="item-attribute">
+<h1>Item Attribute<a class="headerlink" href="#item-attribute" title="Permalink to this heading"></a></h1>
+<p>Das Plugin unterstützt folgende Item Attribute, die in den Dateien im Verzeichnis  <code class="docutils literal notranslate"><span class="pre">../items</span></code> verwendet werden:</p>
+<section id="obis-code">
+<h2>obis_code<a class="headerlink" href="#obis-code" title="Permalink to this heading"></a></h2>
+<p>OBIS-Code, dessen Wert gelesen werden soll</p>
+<blockquote>
+<div><ul class="simple">
+<li><p>Datentyp: <strong>str</strong></p></li>
+</ul>
+</div></blockquote>
+</section>
+<section id="obis-index">
+<h2>obis_index<a class="headerlink" href="#obis-index" title="Permalink to this heading"></a></h2>
+<p>Index des OBIS-Werts, der gelesen werden soll</p>
+<blockquote>
+<div><ul class="simple">
+<li><p>Datentyp: <strong>int</strong></p></li>
+<li><p>Standardwert: <strong>0</strong></p></li>
+<li><p>Minimalwert: <strong>0</strong></p></li>
+<li><p>Maximalwert: <strong>10</strong></p></li>
+</ul>
+</div></blockquote>
+</section>
+<section id="obis-property">
+<h2>obis_property<a class="headerlink" href="#obis-property" title="Permalink to this heading"></a></h2>
+<p>Eigenschaft des gelesenen Wertes: * value: korrigierter Wert (Skalierungsfaktor, SI-Basiseinheit) * valueRaw: vom Gerät gelieferter (Roh-)Wert * unit: zurückgegebene Einheit des Wertes * unitCode: Code der Einheit gem. smllib.const.UNITS * scaler: Multiplikationsfaktor für valueRaw * status: Status-Bitfeld * valTime: Zeitstempel des Wertes * actTime: korrigierter Zeitstempel des Wertes * signature: tbd Nicht alle Eigenschaften sind in jedem Datenpunkt vorhanden.</p>
+<blockquote>
+<div><ul class="simple">
+<li><p>Datentyp: <strong>str</strong></p></li>
+<li><p>Standardwert: <strong>value</strong></p></li>
+<li><p>Mögliche Werte:</p>
+<ul>
+<li><p><strong>value</strong></p></li>
+<li><p><strong>valueRaw</strong></p></li>
+<li><p><strong>unit</strong></p></li>
+<li><p><strong>unitCode</strong></p></li>
+<li><p><strong>name</strong></p></li>
+<li><p><strong>obis</strong></p></li>
+<li><p><strong>valTime</strong></p></li>
+<li><p><strong>actTime</strong></p></li>
+<li><p><strong>scaler</strong></p></li>
+<li><p><strong>signature</strong></p></li>
+<li><p><strong>status</strong></p></li>
+<li><p><strong>statRun</strong></p></li>
+<li><p><strong>statFraudMagnet</strong></p></li>
+<li><p><strong>statFraudCover</strong></p></li>
+<li><p><strong>statEnergyTotal</strong></p></li>
+<li><p><strong>statEnergyL1</strong></p></li>
+<li><p><strong>statEnergyL2</strong></p></li>
+<li><p><strong>statEnergyL3</strong></p></li>
+<li><p><strong>statRotaryField</strong></p></li>
+<li><p><strong>statBackstop</strong></p></li>
+<li><p><strong>statCalFault</strong></p></li>
+<li><p><strong>statVoltageL1</strong></p></li>
+<li><p><strong>statVoltageL2</strong></p></li>
+<li><p><strong>statVoltageL3</strong></p></li>
+</ul>
+</li>
+</ul>
+</div></blockquote>
+</section>
+<section id="obis-readout">
+<h2>obis_readout<a class="headerlink" href="#obis-readout" title="Permalink to this heading"></a></h2>
+<p>Der komplette Auslesepuffer wird für eigene Untersuchungen gespeichert (nur DLMS)</p>
+<blockquote>
+<div><ul class="simple">
+<li><p>Datentyp: <strong>str</strong></p></li>
+</ul>
+</div></blockquote>
+</section>
+<section id="obis-vtype">
+<h2>obis_vtype<a class="headerlink" href="#obis-vtype" title="Permalink to this heading"></a></h2>
+<p>Konvertierungsart des gelesenen Wertes: * str: eine Zeichenkette * num: numerisch, entweder Ganzzahl oder Fließkommazahl * int: Ganzzahl * float: Fließkommazahl * ZST12: Datum und Zeit codiert als YYMMDDhhmmss * ZST10: Datum und Zeit codiert als YYMMDDhhmm * D6: Datum codiert als YYMMDD * Z4: Zeit codiert als hhmm * Z6: Zeit codiert als hhmmss</p>
+<blockquote>
+<div><ul class="simple">
+<li><p>Datentyp: <strong>str</strong></p></li>
+<li><p>Mögliche Werte:</p>
+<ul>
+<li><p><strong>str</strong></p></li>
+<li><p><strong>num</strong></p></li>
+<li><p><strong>int</strong></p></li>
+<li><p><strong>float</strong></p></li>
+<li><p><strong>ZST12</strong></p></li>
+<li><p><strong>ZST10</strong></p></li>
+<li><p><strong>D6</strong></p></li>
+<li><p><strong>Z6</strong></p></li>
+<li><p><strong>Z4</strong></p></li>
+<li></li>
+</ul>
+</li>
+</ul>
+</div></blockquote>
+</section>
+</section>
+<section id="logik-parameter">
+<h1>Logik Parameter<a class="headerlink" href="#logik-parameter" title="Permalink to this heading"></a></h1>
+<p>Das Plugin verfügt über folgende Parameter, die in der Datei <code class="docutils literal notranslate"><span class="pre">../etc/logic.yaml</span></code> konfiguriert werden:</p>
+<p>Keine Logik Parameter in den Metadaten beschrieben - <strong>Bitte in der README nachsehen</strong> (siehe Fußnote)</p>
+</section>
+<section id="plugin-functions">
+<h1>Plugin Functions<a class="headerlink" href="#plugin-functions" title="Permalink to this heading"></a></h1>
+<p>Das Plugin verfügt über folgende öffentliche Funktionen, die z.B. in Logiken aufgerufen werden können.</p>
+<p><strong>Keine</strong></p>
+<aside class="footnote-list brackets">
+<aside class="footnote brackets" id="f1" role="note">
+<span class="label"><span class="fn-bracket">[</span><a role="doc-backlink" href="#id1">1</a><span class="fn-bracket">]</span></span>
+<p>Diese Seite wurde aus den Metadaten des Plugins erzeugt.</p>
+</aside>
+</aside>
 </section>
 
 
            </div>
           </div>
-          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
-        <a href="core.html" class="btn btn-neutral float-left" title="Entwicklung des Core" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Zurück</a>
-        <a href="core_libraries.html" class="btn btn-neutral float-right" title="Programm Module" accesskey="n" rel="next">Weiter <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
-    </div>
+          <footer>
 
   <hr/>
 

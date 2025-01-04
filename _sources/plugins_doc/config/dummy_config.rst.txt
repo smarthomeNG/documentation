@@ -129,6 +129,7 @@
    sma.rst
    sma_em.rst
    sma_mb.rst
+   smartmeter.rst
    smarttv.rst
    smartvisu.rst
    sml.rst
