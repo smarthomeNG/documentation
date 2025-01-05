@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>modules.admin.api_plugins &mdash; Dokumentation v1.10.0.3 v1.10.0.3 develop (Stand 4. Januar 2025, commit d19b92c) Dokumentation</title>
+  <title>modules.admin.api_plugins &mdash; Dokumentation v1.10.0.3 v1.10.0.3 develop (Stand 5. Januar 2025, commit d19b92c) Dokumentation</title>
       <link rel="stylesheet" type="text/css" href="../../../_static/pygments.css" />
       <link rel="stylesheet" type="text/css" href="../../../_static/css/theme.css" />
       <link rel="stylesheet" type="text/css" href="../../../_static/custom.css" />
@@ -5757,29 +5757,29 @@
 <span class="c1">#########################################################################</span>
 
 
-<span class="kn">import</span> <span class="nn">os</span>
-<span class="kn">import</span> <span class="nn">shutil</span>
-<span class="kn">import</span> <span class="nn">logging</span>
-<span class="kn">import</span> <span class="nn">json</span>
-<span class="kn">import</span> <span class="nn">collections</span>
-<span class="kn">import</span> <span class="nn">requests</span>
-<span class="kn">import</span> <span class="nn">time</span>
-<span class="kn">import</span> <span class="nn">threading</span>
-<span class="kn">from</span> <span class="nn">random</span> <span class="kn">import</span> <span class="n">randrange</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">os</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">shutil</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">logging</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">json</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">collections</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">requests</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">time</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">threading</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">random</span><span class="w"> </span><span class="kn">import</span> <span class="n">randrange</span>
 
-<span class="kn">import</span> <span class="nn">lib.shyaml</span> <span class="k">as</span> <span class="nn">shyaml</span>
-<span class="kn">import</span> <span class="nn">lib.config</span>
-<span class="kn">from</span> <span class="nn">lib.module</span> <span class="kn">import</span> <span class="n">Modules</span>
-<span class="kn">from</span> <span class="nn">lib.plugin</span> <span class="kn">import</span> <span class="n">Plugins</span>
-<span class="kn">from</span> <span class="nn">lib.metadata</span> <span class="kn">import</span> <span class="n">Metadata</span>
-<span class="kn">from</span> <span class="nn">lib.model.smartplugin</span> <span class="kn">import</span> <span class="n">SmartPlugin</span>
-<span class="kn">from</span> <span class="nn">lib.constants</span> <span class="kn">import</span> <span class="p">(</span><span class="n">KEY_CLASS_PATH</span><span class="p">,</span> <span class="n">YAML_FILE</span><span class="p">,</span> <span class="n">DIR_PLUGINS</span><span class="p">)</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">lib.shyaml</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">shyaml</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">lib.config</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">lib.module</span><span class="w"> </span><span class="kn">import</span> <span class="n">Modules</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">lib.plugin</span><span class="w"> </span><span class="kn">import</span> <span class="n">Plugins</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">lib.metadata</span><span class="w"> </span><span class="kn">import</span> <span class="n">Metadata</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">lib.model.smartplugin</span><span class="w"> </span><span class="kn">import</span> <span class="n">SmartPlugin</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">lib.constants</span><span class="w"> </span><span class="kn">import</span> <span class="p">(</span><span class="n">KEY_CLASS_PATH</span><span class="p">,</span> <span class="n">YAML_FILE</span><span class="p">,</span> <span class="n">DIR_PLUGINS</span><span class="p">)</span>
 
-<span class="kn">from</span> <span class="nn">.rest</span> <span class="kn">import</span> <span class="n">RESTResource</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">.rest</span><span class="w"> </span><span class="kn">import</span> <span class="n">RESTResource</span>
 
 
-<div class="viewcode-block" id="PluginsController"><a class="viewcode-back" href="../../../referenz/module/module_admin.html#modules.admin.api_plugins.PluginsController">[Doku]</a><span class="k">class</span> <span class="nc">PluginsController</span><span class="p">(</span><span class="n">RESTResource</span><span class="p">):</span>
-    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">module</span><span class="p">):</span>
+<div class="viewcode-block" id="PluginsController"><a class="viewcode-back" href="../../../referenz/module/module_admin.html#modules.admin.api_plugins.PluginsController">[Doku]</a><span class="k">class</span><span class="w"> </span><span class="nc">PluginsController</span><span class="p">(</span><span class="n">RESTResource</span><span class="p">):</span>
+    <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">module</span><span class="p">):</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">_sh</span> <span class="o">=</span> <span class="n">module</span><span class="o">.</span><span class="n">_sh</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">base_dir</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_sh</span><span class="o">.</span><span class="n">get_basedir</span><span class="p">()</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">plugins_dir</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_sh</span><span class="o">.</span><span class="n">get_config_dir</span><span class="p">(</span><span class="n">DIR_PLUGINS</span><span class="p">)</span>
@@ -5792,7 +5792,7 @@
     <span class="c1"># ======================================================================</span>
     <span class="c1">#  GET /api/plugins</span>
     <span class="c1">#</span>
-<div class="viewcode-block" id="PluginsController.read"><a class="viewcode-back" href="../../../referenz/module/module_admin.html#modules.admin.api_plugins.PluginsController.read">[Doku]</a>    <span class="k">def</span> <span class="nf">read</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="nb">id</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+<div class="viewcode-block" id="PluginsController.read"><a class="viewcode-back" href="../../../referenz/module/module_admin.html#modules.admin.api_plugins.PluginsController.read">[Doku]</a>    <span class="k">def</span><span class="w"> </span><span class="nf">read</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="nb">id</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Handle GET requests for threads API</span>
 
@@ -5827,9 +5827,9 @@
     <span class="n">read</span><span class="o">.</span><span class="n">authentication_needed</span> <span class="o">=</span> <span class="kc">True</span></div>
 
 
-<div class="viewcode-block" id="PluginsInstalledController"><a class="viewcode-back" href="../../../referenz/module/module_admin.html#modules.admin.api_plugins.PluginsInstalledController">[Doku]</a><span class="k">class</span> <span class="nc">PluginsInstalledController</span><span class="p">(</span><span class="n">RESTResource</span><span class="p">):</span>
+<div class="viewcode-block" id="PluginsInstalledController"><a class="viewcode-back" href="../../../referenz/module/module_admin.html#modules.admin.api_plugins.PluginsInstalledController">[Doku]</a><span class="k">class</span><span class="w"> </span><span class="nc">PluginsInstalledController</span><span class="p">(</span><span class="n">RESTResource</span><span class="p">):</span>
 
-    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">module</span><span class="p">):</span>
+    <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">module</span><span class="p">):</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">_sh</span> <span class="o">=</span> <span class="n">module</span><span class="o">.</span><span class="n">_sh</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">base_dir</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_sh</span><span class="o">.</span><span class="n">get_basedir</span><span class="p">()</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">plugins_dir</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_sh</span><span class="o">.</span><span class="n">get_config_dir</span><span class="p">(</span><span class="n">DIR_PLUGINS</span><span class="p">)</span>
@@ -5842,7 +5842,7 @@
     <span class="c1"># ======================================================================</span>
     <span class="c1">#  GET /api/plugins/installed</span>
     <span class="c1">#</span>
-<div class="viewcode-block" id="PluginsInstalledController.read"><a class="viewcode-back" href="../../../referenz/module/module_admin.html#modules.admin.api_plugins.PluginsInstalledController.read">[Doku]</a>    <span class="k">def</span> <span class="nf">read</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="nb">id</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+<div class="viewcode-block" id="PluginsInstalledController.read"><a class="viewcode-back" href="../../../referenz/module/module_admin.html#modules.admin.api_plugins.PluginsInstalledController.read">[Doku]</a>    <span class="k">def</span><span class="w"> </span><span class="nf">read</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="nb">id</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        return an object with data about all installed plugins</span>
 <span class="sd">        &quot;&quot;&quot;</span>
@@ -5896,9 +5896,9 @@
     <span class="n">read</span><span class="o">.</span><span class="n">authentication_needed</span> <span class="o">=</span> <span class="kc">True</span></div>
 
 
-<div class="viewcode-block" id="PluginsConfigController"><a class="viewcode-back" href="../../../referenz/module/module_admin.html#modules.admin.api_plugins.PluginsConfigController">[Doku]</a><span class="k">class</span> <span class="nc">PluginsConfigController</span><span class="p">(</span><span class="n">RESTResource</span><span class="p">):</span>
+<div class="viewcode-block" id="PluginsConfigController"><a class="viewcode-back" href="../../../referenz/module/module_admin.html#modules.admin.api_plugins.PluginsConfigController">[Doku]</a><span class="k">class</span><span class="w"> </span><span class="nc">PluginsConfigController</span><span class="p">(</span><span class="n">RESTResource</span><span class="p">):</span>
 
-    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">module</span><span class="p">):</span>
+    <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">module</span><span class="p">):</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">_sh</span> <span class="o">=</span> <span class="n">module</span><span class="o">.</span><span class="n">_sh</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">base_dir</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_sh</span><span class="o">.</span><span class="n">get_basedir</span><span class="p">()</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">plugins_dir</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_sh</span><span class="o">.</span><span class="n">get_config_dir</span><span class="p">(</span><span class="n">DIR_PLUGINS</span><span class="p">)</span>
@@ -5910,7 +5910,7 @@
         <span class="k">return</span>
 
 
-    <span class="k">def</span> <span class="nf">_get_pluginname_and_metadata</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">plg_section</span><span class="p">,</span> <span class="n">plg_conf</span><span class="p">):</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">_get_pluginname_and_metadata</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">plg_section</span><span class="p">,</span> <span class="n">plg_conf</span><span class="p">):</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Return the actual plugin name and the metadata instance</span>
 
@@ -5945,7 +5945,7 @@
     <span class="c1"># ======================================================================</span>
     <span class="c1">#  GET /api/plugins/config</span>
     <span class="c1">#</span>
-<div class="viewcode-block" id="PluginsConfigController.read"><a class="viewcode-back" href="../../../referenz/module/module_admin.html#modules.admin.api_plugins.PluginsConfigController.read">[Doku]</a>    <span class="k">def</span> <span class="nf">read</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="nb">id</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+<div class="viewcode-block" id="PluginsConfigController.read"><a class="viewcode-back" href="../../../referenz/module/module_admin.html#modules.admin.api_plugins.PluginsConfigController.read">[Doku]</a>    <span class="k">def</span><span class="w"> </span><span class="nf">read</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="nb">id</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        return an object with data about all configured plugins</span>
 <span class="sd">        &quot;&quot;&quot;</span>
@@ -6007,13 +6007,13 @@
     <span class="n">read</span><span class="o">.</span><span class="n">authentication_needed</span> <span class="o">=</span> <span class="kc">True</span></div>
 
 
-<div class="viewcode-block" id="PluginsInfoController"><a class="viewcode-back" href="../../../referenz/module/module_admin.html#modules.admin.api_plugins.PluginsInfoController">[Doku]</a><span class="k">class</span> <span class="nc">PluginsInfoController</span><span class="p">(</span><span class="n">RESTResource</span><span class="p">):</span>
+<div class="viewcode-block" id="PluginsInfoController"><a class="viewcode-back" href="../../../referenz/module/module_admin.html#modules.admin.api_plugins.PluginsInfoController">[Doku]</a><span class="k">class</span><span class="w"> </span><span class="nc">PluginsInfoController</span><span class="p">(</span><span class="n">RESTResource</span><span class="p">):</span>
 
     <span class="n">blog_urls</span> <span class="o">=</span> <span class="p">{}</span>
     <span class="n">_update_bloglinks_active</span> <span class="o">=</span> <span class="kc">False</span>
 
 
-    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">module</span><span class="p">,</span> <span class="n">shng_url_root</span><span class="p">):</span>
+    <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">module</span><span class="p">,</span> <span class="n">shng_url_root</span><span class="p">):</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">_sh</span> <span class="o">=</span> <span class="n">module</span><span class="o">.</span><span class="n">_sh</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">module</span> <span class="o">=</span> <span class="n">module</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">shng_url_root</span> <span class="o">=</span> <span class="n">shng_url_root</span>
@@ -6039,7 +6039,7 @@
         <span class="k">return</span>
 
 
-<div class="viewcode-block" id="PluginsInfoController.stop"><a class="viewcode-back" href="../../../referenz/module/module_admin.html#modules.admin.api_plugins.PluginsInfoController.stop">[Doku]</a>    <span class="k">def</span> <span class="nf">stop</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<div class="viewcode-block" id="PluginsInfoController.stop"><a class="viewcode-back" href="../../../referenz/module/module_admin.html#modules.admin.api_plugins.PluginsInfoController.stop">[Doku]</a>    <span class="k">def</span><span class="w"> </span><span class="nf">stop</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        If the Controller has started threads or uses python modules that created threads,</span>
 <span class="sd">        put cleanup code here.</span>
@@ -6052,7 +6052,7 @@
         <span class="k">return</span></div>
 
 
-    <span class="k">def</span> <span class="nf">_test_for_blog_articles_task</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">_test_for_blog_articles_task</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Scheduler task to test if blog articles for the loaded plugins exist</span>
 <span class="sd">        :return:</span>
@@ -6109,7 +6109,7 @@
     <span class="c1"># ======================================================================</span>
     <span class="c1">#  GET /api/plugins/info</span>
     <span class="c1">#</span>
-<div class="viewcode-block" id="PluginsInfoController.read"><a class="viewcode-back" href="../../../referenz/module/module_admin.html#modules.admin.api_plugins.PluginsInfoController.read">[Doku]</a>    <span class="k">def</span> <span class="nf">read</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="nb">id</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+<div class="viewcode-block" id="PluginsInfoController.read"><a class="viewcode-back" href="../../../referenz/module/module_admin.html#modules.admin.api_plugins.PluginsInfoController.read">[Doku]</a>    <span class="k">def</span><span class="w"> </span><span class="nf">read</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="nb">id</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        return a list of all configured plugin instances</span>
 <span class="sd">        &quot;&quot;&quot;</span>
@@ -6240,9 +6240,9 @@
     <span class="n">read</span><span class="o">.</span><span class="n">authentication_needed</span> <span class="o">=</span> <span class="kc">True</span></div>
 
 
-<div class="viewcode-block" id="PluginsAPIController"><a class="viewcode-back" href="../../../referenz/module/module_admin.html#modules.admin.api_plugins.PluginsAPIController">[Doku]</a><span class="k">class</span> <span class="nc">PluginsAPIController</span><span class="p">(</span><span class="n">RESTResource</span><span class="p">):</span>
+<div class="viewcode-block" id="PluginsAPIController"><a class="viewcode-back" href="../../../referenz/module/module_admin.html#modules.admin.api_plugins.PluginsAPIController">[Doku]</a><span class="k">class</span><span class="w"> </span><span class="nc">PluginsAPIController</span><span class="p">(</span><span class="n">RESTResource</span><span class="p">):</span>
 
-    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">module</span><span class="p">):</span>
+    <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">module</span><span class="p">):</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">_sh</span> <span class="o">=</span> <span class="n">module</span><span class="o">.</span><span class="n">_sh</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">module</span> <span class="o">=</span> <span class="n">module</span>
 
@@ -6258,7 +6258,7 @@
     <span class="c1"># ======================================================================</span>
     <span class="c1">#  GET /api/plugins/plugin_api</span>
     <span class="c1">#</span>
-<div class="viewcode-block" id="PluginsAPIController.read"><a class="viewcode-back" href="../../../referenz/module/module_admin.html#modules.admin.api_plugins.PluginsAPIController.read">[Doku]</a>    <span class="k">def</span> <span class="nf">read</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="nb">id</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+<div class="viewcode-block" id="PluginsAPIController.read"><a class="viewcode-back" href="../../../referenz/module/module_admin.html#modules.admin.api_plugins.PluginsAPIController.read">[Doku]</a>    <span class="k">def</span><span class="w"> </span><span class="nf">read</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="nb">id</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        return a list of all configured plugin instances</span>
 <span class="sd">        &quot;&quot;&quot;</span>
@@ -6283,9 +6283,9 @@
 
 
 
-<div class="viewcode-block" id="PluginsLogicParametersController"><a class="viewcode-back" href="../../../referenz/module/module_admin.html#modules.admin.api_plugins.PluginsLogicParametersController">[Doku]</a><span class="k">class</span> <span class="nc">PluginsLogicParametersController</span><span class="p">(</span><span class="n">RESTResource</span><span class="p">):</span>
+<div class="viewcode-block" id="PluginsLogicParametersController"><a class="viewcode-back" href="../../../referenz/module/module_admin.html#modules.admin.api_plugins.PluginsLogicParametersController">[Doku]</a><span class="k">class</span><span class="w"> </span><span class="nc">PluginsLogicParametersController</span><span class="p">(</span><span class="n">RESTResource</span><span class="p">):</span>
 
-    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">module</span><span class="p">):</span>
+    <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">module</span><span class="p">):</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">_sh</span> <span class="o">=</span> <span class="n">module</span><span class="o">.</span><span class="n">_sh</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">module</span> <span class="o">=</span> <span class="n">module</span>
 
@@ -6301,7 +6301,7 @@
     <span class="c1"># ======================================================================</span>
     <span class="c1">#  GET /api/plugins/logicparameters</span>
     <span class="c1">#</span>
-<div class="viewcode-block" id="PluginsLogicParametersController.read"><a class="viewcode-back" href="../../../referenz/module/module_admin.html#modules.admin.api_plugins.PluginsLogicParametersController.read">[Doku]</a>    <span class="k">def</span> <span class="nf">read</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="nb">id</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+<div class="viewcode-block" id="PluginsLogicParametersController.read"><a class="viewcode-back" href="../../../referenz/module/module_admin.html#modules.admin.api_plugins.PluginsLogicParametersController.read">[Doku]</a>    <span class="k">def</span><span class="w"> </span><span class="nf">read</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="nb">id</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        return an object with data about the logic parameters of all configured plugins</span>
 <span class="sd">        &quot;&quot;&quot;</span>

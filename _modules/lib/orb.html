@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>lib.orb &mdash; Dokumentation v1.10.0.3 v1.10.0.3 develop (Stand 4. Januar 2025, commit d19b92c) Dokumentation</title>
+  <title>lib.orb &mdash; Dokumentation v1.10.0.3 v1.10.0.3 develop (Stand 5. Januar 2025, commit d19b92c) Dokumentation</title>
       <link rel="stylesheet" type="text/css" href="../../_static/pygments.css" />
       <link rel="stylesheet" type="text/css" href="../../_static/css/theme.css" />
       <link rel="stylesheet" type="text/css" href="../../_static/custom.css" />
@@ -5757,26 +5757,26 @@
 <span class="c1">#  along with SmartHomeNG.  If not, see &lt;http://www.gnu.org/licenses/&gt;.</span>
 <span class="c1">##########################################################################</span>
 
-<span class="kn">import</span> <span class="nn">logging</span>
-<span class="kn">import</span> <span class="nn">datetime</span>
-<span class="kn">import</span> <span class="nn">math</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">logging</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">datetime</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">math</span>
 
 <span class="n">logger</span> <span class="o">=</span> <span class="n">logging</span><span class="o">.</span><span class="n">getLogger</span><span class="p">(</span><span class="vm">__name__</span><span class="p">)</span>
 
 <span class="k">try</span><span class="p">:</span>
-    <span class="kn">import</span> <span class="nn">ephem</span>
+    <span class="kn">import</span><span class="w"> </span><span class="nn">ephem</span>
 <span class="k">except</span> <span class="ne">ImportError</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
     <span class="n">ephem</span> <span class="o">=</span> <span class="kc">None</span>  <span class="c1"># noqa</span>
 
-<span class="kn">import</span> <span class="nn">dateutil.relativedelta</span>
-<span class="kn">from</span> <span class="nn">dateutil.tz</span> <span class="kn">import</span> <span class="n">tzutc</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">dateutil.relativedelta</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">dateutil.tz</span><span class="w"> </span><span class="kn">import</span> <span class="n">tzutc</span>
 
 <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">This library contains a class Orb for calculating sun or moon related events.</span>
 <span class="sd">Currently it uses ephem for calculation of the sky bound events.</span>
 <span class="sd">&quot;&quot;&quot;</span>
 
-<div class="viewcode-block" id="Orb"><a class="viewcode-back" href="../../lib/orb.html#lib.orb.Orb">[Doku]</a><span class="k">class</span> <span class="nc">Orb</span><span class="p">():</span>
+<div class="viewcode-block" id="Orb"><a class="viewcode-back" href="../../lib/orb.html#lib.orb.Orb">[Doku]</a><span class="k">class</span><span class="w"> </span><span class="nc">Orb</span><span class="p">():</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    Save an observers location and the name of a celestial body for future use</span>
 <span class="sd">    </span>
@@ -5796,7 +5796,7 @@
 <span class="sd">        `pressure` - 1010 mBar</span>
 <span class="sd">    &quot;&quot;&quot;</span>
 
-    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">orb</span><span class="p">,</span> <span class="n">lon</span><span class="p">,</span> <span class="n">lat</span><span class="p">,</span> <span class="n">elev</span><span class="o">=</span><span class="kc">False</span><span class="p">):</span>
+    <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">orb</span><span class="p">,</span> <span class="n">lon</span><span class="p">,</span> <span class="n">lat</span><span class="p">,</span> <span class="n">elev</span><span class="o">=</span><span class="kc">False</span><span class="p">):</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Save location and celestial body</span>
 <span class="sd">        </span>
@@ -5814,7 +5814,7 @@
         <span class="bp">self</span><span class="o">.</span><span class="n">lon</span> <span class="o">=</span> <span class="n">lon</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">elev</span> <span class="o">=</span> <span class="n">elev</span>
 
-<div class="viewcode-block" id="Orb.get_observer_and_orb"><a class="viewcode-back" href="../../lib/orb.html#lib.orb.Orb.get_observer_and_orb">[Doku]</a>    <span class="k">def</span> <span class="nf">get_observer_and_orb</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<div class="viewcode-block" id="Orb.get_observer_and_orb"><a class="viewcode-back" href="../../lib/orb.html#lib.orb.Orb.get_observer_and_orb">[Doku]</a>    <span class="k">def</span><span class="w"> </span><span class="nf">get_observer_and_orb</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Return a tuple of an instance of an observer with location information</span>
 <span class="sd">        and a celestial body</span>
@@ -5845,7 +5845,7 @@
             
         <span class="k">return</span> <span class="n">observer</span><span class="p">,</span><span class="n">orb</span></div>
 
-    <span class="k">def</span> <span class="nf">_avoid_neverup</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">dt</span><span class="p">,</span> <span class="n">date_utc</span><span class="p">,</span> <span class="n">doff</span><span class="p">):</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">_avoid_neverup</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">dt</span><span class="p">,</span> <span class="n">date_utc</span><span class="p">,</span> <span class="n">doff</span><span class="p">):</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        When specifying an offset for e.g. a sunset or a sunrise it might well be that the</span>
 <span class="sd">        offset is too high to be ever reached for a specific location and time</span>
@@ -5881,7 +5881,7 @@
             <span class="n">logger</span><span class="o">.</span><span class="n">notice</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;offset </span><span class="si">{</span><span class="n">originaldoff</span><span class="si">}</span><span class="s2"> truncated to </span><span class="si">{</span><span class="n">doff</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
         <span class="k">return</span> <span class="n">doff</span>
 
-<div class="viewcode-block" id="Orb.noon"><a class="viewcode-back" href="../../lib/orb.html#lib.orb.Orb.noon">[Doku]</a>    <span class="k">def</span> <span class="nf">noon</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">doff</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">moff</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">dt</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+<div class="viewcode-block" id="Orb.noon"><a class="viewcode-back" href="../../lib/orb.html#lib.orb.Orb.noon">[Doku]</a>    <span class="k">def</span><span class="w"> </span><span class="nf">noon</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">doff</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">moff</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">dt</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
         <span class="n">observer</span><span class="p">,</span> <span class="n">orb</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">get_observer_and_orb</span><span class="p">()</span>
         <span class="k">if</span> <span class="n">dt</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
             <span class="n">observer</span><span class="o">.</span><span class="n">date</span> <span class="o">=</span> <span class="n">dt</span> <span class="o">-</span> <span class="n">dt</span><span class="o">.</span><span class="n">utcoffset</span><span class="p">()</span> <span class="o">-</span> <span class="n">dateutil</span><span class="o">.</span><span class="n">relativedelta</span><span class="o">.</span><span class="n">relativedelta</span><span class="p">(</span><span class="n">minutes</span><span class="o">=</span><span class="n">moff</span><span class="p">)</span>
@@ -5898,7 +5898,7 @@
         <span class="n">logger</span><span class="o">.</span><span class="n">debug</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;ephem: noon for </span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">orb</span><span class="si">}</span><span class="s2"> with doff=</span><span class="si">{</span><span class="n">doff</span><span class="si">}</span><span class="s2">, moff=</span><span class="si">{</span><span class="n">moff</span><span class="si">}</span><span class="s2">, dt=</span><span class="si">{</span><span class="n">dt</span><span class="si">}</span><span class="s2"> will be </span><span class="si">{</span><span class="n">next_transit</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
         <span class="k">return</span> <span class="n">next_transit</span></div>
 
-<div class="viewcode-block" id="Orb.midnight"><a class="viewcode-back" href="../../lib/orb.html#lib.orb.Orb.midnight">[Doku]</a>    <span class="k">def</span> <span class="nf">midnight</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">doff</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">moff</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">dt</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+<div class="viewcode-block" id="Orb.midnight"><a class="viewcode-back" href="../../lib/orb.html#lib.orb.Orb.midnight">[Doku]</a>    <span class="k">def</span><span class="w"> </span><span class="nf">midnight</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">doff</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">moff</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">dt</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
         <span class="n">observer</span><span class="p">,</span> <span class="n">orb</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">get_observer_and_orb</span><span class="p">()</span>
         <span class="k">if</span> <span class="n">dt</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
             <span class="n">observer</span><span class="o">.</span><span class="n">date</span> <span class="o">=</span> <span class="n">dt</span> <span class="o">-</span> <span class="n">dt</span><span class="o">.</span><span class="n">utcoffset</span><span class="p">()</span> <span class="o">-</span> <span class="n">dateutil</span><span class="o">.</span><span class="n">relativedelta</span><span class="o">.</span><span class="n">relativedelta</span><span class="p">(</span><span class="n">minutes</span><span class="o">=</span><span class="n">moff</span><span class="p">)</span>
@@ -5915,7 +5915,7 @@
         <span class="n">logger</span><span class="o">.</span><span class="n">debug</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;ephem: midnight for </span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">orb</span><span class="si">}</span><span class="s2"> with doff=</span><span class="si">{</span><span class="n">doff</span><span class="si">}</span><span class="s2">, moff=</span><span class="si">{</span><span class="n">moff</span><span class="si">}</span><span class="s2">, dt=</span><span class="si">{</span><span class="n">dt</span><span class="si">}</span><span class="s2"> will be </span><span class="si">{</span><span class="n">next_antitransit</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
         <span class="k">return</span> <span class="n">next_antitransit</span></div>
 
-<div class="viewcode-block" id="Orb.rise"><a class="viewcode-back" href="../../lib/orb.html#lib.orb.Orb.rise">[Doku]</a>    <span class="k">def</span> <span class="nf">rise</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">doff</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">moff</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">center</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">dt</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+<div class="viewcode-block" id="Orb.rise"><a class="viewcode-back" href="../../lib/orb.html#lib.orb.Orb.rise">[Doku]</a>    <span class="k">def</span><span class="w"> </span><span class="nf">rise</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">doff</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">moff</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">center</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">dt</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Computes the rise of either sun or moon</span>
 <span class="sd">        :param doff:    degrees offset for the observers horizon</span>
@@ -5944,7 +5944,7 @@
         <span class="n">logger</span><span class="o">.</span><span class="n">debug</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;ephem: next_rising for </span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">orb</span><span class="si">}</span><span class="s2"> with doff=</span><span class="si">{</span><span class="n">doff</span><span class="si">}</span><span class="s2">, moff=</span><span class="si">{</span><span class="n">moff</span><span class="si">}</span><span class="s2">, center=</span><span class="si">{</span><span class="n">center</span><span class="si">}</span><span class="s2">, dt=</span><span class="si">{</span><span class="n">dt</span><span class="si">}</span><span class="s2"> will be </span><span class="si">{</span><span class="n">next_rising</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
         <span class="k">return</span> <span class="n">next_rising</span></div>
 
-<div class="viewcode-block" id="Orb.set"><a class="viewcode-back" href="../../lib/orb.html#lib.orb.Orb.set">[Doku]</a>    <span class="k">def</span> <span class="nf">set</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">doff</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">moff</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">center</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">dt</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+<div class="viewcode-block" id="Orb.set"><a class="viewcode-back" href="../../lib/orb.html#lib.orb.Orb.set">[Doku]</a>    <span class="k">def</span><span class="w"> </span><span class="nf">set</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">doff</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">moff</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">center</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">dt</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Computes the setting of either sun or moon</span>
 <span class="sd">        :param doff:    degrees offset for the observers horizon</span>
@@ -5974,7 +5974,7 @@
         <span class="n">logger</span><span class="o">.</span><span class="n">debug</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;ephem: next_setting for </span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">orb</span><span class="si">}</span><span class="s2"> with doff=</span><span class="si">{</span><span class="n">doff</span><span class="si">}</span><span class="s2">, moff=</span><span class="si">{</span><span class="n">moff</span><span class="si">}</span><span class="s2">, center=</span><span class="si">{</span><span class="n">center</span><span class="si">}</span><span class="s2">, dt=</span><span class="si">{</span><span class="n">dt</span><span class="si">}</span><span class="s2"> will be </span><span class="si">{</span><span class="n">next_setting</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
         <span class="k">return</span> <span class="n">next_setting</span></div>
 
-<div class="viewcode-block" id="Orb.pos"><a class="viewcode-back" href="../../lib/orb.html#lib.orb.Orb.pos">[Doku]</a>    <span class="k">def</span> <span class="nf">pos</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">offset</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">degree</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">dt</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+<div class="viewcode-block" id="Orb.pos"><a class="viewcode-back" href="../../lib/orb.html#lib.orb.Orb.pos">[Doku]</a>    <span class="k">def</span><span class="w"> </span><span class="nf">pos</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">offset</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">degree</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">dt</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Calculates the position of either sun or moon</span>
 <span class="sd">        :param offset:  given in minutes, shifts the time of calculation by some minutes back or forth</span>
@@ -5996,7 +5996,7 @@
         <span class="k">else</span><span class="p">:</span>
             <span class="k">return</span> <span class="p">(</span><span class="n">orb</span><span class="o">.</span><span class="n">az</span><span class="p">,</span> <span class="n">orb</span><span class="o">.</span><span class="n">alt</span><span class="p">)</span></div>
 
-    <span class="k">def</span> <span class="nf">_light</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">offset</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">_light</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">offset</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Applies only for moon, returns fraction of lunar surface illuminated when viewed from earth</span>
 <span class="sd">        for the current time plus an offset</span>
@@ -6011,7 +6011,7 @@
         <span class="n">light</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="nb">round</span><span class="p">(</span><span class="n">orb</span><span class="o">.</span><span class="n">moon_phase</span> <span class="o">*</span> <span class="mi">100</span><span class="p">))</span>
         <span class="k">return</span> <span class="n">light</span>
 
-    <span class="k">def</span> <span class="nf">_phase</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">offset</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">_phase</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">offset</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Applies only for moon, returns the moon phase related to a cycle of approx. 29.5 days</span>
 <span class="sd">        for the current time plus an offset</span>

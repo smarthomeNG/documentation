@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>lib.shtime &mdash; Dokumentation v1.10.0.3 v1.10.0.3 develop (Stand 4. Januar 2025, commit d19b92c) Dokumentation</title>
+  <title>lib.shtime &mdash; Dokumentation v1.10.0.3 v1.10.0.3 develop (Stand 5. Januar 2025, commit d19b92c) Dokumentation</title>
       <link rel="stylesheet" type="text/css" href="../../_static/pygments.css" />
       <link rel="stylesheet" type="text/css" href="../../_static/css/theme.css" />
       <link rel="stylesheet" type="text/css" href="../../_static/custom.css" />
@@ -5756,7 +5756,7 @@
 <span class="c1">#########################################################################</span>
 
 <span class="k">try</span><span class="p">:</span>
-    <span class="kn">import</span> <span class="nn">holidays</span>
+    <span class="kn">import</span><span class="w"> </span><span class="nn">holidays</span>
     <span class="n">HOLIDAYS_imported</span> <span class="o">=</span> <span class="kc">True</span>
 <span class="k">except</span><span class="p">:</span>
     <span class="n">HOLIDAYS_imported</span> <span class="o">=</span> <span class="kc">False</span>
@@ -5768,25 +5768,25 @@
 <span class="c1">#    from backports.zoneinfo import ZoneInfo</span>
 
 
-<span class="kn">import</span> <span class="nn">datetime</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">datetime</span>
 <span class="c1">#import pytz</span>
-<span class="kn">import</span> <span class="nn">dateutil.tz</span> <span class="k">as</span> <span class="nn">tz</span>
-<span class="kn">import</span> <span class="nn">dateutil.parser</span>
-<span class="kn">import</span> <span class="nn">dateutil.relativedelta</span>
-<span class="kn">import</span> <span class="nn">json</span>
-<span class="kn">import</span> <span class="nn">logging</span>
-<span class="kn">import</span> <span class="nn">os</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">dateutil.tz</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">tz</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">dateutil.parser</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">dateutil.relativedelta</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">json</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">logging</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">os</span>
 
-<span class="kn">import</span> <span class="nn">lib.shyaml</span> <span class="k">as</span> <span class="nn">shyaml</span>
-<span class="kn">from</span> <span class="nn">lib.constants</span> <span class="kn">import</span> <span class="p">(</span><span class="n">YAML_FILE</span><span class="p">,</span> <span class="n">BASE_HOLIDAY</span><span class="p">)</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">lib.shyaml</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">shyaml</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">lib.constants</span><span class="w"> </span><span class="kn">import</span> <span class="p">(</span><span class="n">YAML_FILE</span><span class="p">,</span> <span class="n">BASE_HOLIDAY</span><span class="p">)</span>
 <span class="c1">#from lib.translation import translate</span>
-<span class="kn">from</span> <span class="nn">lib.translation</span> <span class="kn">import</span> <span class="n">translate</span> <span class="k">as</span> <span class="n">lib_translate</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">lib.translation</span><span class="w"> </span><span class="kn">import</span> <span class="n">translate</span> <span class="k">as</span> <span class="n">lib_translate</span>
 
 
 
 <span class="n">_shtime_instance</span> <span class="o">=</span> <span class="kc">None</span>    <span class="c1"># Pointer to the initialized instance of the shtime class (for use by static methods)</span>
 
-<div class="viewcode-block" id="Shtime"><a class="viewcode-back" href="../../lib/shtime.html#lib.shtime.Shtime">[Doku]</a><span class="k">class</span> <span class="nc">Shtime</span><span class="p">:</span>
+<div class="viewcode-block" id="Shtime"><a class="viewcode-back" href="../../lib/shtime.html#lib.shtime.Shtime">[Doku]</a><span class="k">class</span><span class="w"> </span><span class="nc">Shtime</span><span class="p">:</span>
 
     <span class="n">_tzinfo</span> <span class="o">=</span> <span class="kc">None</span>
     <span class="n">_timezone</span> <span class="o">=</span> <span class="kc">None</span>
@@ -5797,13 +5797,13 @@
     <span class="n">public_holidays</span> <span class="o">=</span> <span class="kc">None</span>
 
 
-    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">smarthome</span><span class="p">):</span>
+    <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">smarthome</span><span class="p">):</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">_sh</span> <span class="o">=</span> <span class="n">smarthome</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">logger</span> <span class="o">=</span> <span class="n">logging</span><span class="o">.</span><span class="n">getLogger</span><span class="p">(</span><span class="vm">__name__</span><span class="p">)</span>
 
         <span class="k">global</span> <span class="n">_shtime_instance</span>
         <span class="k">if</span> <span class="n">_shtime_instance</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
-            <span class="kn">import</span> <span class="nn">inspect</span>
+            <span class="kn">import</span><span class="w"> </span><span class="nn">inspect</span>
             <span class="n">curframe</span> <span class="o">=</span> <span class="n">inspect</span><span class="o">.</span><span class="n">currentframe</span><span class="p">()</span>
             <span class="n">calframe</span> <span class="o">=</span> <span class="n">inspect</span><span class="o">.</span><span class="n">getouterframes</span><span class="p">(</span><span class="n">curframe</span><span class="p">,</span> <span class="mi">4</span><span class="p">)</span>
             <span class="bp">self</span><span class="o">.</span><span class="n">logger</span><span class="o">.</span><span class="n">critical</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">translate</span><span class="p">(</span><span class="s2">&quot;A second &#39;shtime&#39; object has been created. There should only be ONE instance of class &#39;Shtime&#39;!!! Called from: </span><span class="si">{callframe1}</span><span class="s2"> (</span><span class="si">{callframe3}</span><span class="s2">)&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">callframe1</span><span class="o">=</span><span class="n">calframe</span><span class="p">[</span><span class="mi">1</span><span class="p">][</span><span class="mi">1</span><span class="p">],</span> <span class="n">callframe3</span><span class="o">=</span><span class="n">calframe</span><span class="p">[</span><span class="mi">1</span><span class="p">][</span><span class="mi">3</span><span class="p">]))</span>
@@ -5825,7 +5825,7 @@
     <span class="c1"># -----------------------------------------------------------------------------------------------------</span>
 
 <div class="viewcode-block" id="Shtime.get_instance"><a class="viewcode-back" href="../../lib/shtime.html#lib.shtime.Shtime.get_instance">[Doku]</a>    <span class="nd">@staticmethod</span>
-    <span class="k">def</span> <span class="nf">get_instance</span><span class="p">():</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">get_instance</span><span class="p">():</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Returns the instance of the Shtime class, to be used to access the shtime-API</span>
 
@@ -5847,7 +5847,7 @@
             <span class="k">return</span> <span class="n">_shtime_instance</span></div>
 
 
-<div class="viewcode-block" id="Shtime.translate"><a class="viewcode-back" href="../../lib/shtime.html#lib.shtime.Shtime.translate">[Doku]</a>    <span class="k">def</span> <span class="nf">translate</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">txt</span><span class="p">,</span> <span class="nb">vars</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+<div class="viewcode-block" id="Shtime.translate"><a class="viewcode-back" href="../../lib/shtime.html#lib.shtime.Shtime.translate">[Doku]</a>    <span class="k">def</span><span class="w"> </span><span class="nf">translate</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">txt</span><span class="p">,</span> <span class="nb">vars</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Returns translated text</span>
 
@@ -5862,7 +5862,7 @@
         <span class="k">return</span> <span class="n">lib_translate</span><span class="p">(</span><span class="n">txt</span><span class="p">,</span> <span class="nb">vars</span><span class="p">,</span> <span class="n">plugin_translations</span><span class="o">=</span><span class="s1">&#39;lib/shtime&#39;</span><span class="p">)</span></div>
 
 
-<div class="viewcode-block" id="Shtime.set_tz"><a class="viewcode-back" href="../../lib/shtime.html#lib.shtime.Shtime.set_tz">[Doku]</a>    <span class="k">def</span> <span class="nf">set_tz</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">tzone</span><span class="p">):</span>
+<div class="viewcode-block" id="Shtime.set_tz"><a class="viewcode-back" href="../../lib/shtime.html#lib.shtime.Shtime.set_tz">[Doku]</a>    <span class="k">def</span><span class="w"> </span><span class="nf">set_tz</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">tzone</span><span class="p">):</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        set timezone info from name of timezone</span>
 
@@ -5888,7 +5888,7 @@
         <span class="k">return</span></div>
 
 
-<div class="viewcode-block" id="Shtime.set_tzinfo"><a class="viewcode-back" href="../../lib/shtime.html#lib.shtime.Shtime.set_tzinfo">[Doku]</a>    <span class="k">def</span> <span class="nf">set_tzinfo</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">tzinfo</span><span class="p">):</span>
+<div class="viewcode-block" id="Shtime.set_tzinfo"><a class="viewcode-back" href="../../lib/shtime.html#lib.shtime.Shtime.set_tzinfo">[Doku]</a>    <span class="k">def</span><span class="w"> </span><span class="nf">set_tzinfo</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">tzinfo</span><span class="p">):</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Set the timezone info</span>
 
@@ -5901,7 +5901,7 @@
     <span class="c1">#################################################################</span>
     <span class="c1"># Time Methods</span>
     <span class="c1">#################################################################</span>
-<div class="viewcode-block" id="Shtime.now"><a class="viewcode-back" href="../../lib/shtime.html#lib.shtime.Shtime.now">[Doku]</a>    <span class="k">def</span> <span class="nf">now</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<div class="viewcode-block" id="Shtime.now"><a class="viewcode-back" href="../../lib/shtime.html#lib.shtime.Shtime.now">[Doku]</a>    <span class="k">def</span><span class="w"> </span><span class="nf">now</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Returns the actual time in a timezone aware format</span>
 
@@ -5915,7 +5915,7 @@
         <span class="k">return</span> <span class="n">datetime</span><span class="o">.</span><span class="n">datetime</span><span class="o">.</span><span class="n">now</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_tzinfo</span><span class="p">)</span></div>
 
 
-<div class="viewcode-block" id="Shtime.tz"><a class="viewcode-back" href="../../lib/shtime.html#lib.shtime.Shtime.tz">[Doku]</a>    <span class="k">def</span> <span class="nf">tz</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<div class="viewcode-block" id="Shtime.tz"><a class="viewcode-back" href="../../lib/shtime.html#lib.shtime.Shtime.tz">[Doku]</a>    <span class="k">def</span><span class="w"> </span><span class="nf">tz</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Returns the the actual local timezone</span>
 
@@ -5926,7 +5926,7 @@
         <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_tz</span></div>
 
 
-<div class="viewcode-block" id="Shtime.tzinfo"><a class="viewcode-back" href="../../lib/shtime.html#lib.shtime.Shtime.tzinfo">[Doku]</a>    <span class="k">def</span> <span class="nf">tzinfo</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<div class="viewcode-block" id="Shtime.tzinfo"><a class="viewcode-back" href="../../lib/shtime.html#lib.shtime.Shtime.tzinfo">[Doku]</a>    <span class="k">def</span><span class="w"> </span><span class="nf">tzinfo</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Returns the info about the actual local timezone</span>
 
@@ -5937,7 +5937,7 @@
         <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_tzinfo</span></div>
 
 
-<div class="viewcode-block" id="Shtime.tzlocal"><a class="viewcode-back" href="../../lib/shtime.html#lib.shtime.Shtime.tzlocal">[Doku]</a>    <span class="k">def</span> <span class="nf">tzlocal</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<div class="viewcode-block" id="Shtime.tzlocal"><a class="viewcode-back" href="../../lib/shtime.html#lib.shtime.Shtime.tzlocal">[Doku]</a>    <span class="k">def</span><span class="w"> </span><span class="nf">tzlocal</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        POSSIBLE REPLACEMENT FOR tz.tzlocal</span>
 <span class="sd">        :return:</span>
@@ -5949,7 +5949,7 @@
         <span class="k">return</span> <span class="n">local_tzname</span></div>
 
 
-<div class="viewcode-block" id="Shtime.tzname"><a class="viewcode-back" href="../../lib/shtime.html#lib.shtime.Shtime.tzname">[Doku]</a>    <span class="k">def</span> <span class="nf">tzname</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<div class="viewcode-block" id="Shtime.tzname"><a class="viewcode-back" href="../../lib/shtime.html#lib.shtime.Shtime.tzname">[Doku]</a>    <span class="k">def</span><span class="w"> </span><span class="nf">tzname</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Returns the name about the actual local timezone (e.g. CEST)</span>
 
@@ -5960,7 +5960,7 @@
         <span class="k">return</span> <span class="n">datetime</span><span class="o">.</span><span class="n">datetime</span><span class="o">.</span><span class="n">now</span><span class="p">(</span><span class="n">tz</span><span class="o">.</span><span class="n">tzlocal</span><span class="p">())</span><span class="o">.</span><span class="n">tzname</span><span class="p">()</span></div>
 
 
-<div class="viewcode-block" id="Shtime.tznameST"><a class="viewcode-back" href="../../lib/shtime.html#lib.shtime.Shtime.tznameST">[Doku]</a>    <span class="k">def</span> <span class="nf">tznameST</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<div class="viewcode-block" id="Shtime.tznameST"><a class="viewcode-back" href="../../lib/shtime.html#lib.shtime.Shtime.tznameST">[Doku]</a>    <span class="k">def</span><span class="w"> </span><span class="nf">tznameST</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Returns the name for Standard Time in the local timezone (e.g. CET)</span>
 
@@ -5972,7 +5972,7 @@
         <span class="k">return</span> <span class="n">jan</span><span class="o">.</span><span class="n">strftime</span><span class="p">(</span><span class="s2">&quot;%Z&quot;</span><span class="p">)</span></div>
 
 
-<div class="viewcode-block" id="Shtime.tznameDST"><a class="viewcode-back" href="../../lib/shtime.html#lib.shtime.Shtime.tznameDST">[Doku]</a>    <span class="k">def</span> <span class="nf">tznameDST</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<div class="viewcode-block" id="Shtime.tznameDST"><a class="viewcode-back" href="../../lib/shtime.html#lib.shtime.Shtime.tznameDST">[Doku]</a>    <span class="k">def</span><span class="w"> </span><span class="nf">tznameDST</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Returns the name for Daylight Saving Time (DST) in the local timezone (e.g. CEST)</span>
 
@@ -5984,7 +5984,7 @@
         <span class="k">return</span> <span class="n">jul</span><span class="o">.</span><span class="n">strftime</span><span class="p">(</span><span class="s2">&quot;%Z&quot;</span><span class="p">)</span></div>
 
 
-<div class="viewcode-block" id="Shtime.utcnow"><a class="viewcode-back" href="../../lib/shtime.html#lib.shtime.Shtime.utcnow">[Doku]</a>    <span class="k">def</span> <span class="nf">utcnow</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<div class="viewcode-block" id="Shtime.utcnow"><a class="viewcode-back" href="../../lib/shtime.html#lib.shtime.Shtime.utcnow">[Doku]</a>    <span class="k">def</span><span class="w"> </span><span class="nf">utcnow</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Returns the actual time in GMT</span>
 
@@ -5998,7 +5998,7 @@
         <span class="k">return</span> <span class="n">datetime</span><span class="o">.</span><span class="n">datetime</span><span class="o">.</span><span class="n">now</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_utctz</span><span class="p">)</span></div>
 
 
-<div class="viewcode-block" id="Shtime.utcinfo"><a class="viewcode-back" href="../../lib/shtime.html#lib.shtime.Shtime.utcinfo">[Doku]</a>    <span class="k">def</span> <span class="nf">utcinfo</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<div class="viewcode-block" id="Shtime.utcinfo"><a class="viewcode-back" href="../../lib/shtime.html#lib.shtime.Shtime.utcinfo">[Doku]</a>    <span class="k">def</span><span class="w"> </span><span class="nf">utcinfo</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Returns the info about the GMT timezone</span>
 
@@ -6009,7 +6009,7 @@
         <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_utctz</span></div>
 
 
-<div class="viewcode-block" id="Shtime.runtime"><a class="viewcode-back" href="../../lib/shtime.html#lib.shtime.Shtime.runtime">[Doku]</a>    <span class="k">def</span> <span class="nf">runtime</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<div class="viewcode-block" id="Shtime.runtime"><a class="viewcode-back" href="../../lib/shtime.html#lib.shtime.Shtime.runtime">[Doku]</a>    <span class="k">def</span><span class="w"> </span><span class="nf">runtime</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Returns the uptime of SmartHomeNG</span>
 
@@ -6020,7 +6020,7 @@
         <span class="k">return</span> <span class="n">datetime</span><span class="o">.</span><span class="n">datetime</span><span class="o">.</span><span class="n">now</span><span class="p">()</span> <span class="o">-</span> <span class="bp">self</span><span class="o">.</span><span class="n">_starttime</span></div>
 
 
-<div class="viewcode-block" id="Shtime.runtime_as_dict"><a class="viewcode-back" href="../../lib/shtime.html#lib.shtime.Shtime.runtime_as_dict">[Doku]</a>    <span class="k">def</span> <span class="nf">runtime_as_dict</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<div class="viewcode-block" id="Shtime.runtime_as_dict"><a class="viewcode-back" href="../../lib/shtime.html#lib.shtime.Shtime.runtime_as_dict">[Doku]</a>    <span class="k">def</span><span class="w"> </span><span class="nf">runtime_as_dict</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Returns the uptime of SmartHomeNG as a dict of integers</span>
 
@@ -6046,7 +6046,7 @@
     <span class="c1">#   Following methods implement some time handling</span>
     <span class="c1"># -----------------------------------------------------------------------------------------------------</span>
 
-    <span class="k">def</span> <span class="nf">_build_timediff_resulttype</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">delta</span><span class="p">,</span> <span class="n">resulttype</span><span class="p">):</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">_build_timediff_resulttype</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">delta</span><span class="p">,</span> <span class="n">resulttype</span><span class="p">):</span>
         <span class="k">if</span> <span class="n">resulttype</span> <span class="o">==</span> <span class="s1">&#39;s&#39;</span><span class="p">:</span>
             <span class="k">return</span> <span class="n">delta</span><span class="o">.</span><span class="n">days</span> <span class="o">*</span> <span class="mi">24</span> <span class="o">*</span> <span class="mi">3600</span> <span class="o">+</span> <span class="n">delta</span><span class="o">.</span><span class="n">seconds</span>
         <span class="k">if</span> <span class="n">resulttype</span> <span class="o">==</span> <span class="s1">&#39;m&#39;</span><span class="p">:</span>
@@ -6072,7 +6072,7 @@
         <span class="k">return</span> <span class="o">-</span><span class="mi">1</span>
 
 
-<div class="viewcode-block" id="Shtime.time_since"><a class="viewcode-back" href="../../lib/shtime.html#lib.shtime.Shtime.time_since">[Doku]</a>    <span class="k">def</span> <span class="nf">time_since</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">dt</span><span class="p">,</span> <span class="n">resulttype</span><span class="o">=</span><span class="s1">&#39;s&#39;</span><span class="p">):</span>
+<div class="viewcode-block" id="Shtime.time_since"><a class="viewcode-back" href="../../lib/shtime.html#lib.shtime.Shtime.time_since">[Doku]</a>    <span class="k">def</span><span class="w"> </span><span class="nf">time_since</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">dt</span><span class="p">,</span> <span class="n">resulttype</span><span class="o">=</span><span class="s1">&#39;s&#39;</span><span class="p">):</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Calculates the time that has elapsed since the given datetime parameter</span>
 
@@ -6096,7 +6096,7 @@
             <span class="k">return</span> <span class="o">-</span><span class="mi">1</span></div>
 
 
-<div class="viewcode-block" id="Shtime.time_until"><a class="viewcode-back" href="../../lib/shtime.html#lib.shtime.Shtime.time_until">[Doku]</a>    <span class="k">def</span> <span class="nf">time_until</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">dt</span><span class="p">,</span> <span class="n">resulttype</span><span class="o">=</span><span class="s1">&#39;s&#39;</span><span class="p">):</span>
+<div class="viewcode-block" id="Shtime.time_until"><a class="viewcode-back" href="../../lib/shtime.html#lib.shtime.Shtime.time_until">[Doku]</a>    <span class="k">def</span><span class="w"> </span><span class="nf">time_until</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">dt</span><span class="p">,</span> <span class="n">resulttype</span><span class="o">=</span><span class="s1">&#39;s&#39;</span><span class="p">):</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Calculates the time that will elapse from now to the given datetime parameter</span>
 
@@ -6120,7 +6120,7 @@
             <span class="k">return</span> <span class="o">-</span><span class="mi">1</span></div>
 
 
-<div class="viewcode-block" id="Shtime.time_diff"><a class="viewcode-back" href="../../lib/shtime.html#lib.shtime.Shtime.time_diff">[Doku]</a>    <span class="k">def</span> <span class="nf">time_diff</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">dt1</span><span class="p">,</span> <span class="n">dt2</span><span class="p">,</span> <span class="n">resulttype</span><span class="o">=</span><span class="s1">&#39;s&#39;</span><span class="p">):</span>
+<div class="viewcode-block" id="Shtime.time_diff"><a class="viewcode-back" href="../../lib/shtime.html#lib.shtime.Shtime.time_diff">[Doku]</a>    <span class="k">def</span><span class="w"> </span><span class="nf">time_diff</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">dt1</span><span class="p">,</span> <span class="n">dt2</span><span class="p">,</span> <span class="n">resulttype</span><span class="o">=</span><span class="s1">&#39;s&#39;</span><span class="p">):</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Calculates the time between the two given datetime parameters</span>
 
@@ -6146,7 +6146,7 @@
             <span class="k">return</span> <span class="o">-</span><span class="mi">1</span></div>
 
 
-<div class="viewcode-block" id="Shtime.seconds_to_displaystring"><a class="viewcode-back" href="../../lib/shtime.html#lib.shtime.Shtime.seconds_to_displaystring">[Doku]</a>    <span class="k">def</span> <span class="nf">seconds_to_displaystring</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">sec</span><span class="p">):</span>
+<div class="viewcode-block" id="Shtime.seconds_to_displaystring"><a class="viewcode-back" href="../../lib/shtime.html#lib.shtime.Shtime.seconds_to_displaystring">[Doku]</a>    <span class="k">def</span><span class="w"> </span><span class="nf">seconds_to_displaystring</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">sec</span><span class="p">):</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Convert number of seconds to time display-string</span>
 
@@ -6192,7 +6192,7 @@
         <span class="k">return</span> <span class="n">result</span></div>
 
 
-<div class="viewcode-block" id="Shtime.to_seconds"><a class="viewcode-back" href="../../lib/shtime.html#lib.shtime.Shtime.to_seconds">[Doku]</a>    <span class="k">def</span> <span class="nf">to_seconds</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">time_str</span><span class="p">,</span> <span class="n">test</span><span class="o">=</span><span class="kc">False</span><span class="p">):</span>
+<div class="viewcode-block" id="Shtime.to_seconds"><a class="viewcode-back" href="../../lib/shtime.html#lib.shtime.Shtime.to_seconds">[Doku]</a>    <span class="k">def</span><span class="w"> </span><span class="nf">to_seconds</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">time_str</span><span class="p">,</span> <span class="n">test</span><span class="o">=</span><span class="kc">False</span><span class="p">):</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        casts a time value string (e.g. &#39;5m&#39;) to an integer (duration in seconds)</span>
 <span class="sd">        used for autotimer, timer, cycle</span>
@@ -6254,7 +6254,7 @@
     <span class="c1">#   Following methods implement some date handling</span>
     <span class="c1"># -----------------------------------------------------------------------------------------------------</span>
 
-<div class="viewcode-block" id="Shtime.datetime_transform"><a class="viewcode-back" href="../../lib/shtime.html#lib.shtime.Shtime.datetime_transform">[Doku]</a>    <span class="k">def</span> <span class="nf">datetime_transform</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">key</span><span class="p">):</span>
+<div class="viewcode-block" id="Shtime.datetime_transform"><a class="viewcode-back" href="../../lib/shtime.html#lib.shtime.Shtime.datetime_transform">[Doku]</a>    <span class="k">def</span><span class="w"> </span><span class="nf">datetime_transform</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">key</span><span class="p">):</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Converts Date/Time parameter from various formats to a datetime.datetime format</span>
 
@@ -6290,7 +6290,7 @@
         <span class="k">return</span> <span class="n">key</span></div>
 
 
-<div class="viewcode-block" id="Shtime.date_transform"><a class="viewcode-back" href="../../lib/shtime.html#lib.shtime.Shtime.date_transform">[Doku]</a>    <span class="k">def</span> <span class="nf">date_transform</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">key</span><span class="p">):</span>
+<div class="viewcode-block" id="Shtime.date_transform"><a class="viewcode-back" href="../../lib/shtime.html#lib.shtime.Shtime.date_transform">[Doku]</a>    <span class="k">def</span><span class="w"> </span><span class="nf">date_transform</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">key</span><span class="p">):</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Converts Date parameter from various formats to a datetime.date format</span>
 
@@ -6307,7 +6307,7 @@
         <span class="k">return</span> <span class="n">key</span></div>
 
 
-<div class="viewcode-block" id="Shtime.beginning_of_week"><a class="viewcode-back" href="../../lib/shtime.html#lib.shtime.Shtime.beginning_of_week">[Doku]</a>    <span class="k">def</span> <span class="nf">beginning_of_week</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">week</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">year</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">offset</span><span class="o">=</span><span class="mi">0</span><span class="p">):</span>
+<div class="viewcode-block" id="Shtime.beginning_of_week"><a class="viewcode-back" href="../../lib/shtime.html#lib.shtime.Shtime.beginning_of_week">[Doku]</a>    <span class="k">def</span><span class="w"> </span><span class="nf">beginning_of_week</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">week</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">year</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">offset</span><span class="o">=</span><span class="mi">0</span><span class="p">):</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Calculates the date of the beginning of a given week</span>
 
@@ -6342,7 +6342,7 @@
 
         <span class="k">return</span> <span class="n">week_beginning</span><span class="o">.</span><span class="n">date</span><span class="p">()</span></div>
 
-<div class="viewcode-block" id="Shtime.beginning_of_month"><a class="viewcode-back" href="../../lib/shtime.html#lib.shtime.Shtime.beginning_of_month">[Doku]</a>    <span class="k">def</span> <span class="nf">beginning_of_month</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">month</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">year</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">offset</span><span class="o">=</span><span class="mi">0</span><span class="p">):</span>
+<div class="viewcode-block" id="Shtime.beginning_of_month"><a class="viewcode-back" href="../../lib/shtime.html#lib.shtime.Shtime.beginning_of_month">[Doku]</a>    <span class="k">def</span><span class="w"> </span><span class="nf">beginning_of_month</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">month</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">year</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">offset</span><span class="o">=</span><span class="mi">0</span><span class="p">):</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Calculates the date of the beginning of a given month</span>
 
@@ -6371,7 +6371,7 @@
         <span class="k">return</span> <span class="n">month_beginning</span></div>
 
 
-<div class="viewcode-block" id="Shtime.beginning_of_year"><a class="viewcode-back" href="../../lib/shtime.html#lib.shtime.Shtime.beginning_of_year">[Doku]</a>    <span class="k">def</span> <span class="nf">beginning_of_year</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">year</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">offset</span><span class="o">=</span><span class="mi">0</span><span class="p">):</span>
+<div class="viewcode-block" id="Shtime.beginning_of_year"><a class="viewcode-back" href="../../lib/shtime.html#lib.shtime.Shtime.beginning_of_year">[Doku]</a>    <span class="k">def</span><span class="w"> </span><span class="nf">beginning_of_year</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">year</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">offset</span><span class="o">=</span><span class="mi">0</span><span class="p">):</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">         Calculates the date of the beginning of a given year</span>
 
@@ -6391,7 +6391,7 @@
         <span class="k">return</span> <span class="n">year_beginning</span></div>
 
 
-<div class="viewcode-block" id="Shtime.today"><a class="viewcode-back" href="../../lib/shtime.html#lib.shtime.Shtime.today">[Doku]</a>    <span class="k">def</span> <span class="nf">today</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">offset</span><span class="o">=</span><span class="mi">0</span><span class="p">):</span>
+<div class="viewcode-block" id="Shtime.today"><a class="viewcode-back" href="../../lib/shtime.html#lib.shtime.Shtime.today">[Doku]</a>    <span class="k">def</span><span class="w"> </span><span class="nf">today</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">offset</span><span class="o">=</span><span class="mi">0</span><span class="p">):</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Return today&#39;s date</span>
 
@@ -6404,7 +6404,7 @@
         <span class="k">return</span> <span class="p">(</span><span class="n">datetime</span><span class="o">.</span><span class="n">datetime</span><span class="o">.</span><span class="n">now</span><span class="p">()</span> <span class="o">+</span> <span class="n">datetime</span><span class="o">.</span><span class="n">timedelta</span><span class="p">(</span><span class="n">days</span><span class="o">=</span><span class="n">offset</span><span class="p">))</span><span class="o">.</span><span class="n">date</span><span class="p">()</span></div>
 
 
-<div class="viewcode-block" id="Shtime.tomorrow"><a class="viewcode-back" href="../../lib/shtime.html#lib.shtime.Shtime.tomorrow">[Doku]</a>    <span class="k">def</span> <span class="nf">tomorrow</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<div class="viewcode-block" id="Shtime.tomorrow"><a class="viewcode-back" href="../../lib/shtime.html#lib.shtime.Shtime.tomorrow">[Doku]</a>    <span class="k">def</span><span class="w"> </span><span class="nf">tomorrow</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Return tomorrow&#39;s date</span>
 
@@ -6414,7 +6414,7 @@
         <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">today</span><span class="p">()</span> <span class="o">+</span> <span class="n">datetime</span><span class="o">.</span><span class="n">timedelta</span><span class="p">(</span><span class="n">days</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span></div>
 
 
-<div class="viewcode-block" id="Shtime.yesterday"><a class="viewcode-back" href="../../lib/shtime.html#lib.shtime.Shtime.yesterday">[Doku]</a>    <span class="k">def</span> <span class="nf">yesterday</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<div class="viewcode-block" id="Shtime.yesterday"><a class="viewcode-back" href="../../lib/shtime.html#lib.shtime.Shtime.yesterday">[Doku]</a>    <span class="k">def</span><span class="w"> </span><span class="nf">yesterday</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Return yesterday&#39;s date</span>
 
@@ -6424,7 +6424,7 @@
         <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">today</span><span class="p">()</span> <span class="o">+</span> <span class="n">datetime</span><span class="o">.</span><span class="n">timedelta</span><span class="p">(</span><span class="n">days</span><span class="o">=-</span><span class="mi">1</span><span class="p">)</span></div>
 
 
-<div class="viewcode-block" id="Shtime.current_year"><a class="viewcode-back" href="../../lib/shtime.html#lib.shtime.Shtime.current_year">[Doku]</a>    <span class="k">def</span> <span class="nf">current_year</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">offset</span><span class="o">=</span><span class="mi">0</span><span class="p">):</span>
+<div class="viewcode-block" id="Shtime.current_year"><a class="viewcode-back" href="../../lib/shtime.html#lib.shtime.Shtime.current_year">[Doku]</a>    <span class="k">def</span><span class="w"> </span><span class="nf">current_year</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">offset</span><span class="o">=</span><span class="mi">0</span><span class="p">):</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Return the current year</span>
 
@@ -6437,7 +6437,7 @@
         <span class="k">return</span> <span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">today</span><span class="p">()</span> <span class="o">+</span> <span class="n">dateutil</span><span class="o">.</span><span class="n">relativedelta</span><span class="o">.</span><span class="n">relativedelta</span><span class="p">(</span><span class="n">years</span><span class="o">=</span><span class="n">offset</span><span class="p">))</span><span class="o">.</span><span class="n">year</span></div>
 
 
-<div class="viewcode-block" id="Shtime.current_month"><a class="viewcode-back" href="../../lib/shtime.html#lib.shtime.Shtime.current_month">[Doku]</a>    <span class="k">def</span> <span class="nf">current_month</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">offset</span><span class="o">=</span><span class="mi">0</span><span class="p">):</span>
+<div class="viewcode-block" id="Shtime.current_month"><a class="viewcode-back" href="../../lib/shtime.html#lib.shtime.Shtime.current_month">[Doku]</a>    <span class="k">def</span><span class="w"> </span><span class="nf">current_month</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">offset</span><span class="o">=</span><span class="mi">0</span><span class="p">):</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Return the current month</span>
 
@@ -6450,7 +6450,7 @@
         <span class="k">return</span> <span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">today</span><span class="p">()</span> <span class="o">+</span> <span class="n">dateutil</span><span class="o">.</span><span class="n">relativedelta</span><span class="o">.</span><span class="n">relativedelta</span><span class="p">(</span><span class="n">months</span><span class="o">=</span><span class="n">offset</span><span class="p">))</span><span class="o">.</span><span class="n">month</span></div>
 
 
-<div class="viewcode-block" id="Shtime.current_monthname"><a class="viewcode-back" href="../../lib/shtime.html#lib.shtime.Shtime.current_monthname">[Doku]</a>    <span class="k">def</span> <span class="nf">current_monthname</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">offset</span><span class="o">=</span><span class="mi">0</span><span class="p">):</span>
+<div class="viewcode-block" id="Shtime.current_monthname"><a class="viewcode-back" href="../../lib/shtime.html#lib.shtime.Shtime.current_monthname">[Doku]</a>    <span class="k">def</span><span class="w"> </span><span class="nf">current_monthname</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">offset</span><span class="o">=</span><span class="mi">0</span><span class="p">):</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Return the name of the current month for a given date</span>
 
@@ -6491,7 +6491,7 @@
         <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">translate</span><span class="p">(</span><span class="n">monthname</span><span class="p">)</span></div>
 
 
-<div class="viewcode-block" id="Shtime.current_day"><a class="viewcode-back" href="../../lib/shtime.html#lib.shtime.Shtime.current_day">[Doku]</a>    <span class="k">def</span> <span class="nf">current_day</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">offset</span><span class="o">=</span><span class="mi">0</span><span class="p">):</span>
+<div class="viewcode-block" id="Shtime.current_day"><a class="viewcode-back" href="../../lib/shtime.html#lib.shtime.Shtime.current_day">[Doku]</a>    <span class="k">def</span><span class="w"> </span><span class="nf">current_day</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">offset</span><span class="o">=</span><span class="mi">0</span><span class="p">):</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Return the current day</span>
 
@@ -6504,7 +6504,7 @@
         <span class="k">return</span> <span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">today</span><span class="p">()</span> <span class="o">+</span> <span class="n">datetime</span><span class="o">.</span><span class="n">timedelta</span><span class="p">(</span><span class="n">days</span><span class="o">=</span><span class="n">offset</span><span class="p">))</span><span class="o">.</span><span class="n">day</span></div>
 
 
-<div class="viewcode-block" id="Shtime.length_of_year"><a class="viewcode-back" href="../../lib/shtime.html#lib.shtime.Shtime.length_of_year">[Doku]</a>    <span class="k">def</span> <span class="nf">length_of_year</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">year</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">offset</span><span class="o">=</span><span class="mi">0</span><span class="p">):</span>
+<div class="viewcode-block" id="Shtime.length_of_year"><a class="viewcode-back" href="../../lib/shtime.html#lib.shtime.Shtime.length_of_year">[Doku]</a>    <span class="k">def</span><span class="w"> </span><span class="nf">length_of_year</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">year</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">offset</span><span class="o">=</span><span class="mi">0</span><span class="p">):</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Returns the length of a given year</span>
 
@@ -6523,7 +6523,7 @@
         <span class="k">return</span> <span class="mi">365</span> <span class="k">if</span> <span class="n">leap_year</span> <span class="ow">is</span> <span class="kc">False</span> <span class="k">else</span> <span class="mi">366</span></div>
 
 
-<div class="viewcode-block" id="Shtime.length_of_month"><a class="viewcode-back" href="../../lib/shtime.html#lib.shtime.Shtime.length_of_month">[Doku]</a>    <span class="k">def</span> <span class="nf">length_of_month</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">month</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">year</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">offset</span><span class="o">=</span><span class="mi">0</span><span class="p">):</span>
+<div class="viewcode-block" id="Shtime.length_of_month"><a class="viewcode-back" href="../../lib/shtime.html#lib.shtime.Shtime.length_of_month">[Doku]</a>    <span class="k">def</span><span class="w"> </span><span class="nf">length_of_month</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">month</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">year</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">offset</span><span class="o">=</span><span class="mi">0</span><span class="p">):</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Returns the length of a given month for a given year</span>
 
@@ -6555,7 +6555,7 @@
         <span class="k">return</span> <span class="p">(</span><span class="n">datetime</span><span class="o">.</span><span class="n">datetime</span><span class="p">(</span><span class="n">next_year</span><span class="p">,</span> <span class="n">next_month</span><span class="o">+</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span> <span class="o">-</span> <span class="n">datetime</span><span class="o">.</span><span class="n">datetime</span><span class="p">(</span><span class="n">year</span><span class="p">,</span> <span class="n">month</span><span class="p">,</span> <span class="mi">1</span><span class="p">))</span><span class="o">.</span><span class="n">days</span></div>
 
 
-<div class="viewcode-block" id="Shtime.day_of_year"><a class="viewcode-back" href="../../lib/shtime.html#lib.shtime.Shtime.day_of_year">[Doku]</a>    <span class="k">def</span> <span class="nf">day_of_year</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">date</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">offset</span><span class="o">=</span><span class="mi">0</span><span class="p">):</span>
+<div class="viewcode-block" id="Shtime.day_of_year"><a class="viewcode-back" href="../../lib/shtime.html#lib.shtime.Shtime.day_of_year">[Doku]</a>    <span class="k">def</span><span class="w"> </span><span class="nf">day_of_year</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">date</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">offset</span><span class="o">=</span><span class="mi">0</span><span class="p">):</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Calculate which day of the year the given date is</span>
 
@@ -6575,7 +6575,7 @@
         <span class="k">return</span> <span class="p">(</span><span class="n">date</span> <span class="o">-</span> <span class="n">datetime</span><span class="o">.</span><span class="n">date</span><span class="p">(</span><span class="n">date</span><span class="o">.</span><span class="n">year</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">))</span><span class="o">.</span><span class="n">days</span> <span class="o">+</span> <span class="mi">1</span></div>
 
 
-<div class="viewcode-block" id="Shtime.weekday"><a class="viewcode-back" href="../../lib/shtime.html#lib.shtime.Shtime.weekday">[Doku]</a>    <span class="k">def</span> <span class="nf">weekday</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">date</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">offset</span><span class="o">=</span><span class="mi">0</span><span class="p">):</span>
+<div class="viewcode-block" id="Shtime.weekday"><a class="viewcode-back" href="../../lib/shtime.html#lib.shtime.Shtime.weekday">[Doku]</a>    <span class="k">def</span><span class="w"> </span><span class="nf">weekday</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">date</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">offset</span><span class="o">=</span><span class="mi">0</span><span class="p">):</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Returns the ISO weekday of a given date (or of today, if date is None)</span>
 
@@ -6598,7 +6598,7 @@
         <span class="k">return</span> <span class="n">weekday</span><span class="o">.</span><span class="n">isoweekday</span><span class="p">()</span></div>
 
 
-<div class="viewcode-block" id="Shtime.calendar_week"><a class="viewcode-back" href="../../lib/shtime.html#lib.shtime.Shtime.calendar_week">[Doku]</a>    <span class="k">def</span> <span class="nf">calendar_week</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">date</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">offset</span><span class="o">=</span><span class="mi">0</span><span class="p">):</span>
+<div class="viewcode-block" id="Shtime.calendar_week"><a class="viewcode-back" href="../../lib/shtime.html#lib.shtime.Shtime.calendar_week">[Doku]</a>    <span class="k">def</span><span class="w"> </span><span class="nf">calendar_week</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">date</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">offset</span><span class="o">=</span><span class="mi">0</span><span class="p">):</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Returns the calendar week (according to ISO)</span>
 
@@ -6617,7 +6617,7 @@
         <span class="k">return</span> <span class="n">cal_week</span><span class="o">.</span><span class="n">isocalendar</span><span class="p">()[</span><span class="mi">1</span><span class="p">]</span></div>
 
 
-<div class="viewcode-block" id="Shtime.weekday_name"><a class="viewcode-back" href="../../lib/shtime.html#lib.shtime.Shtime.weekday_name">[Doku]</a>    <span class="k">def</span> <span class="nf">weekday_name</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">date</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">offset</span><span class="o">=</span><span class="mi">0</span><span class="p">):</span>
+<div class="viewcode-block" id="Shtime.weekday_name"><a class="viewcode-back" href="../../lib/shtime.html#lib.shtime.Shtime.weekday_name">[Doku]</a>    <span class="k">def</span><span class="w"> </span><span class="nf">weekday_name</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">date</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">offset</span><span class="o">=</span><span class="mi">0</span><span class="p">):</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Returns the name of the weekday for a given date</span>
 
@@ -6656,7 +6656,7 @@
         <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">translate</span><span class="p">(</span><span class="n">day</span><span class="p">)</span></div>
 
 
-    <span class="k">def</span> <span class="nf">_get_nth_dow_in_month</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">dow</span><span class="p">,</span> <span class="n">dow_week</span><span class="p">,</span> <span class="n">year</span><span class="p">,</span> <span class="n">month</span><span class="p">):</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">_get_nth_dow_in_month</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">dow</span><span class="p">,</span> <span class="n">dow_week</span><span class="p">,</span> <span class="n">year</span><span class="p">,</span> <span class="n">month</span><span class="p">):</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        get nth day of week for given month and year</span>
 
@@ -6681,7 +6681,7 @@
         <span class="k">return</span> <span class="n">date</span>
 
 
-    <span class="k">def</span> <span class="nf">_get_last_dow_in_month</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">dow</span><span class="p">,</span> <span class="n">year</span><span class="p">,</span> <span class="n">month</span><span class="p">):</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">_get_last_dow_in_month</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">dow</span><span class="p">,</span> <span class="n">year</span><span class="p">,</span> <span class="n">month</span><span class="p">):</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        get last day of week for given month and year</span>
 
@@ -6708,7 +6708,7 @@
     <span class="c1"># -----------------------------------------------------------------------------------------------------</span>
 
 
-    <span class="k">def</span> <span class="nf">_add_holiday_by_date</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">cust_date</span><span class="p">,</span> <span class="n">gen_for_years</span><span class="p">):</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">_add_holiday_by_date</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">cust_date</span><span class="p">,</span> <span class="n">gen_for_years</span><span class="p">):</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Add a custom holiday for given day and month (and optionally year)</span>
 
@@ -6727,7 +6727,7 @@
         <span class="k">return</span>
 
 
-    <span class="k">def</span> <span class="nf">_add_holiday_by_dow</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">cust_date</span><span class="p">,</span> <span class="n">gen_for_years</span><span class="p">):</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">_add_holiday_by_dow</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">cust_date</span><span class="p">,</span> <span class="n">gen_for_years</span><span class="p">):</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Add a custom holiday for given day-of-week</span>
 
@@ -6772,7 +6772,7 @@
         <span class="k">return</span>
 
 
-    <span class="k">def</span> <span class="nf">_add_custom_holidays</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">_add_custom_holidays</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Add custom holidays from etc/holidays.yaml to the initialized list of holidays</span>
 
@@ -6811,7 +6811,7 @@
         <span class="k">return</span> <span class="n">count</span>
 
 
-<div class="viewcode-block" id="Shtime.add_custom_holiday"><a class="viewcode-back" href="../../lib/shtime.html#lib.shtime.Shtime.add_custom_holiday">[Doku]</a>    <span class="k">def</span> <span class="nf">add_custom_holiday</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">cust_date</span><span class="p">):</span>
+<div class="viewcode-block" id="Shtime.add_custom_holiday"><a class="viewcode-back" href="../../lib/shtime.html#lib.shtime.Shtime.add_custom_holiday">[Doku]</a>    <span class="k">def</span><span class="w"> </span><span class="nf">add_custom_holiday</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">cust_date</span><span class="p">):</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Add a custom holiday from etc/holidays.yaml to the initialized list of holidays</span>
 
@@ -6842,7 +6842,7 @@
         <span class="k">return</span></div>
 
 
-<div class="viewcode-block" id="Shtime.add_custom_holiday_range"><a class="viewcode-back" href="../../lib/shtime.html#lib.shtime.Shtime.add_custom_holiday_range">[Doku]</a>    <span class="k">def</span> <span class="nf">add_custom_holiday_range</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">from_date</span><span class="p">,</span> <span class="n">to_date</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">holiday_name</span><span class="o">=</span><span class="s1">&#39;&#39;</span><span class="p">):</span>
+<div class="viewcode-block" id="Shtime.add_custom_holiday_range"><a class="viewcode-back" href="../../lib/shtime.html#lib.shtime.Shtime.add_custom_holiday_range">[Doku]</a>    <span class="k">def</span><span class="w"> </span><span class="nf">add_custom_holiday_range</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">from_date</span><span class="p">,</span> <span class="n">to_date</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">holiday_name</span><span class="o">=</span><span class="s1">&#39;&#39;</span><span class="p">):</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Add a range of dates to the custom holidays</span>
 
@@ -6870,7 +6870,7 @@
 
 <span class="c1"># {&quot;dow&quot;: 5, &quot;dow_week&quot;: &quot;last&quot;, &quot;month&quot;: 7, &quot;name&quot;: &quot;Sysadmin day&quot;}</span>
 
-    <span class="k">def</span> <span class="nf">_initialize_holidays</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">_initialize_holidays</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Initialize the holidays according to etc/holidays.yaml for the current year and the two years to come</span>
 <span class="sd">        &quot;&quot;&quot;</span>
@@ -6933,7 +6933,7 @@
         <span class="k">return</span>
 
 
-<div class="viewcode-block" id="Shtime.is_weekend"><a class="viewcode-back" href="../../lib/shtime.html#lib.shtime.Shtime.is_weekend">[Doku]</a>    <span class="k">def</span> <span class="nf">is_weekend</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">date</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+<div class="viewcode-block" id="Shtime.is_weekend"><a class="viewcode-back" href="../../lib/shtime.html#lib.shtime.Shtime.is_weekend">[Doku]</a>    <span class="k">def</span><span class="w"> </span><span class="nf">is_weekend</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">date</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Returns True, if the date is on a weekend</span>
 
@@ -6956,7 +6956,7 @@
         <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">weekday</span><span class="p">(</span><span class="n">dt</span><span class="p">)</span> <span class="ow">in</span> <span class="p">[</span><span class="mi">6</span><span class="p">,</span><span class="mi">7</span><span class="p">]</span></div>
 
 
-<div class="viewcode-block" id="Shtime.is_holiday"><a class="viewcode-back" href="../../lib/shtime.html#lib.shtime.Shtime.is_holiday">[Doku]</a>    <span class="k">def</span> <span class="nf">is_holiday</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">date</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+<div class="viewcode-block" id="Shtime.is_holiday"><a class="viewcode-back" href="../../lib/shtime.html#lib.shtime.Shtime.is_holiday">[Doku]</a>    <span class="k">def</span><span class="w"> </span><span class="nf">is_holiday</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">date</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Returns True, if the date is a holiday (custom or public)</span>
 
@@ -6979,7 +6979,7 @@
         <span class="k">return</span> <span class="p">(</span><span class="n">dt</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">holidays</span><span class="p">)</span></div>
 
 
-<div class="viewcode-block" id="Shtime.is_public_holiday"><a class="viewcode-back" href="../../lib/shtime.html#lib.shtime.Shtime.is_public_holiday">[Doku]</a>    <span class="k">def</span> <span class="nf">is_public_holiday</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">date</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+<div class="viewcode-block" id="Shtime.is_public_holiday"><a class="viewcode-back" href="../../lib/shtime.html#lib.shtime.Shtime.is_public_holiday">[Doku]</a>    <span class="k">def</span><span class="w"> </span><span class="nf">is_public_holiday</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">date</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Returns True, if the date is a public holiday</span>
 
@@ -7002,7 +7002,7 @@
         <span class="k">return</span> <span class="p">(</span><span class="n">dt</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">public_holidays</span><span class="p">)</span></div>
 
 
-<div class="viewcode-block" id="Shtime.holiday_name"><a class="viewcode-back" href="../../lib/shtime.html#lib.shtime.Shtime.holiday_name">[Doku]</a>    <span class="k">def</span> <span class="nf">holiday_name</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">date</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">as_list</span><span class="o">=</span><span class="kc">False</span><span class="p">):</span>
+<div class="viewcode-block" id="Shtime.holiday_name"><a class="viewcode-back" href="../../lib/shtime.html#lib.shtime.Shtime.holiday_name">[Doku]</a>    <span class="k">def</span><span class="w"> </span><span class="nf">holiday_name</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">date</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">as_list</span><span class="o">=</span><span class="kc">False</span><span class="p">):</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Returns the name of the holiday, if date is a holiday</span>
 
@@ -7031,7 +7031,7 @@
         <span class="k">return</span> <span class="s1">&#39;&#39;</span></div>
 
 
-<div class="viewcode-block" id="Shtime.holiday_list"><a class="viewcode-back" href="../../lib/shtime.html#lib.shtime.Shtime.holiday_list">[Doku]</a>    <span class="k">def</span> <span class="nf">holiday_list</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">year</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+<div class="viewcode-block" id="Shtime.holiday_list"><a class="viewcode-back" href="../../lib/shtime.html#lib.shtime.Shtime.holiday_list">[Doku]</a>    <span class="k">def</span><span class="w"> </span><span class="nf">holiday_list</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">year</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Returns a list with the defined holidays</span>
 
@@ -7048,7 +7048,7 @@
         <span class="k">return</span> <span class="n">hl</span></div>
 
 
-<div class="viewcode-block" id="Shtime.public_holiday_list"><a class="viewcode-back" href="../../lib/shtime.html#lib.shtime.Shtime.public_holiday_list">[Doku]</a>    <span class="k">def</span> <span class="nf">public_holiday_list</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">year</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+<div class="viewcode-block" id="Shtime.public_holiday_list"><a class="viewcode-back" href="../../lib/shtime.html#lib.shtime.Shtime.public_holiday_list">[Doku]</a>    <span class="k">def</span><span class="w"> </span><span class="nf">public_holiday_list</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">year</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Returns a list with the defined public holidays</span>
 

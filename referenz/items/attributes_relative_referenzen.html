@@ -4,7 +4,7 @@
   <meta charset="utf-8" /><meta name="generator" content="Docutils 0.19: https://docutils.sourceforge.io/" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Relative Item Referenzen &mdash; Dokumentation v1.10.0.3 v1.10.0.3 develop (Stand 4. Januar 2025, commit d19b92c) Dokumentation</title>
+  <title>Relative Item Referenzen &mdash; Dokumentation v1.10.0.3 v1.10.0.3 develop (Stand 5. Januar 2025, commit d19b92c) Dokumentation</title>
       <link rel="stylesheet" type="text/css" href="../../_static/pygments.css" />
       <link rel="stylesheet" type="text/css" href="../../_static/css/theme.css" />
       <link rel="stylesheet" type="text/css" href="../../_static/custom.css" />
@@ -5918,7 +5918,7 @@ jedoch relativ wäre</p>
 zum absoluten Pfad erfolgen.</p>
 <p>Das <strong>visu_smart_visu</strong> Plugin unterstützt relative Item-Pfade in 4 Attributen. Die Methode
 <strong>parse_item</strong> des <strong>visu_smart_visu</strong> Plugins sieht folgendermaßen aus:</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">parse_item</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">item</span><span class="p">):</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">parse_item</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">item</span><span class="p">):</span>
     <span class="n">item</span><span class="o">.</span><span class="n">expand_relativepathes</span><span class="p">(</span><span class="s1">&#39;sv_widget&#39;</span><span class="p">,</span> <span class="s2">&quot;&#39;&quot;</span><span class="p">,</span> <span class="s2">&quot;&#39;&quot;</span><span class="p">)</span>
     <span class="n">item</span><span class="o">.</span><span class="n">expand_relativepathes</span><span class="p">(</span><span class="s1">&#39;sv_widget2&#39;</span><span class="p">,</span> <span class="s2">&quot;&#39;&quot;</span><span class="p">,</span> <span class="s2">&quot;&#39;&quot;</span><span class="p">)</span>
     <span class="n">item</span><span class="o">.</span><span class="n">expand_relativepathes</span><span class="p">(</span><span class="s1">&#39;sv_nav_aside&#39;</span><span class="p">,</span> <span class="s2">&quot;&#39;&quot;</span><span class="p">,</span> <span class="s2">&quot;&#39;&quot;</span><span class="p">)</span>

@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>lib.model.mqttplugin &mdash; Dokumentation v1.10.0.3 v1.10.0.3 develop (Stand 4. Januar 2025, commit d19b92c) Dokumentation</title>
+  <title>lib.model.mqttplugin &mdash; Dokumentation v1.10.0.3 v1.10.0.3 develop (Stand 5. Januar 2025, commit d19b92c) Dokumentation</title>
       <link rel="stylesheet" type="text/css" href="../../../_static/pygments.css" />
       <link rel="stylesheet" type="text/css" href="../../../_static/css/theme.css" />
       <link rel="stylesheet" type="text/css" href="../../../_static/custom.css" />
@@ -5755,23 +5755,23 @@
 <span class="c1">#  along with SmartHomeNG  If not, see &lt;http://www.gnu.org/licenses/&gt;.</span>
 <span class="c1">#########################################################################</span>
 
-<span class="kn">import</span> <span class="nn">threading</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">threading</span>
 
-<span class="kn">from</span> <span class="nn">lib.module</span> <span class="kn">import</span> <span class="n">Modules</span>
-<span class="kn">from</span> <span class="nn">lib.model.smartplugin</span> <span class="kn">import</span> <span class="n">SmartPlugin</span>
-<span class="kn">from</span> <span class="nn">lib.shtime</span> <span class="kn">import</span> <span class="n">Shtime</span>
-<span class="kn">from</span> <span class="nn">lib.translation</span> <span class="kn">import</span> <span class="n">translate</span> <span class="k">as</span> <span class="n">lib_translate</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">lib.module</span><span class="w"> </span><span class="kn">import</span> <span class="n">Modules</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">lib.model.smartplugin</span><span class="w"> </span><span class="kn">import</span> <span class="n">SmartPlugin</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">lib.shtime</span><span class="w"> </span><span class="kn">import</span> <span class="n">Shtime</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">lib.translation</span><span class="w"> </span><span class="kn">import</span> <span class="n">translate</span> <span class="k">as</span> <span class="n">lib_translate</span>
 
-<span class="kn">import</span> <span class="nn">os</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">os</span>
 
 
-<div class="viewcode-block" id="MqttPlugin"><a class="viewcode-back" href="../../../referenz/plugins/plugin_typen/mqttplugin_class.html#lib.model.mqttplugin.MqttPlugin">[Doku]</a><span class="k">class</span> <span class="nc">MqttPlugin</span><span class="p">(</span><span class="n">SmartPlugin</span><span class="p">):</span>
+<div class="viewcode-block" id="MqttPlugin"><a class="viewcode-back" href="../../../referenz/plugins/plugin_typen/mqttplugin_class.html#lib.model.mqttplugin.MqttPlugin">[Doku]</a><span class="k">class</span><span class="w"> </span><span class="nc">MqttPlugin</span><span class="p">(</span><span class="n">SmartPlugin</span><span class="p">):</span>
 
     <span class="n">_item_values</span> <span class="o">=</span> <span class="p">{}</span>                    <span class="c1"># dict of dicts</span>
 
 
     <span class="c1"># Initialization of SmartPlugin class called by super().__init__() from the plugin&#39;s __init__() method</span>
-    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+    <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
 
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Initialization Routine for the mqtt extension class to SmartPlugin</span>
@@ -5797,7 +5797,7 @@
         <span class="bp">self</span><span class="o">.</span><span class="n">broker_config</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">mod_mqtt</span><span class="o">.</span><span class="n">get_broker_config</span><span class="p">()</span>
 
 
-<div class="viewcode-block" id="MqttPlugin.translate"><a class="viewcode-back" href="../../../referenz/plugins/plugin_typen/mqttplugin_class.html#lib.model.mqttplugin.MqttPlugin.translate">[Doku]</a>    <span class="k">def</span> <span class="nf">translate</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">txt</span><span class="p">,</span> <span class="nb">vars</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">block</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+<div class="viewcode-block" id="MqttPlugin.translate"><a class="viewcode-back" href="../../../referenz/plugins/plugin_typen/mqttplugin_class.html#lib.model.mqttplugin.MqttPlugin.translate">[Doku]</a>    <span class="k">def</span><span class="w"> </span><span class="nf">translate</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">txt</span><span class="p">,</span> <span class="nb">vars</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">block</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Returns translated text for class SmartPlugin</span>
 <span class="sd">        &quot;&quot;&quot;</span>
@@ -5816,7 +5816,7 @@
             <span class="k">return</span> <span class="n">lib_translate</span><span class="p">(</span><span class="n">txt</span><span class="p">,</span> <span class="nb">vars</span><span class="p">,</span> <span class="n">additional_translations</span><span class="o">=</span><span class="s1">&#39;module/mqtt&#39;</span><span class="p">)</span></div>
 
 
-<div class="viewcode-block" id="MqttPlugin.start_subscriptions"><a class="viewcode-back" href="../../../referenz/plugins/plugin_typen/mqttplugin_class.html#lib.model.mqttplugin.MqttPlugin.start_subscriptions">[Doku]</a>    <span class="k">def</span> <span class="nf">start_subscriptions</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<div class="viewcode-block" id="MqttPlugin.start_subscriptions"><a class="viewcode-back" href="../../../referenz/plugins/plugin_typen/mqttplugin_class.html#lib.model.mqttplugin.MqttPlugin.start_subscriptions">[Doku]</a>    <span class="k">def</span><span class="w"> </span><span class="nf">start_subscriptions</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Start subscription to all topics</span>
 
@@ -5832,7 +5832,7 @@
             <span class="bp">self</span><span class="o">.</span><span class="n">_subscriptions_started</span> <span class="o">=</span> <span class="kc">True</span>
         <span class="k">return</span></div>
 
-<div class="viewcode-block" id="MqttPlugin.stop_subscriptions"><a class="viewcode-back" href="../../../referenz/plugins/plugin_typen/mqttplugin_class.html#lib.model.mqttplugin.MqttPlugin.stop_subscriptions">[Doku]</a>    <span class="k">def</span> <span class="nf">stop_subscriptions</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<div class="viewcode-block" id="MqttPlugin.stop_subscriptions"><a class="viewcode-back" href="../../../referenz/plugins/plugin_typen/mqttplugin_class.html#lib.model.mqttplugin.MqttPlugin.stop_subscriptions">[Doku]</a>    <span class="k">def</span><span class="w"> </span><span class="nf">stop_subscriptions</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Stop subscription to all topics</span>
 
@@ -5852,7 +5852,7 @@
             <span class="bp">self</span><span class="o">.</span><span class="n">_subscriptions_started</span> <span class="o">=</span> <span class="kc">False</span>
         <span class="k">return</span></div>
 
-    <span class="k">def</span> <span class="nf">_start_subscription</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">topic</span><span class="p">,</span> <span class="n">item_path</span><span class="p">):</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">_start_subscription</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">topic</span><span class="p">,</span> <span class="n">item_path</span><span class="p">):</span>
 
         <span class="n">current</span> <span class="o">=</span> <span class="nb">str</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_subscribed_topics</span><span class="p">[</span><span class="n">topic</span><span class="p">][</span><span class="n">item_path</span><span class="p">][</span><span class="s1">&#39;current&#39;</span><span class="p">])</span>
         <span class="n">qos</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_subscribed_topics</span><span class="p">[</span><span class="n">topic</span><span class="p">][</span><span class="n">item_path</span><span class="p">]</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;qos&#39;</span><span class="p">,</span> <span class="kc">None</span><span class="p">)</span>
@@ -5867,7 +5867,7 @@
                                       <span class="n">qos</span><span class="o">=</span><span class="n">qos</span><span class="p">,</span> <span class="n">payload_type</span><span class="o">=</span><span class="n">payload_type</span><span class="p">,</span> <span class="n">bool_values</span><span class="o">=</span><span class="n">bool_values</span><span class="p">)</span>
         <span class="k">return</span>
 
-<div class="viewcode-block" id="MqttPlugin.add_subscription"><a class="viewcode-back" href="../../../referenz/plugins/plugin_typen/mqttplugin_class.html#lib.model.mqttplugin.MqttPlugin.add_subscription">[Doku]</a>    <span class="k">def</span> <span class="nf">add_subscription</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">topic</span><span class="p">,</span> <span class="n">payload_type</span><span class="p">,</span> <span class="n">bool_values</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">item</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">callback</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+<div class="viewcode-block" id="MqttPlugin.add_subscription"><a class="viewcode-back" href="../../../referenz/plugins/plugin_typen/mqttplugin_class.html#lib.model.mqttplugin.MqttPlugin.add_subscription">[Doku]</a>    <span class="k">def</span><span class="w"> </span><span class="nf">add_subscription</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">topic</span><span class="p">,</span> <span class="n">payload_type</span><span class="p">,</span> <span class="n">bool_values</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">item</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">callback</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Add mqtt subscription to subscribed_topics list</span>
 
@@ -5909,7 +5909,7 @@
         <span class="k">return</span></div>
 
 
-<div class="viewcode-block" id="MqttPlugin.publish_topic"><a class="viewcode-back" href="../../../referenz/plugins/plugin_typen/mqttplugin_class.html#lib.model.mqttplugin.MqttPlugin.publish_topic">[Doku]</a>    <span class="k">def</span> <span class="nf">publish_topic</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">topic</span><span class="p">,</span> <span class="n">payload</span><span class="p">,</span> <span class="n">item</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">qos</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">retain</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">bool_values</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+<div class="viewcode-block" id="MqttPlugin.publish_topic"><a class="viewcode-back" href="../../../referenz/plugins/plugin_typen/mqttplugin_class.html#lib.model.mqttplugin.MqttPlugin.publish_topic">[Doku]</a>    <span class="k">def</span><span class="w"> </span><span class="nf">publish_topic</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">topic</span><span class="p">,</span> <span class="n">payload</span><span class="p">,</span> <span class="n">item</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">qos</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">retain</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">bool_values</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Publish a topic to mqtt</span>
 
@@ -5941,12 +5941,12 @@
     <span class="n">broker_monitoring</span> <span class="o">=</span> <span class="kc">False</span>
 
 
-<div class="viewcode-block" id="MqttPlugin.get_broker_info"><a class="viewcode-back" href="../../../referenz/plugins/plugin_typen/mqttplugin_class.html#lib.model.mqttplugin.MqttPlugin.get_broker_info">[Doku]</a>    <span class="k">def</span> <span class="nf">get_broker_info</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<div class="viewcode-block" id="MqttPlugin.get_broker_info"><a class="viewcode-back" href="../../../referenz/plugins/plugin_typen/mqttplugin_class.html#lib.model.mqttplugin.MqttPlugin.get_broker_info">[Doku]</a>    <span class="k">def</span><span class="w"> </span><span class="nf">get_broker_info</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">mod_mqtt</span><span class="p">:</span>
             <span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_broker</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">broker_monitoring</span><span class="p">)</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">mod_mqtt</span><span class="o">.</span><span class="n">get_broker_info</span><span class="p">()</span></div>
 
 
-<div class="viewcode-block" id="MqttPlugin.broker_uptime"><a class="viewcode-back" href="../../../referenz/plugins/plugin_typen/mqttplugin_class.html#lib.model.mqttplugin.MqttPlugin.broker_uptime">[Doku]</a>    <span class="k">def</span> <span class="nf">broker_uptime</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<div class="viewcode-block" id="MqttPlugin.broker_uptime"><a class="viewcode-back" href="../../../referenz/plugins/plugin_typen/mqttplugin_class.html#lib.model.mqttplugin.MqttPlugin.broker_uptime">[Doku]</a>    <span class="k">def</span><span class="w"> </span><span class="nf">broker_uptime</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Return formatted uptime of broker</span>
 <span class="sd">        &quot;&quot;&quot;</span>
@@ -5958,7 +5958,7 @@
             <span class="k">return</span> <span class="s1">&#39;-&#39;</span></div>
 
 
-<div class="viewcode-block" id="MqttPlugin.mqtt_init"><a class="viewcode-back" href="../../../referenz/plugins/plugin_typen/mqttplugin_class.html#lib.model.mqttplugin.MqttPlugin.mqtt_init">[Doku]</a>    <span class="k">def</span> <span class="nf">mqtt_init</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<div class="viewcode-block" id="MqttPlugin.mqtt_init"><a class="viewcode-back" href="../../../referenz/plugins/plugin_typen/mqttplugin_class.html#lib.model.mqttplugin.MqttPlugin.mqtt_init">[Doku]</a>    <span class="k">def</span><span class="w"> </span><span class="nf">mqtt_init</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Dummy method - should not be called any more</span>
 <span class="sd">        :return: Bool value True</span>
@@ -5970,7 +5970,7 @@
 
     <span class="c1"># -----------------------------------------------------------------------</span>
 
-    <span class="k">def</span> <span class="nf">_on_mqtt_message</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">topic</span><span class="p">,</span> <span class="n">payload</span><span class="p">,</span> <span class="n">qos</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">retain</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">_on_mqtt_message</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">topic</span><span class="p">,</span> <span class="n">payload</span><span class="p">,</span> <span class="n">qos</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">retain</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Callback function to handle received messages</span>
 
@@ -6003,7 +6003,7 @@
         <span class="k">return</span>
 
 
-    <span class="k">def</span> <span class="nf">_update_item_values</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">item</span><span class="p">,</span> <span class="n">payload</span><span class="p">):</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">_update_item_values</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">item</span><span class="p">,</span> <span class="n">payload</span><span class="p">):</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Update dict for periodic updates of the web interface</span>
 
@@ -6021,7 +6021,7 @@
         <span class="k">return</span></div>
 
 
-<span class="kn">from</span> <span class="nn">lib.model.smartplugin</span> <span class="kn">import</span> <span class="n">SmartPluginWebIf</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">lib.model.smartplugin</span><span class="w"> </span><span class="kn">import</span> <span class="n">SmartPluginWebIf</span>
 <span class="c1"># try:</span>
 <span class="c1">#     from jinja2 import Environment, FileSystemLoader</span>
 <span class="c1"># except:</span>
@@ -6029,10 +6029,10 @@
 <span class="c1"># from lib.module import Modules</span>
 
 
-<span class="k">class</span> <span class="nc">MqttPluginWebIf</span><span class="p">(</span><span class="n">SmartPluginWebIf</span><span class="p">):</span>
+<span class="k">class</span><span class="w"> </span><span class="nc">MqttPluginWebIf</span><span class="p">(</span><span class="n">SmartPluginWebIf</span><span class="p">):</span>
 
 
-    <span class="k">def</span> <span class="nf">translate</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">txt</span><span class="p">,</span> <span class="nb">vars</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">translate</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">txt</span><span class="p">,</span> <span class="nb">vars</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Returns translated text for class SmartPluginWebIf</span>
 

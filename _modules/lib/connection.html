@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>lib.connection &mdash; Dokumentation v1.10.0.3 v1.10.0.3 develop (Stand 4. Januar 2025, commit d19b92c) Dokumentation</title>
+  <title>lib.connection &mdash; Dokumentation v1.10.0.3 v1.10.0.3 develop (Stand 5. Januar 2025, commit d19b92c) Dokumentation</title>
       <link rel="stylesheet" type="text/css" href="../../_static/pygments.css" />
       <link rel="stylesheet" type="text/css" href="../../_static/css/theme.css" />
       <link rel="stylesheet" type="text/css" href="../../_static/custom.css" />
@@ -5767,28 +5767,28 @@
 <span class="sd">visu_websocket</span>
 
 <span class="sd">&quot;&quot;&quot;</span>
-<span class="kn">import</span> <span class="nn">logging</span>
-<span class="kn">import</span> <span class="nn">socket</span>
-<span class="kn">import</span> <span class="nn">collections</span>
-<span class="kn">import</span> <span class="nn">threading</span>
-<span class="kn">import</span> <span class="nn">select</span>
-<span class="kn">import</span> <span class="nn">time</span>
-<span class="kn">import</span> <span class="nn">sys</span>
-<span class="kn">from</span> <span class="nn">iowait</span> <span class="kn">import</span> <span class="n">IOWait</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">logging</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">socket</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">collections</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">threading</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">select</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">time</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">sys</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">iowait</span><span class="w"> </span><span class="kn">import</span> <span class="n">IOWait</span>
 
 <span class="n">logger</span> <span class="o">=</span> <span class="n">logging</span><span class="o">.</span><span class="n">getLogger</span><span class="p">(</span><span class="vm">__name__</span><span class="p">)</span>
 
 <span class="c1"># =====================================================================================</span>
 
-<span class="kn">import</span> <span class="nn">lib.utils</span>
-<span class="kn">import</span> <span class="nn">sys</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">lib.utils</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">sys</span>
 
 <span class="n">dep_id_list</span> <span class="o">=</span> <span class="p">[]</span>
 
 <span class="c1">#####################################################################</span>
 <span class="c1"># Diplay DEPRECATED warning</span>
 <span class="c1">#####################################################################</span>
-<span class="k">def</span> <span class="nf">_deprecated_warning</span><span class="p">(</span><span class="n">n_func</span><span class="o">=</span><span class="s1">&#39;&#39;</span><span class="p">,</span> <span class="n">o_func</span><span class="o">=</span><span class="s1">&#39;&#39;</span><span class="p">):</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">_deprecated_warning</span><span class="p">(</span><span class="n">n_func</span><span class="o">=</span><span class="s1">&#39;&#39;</span><span class="p">,</span> <span class="n">o_func</span><span class="o">=</span><span class="s1">&#39;&#39;</span><span class="p">):</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    Display function deprecated warning</span>
 <span class="sd">    &quot;&quot;&quot;</span>
@@ -5844,7 +5844,7 @@
 
 
 
-<div class="viewcode-block" id="Base"><a class="viewcode-back" href="../../lib/connection.html#lib.connection.Base">[Doku]</a><span class="k">class</span> <span class="nc">Base</span><span class="p">():</span>
+<div class="viewcode-block" id="Base"><a class="viewcode-back" href="../../lib/connection.html#lib.connection.Base">[Doku]</a><span class="k">class</span><span class="w"> </span><span class="nc">Base</span><span class="p">():</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    provides same base class for class Connections(), class Server(),</span>
 <span class="sd">    class Stream() and thus also to class Client() which inherits from Stream()</span>
@@ -5858,18 +5858,18 @@
     <span class="n">_monitor</span> <span class="o">=</span> <span class="p">[]</span>
     <span class="n">_deprecated_wanings</span> <span class="o">=</span> <span class="kc">True</span>
 
-    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">monitor</span><span class="o">=</span><span class="kc">False</span><span class="p">):</span>
+    <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">monitor</span><span class="o">=</span><span class="kc">False</span><span class="p">):</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">_name</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="vm">__class__</span><span class="o">.</span><span class="vm">__name__</span>
         <span class="k">if</span> <span class="n">monitor</span><span class="p">:</span>
             <span class="bp">self</span><span class="o">.</span><span class="n">_monitor</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span>
 
 
-    <span class="k">def</span> <span class="nf">_create_socket</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">flags</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">_create_socket</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">flags</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
         <span class="n">family</span><span class="p">,</span> <span class="nb">type</span><span class="p">,</span> <span class="n">proto</span><span class="p">,</span> <span class="n">canonname</span><span class="p">,</span> <span class="n">sockaddr</span> <span class="o">=</span> <span class="n">socket</span><span class="o">.</span><span class="n">getaddrinfo</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_host</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">_port</span><span class="p">,</span> <span class="n">family</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">_family</span><span class="p">[</span><span class="bp">self</span><span class="o">.</span><span class="n">_proto</span><span class="p">],</span> <span class="nb">type</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">_type</span><span class="p">[</span><span class="bp">self</span><span class="o">.</span><span class="n">_proto</span><span class="p">])[</span><span class="mi">0</span><span class="p">]</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">socket</span> <span class="o">=</span> <span class="n">socket</span><span class="o">.</span><span class="n">socket</span><span class="p">(</span><span class="n">family</span><span class="p">,</span> <span class="nb">type</span><span class="p">,</span> <span class="n">proto</span><span class="p">)</span>
         <span class="k">return</span> <span class="n">sockaddr</span>
 
-    <span class="k">def</span> <span class="nf">_deprecated_warning</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">n_func</span><span class="o">=</span><span class="s1">&#39;&#39;</span><span class="p">):</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">_deprecated_warning</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">n_func</span><span class="o">=</span><span class="s1">&#39;&#39;</span><span class="p">):</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Display function deprecated warning</span>
 <span class="sd">        &quot;&quot;&quot;</span>
@@ -5917,7 +5917,7 @@
         <span class="k">return</span></div>
 
 
-<div class="viewcode-block" id="Connections"><a class="viewcode-back" href="../../lib/connection.html#lib.connection.Connections">[Doku]</a><span class="k">class</span> <span class="nc">Connections</span><span class="p">(</span><span class="n">Base</span><span class="p">):</span>
+<div class="viewcode-block" id="Connections"><a class="viewcode-back" href="../../lib/connection.html#lib.connection.Connections">[Doku]</a><span class="k">class</span><span class="w"> </span><span class="nc">Connections</span><span class="p">(</span><span class="n">Base</span><span class="p">):</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    Within SmartHome.py there is one instance of this class</span>
 
@@ -5934,7 +5934,7 @@
         <span class="n">_ro</span> <span class="o">=</span> <span class="n">select</span><span class="o">.</span><span class="n">EPOLLIN</span> <span class="o">|</span> <span class="n">select</span><span class="o">.</span><span class="n">EPOLLHUP</span> <span class="o">|</span> <span class="n">select</span><span class="o">.</span><span class="n">EPOLLERR</span>
         <span class="n">_rw</span> <span class="o">=</span> <span class="n">_ro</span> <span class="o">|</span> <span class="n">select</span><span class="o">.</span><span class="n">EPOLLOUT</span>
 
-    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+    <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="n">Base</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span>
         <span class="n">Base</span><span class="o">.</span><span class="n">_poller</span> <span class="o">=</span> <span class="bp">self</span>
         <span class="n">_deprecated_warning</span><span class="p">(</span><span class="s1">&#39;&#39;</span><span class="p">,</span> <span class="s1">&#39;class Connections&#39;</span><span class="p">)</span>
@@ -5947,7 +5947,7 @@
             <span class="bp">self</span><span class="o">.</span><span class="n">_connections_found</span> <span class="o">=</span> <span class="mi">0</span>
             <span class="bp">self</span><span class="o">.</span><span class="n">_waitobj</span> <span class="o">=</span> <span class="n">IOWait</span><span class="p">()</span>
 
-<div class="viewcode-block" id="Connections.register_server"><a class="viewcode-back" href="../../lib/connection.html#lib.connection.Connections.register_server">[Doku]</a>    <span class="k">def</span> <span class="nf">register_server</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">fileno</span><span class="p">,</span> <span class="n">obj</span><span class="p">):</span>
+<div class="viewcode-block" id="Connections.register_server"><a class="viewcode-back" href="../../lib/connection.html#lib.connection.Connections.register_server">[Doku]</a>    <span class="k">def</span><span class="w"> </span><span class="nf">register_server</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">fileno</span><span class="p">,</span> <span class="n">obj</span><span class="p">):</span>
         <span class="k">if</span> <span class="n">fileno</span> <span class="o">==</span> <span class="o">-</span><span class="mi">1</span><span class="p">:</span>
             <span class="n">logger</span><span class="o">.</span><span class="n">error</span><span class="p">(</span><span class="s2">&quot;</span><span class="si">{}</span><span class="s2"> tried to register a server with filenumber == -1&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">obj</span><span class="p">))</span>
             <span class="k">return</span>
@@ -5966,7 +5966,7 @@
             <span class="n">logger</span><span class="o">.</span><span class="n">debug</span><span class="p">(</span><span class="s2">&quot;register_server: put watch on fileno </span><span class="si">{}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">fileno</span><span class="p">))</span>
             <span class="bp">self</span><span class="o">.</span><span class="n">_waitobj</span><span class="o">.</span><span class="n">watch</span><span class="p">(</span><span class="n">fileno</span><span class="p">,</span> <span class="n">read</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span></div>
 
-<div class="viewcode-block" id="Connections.register_connection"><a class="viewcode-back" href="../../lib/connection.html#lib.connection.Connections.register_connection">[Doku]</a>    <span class="k">def</span> <span class="nf">register_connection</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">fileno</span><span class="p">,</span> <span class="n">obj</span><span class="p">):</span>
+<div class="viewcode-block" id="Connections.register_connection"><a class="viewcode-back" href="../../lib/connection.html#lib.connection.Connections.register_connection">[Doku]</a>    <span class="k">def</span><span class="w"> </span><span class="nf">register_connection</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">fileno</span><span class="p">,</span> <span class="n">obj</span><span class="p">):</span>
         <span class="k">if</span> <span class="n">fileno</span> <span class="o">==</span> <span class="o">-</span><span class="mi">1</span><span class="p">:</span>
             <span class="n">logger</span><span class="o">.</span><span class="n">error</span><span class="p">(</span><span class="s2">&quot;tried to register a connection with filenumber == -1&quot;</span><span class="p">)</span>
             <span class="k">return</span>
@@ -5984,7 +5984,7 @@
             <span class="n">logger</span><span class="o">.</span><span class="n">debug</span><span class="p">(</span><span class="s2">&quot;register_connection: put watch on fileno </span><span class="si">{}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">fileno</span><span class="p">))</span>
             <span class="bp">self</span><span class="o">.</span><span class="n">_waitobj</span><span class="o">.</span><span class="n">watch</span><span class="p">(</span><span class="n">fileno</span><span class="p">,</span> <span class="n">read</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span></div>
 
-<div class="viewcode-block" id="Connections.unregister_connection"><a class="viewcode-back" href="../../lib/connection.html#lib.connection.Connections.unregister_connection">[Doku]</a>    <span class="k">def</span> <span class="nf">unregister_connection</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">fileno</span><span class="p">):</span>
+<div class="viewcode-block" id="Connections.unregister_connection"><a class="viewcode-back" href="../../lib/connection.html#lib.connection.Connections.unregister_connection">[Doku]</a>    <span class="k">def</span><span class="w"> </span><span class="nf">unregister_connection</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">fileno</span><span class="p">):</span>
         <span class="k">if</span> <span class="n">fileno</span> <span class="o">==</span> <span class="o">-</span><span class="mi">1</span><span class="p">:</span>
             <span class="n">logger</span><span class="o">.</span><span class="n">error</span><span class="p">(</span><span class="s2">&quot;tried to unregister a connection with filenumber == -1&quot;</span><span class="p">)</span>
             <span class="k">return</span>
@@ -6009,15 +6009,15 @@
         <span class="k">except</span><span class="p">:</span>
             <span class="k">pass</span></div>
 
-<div class="viewcode-block" id="Connections.monitor"><a class="viewcode-back" href="../../lib/connection.html#lib.connection.Connections.monitor">[Doku]</a>    <span class="k">def</span> <span class="nf">monitor</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">obj</span><span class="p">):</span>
+<div class="viewcode-block" id="Connections.monitor"><a class="viewcode-back" href="../../lib/connection.html#lib.connection.Connections.monitor">[Doku]</a>    <span class="k">def</span><span class="w"> </span><span class="nf">monitor</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">obj</span><span class="p">):</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">_monitor</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">obj</span><span class="p">)</span></div>
 
-<div class="viewcode-block" id="Connections.check"><a class="viewcode-back" href="../../lib/connection.html#lib.connection.Connections.check">[Doku]</a>    <span class="k">def</span> <span class="nf">check</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<div class="viewcode-block" id="Connections.check"><a class="viewcode-back" href="../../lib/connection.html#lib.connection.Connections.check">[Doku]</a>    <span class="k">def</span><span class="w"> </span><span class="nf">check</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="k">for</span> <span class="n">obj</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">_monitor</span><span class="p">:</span>
             <span class="k">if</span> <span class="ow">not</span> <span class="n">obj</span><span class="o">.</span><span class="n">connected</span><span class="p">:</span>
                 <span class="n">obj</span><span class="o">.</span><span class="n">connect</span><span class="p">()</span></div>
 
-<div class="viewcode-block" id="Connections.trigger"><a class="viewcode-back" href="../../lib/connection.html#lib.connection.Connections.trigger">[Doku]</a>    <span class="k">def</span> <span class="nf">trigger</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">fileno</span><span class="p">):</span>
+<div class="viewcode-block" id="Connections.trigger"><a class="viewcode-back" href="../../lib/connection.html#lib.connection.Connections.trigger">[Doku]</a>    <span class="k">def</span><span class="w"> </span><span class="nf">trigger</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">fileno</span><span class="p">):</span>
         <span class="k">if</span> <span class="n">fileno</span> <span class="o">==</span> <span class="o">-</span><span class="mi">1</span><span class="p">:</span>
             <span class="n">logger</span><span class="o">.</span><span class="n">error</span><span class="p">(</span><span class="s2">&quot;tried to trigger a connection with filenumber == -1&quot;</span><span class="p">)</span>
             <span class="k">return</span>
@@ -6034,7 +6034,7 @@
             <span class="k">else</span><span class="p">:</span>
                 <span class="n">logger</span><span class="o">.</span><span class="n">error</span><span class="p">(</span><span class="s2">&quot;trigger: Operating System without epoll or kqueue is currently not supported, please report this error&quot;</span><span class="p">)</span></div>
 
-<div class="viewcode-block" id="Connections.poll"><a class="viewcode-back" href="../../lib/connection.html#lib.connection.Connections.poll">[Doku]</a>    <span class="k">def</span> <span class="nf">poll</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<div class="viewcode-block" id="Connections.poll"><a class="viewcode-back" href="../../lib/connection.html#lib.connection.Connections.poll">[Doku]</a>    <span class="k">def</span><span class="w"> </span><span class="nf">poll</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="n">time</span><span class="o">.</span><span class="n">sleep</span><span class="p">(</span><span class="mf">0.0000000001</span><span class="p">)</span>  <span class="c1"># give epoll.modify a chance</span>
         <span class="k">if</span> <span class="ow">not</span> <span class="bp">self</span><span class="o">.</span><span class="n">_connections</span><span class="p">:</span>
             <span class="n">time</span><span class="o">.</span><span class="n">sleep</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
@@ -6183,7 +6183,7 @@
                                 <span class="k">continue</span></div>
 
 
-<div class="viewcode-block" id="Connections.close"><a class="viewcode-back" href="../../lib/connection.html#lib.connection.Connections.close">[Doku]</a>    <span class="k">def</span> <span class="nf">close</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<div class="viewcode-block" id="Connections.close"><a class="viewcode-back" href="../../lib/connection.html#lib.connection.Connections.close">[Doku]</a>    <span class="k">def</span><span class="w"> </span><span class="nf">close</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="k">if</span> <span class="o">-</span><span class="mi">1</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">_connections</span><span class="p">:</span>
             <span class="n">logger</span><span class="o">.</span><span class="n">error</span><span class="p">(</span><span class="s2">&quot;Connections.close() tried to close a filenumber == -1&quot;</span><span class="p">)</span>
 
@@ -6197,9 +6197,9 @@
             <span class="k">pass</span></div></div>
 
 
-<div class="viewcode-block" id="Server"><a class="viewcode-back" href="../../lib/connection.html#lib.connection.Server">[Doku]</a><span class="k">class</span> <span class="nc">Server</span><span class="p">(</span><span class="n">Base</span><span class="p">):</span>
+<div class="viewcode-block" id="Server"><a class="viewcode-back" href="../../lib/connection.html#lib.connection.Server">[Doku]</a><span class="k">class</span><span class="w"> </span><span class="nc">Server</span><span class="p">(</span><span class="n">Base</span><span class="p">):</span>
 
-    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">host</span><span class="p">,</span> <span class="n">port</span><span class="p">,</span> <span class="n">proto</span><span class="o">=</span><span class="s1">&#39;TCP&#39;</span><span class="p">):</span>
+    <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">host</span><span class="p">,</span> <span class="n">port</span><span class="p">,</span> <span class="n">proto</span><span class="o">=</span><span class="s1">&#39;TCP&#39;</span><span class="p">):</span>
         <span class="n">Base</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">monitor</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">_host</span> <span class="o">=</span> <span class="n">host</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">_port</span> <span class="o">=</span> <span class="n">port</span>
@@ -6209,7 +6209,7 @@
         <span class="c1">#self._deprecated_warning(&#39;lib.network.Tcp_server() class&#39;)</span>
         <span class="n">_deprecated_warning</span><span class="p">(</span><span class="s1">&#39;lib.network.Tcp_server() class&#39;</span><span class="p">,</span> <span class="s1">&#39;class Server&#39;</span><span class="p">)</span>
 
-<div class="viewcode-block" id="Server.connect"><a class="viewcode-back" href="../../lib/connection.html#lib.connection.Server.connect">[Doku]</a>    <span class="k">def</span> <span class="nf">connect</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<div class="viewcode-block" id="Server.connect"><a class="viewcode-back" href="../../lib/connection.html#lib.connection.Server.connect">[Doku]</a>    <span class="k">def</span><span class="w"> </span><span class="nf">connect</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="k">try</span><span class="p">:</span>
             <span class="n">sockaddr</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_create_socket</span><span class="p">()</span>
             <span class="bp">self</span><span class="o">.</span><span class="n">socket</span><span class="o">.</span><span class="n">setsockopt</span><span class="p">(</span><span class="n">socket</span><span class="o">.</span><span class="n">SOL_SOCKET</span><span class="p">,</span> <span class="n">socket</span><span class="o">.</span><span class="n">SO_REUSEADDR</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
@@ -6225,7 +6225,7 @@
             <span class="n">logger</span><span class="o">.</span><span class="n">debug</span><span class="p">(</span><span class="s2">&quot;</span><span class="si">{}</span><span class="s2">: binding to </span><span class="si">{}</span><span class="s2"> (</span><span class="si">{}</span><span class="s2">)&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_name</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">address</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">_proto</span><span class="p">))</span>
             <span class="bp">self</span><span class="o">.</span><span class="n">_poller</span><span class="o">.</span><span class="n">register_server</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">socket</span><span class="o">.</span><span class="n">fileno</span><span class="p">(),</span> <span class="bp">self</span><span class="p">)</span></div>
 
-<div class="viewcode-block" id="Server.close"><a class="viewcode-back" href="../../lib/connection.html#lib.connection.Server.close">[Doku]</a>    <span class="k">def</span> <span class="nf">close</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<div class="viewcode-block" id="Server.close"><a class="viewcode-back" href="../../lib/connection.html#lib.connection.Server.close">[Doku]</a>    <span class="k">def</span><span class="w"> </span><span class="nf">close</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">connected</span> <span class="o">=</span> <span class="kc">False</span>
         <span class="k">try</span><span class="p">:</span>
             <span class="bp">self</span><span class="o">.</span><span class="n">_poller</span><span class="o">.</span><span class="n">unregister_connection</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">socket</span><span class="o">.</span><span class="n">fileno</span><span class="p">())</span>
@@ -6244,7 +6244,7 @@
         <span class="k">except</span><span class="p">:</span>
             <span class="k">pass</span></div>
 
-<div class="viewcode-block" id="Server.accept"><a class="viewcode-back" href="../../lib/connection.html#lib.connection.Server.accept">[Doku]</a>    <span class="k">def</span> <span class="nf">accept</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<div class="viewcode-block" id="Server.accept"><a class="viewcode-back" href="../../lib/connection.html#lib.connection.Server.accept">[Doku]</a>    <span class="k">def</span><span class="w"> </span><span class="nf">accept</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="k">try</span><span class="p">:</span>
             <span class="n">sock</span><span class="p">,</span> <span class="n">addr</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">socket</span><span class="o">.</span><span class="n">accept</span><span class="p">()</span>
             <span class="n">sock</span><span class="o">.</span><span class="n">setblocking</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
@@ -6254,13 +6254,13 @@
         <span class="k">except</span><span class="p">:</span>
             <span class="k">return</span> <span class="kc">None</span><span class="p">,</span> <span class="kc">None</span></div>
 
-<div class="viewcode-block" id="Server.handle_connection"><a class="viewcode-back" href="../../lib/connection.html#lib.connection.Server.handle_connection">[Doku]</a>    <span class="k">def</span> <span class="nf">handle_connection</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<div class="viewcode-block" id="Server.handle_connection"><a class="viewcode-back" href="../../lib/connection.html#lib.connection.Server.handle_connection">[Doku]</a>    <span class="k">def</span><span class="w"> </span><span class="nf">handle_connection</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="k">pass</span></div></div>
 
 
-<div class="viewcode-block" id="Stream"><a class="viewcode-back" href="../../lib/connection.html#lib.connection.Stream">[Doku]</a><span class="k">class</span> <span class="nc">Stream</span><span class="p">(</span><span class="n">Base</span><span class="p">):</span>
+<div class="viewcode-block" id="Stream"><a class="viewcode-back" href="../../lib/connection.html#lib.connection.Stream">[Doku]</a><span class="k">class</span><span class="w"> </span><span class="nc">Stream</span><span class="p">(</span><span class="n">Base</span><span class="p">):</span>
 
-    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">sock</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">address</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">monitor</span><span class="o">=</span><span class="kc">False</span><span class="p">):</span>
+    <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">sock</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">address</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">monitor</span><span class="o">=</span><span class="kc">False</span><span class="p">):</span>
         <span class="n">Base</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">monitor</span><span class="o">=</span><span class="n">monitor</span><span class="p">)</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">connected</span> <span class="o">=</span> <span class="kc">False</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">address</span> <span class="o">=</span> <span class="n">address</span>
@@ -6277,12 +6277,12 @@
             <span class="bp">self</span><span class="o">.</span><span class="n">socket</span> <span class="o">=</span> <span class="n">sock</span>
             <span class="bp">self</span><span class="o">.</span><span class="n">_connected</span><span class="p">()</span>
 
-    <span class="k">def</span> <span class="nf">_connected</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">_connected</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
             <span class="bp">self</span><span class="o">.</span><span class="n">_poller</span><span class="o">.</span><span class="n">register_connection</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">socket</span><span class="o">.</span><span class="n">fileno</span><span class="p">(),</span> <span class="bp">self</span><span class="p">)</span>
             <span class="bp">self</span><span class="o">.</span><span class="n">connected</span> <span class="o">=</span> <span class="kc">True</span>
             <span class="bp">self</span><span class="o">.</span><span class="n">handle_connect</span><span class="p">()</span>
 
-    <span class="k">def</span> <span class="nf">_in</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">_in</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="n">max_size</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_frame_size_in</span>
         <span class="k">try</span><span class="p">:</span>
             <span class="n">data</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">socket</span><span class="o">.</span><span class="n">recv</span><span class="p">(</span><span class="n">max_size</span><span class="p">)</span>
@@ -6323,7 +6323,7 @@
                 <span class="bp">self</span><span class="o">.</span><span class="n">inbuffer</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">inbuffer</span><span class="p">[</span><span class="n">cut</span><span class="p">:]</span>
                 <span class="bp">self</span><span class="o">.</span><span class="n">found_terminator</span><span class="p">(</span><span class="n">data</span><span class="p">)</span>
 
-    <span class="k">def</span> <span class="nf">_is_balanced</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">_is_balanced</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="n">stack</span> <span class="o">=</span> <span class="p">[]</span>
         <span class="k">for</span> <span class="n">index</span><span class="p">,</span> <span class="n">char</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">inbuffer</span><span class="p">):</span>
             <span class="k">if</span> <span class="n">char</span> <span class="o">==</span> <span class="bp">self</span><span class="o">.</span><span class="n">_balance_open</span><span class="p">:</span>
@@ -6338,7 +6338,7 @@
                     <span class="k">return</span> <span class="n">index</span> <span class="o">+</span> <span class="mi">1</span>
         <span class="k">return</span> <span class="kc">False</span>
 
-    <span class="k">def</span> <span class="nf">_out</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">_out</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="k">if</span> <span class="ow">not</span> <span class="bp">self</span><span class="o">.</span><span class="n">__olock</span><span class="o">.</span><span class="n">acquire</span><span class="p">(</span><span class="n">timeout</span><span class="o">=</span><span class="mi">1</span><span class="p">):</span>
             <span class="k">return</span>
         <span class="k">try</span><span class="p">:</span>
@@ -6365,11 +6365,11 @@
                 <span class="bp">self</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
             <span class="bp">self</span><span class="o">.</span><span class="n">__olock</span><span class="o">.</span><span class="n">release</span><span class="p">()</span>
 
-<div class="viewcode-block" id="Stream.balance"><a class="viewcode-back" href="../../lib/connection.html#lib.connection.Stream.balance">[Doku]</a>    <span class="k">def</span> <span class="nf">balance</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">bopen</span><span class="p">,</span> <span class="n">bclose</span><span class="p">):</span>
+<div class="viewcode-block" id="Stream.balance"><a class="viewcode-back" href="../../lib/connection.html#lib.connection.Stream.balance">[Doku]</a>    <span class="k">def</span><span class="w"> </span><span class="nf">balance</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">bopen</span><span class="p">,</span> <span class="n">bclose</span><span class="p">):</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">_balance_open</span> <span class="o">=</span> <span class="nb">ord</span><span class="p">(</span><span class="n">bopen</span><span class="p">)</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">_balance_close</span> <span class="o">=</span> <span class="nb">ord</span><span class="p">(</span><span class="n">bclose</span><span class="p">)</span></div>
 
-<div class="viewcode-block" id="Stream.close"><a class="viewcode-back" href="../../lib/connection.html#lib.connection.Stream.close">[Doku]</a>    <span class="k">def</span> <span class="nf">close</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<div class="viewcode-block" id="Stream.close"><a class="viewcode-back" href="../../lib/connection.html#lib.connection.Stream.close">[Doku]</a>    <span class="k">def</span><span class="w"> </span><span class="nf">close</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">connected</span><span class="p">:</span>
             <span class="n">logger</span><span class="o">.</span><span class="n">debug</span><span class="p">(</span><span class="s2">&quot;</span><span class="si">{}</span><span class="s2">: closing socket </span><span class="si">{}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_name</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">address</span><span class="p">))</span>
             <span class="bp">self</span><span class="o">.</span><span class="n">connected</span> <span class="o">=</span> <span class="kc">False</span>
@@ -6394,23 +6394,23 @@
         <span class="k">except</span><span class="p">:</span>
             <span class="k">pass</span></div>
 
-<div class="viewcode-block" id="Stream.discard_buffers"><a class="viewcode-back" href="../../lib/connection.html#lib.connection.Stream.discard_buffers">[Doku]</a>    <span class="k">def</span> <span class="nf">discard_buffers</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<div class="viewcode-block" id="Stream.discard_buffers"><a class="viewcode-back" href="../../lib/connection.html#lib.connection.Stream.discard_buffers">[Doku]</a>    <span class="k">def</span><span class="w"> </span><span class="nf">discard_buffers</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">inbuffer</span> <span class="o">=</span> <span class="nb">bytearray</span><span class="p">()</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">outbuffer</span><span class="o">.</span><span class="n">clear</span><span class="p">()</span></div>
 
-<div class="viewcode-block" id="Stream.found_terminator"><a class="viewcode-back" href="../../lib/connection.html#lib.connection.Stream.found_terminator">[Doku]</a>    <span class="k">def</span> <span class="nf">found_terminator</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">data</span><span class="p">):</span>
+<div class="viewcode-block" id="Stream.found_terminator"><a class="viewcode-back" href="../../lib/connection.html#lib.connection.Stream.found_terminator">[Doku]</a>    <span class="k">def</span><span class="w"> </span><span class="nf">found_terminator</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">data</span><span class="p">):</span>
         <span class="k">pass</span></div>
 
-<div class="viewcode-block" id="Stream.found_balance"><a class="viewcode-back" href="../../lib/connection.html#lib.connection.Stream.found_balance">[Doku]</a>    <span class="k">def</span> <span class="nf">found_balance</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">data</span><span class="p">):</span>
+<div class="viewcode-block" id="Stream.found_balance"><a class="viewcode-back" href="../../lib/connection.html#lib.connection.Stream.found_balance">[Doku]</a>    <span class="k">def</span><span class="w"> </span><span class="nf">found_balance</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">data</span><span class="p">):</span>
         <span class="k">pass</span></div>
 
-<div class="viewcode-block" id="Stream.handle_close"><a class="viewcode-back" href="../../lib/connection.html#lib.connection.Stream.handle_close">[Doku]</a>    <span class="k">def</span> <span class="nf">handle_close</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<div class="viewcode-block" id="Stream.handle_close"><a class="viewcode-back" href="../../lib/connection.html#lib.connection.Stream.handle_close">[Doku]</a>    <span class="k">def</span><span class="w"> </span><span class="nf">handle_close</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="k">pass</span></div>
 
-<div class="viewcode-block" id="Stream.handle_connect"><a class="viewcode-back" href="../../lib/connection.html#lib.connection.Stream.handle_connect">[Doku]</a>    <span class="k">def</span> <span class="nf">handle_connect</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<div class="viewcode-block" id="Stream.handle_connect"><a class="viewcode-back" href="../../lib/connection.html#lib.connection.Stream.handle_connect">[Doku]</a>    <span class="k">def</span><span class="w"> </span><span class="nf">handle_connect</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="k">pass</span></div>
 
-<div class="viewcode-block" id="Stream.send"><a class="viewcode-back" href="../../lib/connection.html#lib.connection.Stream.send">[Doku]</a>    <span class="k">def</span> <span class="nf">send</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">data</span><span class="p">,</span> <span class="n">close</span><span class="o">=</span><span class="kc">False</span><span class="p">):</span>
+<div class="viewcode-block" id="Stream.send"><a class="viewcode-back" href="../../lib/connection.html#lib.connection.Stream.send">[Doku]</a>    <span class="k">def</span><span class="w"> </span><span class="nf">send</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">data</span><span class="p">,</span> <span class="n">close</span><span class="o">=</span><span class="kc">False</span><span class="p">):</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">_close_after_send</span> <span class="o">=</span> <span class="n">close</span>
         <span class="k">if</span> <span class="ow">not</span> <span class="bp">self</span><span class="o">.</span><span class="n">connected</span><span class="p">:</span>
             <span class="k">return</span> <span class="kc">False</span>
@@ -6424,9 +6424,9 @@
         <span class="k">return</span> <span class="kc">True</span></div></div>
 
 
-<div class="viewcode-block" id="Client"><a class="viewcode-back" href="../../lib/connection.html#lib.connection.Client">[Doku]</a><span class="k">class</span> <span class="nc">Client</span><span class="p">(</span><span class="n">Stream</span><span class="p">):</span>
+<div class="viewcode-block" id="Client"><a class="viewcode-back" href="../../lib/connection.html#lib.connection.Client">[Doku]</a><span class="k">class</span><span class="w"> </span><span class="nc">Client</span><span class="p">(</span><span class="n">Stream</span><span class="p">):</span>
 
-    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">host</span><span class="p">,</span> <span class="n">port</span><span class="p">,</span> <span class="n">proto</span><span class="o">=</span><span class="s1">&#39;TCP&#39;</span><span class="p">,</span> <span class="n">monitor</span><span class="o">=</span><span class="kc">False</span><span class="p">):</span>
+    <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">host</span><span class="p">,</span> <span class="n">port</span><span class="p">,</span> <span class="n">proto</span><span class="o">=</span><span class="s1">&#39;TCP&#39;</span><span class="p">,</span> <span class="n">monitor</span><span class="o">=</span><span class="kc">False</span><span class="p">):</span>
         <span class="n">Stream</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">monitor</span><span class="o">=</span><span class="n">monitor</span><span class="p">)</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">_host</span> <span class="o">=</span> <span class="n">host</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">_port</span> <span class="o">=</span> <span class="n">port</span>
@@ -6438,7 +6438,7 @@
         <span class="c1">#self._deprecated_warning(&#39;lib.network.Tcp_client() class&#39;)</span>
         <span class="n">_deprecated_warning</span><span class="p">(</span><span class="s1">&#39;lib.network.Tcp_client() class&#39;</span><span class="p">,</span> <span class="s1">&#39;class Client&#39;</span><span class="p">)</span>
 
-<div class="viewcode-block" id="Client.connect"><a class="viewcode-back" href="../../lib/connection.html#lib.connection.Client.connect">[Doku]</a>    <span class="k">def</span> <span class="nf">connect</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<div class="viewcode-block" id="Client.connect"><a class="viewcode-back" href="../../lib/connection.html#lib.connection.Client.connect">[Doku]</a>    <span class="k">def</span><span class="w"> </span><span class="nf">connect</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">_connection_lock</span><span class="o">.</span><span class="n">acquire</span><span class="p">()</span>
         <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">connected</span><span class="p">:</span>
             <span class="bp">self</span><span class="o">.</span><span class="n">_connection_lock</span><span class="o">.</span><span class="n">release</span><span class="p">()</span>

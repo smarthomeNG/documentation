@@ -4,7 +4,7 @@
   <meta charset="utf-8" /><meta name="generator" content="Docutils 0.19: https://docutils.sourceforge.io/" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Automatische Updates der Daten im Webinterface new &mdash; Dokumentation v1.10.0.3 v1.10.0.3 develop (Stand 4. Januar 2025, commit d19b92c) Dokumentation</title>
+  <title>Automatische Updates der Daten im Webinterface new &mdash; Dokumentation v1.10.0.3 v1.10.0.3 develop (Stand 5. Januar 2025, commit d19b92c) Dokumentation</title>
       <link rel="stylesheet" type="text/css" href="../../../_static/pygments.css" />
       <link rel="stylesheet" type="text/css" href="../../../_static/css/theme.css" />
       <link rel="stylesheet" type="text/css" href="../../../_static/custom.css" />
@@ -5756,19 +5756,19 @@ indem die neuen Daten in die DOM-Elemente der Webseite eingetragen werden.</p>
 <section id="erweitern-der-python-methode-get-data-html">
 <h2>Erweitern der Python-Methode get_data_html()<a class="headerlink" href="#erweitern-der-python-methode-get-data-html" title="Permalink to this heading"></a></h2>
 <p>Die Klasse <code class="docutils literal notranslate"><span class="pre">WebInterface</span></code> im Plugin Code muss so erweitert werden, dass sie die für das Update erforderlichen Daten zusammenstellt und als Dictionary zurückgibt:</p>
-<div class="highlight-PYTHON notranslate"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">WebInterface</span><span class="p">(</span><span class="n">SmartPluginWebIf</span><span class="p">):</span>
+<div class="highlight-PYTHON notranslate"><div class="highlight"><pre><span></span><span class="k">class</span><span class="w"> </span><span class="nc">WebInterface</span><span class="p">(</span><span class="n">SmartPluginWebIf</span><span class="p">):</span>
 
-    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">webif_dir</span><span class="p">,</span> <span class="n">plugin</span><span class="p">):</span>
-
-        <span class="o">...</span>
-
-    <span class="nd">@cherrypy</span><span class="o">.</span><span class="n">expose</span>
-    <span class="k">def</span> <span class="nf">index</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">scan</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">test</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">reload</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+    <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">webif_dir</span><span class="p">,</span> <span class="n">plugin</span><span class="p">):</span>
 
         <span class="o">...</span>
 
     <span class="nd">@cherrypy</span><span class="o">.</span><span class="n">expose</span>
-    <span class="k">def</span> <span class="nf">get_data_html</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">dataSet</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">index</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">scan</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">test</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">reload</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+
+        <span class="o">...</span>
+
+    <span class="nd">@cherrypy</span><span class="o">.</span><span class="n">expose</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">get_data_html</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">dataSet</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Return data to update the webpage</span>
 
@@ -6104,7 +6104,7 @@ Zeile gelöscht bzw. nicht gesetzt werden.</p>
 get_data_html abgefragt. Dies ist insbesondere dann sinnvoll, wenn anfangs die Tabelle mit Dummy-Daten
 oder ohne Inhalt befüllt wurde.</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="nd">@cherrypy</span><span class="o">.</span><span class="n">expose</span>
-<span class="k">def</span> <span class="nf">get_data_html</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">dataSet</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">params</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">get_data_html</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">dataSet</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">params</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    Return data to update the webpage</span>
 

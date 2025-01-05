@@ -4,7 +4,7 @@
   <meta charset="utf-8" /><meta name="generator" content="Docutils 0.19: https://docutils.sourceforge.io/" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>influxdata &mdash; Dokumentation v1.10.0.3 v1.10.0.3 develop (Stand 4. Januar 2025, commit d19b92c) Dokumentation</title>
+  <title>influxdata &mdash; Dokumentation v1.10.0.3 v1.10.0.3 develop (Stand 5. Januar 2025, commit d19b92c) Dokumentation</title>
       <link rel="stylesheet" type="text/css" href="../../_static/pygments.css" />
       <link rel="stylesheet" type="text/css" href="../../_static/css/theme.css" />
       <link rel="stylesheet" type="text/css" href="../../_static/custom.css" />
@@ -5822,13 +5822,13 @@ All data that is pushed to sqlite (i.e. for smartVISU) will automatically be cop
 <section id="check-data">
 <h2>Check data<a class="headerlink" href="#check-data" title="Permalink to this heading"></a></h2>
 <p>Open influx terminal or webui and change to database ‚smarthome‘ and run:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">&gt;</span> <span class="n">select</span> <span class="o">*</span> <span class="kn">from</span> <span class="s2">&quot;sensor.gf.kitchen.temp&quot;</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">&gt;</span> <span class="n">select</span> <span class="o">*</span> <span class="kn">from</span><span class="w"> </span><span class="s2">&quot;sensor.gf.kitchen.temp&quot;</span>
 <span class="n">name</span><span class="p">:</span> <span class="n">sensor</span><span class="o">.</span><span class="n">gf</span><span class="o">.</span><span class="n">kitchen</span><span class="o">.</span><span class="n">temp</span>
 <span class="o">----------------------------</span>
 <span class="n">time</span>			<span class="n">caller</span>	<span class="n">dest</span>	<span class="n">source</span>		<span class="n">value</span>
 <span class="mi">1451897887326109961</span>	<span class="n">EnOcean</span>	<span class="kc">None</span>	<span class="mi">01234567</span>	<span class="mf">21.92</span>
 
-<span class="o">&gt;</span> <span class="n">select</span> <span class="o">*</span> <span class="kn">from</span> <span class="s2">&quot;sensor.gf.kitchen.hum&quot;</span>
+<span class="o">&gt;</span> <span class="n">select</span> <span class="o">*</span> <span class="kn">from</span><span class="w"> </span><span class="s2">&quot;sensor.gf.kitchen.hum&quot;</span>
 <span class="n">name</span><span class="p">:</span> <span class="n">sensor</span><span class="o">.</span><span class="n">gf</span><span class="o">.</span><span class="n">kitchen</span><span class="o">.</span><span class="n">hum</span>
 <span class="o">---------------------------</span>
 <span class="n">time</span>			<span class="n">caller</span>	<span class="n">dest</span>	<span class="n">source</span>		<span class="n">value</span>

@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>lib.plugin &mdash; Dokumentation v1.10.0.3 v1.10.0.3 develop (Stand 4. Januar 2025, commit d19b92c) Dokumentation</title>
+  <title>lib.plugin &mdash; Dokumentation v1.10.0.3 v1.10.0.3 develop (Stand 5. Januar 2025, commit d19b92c) Dokumentation</title>
       <link rel="stylesheet" type="text/css" href="../../_static/pygments.css" />
       <link rel="stylesheet" type="text/css" href="../../_static/css/theme.css" />
       <link rel="stylesheet" type="text/css" href="../../_static/custom.css" />
@@ -5780,24 +5780,24 @@
 <span class="sd">:Warning: This library is part of the core of SmartHomeNG. It **should not be called directly** from plugins!</span>
 
 <span class="sd">&quot;&quot;&quot;</span>
-<span class="kn">import</span> <span class="nn">gc</span>
-<span class="kn">import</span> <span class="nn">ctypes</span>
-<span class="kn">import</span> <span class="nn">sys</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">gc</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">ctypes</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">sys</span>
 
-<span class="kn">import</span> <span class="nn">json</span>
-<span class="kn">import</span> <span class="nn">logging</span>
-<span class="kn">import</span> <span class="nn">threading</span>
-<span class="kn">import</span> <span class="nn">inspect</span>
-<span class="kn">import</span> <span class="nn">collections</span>
-<span class="kn">import</span> <span class="nn">os.path</span>		<span class="c1"># until Backend is modified</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">json</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">logging</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">threading</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">inspect</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">collections</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">os.path</span>		<span class="c1"># until Backend is modified</span>
 
-<span class="kn">import</span> <span class="nn">lib.config</span>
-<span class="kn">import</span> <span class="nn">lib.translation</span> <span class="k">as</span> <span class="nn">translation</span>
-<span class="kn">import</span> <span class="nn">lib.shyaml</span> <span class="k">as</span> <span class="nn">shyaml</span>
-<span class="kn">from</span> <span class="nn">lib.model.smartplugin</span> <span class="kn">import</span> <span class="n">SmartPlugin</span>
-<span class="kn">from</span> <span class="nn">lib.constants</span> <span class="kn">import</span> <span class="p">(</span><span class="n">KEY_CLASS_NAME</span><span class="p">,</span> <span class="n">KEY_CLASS_PATH</span><span class="p">,</span> <span class="n">KEY_INSTANCE</span><span class="p">,</span> <span class="n">KEY_WEBIF_PAGELENGTH</span><span class="p">,</span> <span class="n">YAML_FILE</span><span class="p">,</span> <span class="n">CONF_FILE</span><span class="p">,</span> <span class="n">DIR_PLUGINS</span><span class="p">)</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">lib.config</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">lib.translation</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">translation</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">lib.shyaml</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">shyaml</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">lib.model.smartplugin</span><span class="w"> </span><span class="kn">import</span> <span class="n">SmartPlugin</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">lib.constants</span><span class="w"> </span><span class="kn">import</span> <span class="p">(</span><span class="n">KEY_CLASS_NAME</span><span class="p">,</span> <span class="n">KEY_CLASS_PATH</span><span class="p">,</span> <span class="n">KEY_INSTANCE</span><span class="p">,</span> <span class="n">KEY_WEBIF_PAGELENGTH</span><span class="p">,</span> <span class="n">YAML_FILE</span><span class="p">,</span> <span class="n">CONF_FILE</span><span class="p">,</span> <span class="n">DIR_PLUGINS</span><span class="p">)</span>
 <span class="c1">#from lib.utils import Utils</span>
-<span class="kn">from</span> <span class="nn">lib.metadata</span> <span class="kn">import</span> <span class="n">Metadata</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">lib.metadata</span><span class="w"> </span><span class="kn">import</span> <span class="n">Metadata</span>
 <span class="c1">#import lib.item</span>
 
 <span class="n">logger</span> <span class="o">=</span> <span class="n">logging</span><span class="o">.</span><span class="n">getLogger</span><span class="p">(</span><span class="vm">__name__</span><span class="p">)</span>
@@ -5806,11 +5806,11 @@
 <span class="n">_plugins_instance</span> <span class="o">=</span> <span class="kc">None</span>    <span class="c1"># Pointer to the initialized instance of the Plugins class (for use by static methods)</span>
 <span class="n">_SH</span> <span class="o">=</span> <span class="kc">None</span>
 
-<span class="k">def</span> <span class="nf">namestr</span><span class="p">(</span><span class="n">obj</span><span class="p">,</span> <span class="n">namespace</span><span class="p">):</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">namestr</span><span class="p">(</span><span class="n">obj</span><span class="p">,</span> <span class="n">namespace</span><span class="p">):</span>
     <span class="k">return</span> <span class="p">[</span><span class="n">name</span> <span class="k">for</span> <span class="n">name</span> <span class="ow">in</span> <span class="n">namespace</span> <span class="k">if</span> <span class="n">namespace</span><span class="p">[</span><span class="n">name</span><span class="p">]</span> <span class="ow">is</span> <span class="n">obj</span><span class="p">]</span>
 
 
-<div class="viewcode-block" id="Plugins"><a class="viewcode-back" href="../../lib/plugin_class_plugins.html#lib.plugin.Plugins">[Doku]</a><span class="k">class</span> <span class="nc">Plugins</span><span class="p">():</span>
+<div class="viewcode-block" id="Plugins"><a class="viewcode-back" href="../../lib/plugin_class_plugins.html#lib.plugin.Plugins">[Doku]</a><span class="k">class</span><span class="w"> </span><span class="nc">Plugins</span><span class="p">():</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    Plugin loader Class. Parses config file and creates a worker thread for each plugin</span>
 
@@ -5825,13 +5825,13 @@
 
     <span class="n">_plugindict</span> <span class="o">=</span> <span class="p">{}</span>
 
-    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">smarthome</span><span class="p">,</span> <span class="n">configfile</span><span class="p">):</span>
+    <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">smarthome</span><span class="p">,</span> <span class="n">configfile</span><span class="p">):</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">_sh</span> <span class="o">=</span> <span class="n">smarthome</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">_configfile</span> <span class="o">=</span> <span class="n">configfile</span>
 
         <span class="k">global</span> <span class="n">_plugins_instance</span>
         <span class="k">if</span> <span class="n">_plugins_instance</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
-            <span class="kn">import</span> <span class="nn">inspect</span>
+            <span class="kn">import</span><span class="w"> </span><span class="nn">inspect</span>
             <span class="n">curframe</span> <span class="o">=</span> <span class="n">inspect</span><span class="o">.</span><span class="n">currentframe</span><span class="p">()</span>
             <span class="n">calframe</span> <span class="o">=</span> <span class="n">inspect</span><span class="o">.</span><span class="n">getouterframes</span><span class="p">(</span><span class="n">curframe</span><span class="p">,</span> <span class="mi">4</span><span class="p">)</span>
             <span class="n">logger</span><span class="o">.</span><span class="n">critical</span><span class="p">(</span><span class="s2">&quot;A second &#39;plugins&#39; object has been created. There should only be ONE instance of class &#39;Plugins&#39;!!! Called from: </span><span class="si">{}</span><span class="s2"> (</span><span class="si">{}</span><span class="s2">)&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">calframe</span><span class="p">[</span><span class="mi">1</span><span class="p">][</span><span class="mi">1</span><span class="p">],</span> <span class="n">calframe</span><span class="p">[</span><span class="mi">1</span><span class="p">][</span><span class="mi">3</span><span class="p">]))</span>
@@ -5953,7 +5953,7 @@
         <span class="k">return</span>
 
 
-<div class="viewcode-block" id="Plugins.get"><a class="viewcode-back" href="../../lib/plugin_class_plugins.html#lib.plugin.Plugins.get">[Doku]</a>    <span class="k">def</span> <span class="nf">get</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">plugin_name</span><span class="p">,</span> <span class="n">instance</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+<div class="viewcode-block" id="Plugins.get"><a class="viewcode-back" href="../../lib/plugin_class_plugins.html#lib.plugin.Plugins.get">[Doku]</a>    <span class="k">def</span><span class="w"> </span><span class="nf">get</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">plugin_name</span><span class="p">,</span> <span class="n">instance</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Get plugin object by plugin name and instance (optional)</span>
 
@@ -5967,7 +5967,7 @@
         <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_plugindict</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">plugin_name</span><span class="o">+</span><span class="s1">&#39;#&#39;</span><span class="o">+</span><span class="n">instance</span><span class="p">,</span> <span class="kc">None</span><span class="p">)</span></div>
 
 
-<div class="viewcode-block" id="Plugins.get_logic_parameters"><a class="viewcode-back" href="../../lib/plugin_class_plugins.html#lib.plugin.Plugins.get_logic_parameters">[Doku]</a>    <span class="k">def</span> <span class="nf">get_logic_parameters</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<div class="viewcode-block" id="Plugins.get_logic_parameters"><a class="viewcode-back" href="../../lib/plugin_class_plugins.html#lib.plugin.Plugins.get_logic_parameters">[Doku]</a>    <span class="k">def</span><span class="w"> </span><span class="nf">get_logic_parameters</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Returns the list of all logic parameter definitions of all configured/loaded plugins</span>
 
@@ -5980,7 +5980,7 @@
         <span class="k">return</span> <span class="n">paramdict</span></div>
 
 
-    <span class="k">def</span> <span class="nf">_get_pluginname_and_metadata</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">plg_section</span><span class="p">,</span> <span class="n">plg_conf</span><span class="p">):</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">_get_pluginname_and_metadata</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">plg_section</span><span class="p">,</span> <span class="n">plg_conf</span><span class="p">):</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Return the actual plugin name and the metadata instance</span>
 
@@ -6010,7 +6010,7 @@
         <span class="k">return</span> <span class="p">(</span><span class="n">plugin_name</span><span class="o">+</span><span class="n">plugin_version</span><span class="p">,</span> <span class="n">meta</span><span class="p">)</span>
 
 
-    <span class="k">def</span> <span class="nf">_get_conf_args</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">plg_conf</span><span class="p">):</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">_get_conf_args</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">plg_conf</span><span class="p">):</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Return the parameters/values for the actual plugin as args-dict</span>
 
@@ -6031,7 +6031,7 @@
         <span class="k">return</span> <span class="n">args</span>
 
 
-    <span class="k">def</span> <span class="nf">_get_classname_and_classpath</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">plg_conf</span><span class="p">,</span> <span class="n">plugin_name</span><span class="p">):</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">_get_classname_and_classpath</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">plg_conf</span><span class="p">,</span> <span class="n">plugin_name</span><span class="p">):</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Returns the classname and the classpath for the actual plugin</span>
 
@@ -6063,7 +6063,7 @@
         <span class="k">return</span> <span class="p">(</span><span class="n">classname</span><span class="p">,</span> <span class="n">classpath</span><span class="o">+</span><span class="n">plugin_version</span><span class="p">)</span>
 
 
-    <span class="k">def</span> <span class="nf">_get_instancename</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">plg_conf</span><span class="p">):</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">_get_instancename</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">plg_conf</span><span class="p">):</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Returns the instancename for the actual plugin</span>
 
@@ -6081,7 +6081,7 @@
         <span class="k">return</span> <span class="n">instance</span>
 
 
-    <span class="k">def</span> <span class="nf">_test_duplicate_pluginconfiguration</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">plugin</span><span class="p">,</span> <span class="n">classname</span><span class="p">,</span> <span class="n">instance</span><span class="p">):</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">_test_duplicate_pluginconfiguration</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">plugin</span><span class="p">,</span> <span class="n">classname</span><span class="p">,</span> <span class="n">instance</span><span class="p">):</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Returns True, if a plugin instance of the classname is already loaded by another configuration section</span>
 
@@ -6113,12 +6113,12 @@
 
 
 
-    <span class="k">def</span> <span class="fm">__iter__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+    <span class="k">def</span><span class="w"> </span><span class="fm">__iter__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="k">for</span> <span class="n">plugin</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">_plugins</span><span class="p">:</span>
             <span class="k">yield</span> <span class="n">plugin</span>
 
 
-<div class="viewcode-block" id="Plugins.get_loaded_plugins"><a class="viewcode-back" href="../../lib/plugin_class_plugins.html#lib.plugin.Plugins.get_loaded_plugins">[Doku]</a>    <span class="k">def</span> <span class="nf">get_loaded_plugins</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<div class="viewcode-block" id="Plugins.get_loaded_plugins"><a class="viewcode-back" href="../../lib/plugin_class_plugins.html#lib.plugin.Plugins.get_loaded_plugins">[Doku]</a>    <span class="k">def</span><span class="w"> </span><span class="nf">get_loaded_plugins</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Returns a list with the names of all loaded plugins</span>
 
@@ -6135,7 +6135,7 @@
         <span class="k">return</span> <span class="nb">sorted</span><span class="p">(</span><span class="n">plgs</span><span class="p">)</span></div>
 
 
-<div class="viewcode-block" id="Plugins.get_loaded_plugin_instances"><a class="viewcode-back" href="../../lib/plugin_class_plugins.html#lib.plugin.Plugins.get_loaded_plugin_instances">[Doku]</a>    <span class="k">def</span> <span class="nf">get_loaded_plugin_instances</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<div class="viewcode-block" id="Plugins.get_loaded_plugin_instances"><a class="viewcode-back" href="../../lib/plugin_class_plugins.html#lib.plugin.Plugins.get_loaded_plugin_instances">[Doku]</a>    <span class="k">def</span><span class="w"> </span><span class="nf">get_loaded_plugin_instances</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Returns a list of tuples of all loaded plugins with the plugin name and the instance name</span>
 
@@ -6155,7 +6155,7 @@
     <span class="c1"># ------------------------------------------------------------------------------------</span>
 
 <div class="viewcode-block" id="Plugins.get_instance"><a class="viewcode-back" href="../../lib/plugin_class_plugins.html#lib.plugin.Plugins.get_instance">[Doku]</a>    <span class="nd">@staticmethod</span>
-    <span class="k">def</span> <span class="nf">get_instance</span><span class="p">():</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">get_instance</span><span class="p">():</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Returns the instance of the Plugins class, to be used to access the plugin-api</span>
 
@@ -6179,7 +6179,7 @@
             <span class="k">return</span> <span class="n">_plugins_instance</span></div>
 
 
-<div class="viewcode-block" id="Plugins.return_plugin"><a class="viewcode-back" href="../../lib/plugin_class_plugins.html#lib.plugin.Plugins.return_plugin">[Doku]</a>    <span class="k">def</span> <span class="nf">return_plugin</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">configname</span><span class="p">):</span>
+<div class="viewcode-block" id="Plugins.return_plugin"><a class="viewcode-back" href="../../lib/plugin_class_plugins.html#lib.plugin.Plugins.return_plugin">[Doku]</a>    <span class="k">def</span><span class="w"> </span><span class="nf">return_plugin</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">configname</span><span class="p">):</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Returns (the object of) one loaded smartplugin with given configname</span>
 
@@ -6199,7 +6199,7 @@
 <span class="c1">#        return self._plugins[name]</span>
 
 
-<div class="viewcode-block" id="Plugins.return_plugins"><a class="viewcode-back" href="../../lib/plugin_class_plugins.html#lib.plugin.Plugins.return_plugins">[Doku]</a>    <span class="k">def</span> <span class="nf">return_plugins</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<div class="viewcode-block" id="Plugins.return_plugins"><a class="viewcode-back" href="../../lib/plugin_class_plugins.html#lib.plugin.Plugins.return_plugins">[Doku]</a>    <span class="k">def</span><span class="w"> </span><span class="nf">return_plugins</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Returns a list with the instances of all loaded plugins</span>
 
@@ -6211,18 +6211,18 @@
             <span class="k">yield</span> <span class="n">plugin</span></div>
 
 
-    <span class="k">def</span> <span class="nf">_get_plugin_conf_filename</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">_get_plugin_conf_filename</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Returns the name of the logic configuration file</span>
 <span class="sd">        &quot;&quot;&quot;</span>
         <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_plugin_conf_filename</span>
 
 
-<div class="viewcode-block" id="Plugins.PyObject"><a class="viewcode-back" href="../../lib/plugin_class_plugins.html#lib.plugin.Plugins.PyObject">[Doku]</a>    <span class="k">class</span> <span class="nc">PyObject</span><span class="p">(</span><span class="n">ctypes</span><span class="o">.</span><span class="n">Structure</span><span class="p">):</span>
+<div class="viewcode-block" id="Plugins.PyObject"><a class="viewcode-back" href="../../lib/plugin_class_plugins.html#lib.plugin.Plugins.PyObject">[Doku]</a>    <span class="k">class</span><span class="w"> </span><span class="nc">PyObject</span><span class="p">(</span><span class="n">ctypes</span><span class="o">.</span><span class="n">Structure</span><span class="p">):</span>
         <span class="n">_fields_</span> <span class="o">=</span> <span class="p">[(</span><span class="s2">&quot;refcnt&quot;</span><span class="p">,</span> <span class="n">ctypes</span><span class="o">.</span><span class="n">c_long</span><span class="p">)]</span></div>
 
 
-<div class="viewcode-block" id="Plugins.unload_plugin"><a class="viewcode-back" href="../../lib/plugin_class_plugins.html#lib.plugin.Plugins.unload_plugin">[Doku]</a>    <span class="k">def</span> <span class="nf">unload_plugin</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">configname</span><span class="p">):</span>
+<div class="viewcode-block" id="Plugins.unload_plugin"><a class="viewcode-back" href="../../lib/plugin_class_plugins.html#lib.plugin.Plugins.unload_plugin">[Doku]</a>    <span class="k">def</span><span class="w"> </span><span class="nf">unload_plugin</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">configname</span><span class="p">):</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Unloads (the object of) one loaded plugin with given configname</span>
 
@@ -6280,7 +6280,7 @@
 
     <span class="c1"># ------------------------------------------------------------------------------------</span>
 
-<div class="viewcode-block" id="Plugins.start"><a class="viewcode-back" href="../../lib/plugin_class_plugins.html#lib.plugin.Plugins.start">[Doku]</a>    <span class="k">def</span> <span class="nf">start</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<div class="viewcode-block" id="Plugins.start"><a class="viewcode-back" href="../../lib/plugin_class_plugins.html#lib.plugin.Plugins.start">[Doku]</a>    <span class="k">def</span><span class="w"> </span><span class="nf">start</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="n">logger</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="s1">&#39;Start plugins&#39;</span><span class="p">)</span>
         <span class="k">for</span> <span class="n">plugin</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">_threads</span><span class="p">:</span>
             <span class="k">try</span><span class="p">:</span>
@@ -6294,7 +6294,7 @@
         <span class="n">logger</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="s1">&#39;Start of plugins finished&#39;</span><span class="p">)</span></div>
 
 
-<div class="viewcode-block" id="Plugins.stop"><a class="viewcode-back" href="../../lib/plugin_class_plugins.html#lib.plugin.Plugins.stop">[Doku]</a>    <span class="k">def</span> <span class="nf">stop</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<div class="viewcode-block" id="Plugins.stop"><a class="viewcode-back" href="../../lib/plugin_class_plugins.html#lib.plugin.Plugins.stop">[Doku]</a>    <span class="k">def</span><span class="w"> </span><span class="nf">stop</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="n">logger</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="s1">&#39;Stop plugins&#39;</span><span class="p">)</span>
         <span class="k">for</span> <span class="n">plugin</span> <span class="ow">in</span> <span class="nb">list</span><span class="p">(</span><span class="nb">reversed</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_threads</span><span class="p">)):</span>
             <span class="k">try</span><span class="p">:</span>
@@ -6311,7 +6311,7 @@
         <span class="n">logger</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="s1">&#39;Stop of plugins finished&#39;</span><span class="p">)</span></div>
 
 
-<div class="viewcode-block" id="Plugins.get_pluginthread"><a class="viewcode-back" href="../../lib/plugin_class_plugins.html#lib.plugin.Plugins.get_pluginthread">[Doku]</a>    <span class="k">def</span> <span class="nf">get_pluginthread</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">configname</span><span class="p">):</span>
+<div class="viewcode-block" id="Plugins.get_pluginthread"><a class="viewcode-back" href="../../lib/plugin_class_plugins.html#lib.plugin.Plugins.get_pluginthread">[Doku]</a>    <span class="k">def</span><span class="w"> </span><span class="nf">get_pluginthread</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">configname</span><span class="p">):</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Returns one plugin with given name</span>
 
@@ -6324,7 +6324,7 @@
         <span class="k">return</span> <span class="kc">None</span></div></div>
 
 
-<div class="viewcode-block" id="PluginWrapper"><a class="viewcode-back" href="../../lib/plugin_class_pluginwrapper.html#lib.plugin.PluginWrapper">[Doku]</a><span class="k">class</span> <span class="nc">PluginWrapper</span><span class="p">(</span><span class="n">threading</span><span class="o">.</span><span class="n">Thread</span><span class="p">):</span>
+<div class="viewcode-block" id="PluginWrapper"><a class="viewcode-back" href="../../lib/plugin_class_pluginwrapper.html#lib.plugin.PluginWrapper">[Doku]</a><span class="k">class</span><span class="w"> </span><span class="nc">PluginWrapper</span><span class="p">(</span><span class="n">threading</span><span class="o">.</span><span class="n">Thread</span><span class="p">):</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    Wrapper class for loading plugins</span>
 
@@ -6344,7 +6344,7 @@
 <span class="sd">    :type meta: object</span>
 <span class="sd">    &quot;&quot;&quot;</span>
 
-    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">smarthome</span><span class="p">,</span> <span class="n">name</span><span class="p">,</span> <span class="n">classname</span><span class="p">,</span> <span class="n">classpath</span><span class="p">,</span> <span class="n">args</span><span class="p">,</span> <span class="n">instance</span><span class="p">,</span> <span class="n">meta</span><span class="p">,</span> <span class="n">configfile</span><span class="p">):</span>
+    <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">smarthome</span><span class="p">,</span> <span class="n">name</span><span class="p">,</span> <span class="n">classname</span><span class="p">,</span> <span class="n">classpath</span><span class="p">,</span> <span class="n">args</span><span class="p">,</span> <span class="n">instance</span><span class="p">,</span> <span class="n">meta</span><span class="p">,</span> <span class="n">configfile</span><span class="p">):</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Initialization of wrapper class</span>
 <span class="sd">        &quot;&quot;&quot;</span>
@@ -6483,7 +6483,7 @@
             <span class="n">logger</span><span class="o">.</span><span class="n">error</span><span class="p">(</span><span class="s2">&quot;Plugin &#39;</span><span class="si">{}</span><span class="s2">&#39; initialization failed, plugin not loaded&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">classpath</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s1">&#39;.&#39;</span><span class="p">)[</span><span class="mi">1</span><span class="p">]))</span>
 
 
-<div class="viewcode-block" id="PluginWrapper.run"><a class="viewcode-back" href="../../lib/plugin_class_pluginwrapper.html#lib.plugin.PluginWrapper.run">[Doku]</a>    <span class="k">def</span> <span class="nf">run</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<div class="viewcode-block" id="PluginWrapper.run"><a class="viewcode-back" href="../../lib/plugin_class_pluginwrapper.html#lib.plugin.PluginWrapper.run">[Doku]</a>    <span class="k">def</span><span class="w"> </span><span class="nf">run</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Starts this plugin instance</span>
 <span class="sd">        &quot;&quot;&quot;</span>
@@ -6492,7 +6492,7 @@
         <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
             <span class="n">logger</span><span class="o">.</span><span class="n">exception</span><span class="p">(</span><span class="s2">&quot;Plugin &#39;</span><span class="si">{}</span><span class="s2">&#39; exception in run() method: </span><span class="si">{}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">plugin</span><span class="o">.</span><span class="n">get_shortname</span><span class="p">(),</span> <span class="n">e</span><span class="p">))</span></div>
 
-<div class="viewcode-block" id="PluginWrapper.stop"><a class="viewcode-back" href="../../lib/plugin_class_pluginwrapper.html#lib.plugin.PluginWrapper.stop">[Doku]</a>    <span class="k">def</span> <span class="nf">stop</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<div class="viewcode-block" id="PluginWrapper.stop"><a class="viewcode-back" href="../../lib/plugin_class_pluginwrapper.html#lib.plugin.PluginWrapper.stop">[Doku]</a>    <span class="k">def</span><span class="w"> </span><span class="nf">stop</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Stops this plugin instance</span>
 <span class="sd">        &quot;&quot;&quot;</span>
@@ -6502,7 +6502,7 @@
             <span class="n">logger</span><span class="o">.</span><span class="n">exception</span><span class="p">(</span><span class="s2">&quot;Plugin &#39;</span><span class="si">{}</span><span class="s2">&#39; exception in stop() method: </span><span class="si">{}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">plugin</span><span class="o">.</span><span class="n">get_shortname</span><span class="p">(),</span> <span class="n">e</span><span class="p">))</span></div>
 
 
-<div class="viewcode-block" id="PluginWrapper.get_name"><a class="viewcode-back" href="../../lib/plugin_class_pluginwrapper.html#lib.plugin.PluginWrapper.get_name">[Doku]</a>    <span class="k">def</span> <span class="nf">get_name</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<div class="viewcode-block" id="PluginWrapper.get_name"><a class="viewcode-back" href="../../lib/plugin_class_pluginwrapper.html#lib.plugin.PluginWrapper.get_name">[Doku]</a>    <span class="k">def</span><span class="w"> </span><span class="nf">get_name</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Returns the name of current plugin instance</span>
 
@@ -6512,7 +6512,7 @@
         <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">name</span></div>
 
 
-<div class="viewcode-block" id="PluginWrapper.get_ident"><a class="viewcode-back" href="../../lib/plugin_class_pluginwrapper.html#lib.plugin.PluginWrapper.get_ident">[Doku]</a>    <span class="k">def</span> <span class="nf">get_ident</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<div class="viewcode-block" id="PluginWrapper.get_ident"><a class="viewcode-back" href="../../lib/plugin_class_pluginwrapper.html#lib.plugin.PluginWrapper.get_ident">[Doku]</a>    <span class="k">def</span><span class="w"> </span><span class="nf">get_ident</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Returns the thread ident of current plugin instance</span>
 
@@ -6522,7 +6522,7 @@
         <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">ident</span></div>
 
 
-<div class="viewcode-block" id="PluginWrapper.get_implementation"><a class="viewcode-back" href="../../lib/plugin_class_pluginwrapper.html#lib.plugin.PluginWrapper.get_implementation">[Doku]</a>    <span class="k">def</span> <span class="nf">get_implementation</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<div class="viewcode-block" id="PluginWrapper.get_implementation"><a class="viewcode-back" href="../../lib/plugin_class_pluginwrapper.html#lib.plugin.PluginWrapper.get_implementation">[Doku]</a>    <span class="k">def</span><span class="w"> </span><span class="nf">get_implementation</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Returns the implementation of current plugin instance</span>
 
@@ -6533,15 +6533,15 @@
 
 
 <span class="c1"># addition von smai:</span>
-<span class="k">class</span> <span class="nc">PluginLoggingAdapter</span><span class="p">(</span><span class="n">logging</span><span class="o">.</span><span class="n">LoggerAdapter</span><span class="p">):</span>
+<span class="k">class</span><span class="w"> </span><span class="nc">PluginLoggingAdapter</span><span class="p">(</span><span class="n">logging</span><span class="o">.</span><span class="n">LoggerAdapter</span><span class="p">):</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    Class to append name of plugin instance to log text</span>
 
 <span class="sd">    This class is used by PluginWrapper to set up a logger for the SmartPlugin class</span>
 <span class="sd">    &quot;&quot;&quot;</span>
-    <span class="kn">from</span> <span class="nn">lib.log</span> <span class="kn">import</span> <span class="n">Logs</span>
+    <span class="kn">from</span><span class="w"> </span><span class="nn">lib.log</span><span class="w"> </span><span class="kn">import</span> <span class="n">Logs</span>
 
-    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">logger</span><span class="p">,</span> <span class="n">extra</span><span class="p">):</span>
+    <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">logger</span><span class="p">,</span> <span class="n">extra</span><span class="p">):</span>
         <span class="n">logging</span><span class="o">.</span><span class="n">LoggerAdapter</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">logger</span><span class="p">,</span> <span class="n">extra</span><span class="p">)</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">logger</span> <span class="o">=</span> <span class="n">logger</span>
 
@@ -6551,23 +6551,23 @@
         <span class="n">logging</span><span class="o">.</span><span class="n">addLevelName</span><span class="p">(</span><span class="n">_SH</span><span class="o">.</span><span class="n">logs</span><span class="o">.</span><span class="n">DBGLOW_level</span><span class="p">,</span> <span class="s2">&quot;DBGLOW&quot;</span><span class="p">)</span>
         <span class="k">return</span>
 
-    <span class="k">def</span> <span class="nf">notice</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">msg</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">notice</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">msg</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">logger</span><span class="o">.</span><span class="n">log</span><span class="p">(</span><span class="n">_SH</span><span class="o">.</span><span class="n">logs</span><span class="o">.</span><span class="n">NOTICE_level</span><span class="p">,</span> <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">extra</span><span class="p">[</span><span class="s1">&#39;plugininstance&#39;</span><span class="p">]</span><span class="si">}{</span><span class="n">msg</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
         <span class="k">return</span>
 
-    <span class="k">def</span> <span class="nf">dbghigh</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">msg</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">dbghigh</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">msg</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">logger</span><span class="o">.</span><span class="n">log</span><span class="p">(</span><span class="n">_SH</span><span class="o">.</span><span class="n">logs</span><span class="o">.</span><span class="n">DBGHIGH_level</span><span class="p">,</span> <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">extra</span><span class="p">[</span><span class="s1">&#39;plugininstance&#39;</span><span class="p">]</span><span class="si">}{</span><span class="n">msg</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
         <span class="k">return</span>
 
-    <span class="k">def</span> <span class="nf">dbgmed</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">msg</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">dbgmed</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">msg</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">logger</span><span class="o">.</span><span class="n">log</span><span class="p">(</span><span class="n">_SH</span><span class="o">.</span><span class="n">logs</span><span class="o">.</span><span class="n">DBGMED_level</span><span class="p">,</span> <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">extra</span><span class="p">[</span><span class="s1">&#39;plugininstance&#39;</span><span class="p">]</span><span class="si">}{</span><span class="n">msg</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
         <span class="k">return</span>
 
-    <span class="k">def</span> <span class="nf">dbglow</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">msg</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">dbglow</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">msg</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">logger</span><span class="o">.</span><span class="n">log</span><span class="p">(</span><span class="n">_SH</span><span class="o">.</span><span class="n">logs</span><span class="o">.</span><span class="n">DBGLOW_level</span><span class="p">,</span> <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">extra</span><span class="p">[</span><span class="s1">&#39;plugininstance&#39;</span><span class="p">]</span><span class="si">}{</span><span class="n">msg</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
         <span class="k">return</span>
 
-    <span class="k">def</span> <span class="nf">process</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">msg</span><span class="p">,</span> <span class="n">kwargs</span><span class="p">):</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">process</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">msg</span><span class="p">,</span> <span class="n">kwargs</span><span class="p">):</span>
         <span class="n">kwargs</span><span class="p">[</span><span class="s1">&#39;extra&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">extra</span>
         <span class="k">return</span> <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">extra</span><span class="p">[</span><span class="s1">&#39;plugininstance&#39;</span><span class="p">]</span><span class="si">}{</span><span class="n">msg</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">,</span> <span class="n">kwargs</span>
 <span class="c1"># end addition von smai</span>

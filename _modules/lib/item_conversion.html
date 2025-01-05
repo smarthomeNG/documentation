@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>lib.item_conversion &mdash; Dokumentation v1.10.0.3 v1.10.0.3 develop (Stand 4. Januar 2025, commit d19b92c) Dokumentation</title>
+  <title>lib.item_conversion &mdash; Dokumentation v1.10.0.3 v1.10.0.3 develop (Stand 5. Januar 2025, commit d19b92c) Dokumentation</title>
       <link rel="stylesheet" type="text/css" href="../../_static/pygments.css" />
       <link rel="stylesheet" type="text/css" href="../../_static/css/theme.css" />
       <link rel="stylesheet" type="text/css" href="../../_static/custom.css" />
@@ -5764,11 +5764,11 @@
 <span class="sd">by the converter tools/conf_to_yaml_converter.py.</span>
 <span class="sd">&quot;&quot;&quot;</span>
 
-<span class="kn">import</span> <span class="nn">os</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">os</span>
 
 <span class="n">RUAMEL_YAML_INSTALLED</span> <span class="o">=</span> <span class="kc">False</span>
 <span class="k">try</span><span class="p">:</span>
-    <span class="kn">import</span> <span class="nn">ruamel.yaml</span> <span class="k">as</span> <span class="nn">yaml</span>
+    <span class="kn">import</span><span class="w"> </span><span class="nn">ruamel.yaml</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">yaml</span>
     <span class="n">RUAMEL_YAML_INSTALLED</span> <span class="o">=</span> <span class="kc">True</span>
 <span class="k">except</span><span class="p">:</span>
     <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;ERROR: module ruamel.yaml not found&#39;</span><span class="p">)</span>
@@ -5777,11 +5777,11 @@
     <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;sudo pip3 install ruamel.yaml&#39;</span><span class="p">)</span>
     <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;&#39;</span><span class="p">)</span>
     <span class="n">RUAMEL_YAML_INSTALLED</span> <span class="o">=</span> <span class="kc">False</span>
-    <span class="kn">import</span> <span class="nn">yaml</span>
+    <span class="kn">import</span><span class="w"> </span><span class="nn">yaml</span>
 
 
-<span class="kn">import</span> <span class="nn">collections</span>
-<span class="kn">from</span> <span class="nn">collections</span> <span class="kn">import</span> <span class="n">OrderedDict</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">collections</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">collections</span><span class="w"> </span><span class="kn">import</span> <span class="n">OrderedDict</span>
 
 
 <span class="n">yaml_version</span> <span class="o">=</span> <span class="s1">&#39;1.1&#39;</span>
@@ -5789,7 +5789,7 @@
 <span class="n">store_raw_output</span> <span class="o">=</span> <span class="kc">False</span>			<span class="c1"># Only for testing, otherwise False</span>
 
 
-<div class="viewcode-block" id="is_ruamelyaml_installed"><a class="viewcode-back" href="../../lib/item_conversion.html#lib.item_conversion.is_ruamelyaml_installed">[Doku]</a><span class="k">def</span> <span class="nf">is_ruamelyaml_installed</span><span class="p">():</span>
+<div class="viewcode-block" id="is_ruamelyaml_installed"><a class="viewcode-back" href="../../lib/item_conversion.html#lib.item_conversion.is_ruamelyaml_installed">[Doku]</a><span class="k">def</span><span class="w"> </span><span class="nf">is_ruamelyaml_installed</span><span class="p">():</span>
 
     <span class="k">return</span> <span class="n">RUAMEL_YAML_INSTALLED</span></div>
 
@@ -5799,7 +5799,7 @@
 <span class="c1">#</span>
 
 
-<span class="k">def</span> <span class="nf">_strip_quotes</span><span class="p">(</span><span class="n">string</span><span class="p">):</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">_strip_quotes</span><span class="p">(</span><span class="n">string</span><span class="p">):</span>
     <span class="n">string</span> <span class="o">=</span> <span class="n">string</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span>
     <span class="c1"># check if string starts with &#39; or &quot;, and end with it, if they are the only one</span>
     <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">string</span><span class="p">)</span> <span class="o">&gt;=</span> <span class="mi">2</span> <span class="ow">and</span> <span class="n">string</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="ow">in</span> <span class="p">[</span><span class="s1">&#39;&quot;&#39;</span><span class="p">,</span> <span class="s2">&quot;&#39;&quot;</span><span class="p">]</span> <span class="ow">and</span> <span class="n">string</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">==</span> <span class="n">string</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span> <span class="ow">and</span> <span class="n">string</span><span class="o">.</span><span class="n">count</span><span class="p">(</span><span class="n">string</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span> <span class="o">==</span> <span class="mi">2</span><span class="p">:</span>
@@ -5807,13 +5807,13 @@
     <span class="k">return</span> <span class="n">string</span>
 
 
-<span class="k">def</span> <span class="nf">_handle_multiline_string</span><span class="p">(</span><span class="n">string</span><span class="p">):</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">_handle_multiline_string</span><span class="p">(</span><span class="n">string</span><span class="p">):</span>
     <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">string</span><span class="p">)</span> <span class="o">&gt;</span> <span class="mi">0</span> <span class="ow">and</span> <span class="n">string</span><span class="o">.</span><span class="n">find</span><span class="p">(</span><span class="s1">&#39;</span><span class="se">\n</span><span class="s1">&#39;</span><span class="p">)</span> <span class="o">&gt;</span> <span class="o">-</span><span class="mi">1</span> <span class="ow">and</span> <span class="n">string</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">!=</span> <span class="s1">&#39;|&#39;</span><span class="p">:</span>
         <span class="n">string</span> <span class="o">=</span> <span class="s1">&#39;|</span><span class="se">\n</span><span class="s1">&#39;</span> <span class="o">+</span> <span class="n">string</span>
     <span class="k">return</span> <span class="n">string</span>
 
 
-<div class="viewcode-block" id="parse_for_convert"><a class="viewcode-back" href="../../lib/item_conversion.html#lib.item_conversion.parse_for_convert">[Doku]</a><span class="k">def</span> <span class="nf">parse_for_convert</span><span class="p">(</span><span class="n">filename</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">conf_code</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">config</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+<div class="viewcode-block" id="parse_for_convert"><a class="viewcode-back" href="../../lib/item_conversion.html#lib.item_conversion.parse_for_convert">[Doku]</a><span class="k">def</span><span class="w"> </span><span class="nf">parse_for_convert</span><span class="p">(</span><span class="n">filename</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">conf_code</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">config</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
     <span class="n">valid_chars</span> <span class="o">=</span> <span class="s1">&#39;abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789_@*&#39;</span>
     <span class="n">valid_set</span> <span class="o">=</span> <span class="nb">set</span><span class="p">(</span><span class="n">valid_chars</span><span class="p">)</span>
     <span class="k">if</span> <span class="n">config</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
@@ -5985,7 +5985,7 @@
 <span class="c1">#   YAML handling routines</span>
 <span class="c1">#</span>
 
-<span class="k">def</span> <span class="nf">_yaml_save_roundtrip</span><span class="p">(</span><span class="n">filename</span><span class="p">,</span> <span class="n">data</span><span class="p">):</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">_yaml_save_roundtrip</span><span class="p">(</span><span class="n">filename</span><span class="p">,</span> <span class="n">data</span><span class="p">):</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    Dump yaml using the RoundtripDumper and correct linespacing in output file</span>
 <span class="sd">    &quot;&quot;&quot;</span>
@@ -6018,7 +6018,7 @@
 
 
 
-<div class="viewcode-block" id="yaml_save"><a class="viewcode-back" href="../../lib/item_conversion.html#lib.item_conversion.yaml_save">[Doku]</a><span class="k">def</span> <span class="nf">yaml_save</span><span class="p">(</span><span class="n">filename</span><span class="p">,</span> <span class="n">data</span><span class="p">):</span>
+<div class="viewcode-block" id="yaml_save"><a class="viewcode-back" href="../../lib/item_conversion.html#lib.item_conversion.yaml_save">[Doku]</a><span class="k">def</span><span class="w"> </span><span class="nf">yaml_save</span><span class="p">(</span><span class="n">filename</span><span class="p">,</span> <span class="n">data</span><span class="p">):</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    ***Converter Special ***</span>
 
@@ -6040,7 +6040,7 @@
     <span class="n">_yaml_save_roundtrip</span><span class="p">(</span><span class="n">filename</span><span class="p">,</span> <span class="n">data</span><span class="p">)</span></div>
 
 
-<div class="viewcode-block" id="convert_yaml"><a class="viewcode-back" href="../../lib/item_conversion.html#lib.item_conversion.convert_yaml">[Doku]</a><span class="k">def</span> <span class="nf">convert_yaml</span><span class="p">(</span><span class="n">data</span><span class="p">):</span>
+<div class="viewcode-block" id="convert_yaml"><a class="viewcode-back" href="../../lib/item_conversion.html#lib.item_conversion.convert_yaml">[Doku]</a><span class="k">def</span><span class="w"> </span><span class="nf">convert_yaml</span><span class="p">(</span><span class="n">data</span><span class="p">):</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    ***Converter Special ***</span>
 
@@ -6060,7 +6060,7 @@
     <span class="k">return</span> <span class="n">sdata</span></div>
 
 
-<span class="k">def</span> <span class="nf">_format_yaml_dump</span><span class="p">(</span><span class="n">data</span><span class="p">):</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">_format_yaml_dump</span><span class="p">(</span><span class="n">data</span><span class="p">):</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    ***Converter Special ***</span>
 
@@ -6137,7 +6137,7 @@
     <span class="k">return</span> <span class="n">fdata</span>
 
 
-<span class="k">def</span> <span class="nf">_ordered_dump</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="n">stream</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">Dumper</span><span class="o">=</span><span class="n">yaml</span><span class="o">.</span><span class="n">Dumper</span><span class="p">,</span> <span class="o">**</span><span class="n">kwds</span><span class="p">):</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">_ordered_dump</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="n">stream</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">Dumper</span><span class="o">=</span><span class="n">yaml</span><span class="o">.</span><span class="n">Dumper</span><span class="p">,</span> <span class="o">**</span><span class="n">kwds</span><span class="p">):</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    Ordered yaml dumper</span>
 <span class="sd">    Use this instead ot yaml.Dumper/yaml.SaveDumper to get an Ordereddict</span>
@@ -6150,9 +6150,9 @@
 <span class="sd">    &quot;&quot;&quot;</span>
 
     <span class="c1"># usage example: ordered_dump(data, Dumper=yaml.SafeDumper)</span>
-    <span class="k">class</span> <span class="nc">OrderedDumper</span><span class="p">(</span><span class="n">Dumper</span><span class="p">):</span>
+    <span class="k">class</span><span class="w"> </span><span class="nc">OrderedDumper</span><span class="p">(</span><span class="n">Dumper</span><span class="p">):</span>
         <span class="k">pass</span>
-    <span class="k">def</span> <span class="nf">_dict_representer</span><span class="p">(</span><span class="n">dumper</span><span class="p">,</span> <span class="n">data</span><span class="p">):</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">_dict_representer</span><span class="p">(</span><span class="n">dumper</span><span class="p">,</span> <span class="n">data</span><span class="p">):</span>
         <span class="k">return</span> <span class="n">dumper</span><span class="o">.</span><span class="n">represent_mapping</span><span class="p">(</span>
             <span class="n">yaml</span><span class="o">.</span><span class="n">resolver</span><span class="o">.</span><span class="n">BaseResolver</span><span class="o">.</span><span class="n">DEFAULT_MAPPING_TAG</span><span class="p">,</span>
             <span class="n">data</span><span class="o">.</span><span class="n">items</span><span class="p">())</span>

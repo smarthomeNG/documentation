@@ -4,7 +4,7 @@
   <meta charset="utf-8" /><meta name="generator" content="Docutils 0.19: https://docutils.sourceforge.io/" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>In wenigen Minuten zum eigenen Plugin &mdash; Dokumentation v1.10.0.3 v1.10.0.3 develop (Stand 4. Januar 2025, commit d19b92c) Dokumentation</title>
+  <title>In wenigen Minuten zum eigenen Plugin &mdash; Dokumentation v1.10.0.3 v1.10.0.3 develop (Stand 5. Januar 2025, commit d19b92c) Dokumentation</title>
       <link rel="stylesheet" type="text/css" href="../../../_static/pygments.css" />
       <link rel="stylesheet" type="text/css" href="../../../_static/css/theme.css" />
       <link rel="stylesheet" type="text/css" href="../../../_static/custom.css" />
@@ -5981,18 +5981,18 @@ Das ist näher im Abschnitt „Der Scheduler“ beschrieben.</p>
 </div>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="ch">#!/usr/bin/env python3</span>
 
-<span class="kn">import</span> <span class="nn">logging</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">logging</span>
 <span class="n">logger</span> <span class="o">=</span> <span class="n">logging</span><span class="o">.</span><span class="n">getlogger</span><span class="p">(</span><span class="vm">__name__</span><span class="p">)</span>
 
-<span class="kn">from</span> <span class="nn">lib.model.smartplugin</span> <span class="kn">import</span> <span class="o">*</span>
-<span class="kn">from</span> <span class="nn">lib.item</span> <span class="kn">import</span> <span class="n">Items</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">lib.model.smartplugin</span><span class="w"> </span><span class="kn">import</span> <span class="o">*</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">lib.item</span><span class="w"> </span><span class="kn">import</span> <span class="n">Items</span>
 
-<span class="k">class</span> <span class="nc">Myplugin</span><span class="p">(</span><span class="n">SmartPlugin</span><span class="p">):</span>
+<span class="k">class</span><span class="w"> </span><span class="nc">Myplugin</span><span class="p">(</span><span class="n">SmartPlugin</span><span class="p">):</span>
 
 <span class="n">ALLOW_MULTIINSTANCE</span> <span class="o">=</span> <span class="kc">False</span>
 <span class="n">PLUGIN_VERSION</span> <span class="o">=</span> <span class="s2">&quot;a.b.c&quot;</span>
 
-    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">sh</span><span class="p">):</span>
+    <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">sh</span><span class="p">):</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Initializes the plugin. The parameters describe for this method are pulled from the entry in plugin.conf.</span>
 
@@ -6008,7 +6008,7 @@ Das ist näher im Abschnitt „Der Scheduler“ beschrieben.</p>
         <span class="c1"># put any initialization for your plugin here</span>
 
 
-    <span class="k">def</span> <span class="nf">run</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">run</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Run method for the plugin</span>
 <span class="sd">        &quot;&quot;&quot;</span>
@@ -6016,7 +6016,7 @@ Das ist näher im Abschnitt „Der Scheduler“ beschrieben.</p>
         <span class="bp">self</span><span class="o">.</span><span class="n">alive</span> <span class="o">=</span> <span class="kc">True</span>
 
 
-    <span class="k">def</span> <span class="nf">stop</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">stop</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Stop method for the plugin</span>
 <span class="sd">        &quot;&quot;&quot;</span>
@@ -6024,7 +6024,7 @@ Das ist näher im Abschnitt „Der Scheduler“ beschrieben.</p>
         <span class="bp">self</span><span class="o">.</span><span class="n">alive</span> <span class="o">=</span> <span class="kc">False</span>
 
 
-    <span class="k">def</span> <span class="nf">parse_item</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">item</span><span class="p">):</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">parse_item</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">item</span><span class="p">):</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Default plugin parse_item method. Is called when the plugin is initialized.</span>
 <span class="sd">        The plugin can, corresponding to its attribute keywords, decide what to do with</span>
@@ -6047,7 +6047,7 @@ Das ist näher im Abschnitt „Der Scheduler“ beschrieben.</p>
         <span class="c1">#   return update_item</span>
 
 
-    <span class="k">def</span> <span class="nf">parse_logic</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">logic</span><span class="p">):</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">parse_logic</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">logic</span><span class="p">):</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Default plugin parse_logic method</span>
 <span class="sd">        &quot;&quot;&quot;</span>
@@ -6056,7 +6056,7 @@ Das ist näher im Abschnitt „Der Scheduler“ beschrieben.</p>
             <span class="k">pass</span>
 
 
-    <span class="k">def</span> <span class="nf">update_item</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">item</span><span class="p">,</span> <span class="n">caller</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">source</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">dest</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">update_item</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">item</span><span class="p">,</span> <span class="n">caller</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">source</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">dest</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Write items values</span>
 
@@ -6073,10 +6073,10 @@ Das ist näher im Abschnitt „Der Scheduler“ beschrieben.</p>
                 <span class="k">pass</span>
 
 
-<span class="k">def</span> <span class="nf">run_logic</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">logic</span><span class="p">,</span> <span class="n">caller</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">source</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">dest</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">run_logic</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">logic</span><span class="p">,</span> <span class="n">caller</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">source</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">dest</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
     <span class="c1"># …</span>
 
-<span class="k">def</span> <span class="nf">bla</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">bla</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
     <span class="n">logger</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="s2">&quot;bla&quot;</span><span class="p">)</span>
 </pre></div>
 </div>
@@ -6088,7 +6088,7 @@ in der <code class="docutils literal notranslate"><span class="pre">/etc/plugin.
 </section>
 <section id="vordefinierte-funktionen-des-plugins">
 <h2>Vordefinierte Funktionen des Plugins<a class="headerlink" href="#vordefinierte-funktionen-des-plugins" title="Permalink to this heading"></a></h2>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">sh</span><span class="p">):</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">sh</span><span class="p">):</span>
 </pre></div>
 </div>
 <p>Die <code class="docutils literal notranslate"><span class="pre">__init__</span></code>-Funktion wird einmal aufgerufen, wenn SmartHomeNG im Rahmen der Initialisierung
@@ -6099,12 +6099,12 @@ Dateien geöffnet, Variablen initialisiert usw. werden. Die Parameter der <code 
 können ausgelesen und verarbeitet oder durch Vorgabewerte ersetzt werden, wenn sie nicht konfiguriert sind.</p>
 <p>Die Funktion erhält den Parameter <code class="docutils literal notranslate"><span class="pre">sh</span></code>, die den Zugriff auf SmartHomeNG-Funktionen ermöglicht. Dieser Parameter sollte in einer Klassenvariable gesichert werden, um ihn später zur Verfügung zu haben.</p>
 <hr class="docutils" />
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">run</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">run</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
 </pre></div>
 </div>
 <p>Die <code class="docutils literal notranslate"><span class="pre">run</span></code>-Funktion wird einmalig aufgrufen, wenn SmartHomeNG startet. Zu diesem Zeitpunkt sind die Items bereits geladen. Die Variable <code class="docutils literal notranslate"><span class="pre">self.alive</span></code> muss hier auf <code class="docutils literal notranslate"><span class="pre">True</span></code> gesetzt werden.</p>
 <hr class="docutils" />
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">stop</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">stop</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
 </pre></div>
 </div>
 <p>Diese Routine wird aufgerufen, wenn SmartHomeNG beendet wird.
@@ -6114,7 +6114,7 @@ Die Variable <code class="docutils literal notranslate"><span class="pre">self.a
 <p>Wenn <code class="docutils literal notranslate"><span class="pre">self.alive</span></code> auf <code class="docutils literal notranslate"><span class="pre">False</span></code> gesetzt ist, sollte das Plugin Änderungen an Items
 nicht mehr weitergeben und auch keine Daten empfangen und in Items sichern.</p>
 <hr class="docutils" />
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">parse_item</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">item</span><span class="p">):</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">parse_item</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">item</span><span class="p">):</span>
 </pre></div>
 </div>
 <p>Diese Funktion wird während des Starts für jedes Item einmal aufgerufen, wenn SmartHomeNG
@@ -6148,7 +6148,7 @@ Wenn eine Zahl benötigt wird, muss der Wert selbst umgewandelt werden.
 Wenn der Parameter <code class="docutils literal notranslate"><span class="pre">ivalue</span></code> nicht in der Item-Konfiguration enthalten ist, wird keine Aktion
 ausgelöst und das Item hat keinen Einfluss auf und keine Verbindung zum Plugin.</p>
 <hr class="docutils" />
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">parse_logic</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">logic</span><span class="p">):</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">parse_logic</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">logic</span><span class="p">):</span>
 </pre></div>
 </div>
 <p>Diese Funktion wird beim Systemstart für jede Logik aufgerufen, wenn SmartHomeNG die Datei <code class="docutils literal notranslate"><span class="pre">/etc/logic.yaml</span></code> liest.
@@ -6169,7 +6169,7 @@ Logik interagieren soll. Der folgende Code könnte genutzt werden, um einen Call
 </pre></div>
 </div>
 <hr class="docutils" />
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">update_item</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">item</span><span class="p">,</span> <span class="n">caller</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">source</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">dest</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">update_item</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">item</span><span class="p">,</span> <span class="n">caller</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">source</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">dest</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
 </pre></div>
 </div>
 <p>Diese Funktion wird jedes mal aufgerufen, wenn sich der Wert eines Items ändert,
@@ -6192,7 +6192,7 @@ auf die relevante Table ID eingefügt werden (siehe Doku).</p>
 genutzt werden können. Erweiterungen dieser Komponenten usw. finden sich im Ordner <code class="docutils literal notranslate"><span class="pre">/modules/http/webif/gstatic</span></code>.</p>
 <p>Wenn das Plugin darüber hinaus noch Komponenten benötigt, werden diese im Ordner <code class="docutils literal notranslate"><span class="pre">webif/static</span></code> des Plugins abgelegt.</p>
 <hr class="docutils" />
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">run_logic</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">logic</span><span class="p">,</span> <span class="n">caller</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">source</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">dest</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>    <span class="c1"># (version&gt;=1.3)</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">run_logic</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">logic</span><span class="p">,</span> <span class="n">caller</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">source</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">dest</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>    <span class="c1"># (version&gt;=1.3)</span>
 </pre></div>
 </div>
 <p>Diese Funktion ist analog zu <code class="docutils literal notranslate"><span class="pre">update_item()</span></code>, nur dass sie bei der Ausführung von Logiken aufgerufen wird.</p>

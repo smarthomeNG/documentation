@@ -4,7 +4,7 @@
   <meta charset="utf-8" /><meta name="generator" content="Docutils 0.19: https://docutils.sourceforge.io/" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>alexarc4shng &mdash; Dokumentation v1.10.0.3 v1.10.0.3 develop (Stand 4. Januar 2025, commit d19b92c) Dokumentation</title>
+  <title>alexarc4shng &mdash; Dokumentation v1.10.0.3 v1.10.0.3 develop (Stand 5. Januar 2025, commit d19b92c) Dokumentation</title>
       <link rel="stylesheet" type="text/css" href="../../_static/pygments.css" />
       <link rel="stylesheet" type="text/css" href="../../_static/css/theme.css" />
       <link rel="stylesheet" type="text/css" href="../../_static/custom.css" />
@@ -5767,7 +5767,7 @@ in der plugin.yaml angegebenen Zyklus aktualisiert.</p>
 <section id="anmeldedaten">
 <h3>Anmeldedaten<a class="headerlink" href="#anmeldedaten" title="Permalink to this heading"></a></h3>
 <p>Nutzername und Passwort können im Web Interface oder via Python entsprechend kodiert werden</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">base64</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">base64</span>
 <span class="n">base64</span><span class="o">.</span><span class="n">b64encode</span><span class="p">(</span><span class="s2">&quot;user.test@gmail.com:your_pwd&quot;</span><span class="o">.</span><span class="n">encode</span><span class="p">(</span><span class="s2">&quot;utf-8&quot;</span><span class="p">))</span>
 </pre></div>
 </div>
@@ -5867,7 +5867,7 @@ Wenn Ihre TuneIn.com-URL <cite>http://tunein.com/radio/tuneinstation-s######/</c
 <section id="logiken">
 <h2>Logiken<a class="headerlink" href="#logiken" title="Permalink to this heading"></a></h2>
 <p>Beispiellogik, um Items mit Listeninformationen (Todo, Shopping) zu füllen</p>
-<div class="highlight-Python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">datetime</span> <span class="kn">import</span> <span class="n">datetime</span>
+<div class="highlight-Python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">datetime</span><span class="w"> </span><span class="kn">import</span> <span class="n">datetime</span>
 
 <span class="c1"># get the Todo-List</span>
 <span class="n">myList</span><span class="o">=</span><span class="n">sh</span><span class="o">.</span><span class="n">AlexaRc4shNG</span><span class="o">.</span><span class="n">get_list</span><span class="p">(</span><span class="s1">&#39;TO_DO&#39;</span><span class="p">)</span>

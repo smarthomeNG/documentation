@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>lib.scene &mdash; Dokumentation v1.10.0.3 v1.10.0.3 develop (Stand 4. Januar 2025, commit d19b92c) Dokumentation</title>
+  <title>lib.scene &mdash; Dokumentation v1.10.0.3 v1.10.0.3 develop (Stand 5. Januar 2025, commit d19b92c) Dokumentation</title>
       <link rel="stylesheet" type="text/css" href="../../_static/pygments.css" />
       <link rel="stylesheet" type="text/css" href="../../_static/css/theme.css" />
       <link rel="stylesheet" type="text/css" href="../../_static/custom.css" />
@@ -5760,19 +5760,19 @@
 <span class="sd">This file implements scenes in SmartHomeNG</span>
 <span class="sd">&quot;&quot;&quot;</span>
 
-<span class="kn">import</span> <span class="nn">logging</span>
-<span class="kn">import</span> <span class="nn">os.path</span>
-<span class="kn">import</span> <span class="nn">csv</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">logging</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">os.path</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">csv</span>
 
-<span class="kn">from</span> <span class="nn">lib.translation</span> <span class="kn">import</span> <span class="n">translate</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">lib.translation</span><span class="w"> </span><span class="kn">import</span> <span class="n">translate</span>
 
-<span class="kn">from</span> <span class="nn">lib.item</span> <span class="kn">import</span> <span class="n">Items</span>
-<span class="kn">from</span> <span class="nn">lib.logic</span> <span class="kn">import</span> <span class="n">Logics</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">lib.item</span><span class="w"> </span><span class="kn">import</span> <span class="n">Items</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">lib.logic</span><span class="w"> </span><span class="kn">import</span> <span class="n">Logics</span>
 
-<span class="kn">from</span> <span class="nn">lib.utils</span> <span class="kn">import</span> <span class="n">Utils</span>
-<span class="kn">from</span> <span class="nn">lib.shtime</span> <span class="kn">import</span> <span class="n">Shtime</span>
-<span class="kn">import</span> <span class="nn">lib.shyaml</span> <span class="k">as</span> <span class="nn">yaml</span>
-<span class="kn">from</span> <span class="nn">lib.constants</span> <span class="kn">import</span> <span class="p">(</span><span class="n">YAML_FILE</span><span class="p">,</span> <span class="n">DIR_SCENES</span><span class="p">)</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">lib.utils</span><span class="w"> </span><span class="kn">import</span> <span class="n">Utils</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">lib.shtime</span><span class="w"> </span><span class="kn">import</span> <span class="n">Shtime</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">lib.shyaml</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">yaml</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">lib.constants</span><span class="w"> </span><span class="kn">import</span> <span class="p">(</span><span class="n">YAML_FILE</span><span class="p">,</span> <span class="n">DIR_SCENES</span><span class="p">)</span>
 
 <span class="n">logger</span> <span class="o">=</span> <span class="n">logging</span><span class="o">.</span><span class="n">getLogger</span><span class="p">(</span><span class="vm">__name__</span><span class="p">)</span>
 
@@ -5780,7 +5780,7 @@
 <span class="n">_scenes_instance</span> <span class="o">=</span> <span class="kc">None</span>    <span class="c1"># Pointer to the initialized instance of the Plugins class (for use by static methods)</span>
 
 
-<div class="viewcode-block" id="Scenes"><a class="viewcode-back" href="../../lib/scene.html#lib.scene.Scenes">[Doku]</a><span class="k">class</span> <span class="nc">Scenes</span><span class="p">():</span>
+<div class="viewcode-block" id="Scenes"><a class="viewcode-back" href="../../lib/scene.html#lib.scene.Scenes">[Doku]</a><span class="k">class</span><span class="w"> </span><span class="nc">Scenes</span><span class="p">():</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    This class loads all scene definitions from /scenes folder and adds the necessary triggers</span>
 <span class="sd">    for the scenes to function.</span>
@@ -5791,12 +5791,12 @@
 <span class="sd">    :type smarthome: object</span>
 <span class="sd">    &quot;&quot;&quot;</span>
 
-    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">smarthome</span><span class="p">):</span>
+    <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">smarthome</span><span class="p">):</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">_sh</span> <span class="o">=</span> <span class="n">smarthome</span>
 
         <span class="k">global</span> <span class="n">_scenes_instance</span>
         <span class="k">if</span> <span class="n">_scenes_instance</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
-            <span class="kn">import</span> <span class="nn">inspect</span>
+            <span class="kn">import</span><span class="w"> </span><span class="nn">inspect</span>
             <span class="n">curframe</span> <span class="o">=</span> <span class="n">inspect</span><span class="o">.</span><span class="n">currentframe</span><span class="p">()</span>
             <span class="n">calframe</span> <span class="o">=</span> <span class="n">inspect</span><span class="o">.</span><span class="n">getouterframes</span><span class="p">(</span><span class="n">curframe</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span>
             <span class="n">logger</span><span class="o">.</span><span class="n">critical</span><span class="p">(</span><span class="n">translate</span><span class="p">(</span><span class="s2">&quot;A second &#39;scenes&#39; object has been created. There should only be ONE instance of class &#39;Scenes&#39;!!! Called from: </span><span class="si">{frame1}</span><span class="s2"> (</span><span class="si">{frame2}</span><span class="s2">)&quot;</span><span class="p">,</span> <span class="p">{</span><span class="s1">&#39;frame1&#39;</span><span class="p">:</span> <span class="n">calframe</span><span class="p">[</span><span class="mi">1</span><span class="p">][</span><span class="mi">1</span><span class="p">],</span> <span class="s1">&#39;frame2&#39;</span><span class="p">:</span> <span class="n">calframe</span><span class="p">[</span><span class="mi">1</span><span class="p">][</span><span class="mi">3</span><span class="p">]}))</span>
@@ -5810,7 +5810,7 @@
         <span class="k">return</span>
 
 
-    <span class="k">def</span> <span class="nf">_load_scenes</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">_load_scenes</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Load defined scenes with learned values from ../scene directory</span>
 
@@ -5869,7 +5869,7 @@
         <span class="k">return</span>
 
 
-    <span class="k">def</span> <span class="nf">_eval</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">value</span><span class="p">):</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">_eval</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">value</span><span class="p">):</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Evaluate a scene value</span>
 
@@ -5882,8 +5882,8 @@
         <span class="n">sh</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_sh</span>
         <span class="n">shtime</span> <span class="o">=</span> <span class="n">Shtime</span><span class="o">.</span><span class="n">get_instance</span><span class="p">()</span>
         <span class="n">items</span> <span class="o">=</span> <span class="n">Items</span><span class="o">.</span><span class="n">get_instance</span><span class="p">()</span>
-        <span class="kn">import</span> <span class="nn">math</span>
-        <span class="kn">import</span> <span class="nn">lib.userfunctions</span> <span class="k">as</span> <span class="nn">uf</span>
+        <span class="kn">import</span><span class="w"> </span><span class="nn">math</span>
+        <span class="kn">import</span><span class="w"> </span><span class="nn">lib.userfunctions</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">uf</span>
 
         <span class="k">try</span><span class="p">:</span>
             <span class="n">rvalue</span> <span class="o">=</span> <span class="nb">eval</span><span class="p">(</span><span class="n">value</span><span class="p">)</span>
@@ -5893,7 +5893,7 @@
         <span class="k">return</span> <span class="n">rvalue</span>
 
 
-    <span class="k">def</span> <span class="nf">_get_learned_value</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">scene</span><span class="p">,</span> <span class="n">state</span><span class="p">,</span> <span class="n">ditem</span><span class="p">):</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">_get_learned_value</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">scene</span><span class="p">,</span> <span class="n">state</span><span class="p">,</span> <span class="n">ditem</span><span class="p">):</span>
         <span class="k">try</span><span class="p">:</span>
             <span class="n">lvalue</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_learned_values</span><span class="p">[</span><span class="n">scene</span> <span class="o">+</span><span class="s1">&#39;#&#39;</span><span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">state</span><span class="p">)</span> <span class="o">+</span><span class="s1">&#39;#&#39;</span><span class="o">+</span> <span class="n">ditem</span><span class="o">.</span><span class="n">property</span><span class="o">.</span><span class="n">path</span><span class="p">]</span>
         <span class="k">except</span><span class="p">:</span>
@@ -5902,12 +5902,12 @@
         <span class="k">return</span> <span class="n">lvalue</span>
 
 
-    <span class="k">def</span> <span class="nf">_set_learned_value</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">scene</span><span class="p">,</span> <span class="n">state</span><span class="p">,</span> <span class="n">ditem</span><span class="p">,</span> <span class="n">lvalue</span><span class="p">):</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">_set_learned_value</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">scene</span><span class="p">,</span> <span class="n">state</span><span class="p">,</span> <span class="n">ditem</span><span class="p">,</span> <span class="n">lvalue</span><span class="p">):</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">_learned_values</span><span class="p">[</span><span class="n">scene</span> <span class="o">+</span><span class="s1">&#39;#&#39;</span><span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">state</span><span class="p">)</span> <span class="o">+</span><span class="s1">&#39;#&#39;</span><span class="o">+</span> <span class="n">ditem</span><span class="o">.</span><span class="n">property</span><span class="o">.</span><span class="n">path</span><span class="p">]</span> <span class="o">=</span> <span class="n">lvalue</span>
         <span class="n">logger</span><span class="o">.</span><span class="n">debug</span><span class="p">(</span><span class="s2">&quot; - Learned value </span><span class="si">{}</span><span class="s2"> for scene/state/ditem </span><span class="si">{}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">lvalue</span><span class="p">,</span> <span class="n">scene</span> <span class="o">+</span><span class="s1">&#39;#&#39;</span><span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">state</span><span class="p">)</span> <span class="o">+</span><span class="s1">&#39;#&#39;</span><span class="o">+</span> <span class="n">ditem</span><span class="o">.</span><span class="n">property</span><span class="o">.</span><span class="n">path</span><span class="p">))</span>
 
 
-    <span class="k">def</span> <span class="nf">_save_learned_values</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">scene</span><span class="p">):</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">_save_learned_values</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">scene</span><span class="p">):</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Save learned values for the scene to a file to make them persistant</span>
 <span class="sd">        &quot;&quot;&quot;</span>
@@ -5927,7 +5927,7 @@
         <span class="k">return</span>
 
 
-    <span class="k">def</span> <span class="nf">_load_learned_values</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">scene</span><span class="p">):</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">_load_learned_values</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">scene</span><span class="p">):</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Load learned values for the scene from a file</span>
 <span class="sd">        &quot;&quot;&quot;</span>
@@ -5948,7 +5948,7 @@
         <span class="k">return</span>
 
 
-    <span class="k">def</span> <span class="nf">_trigger_setstate</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">item</span><span class="p">,</span> <span class="n">state</span><span class="p">,</span> <span class="n">caller</span><span class="p">,</span> <span class="n">source</span><span class="p">,</span> <span class="n">dest</span><span class="p">):</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">_trigger_setstate</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">item</span><span class="p">,</span> <span class="n">state</span><span class="p">,</span> <span class="n">caller</span><span class="p">,</span> <span class="n">source</span><span class="p">,</span> <span class="n">dest</span><span class="p">):</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Trigger: set values for a scene state</span>
 <span class="sd">        &quot;&quot;&quot;</span>
@@ -5974,7 +5974,7 @@
         <span class="k">return</span>
 
 
-    <span class="k">def</span> <span class="nf">_trigger_learnstate</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">item</span><span class="p">,</span> <span class="n">state</span><span class="p">,</span> <span class="n">caller</span><span class="p">,</span> <span class="n">source</span><span class="p">,</span> <span class="n">dest</span><span class="p">):</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">_trigger_learnstate</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">item</span><span class="p">,</span> <span class="n">state</span><span class="p">,</span> <span class="n">caller</span><span class="p">,</span> <span class="n">source</span><span class="p">,</span> <span class="n">dest</span><span class="p">):</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Trigger: learn values for a scene state</span>
 <span class="sd">        &quot;&quot;&quot;</span>
@@ -5986,7 +5986,7 @@
         <span class="k">return</span>
 
 
-    <span class="k">def</span> <span class="nf">_trigger</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">item</span><span class="p">,</span> <span class="n">caller</span><span class="p">,</span> <span class="n">source</span><span class="p">,</span> <span class="n">dest</span><span class="p">):</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">_trigger</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">item</span><span class="p">,</span> <span class="n">caller</span><span class="p">,</span> <span class="n">source</span><span class="p">,</span> <span class="n">dest</span><span class="p">):</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Trigger a scene</span>
 <span class="sd">        &quot;&quot;&quot;</span>
@@ -6010,7 +6010,7 @@
                 <span class="n">logger</span><span class="o">.</span><span class="n">error</span><span class="p">(</span><span class="n">translate</span><span class="p">(</span><span class="s2">&quot;Invalid state &#39;</span><span class="si">{state}</span><span class="s2">&#39; for scene </span><span class="si">{scene}</span><span class="s2">&quot;</span><span class="p">,</span> <span class="p">{</span><span class="s1">&#39;state&#39;</span><span class="p">:</span> <span class="n">state</span><span class="p">,</span> <span class="s1">&#39;scene&#39;</span><span class="p">:</span> <span class="n">item</span><span class="o">.</span><span class="n">property</span><span class="o">.</span><span class="n">path</span><span class="p">}))</span>
 
 
-    <span class="k">def</span> <span class="nf">_add_scene_entry</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">item</span><span class="p">,</span> <span class="n">state</span><span class="p">,</span> <span class="n">ditemname</span><span class="p">,</span> <span class="n">value</span><span class="p">,</span> <span class="n">learn</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">name</span><span class="o">=</span><span class="s1">&#39;&#39;</span><span class="p">):</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">_add_scene_entry</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">item</span><span class="p">,</span> <span class="n">state</span><span class="p">,</span> <span class="n">ditemname</span><span class="p">,</span> <span class="n">value</span><span class="p">,</span> <span class="n">learn</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">name</span><span class="o">=</span><span class="s1">&#39;&#39;</span><span class="p">):</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Adds a single assignement entry to the loaded scenes</span>
 
@@ -6053,7 +6053,7 @@
     <span class="c1"># ------------------------------------------------------------------------------------</span>
 
 <div class="viewcode-block" id="Scenes.get_instance"><a class="viewcode-back" href="../../lib/scene.html#lib.scene.Scenes.get_instance">[Doku]</a>    <span class="nd">@staticmethod</span>
-    <span class="k">def</span> <span class="nf">get_instance</span><span class="p">():</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">get_instance</span><span class="p">():</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Returns the instance of the Scenes class, to be used to access the scene-api</span>
 
@@ -6077,7 +6077,7 @@
             <span class="k">return</span> <span class="n">_scenes_instance</span></div>
 
 
-<div class="viewcode-block" id="Scenes.get_loaded_scenes"><a class="viewcode-back" href="../../lib/scene.html#lib.scene.Scenes.get_loaded_scenes">[Doku]</a>    <span class="k">def</span> <span class="nf">get_loaded_scenes</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<div class="viewcode-block" id="Scenes.get_loaded_scenes"><a class="viewcode-back" href="../../lib/scene.html#lib.scene.Scenes.get_loaded_scenes">[Doku]</a>    <span class="k">def</span><span class="w"> </span><span class="nf">get_loaded_scenes</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Returns a list with the names of all scenes that are currently loaded</span>
 
@@ -6091,7 +6091,7 @@
         <span class="k">return</span> <span class="nb">sorted</span><span class="p">(</span><span class="n">scene_list</span><span class="p">)</span></div>
 
 
-<div class="viewcode-block" id="Scenes.get_scene_actions"><a class="viewcode-back" href="../../lib/scene.html#lib.scene.Scenes.get_scene_actions">[Doku]</a>    <span class="k">def</span> <span class="nf">get_scene_actions</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">name</span><span class="p">):</span>
+<div class="viewcode-block" id="Scenes.get_scene_actions"><a class="viewcode-back" href="../../lib/scene.html#lib.scene.Scenes.get_scene_actions">[Doku]</a>    <span class="k">def</span><span class="w"> </span><span class="nf">get_scene_actions</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">name</span><span class="p">):</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Returns a list with the the defined actions for a scene</span>
 
@@ -6109,7 +6109,7 @@
         <span class="k">return</span> <span class="n">value_list2</span></div>
 
 
-<div class="viewcode-block" id="Scenes.get_scene_action_name"><a class="viewcode-back" href="../../lib/scene.html#lib.scene.Scenes.get_scene_action_name">[Doku]</a>    <span class="k">def</span> <span class="nf">get_scene_action_name</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">scenename</span><span class="p">,</span> <span class="n">action</span><span class="p">):</span>
+<div class="viewcode-block" id="Scenes.get_scene_action_name"><a class="viewcode-back" href="../../lib/scene.html#lib.scene.Scenes.get_scene_action_name">[Doku]</a>    <span class="k">def</span><span class="w"> </span><span class="nf">get_scene_action_name</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">scenename</span><span class="p">,</span> <span class="n">action</span><span class="p">):</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Returns the name of a scene-action</span>
 <span class="sd">        &quot;&quot;&quot;</span>
@@ -6120,7 +6120,7 @@
             <span class="n">logger</span><span class="o">.</span><span class="n">warning</span><span class="p">(</span><span class="n">translate</span><span class="p">(</span><span class="s2">&quot;get_scene_action_name: &quot;</span> <span class="o">+</span> <span class="s2">&quot;unable to get self._scenes[&#39;</span><span class="si">{scenename}</span><span class="s2">&#39;][&#39;</span><span class="si">{action}</span><span class="s2">&#39;][0][2] &lt;- </span><span class="si">{res}</span><span class="s2">&quot;</span><span class="p">,</span> <span class="p">{</span><span class="s1">&#39;scenename&#39;</span><span class="p">:</span> <span class="n">scenename</span><span class="p">,</span> <span class="s1">&#39;action&#39;</span><span class="p">:</span> <span class="n">action</span><span class="p">,</span> <span class="s1">&#39;res&#39;</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">_scenes</span><span class="p">[</span><span class="n">scenename</span><span class="p">][</span><span class="n">action</span><span class="p">][</span><span class="mi">0</span><span class="p">]}))</span>
             <span class="k">return</span> <span class="s1">&#39;&#39;</span></div>
 
-<div class="viewcode-block" id="Scenes.return_scene_value_actions"><a class="viewcode-back" href="../../lib/scene.html#lib.scene.Scenes.return_scene_value_actions">[Doku]</a>    <span class="k">def</span> <span class="nf">return_scene_value_actions</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">name</span><span class="p">,</span> <span class="n">state</span><span class="p">):</span>
+<div class="viewcode-block" id="Scenes.return_scene_value_actions"><a class="viewcode-back" href="../../lib/scene.html#lib.scene.Scenes.return_scene_value_actions">[Doku]</a>    <span class="k">def</span><span class="w"> </span><span class="nf">return_scene_value_actions</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">name</span><span class="p">,</span> <span class="n">state</span><span class="p">):</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Returns a list with the the defined actions for state of a scene</span>
 
@@ -6138,7 +6138,7 @@
         <span class="k">return</span> <span class="n">action_list</span></div>
 
 
-<div class="viewcode-block" id="Scenes.reload_scenes"><a class="viewcode-back" href="../../lib/scene.html#lib.scene.Scenes.reload_scenes">[Doku]</a>    <span class="k">def</span> <span class="nf">reload_scenes</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<div class="viewcode-block" id="Scenes.reload_scenes"><a class="viewcode-back" href="../../lib/scene.html#lib.scene.Scenes.reload_scenes">[Doku]</a>    <span class="k">def</span><span class="w"> </span><span class="nf">reload_scenes</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Reload defined scenes with learned values from ../scene directory</span>
 

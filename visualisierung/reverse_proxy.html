@@ -4,7 +4,7 @@
   <meta charset="utf-8" /><meta name="generator" content="Docutils 0.19: https://docutils.sourceforge.io/" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>NGINX als ReverseProxy &mdash; Dokumentation v1.10.0.3 v1.10.0.3 develop (Stand 4. Januar 2025, commit d19b92c) Dokumentation</title>
+  <title>NGINX als ReverseProxy &mdash; Dokumentation v1.10.0.3 v1.10.0.3 develop (Stand 5. Januar 2025, commit d19b92c) Dokumentation</title>
       <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
       <link rel="stylesheet" type="text/css" href="../_static/css/theme.css" />
       <link rel="stylesheet" type="text/css" href="../_static/custom.css" />
@@ -6266,41 +6266,41 @@ luarocks<span class="w"> </span>install<span class="w"> </span>openssl
 <p>Das LUA Script selbst wird in einer neuen Datei namens <code class="docutils literal notranslate"><span class="pre">/etc/nginx/scripts/hass_access.lua</span></code>
 erstellt. In der ersten Zeile ist dabei das Passwort anzugeben, mit dem die Zertifikate
 verschlüsselt wurden.</p>
-<div class="highlight-lua notranslate"><div class="highlight"><pre><span></span><span class="kd">local</span> <span class="n">HMAC_SECRET</span> <span class="o">=</span> <span class="s2">&quot;&lt;SECRETKEY from OPENSSL&gt;&quot;</span>
-<span class="n">digest</span> <span class="o">=</span> <span class="nb">require</span><span class="p">(</span><span class="s1">&#39;openssl&#39;</span><span class="p">).</span><span class="n">digest</span>
-<span class="n">hmac</span> <span class="o">=</span> <span class="nb">require</span><span class="p">(</span><span class="s1">&#39;openssl&#39;</span><span class="p">).</span><span class="n">hmac</span>
+<div class="highlight-lua notranslate"><div class="highlight"><pre><span></span><span class="kd">local</span><span class="w"> </span><span class="nv">HMAC_SECRET</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;&lt;SECRETKEY from OPENSSL&gt;&quot;</span>
+<span class="nv">digest</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">require</span><span class="p">(</span><span class="s1">&#39;openssl&#39;</span><span class="p">).</span><span class="nv">digest</span>
+<span class="nv">hmac</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">require</span><span class="p">(</span><span class="s1">&#39;openssl&#39;</span><span class="p">).</span><span class="nv">hmac</span>
 
-<span class="kr">function</span> <span class="nf">ComputeHmac</span><span class="p">(</span><span class="n">msg</span><span class="p">,</span> <span class="n">expires</span><span class="p">)</span>
-  <span class="kr">return</span> <span class="n">hmac</span><span class="p">.</span><span class="n">hmac</span><span class="p">(</span><span class="s2">&quot;sha256&quot;</span><span class="p">,</span> <span class="nb">string.format</span><span class="p">(</span><span class="s2">&quot;%s%d&quot;</span><span class="p">,</span> <span class="n">msg</span><span class="p">,</span> <span class="n">expires</span><span class="p">),</span> <span class="n">HMAC_SECRET</span><span class="p">)</span>
+<span class="kr">function</span><span class="w"> </span><span class="nf">ComputeHmac</span><span class="p">(</span><span class="nv">msg</span><span class="p">,</span><span class="w"> </span><span class="nv">expires</span><span class="p">)</span>
+<span class="w">  </span><span class="kr">return</span><span class="w"> </span><span class="nv">hmac</span><span class="p">.</span><span class="nf">hmac</span><span class="p">(</span><span class="s2">&quot;sha256&quot;</span><span class="p">,</span><span class="w"> </span><span class="nb">string.format</span><span class="p">(</span><span class="s2">&quot;%s%d&quot;</span><span class="p">,</span><span class="w"> </span><span class="nv">msg</span><span class="p">,</span><span class="w"> </span><span class="nv">expires</span><span class="p">),</span><span class="w"> </span><span class="nv">HMAC_SECRET</span><span class="p">)</span>
 <span class="kr">end</span>
 
-<span class="n">verify_status</span> <span class="o">=</span> <span class="n">ngx</span><span class="p">.</span><span class="n">var</span><span class="p">.</span><span class="n">ssl_client_verify</span>
+<span class="nv">verify_status</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nv">ngx</span><span class="p">.</span><span class="py">var</span><span class="p">.</span><span class="py">ssl_client_verify</span>
 
-<span class="kr">if</span> <span class="n">verify_status</span> <span class="o">==</span> <span class="s2">&quot;SUCCESS&quot;</span> <span class="kr">then</span>
-  <span class="n">client</span> <span class="o">=</span> <span class="n">digest</span><span class="p">.</span><span class="n">digest</span><span class="p">(</span><span class="s2">&quot;sha256&quot;</span><span class="p">,</span> <span class="n">ngx</span><span class="p">.</span><span class="n">var</span><span class="p">.</span><span class="n">ssl_client_cert</span><span class="p">)</span>
-  <span class="n">expires</span> <span class="o">=</span> <span class="n">ngx</span><span class="p">.</span><span class="n">time</span><span class="p">()</span> <span class="o">+</span> <span class="mi">3600</span>
+<span class="kr">if</span><span class="w"> </span><span class="nv">verify_status</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="s2">&quot;SUCCESS&quot;</span><span class="w"> </span><span class="kr">then</span>
+<span class="w">  </span><span class="nv">client</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nv">digest</span><span class="p">.</span><span class="nf">digest</span><span class="p">(</span><span class="s2">&quot;sha256&quot;</span><span class="p">,</span><span class="w"> </span><span class="nv">ngx</span><span class="p">.</span><span class="py">var</span><span class="p">.</span><span class="py">ssl_client_cert</span><span class="p">)</span>
+<span class="w">  </span><span class="nv">expires</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nv">ngx</span><span class="p">.</span><span class="nf">time</span><span class="p">()</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mi">3600</span>
 
-  <span class="n">ngx</span><span class="p">.</span><span class="n">header</span><span class="p">[</span><span class="s2">&quot;Set-Cookie&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="p">{</span>
-    <span class="nb">string.format</span><span class="p">(</span><span class="s2">&quot;AccessToken=%s; path=/&quot;</span><span class="p">,</span> <span class="n">ComputeHmac</span><span class="p">(</span><span class="n">client</span><span class="p">,</span> <span class="n">expires</span><span class="p">)),</span>
-    <span class="nb">string.format</span><span class="p">(</span><span class="s2">&quot;ClientId=%s; path=/&quot;</span><span class="p">,</span> <span class="n">client</span><span class="p">),</span>
-    <span class="nb">string.format</span><span class="p">(</span><span class="s2">&quot;AccessExpires=%d; path=/&quot;</span><span class="p">,</span> <span class="n">expires</span><span class="p">)</span>
-  <span class="p">}</span>
-  <span class="kr">return</span>
-<span class="kr">elseif</span> <span class="n">verify_status</span> <span class="o">==</span> <span class="s2">&quot;NONE&quot;</span> <span class="kr">then</span>
-  <span class="n">client</span> <span class="o">=</span> <span class="n">ngx</span><span class="p">.</span><span class="n">var</span><span class="p">.</span><span class="n">cookie_ClientId</span>
-  <span class="n">client_hmac</span> <span class="o">=</span> <span class="n">ngx</span><span class="p">.</span><span class="n">var</span><span class="p">.</span><span class="n">cookie_AccessToken</span>
-  <span class="n">access_expires</span> <span class="o">=</span> <span class="n">ngx</span><span class="p">.</span><span class="n">var</span><span class="p">.</span><span class="n">cookie_AccessExpires</span>
+<span class="w">  </span><span class="nv">ngx</span><span class="p">.</span><span class="py">header</span><span class="p">[</span><span class="s2">&quot;Set-Cookie&quot;</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="nb">string.format</span><span class="p">(</span><span class="s2">&quot;AccessToken=%s; path=/&quot;</span><span class="p">,</span><span class="w"> </span><span class="nf">ComputeHmac</span><span class="p">(</span><span class="nv">client</span><span class="p">,</span><span class="w"> </span><span class="nv">expires</span><span class="p">)),</span>
+<span class="w">    </span><span class="nb">string.format</span><span class="p">(</span><span class="s2">&quot;ClientId=%s; path=/&quot;</span><span class="p">,</span><span class="w"> </span><span class="nv">client</span><span class="p">),</span>
+<span class="w">    </span><span class="nb">string.format</span><span class="p">(</span><span class="s2">&quot;AccessExpires=%d; path=/&quot;</span><span class="p">,</span><span class="w"> </span><span class="nv">expires</span><span class="p">)</span>
+<span class="w">  </span><span class="p">}</span>
+<span class="w">  </span><span class="kr">return</span>
+<span class="kr">elseif</span><span class="w"> </span><span class="nv">verify_status</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="s2">&quot;NONE&quot;</span><span class="w"> </span><span class="kr">then</span>
+<span class="w">  </span><span class="nv">client</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nv">ngx</span><span class="p">.</span><span class="py">var</span><span class="p">.</span><span class="py">cookie_ClientId</span>
+<span class="w">  </span><span class="nv">client_hmac</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nv">ngx</span><span class="p">.</span><span class="py">var</span><span class="p">.</span><span class="py">cookie_AccessToken</span>
+<span class="w">  </span><span class="nv">access_expires</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nv">ngx</span><span class="p">.</span><span class="py">var</span><span class="p">.</span><span class="py">cookie_AccessExpires</span>
 
-  <span class="kr">if</span> <span class="n">client</span> <span class="o">~=</span> <span class="kc">nil</span> <span class="ow">and</span> <span class="n">client_hmac</span> <span class="o">~=</span> <span class="kc">nil</span> <span class="ow">and</span> <span class="n">access_expires</span> <span class="o">~=</span> <span class="kc">nil</span> <span class="kr">then</span>
-    <span class="n">hmac</span> <span class="o">=</span> <span class="n">ComputeHmac</span><span class="p">(</span><span class="n">client</span><span class="p">,</span> <span class="n">access_expires</span><span class="p">)</span>
+<span class="w">  </span><span class="kr">if</span><span class="w"> </span><span class="nv">client</span><span class="w"> </span><span class="o">~=</span><span class="w"> </span><span class="kc">nil</span><span class="w"> </span><span class="ow">and</span><span class="w"> </span><span class="nv">client_hmac</span><span class="w"> </span><span class="o">~=</span><span class="w"> </span><span class="kc">nil</span><span class="w"> </span><span class="ow">and</span><span class="w"> </span><span class="nv">access_expires</span><span class="w"> </span><span class="o">~=</span><span class="w"> </span><span class="kc">nil</span><span class="w"> </span><span class="kr">then</span>
+<span class="w">    </span><span class="nv">hmac</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nf">ComputeHmac</span><span class="p">(</span><span class="nv">client</span><span class="p">,</span><span class="w"> </span><span class="nv">access_expires</span><span class="p">)</span>
 
-    <span class="kr">if</span> <span class="n">hmac</span> <span class="o">~=</span> <span class="s2">&quot;&quot;</span> <span class="ow">and</span> <span class="n">hmac</span> <span class="o">==</span> <span class="n">client_hmac</span> <span class="ow">and</span> <span class="nb">tonumber</span><span class="p">(</span><span class="n">access_expires</span><span class="p">)</span> <span class="o">&gt;</span> <span class="n">ngx</span><span class="p">.</span><span class="n">time</span><span class="p">()</span> <span class="kr">then</span>
-      <span class="kr">return</span>
-    <span class="kr">end</span>
-  <span class="kr">end</span>
+<span class="w">    </span><span class="kr">if</span><span class="w"> </span><span class="nv">hmac</span><span class="w"> </span><span class="o">~=</span><span class="w"> </span><span class="s2">&quot;&quot;</span><span class="w"> </span><span class="ow">and</span><span class="w"> </span><span class="nv">hmac</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="nv">client_hmac</span><span class="w"> </span><span class="ow">and</span><span class="w"> </span><span class="nb">tonumber</span><span class="p">(</span><span class="nv">access_expires</span><span class="p">)</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="nv">ngx</span><span class="p">.</span><span class="nf">time</span><span class="p">()</span><span class="w"> </span><span class="kr">then</span>
+<span class="w">      </span><span class="kr">return</span>
+<span class="w">    </span><span class="kr">end</span>
+<span class="w">  </span><span class="kr">end</span>
 <span class="kr">end</span>
 
-<span class="n">ngx</span><span class="p">.</span><span class="n">exit</span><span class="p">(</span><span class="n">ngx</span><span class="p">.</span><span class="n">HTTP_FORBIDDEN</span><span class="p">)</span>
+<span class="nv">ngx</span><span class="p">.</span><span class="nf">exit</span><span class="p">(</span><span class="nv">ngx</span><span class="p">.</span><span class="py">HTTP_FORBIDDEN</span><span class="p">)</span>
 </pre></div>
 </div>
 <p>Schließlich muss noch folgende Zeile in der Datei /etc/nginx/conf.d/&lt;mydomain&gt;.&lt;myds&gt;.&lt;me&gt;.conf

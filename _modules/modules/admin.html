@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>modules.admin &mdash; Dokumentation v1.10.0.3 v1.10.0.3 develop (Stand 4. Januar 2025, commit d19b92c) Dokumentation</title>
+  <title>modules.admin &mdash; Dokumentation v1.10.0.3 v1.10.0.3 develop (Stand 5. Januar 2025, commit d19b92c) Dokumentation</title>
       <link rel="stylesheet" type="text/css" href="../../_static/pygments.css" />
       <link rel="stylesheet" type="text/css" href="../../_static/css/theme.css" />
       <link rel="stylesheet" type="text/css" href="../../_static/custom.css" />
@@ -5756,40 +5756,40 @@
 <span class="c1">#########################################################################</span>
 
 
-<span class="kn">import</span> <span class="nn">os</span>
-<span class="kn">import</span> <span class="nn">logging</span>
-<span class="kn">import</span> <span class="nn">cherrypy</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">os</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">logging</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">cherrypy</span>
 
-<span class="kn">from</span> <span class="nn">lib.utils</span> <span class="kn">import</span> <span class="n">Utils</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">lib.utils</span><span class="w"> </span><span class="kn">import</span> <span class="n">Utils</span>
 
-<span class="kn">from</span> <span class="nn">lib.model.module</span> <span class="kn">import</span> <span class="n">Module</span>
-<span class="kn">from</span> <span class="nn">lib.module</span> <span class="kn">import</span> <span class="n">Modules</span>
-<span class="kn">from</span> <span class="nn">lib.shtime</span> <span class="kn">import</span> <span class="n">Shtime</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">lib.model.module</span><span class="w"> </span><span class="kn">import</span> <span class="n">Module</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">lib.module</span><span class="w"> </span><span class="kn">import</span> <span class="n">Modules</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">lib.shtime</span><span class="w"> </span><span class="kn">import</span> <span class="n">Shtime</span>
 
-<span class="kn">from</span> <span class="nn">.systemdata</span> <span class="kn">import</span> <span class="n">SystemData</span>
-<span class="kn">from</span> <span class="nn">.itemdata</span> <span class="kn">import</span> <span class="n">ItemData</span>
-<span class="kn">from</span> <span class="nn">.plugindata</span> <span class="kn">import</span> <span class="n">PluginData</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">.systemdata</span><span class="w"> </span><span class="kn">import</span> <span class="n">SystemData</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">.itemdata</span><span class="w"> </span><span class="kn">import</span> <span class="n">ItemData</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">.plugindata</span><span class="w"> </span><span class="kn">import</span> <span class="n">PluginData</span>
 
-<span class="kn">from</span> <span class="nn">.rest</span> <span class="kn">import</span> <span class="n">RESTResource</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">.rest</span><span class="w"> </span><span class="kn">import</span> <span class="n">RESTResource</span>
 
-<span class="kn">from</span> <span class="nn">.api_server</span> <span class="kn">import</span> <span class="o">*</span>
-<span class="kn">from</span> <span class="nn">.api_auth</span> <span class="kn">import</span> <span class="o">*</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">.api_server</span><span class="w"> </span><span class="kn">import</span> <span class="o">*</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">.api_auth</span><span class="w"> </span><span class="kn">import</span> <span class="o">*</span>
 
-<span class="kn">from</span> <span class="nn">.api_config</span> <span class="kn">import</span> <span class="o">*</span>
-<span class="kn">from</span> <span class="nn">.api_files</span> <span class="kn">import</span> <span class="o">*</span>
-<span class="kn">from</span> <span class="nn">.api_items</span> <span class="kn">import</span> <span class="o">*</span>
-<span class="kn">from</span> <span class="nn">.api_functions</span> <span class="kn">import</span> <span class="o">*</span>
-<span class="kn">from</span> <span class="nn">.api_loggers</span> <span class="kn">import</span> <span class="o">*</span>
-<span class="kn">from</span> <span class="nn">.api_logs</span> <span class="kn">import</span> <span class="o">*</span>
-<span class="kn">from</span> <span class="nn">.api_scenes</span> <span class="kn">import</span> <span class="o">*</span>
-<span class="kn">from</span> <span class="nn">.api_sched</span> <span class="kn">import</span> <span class="o">*</span>
-<span class="kn">from</span> <span class="nn">.api_services</span> <span class="kn">import</span> <span class="o">*</span>
-<span class="kn">from</span> <span class="nn">.api_system</span> <span class="kn">import</span> <span class="o">*</span>
-<span class="kn">from</span> <span class="nn">.api_threads</span> <span class="kn">import</span> <span class="o">*</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">.api_config</span><span class="w"> </span><span class="kn">import</span> <span class="o">*</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">.api_files</span><span class="w"> </span><span class="kn">import</span> <span class="o">*</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">.api_items</span><span class="w"> </span><span class="kn">import</span> <span class="o">*</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">.api_functions</span><span class="w"> </span><span class="kn">import</span> <span class="o">*</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">.api_loggers</span><span class="w"> </span><span class="kn">import</span> <span class="o">*</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">.api_logs</span><span class="w"> </span><span class="kn">import</span> <span class="o">*</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">.api_scenes</span><span class="w"> </span><span class="kn">import</span> <span class="o">*</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">.api_sched</span><span class="w"> </span><span class="kn">import</span> <span class="o">*</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">.api_services</span><span class="w"> </span><span class="kn">import</span> <span class="o">*</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">.api_system</span><span class="w"> </span><span class="kn">import</span> <span class="o">*</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">.api_threads</span><span class="w"> </span><span class="kn">import</span> <span class="o">*</span>
 
-<span class="kn">from</span> <span class="nn">.api_logics</span> <span class="kn">import</span> <span class="o">*</span>
-<span class="kn">from</span> <span class="nn">.api_plugins</span> <span class="kn">import</span> <span class="o">*</span>
-<span class="kn">from</span> <span class="nn">.api_plugin</span> <span class="kn">import</span> <span class="o">*</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">.api_logics</span><span class="w"> </span><span class="kn">import</span> <span class="o">*</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">.api_plugins</span><span class="w"> </span><span class="kn">import</span> <span class="o">*</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">.api_plugin</span><span class="w"> </span><span class="kn">import</span> <span class="o">*</span>
 <span class="c1">#from .api_plginst import *</span>
 
 
@@ -5797,14 +5797,14 @@
 <span class="n">suburl2</span> <span class="o">=</span> <span class="s1">&#39;admin2&#39;</span>
 
 
-<span class="k">class</span> <span class="nc">Admin</span><span class="p">(</span><span class="n">Module</span><span class="p">):</span>
+<span class="k">class</span><span class="w"> </span><span class="nc">Admin</span><span class="p">(</span><span class="n">Module</span><span class="p">):</span>
     <span class="n">version</span> <span class="o">=</span> <span class="s1">&#39;1.8.2&#39;</span>
     <span class="n">longname</span> <span class="o">=</span> <span class="s1">&#39;Admin module for SmartHomeNG&#39;</span>
     <span class="n">_port</span> <span class="o">=</span> <span class="mi">0</span>
 
     <span class="n">_stop_methods</span> <span class="o">=</span> <span class="p">[]</span>      <span class="c1"># list of stop methods defined by the various controllers of the admin api</span>
 
-    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">sh</span><span class="p">,</span> <span class="n">testparam</span><span class="o">=</span><span class="s1">&#39;&#39;</span><span class="p">):</span>
+    <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">sh</span><span class="p">,</span> <span class="n">testparam</span><span class="o">=</span><span class="s1">&#39;&#39;</span><span class="p">):</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Initialization Routine for the module</span>
 <span class="sd">        &quot;&quot;&quot;</span>
@@ -5869,7 +5869,7 @@
         <span class="bp">self</span><span class="o">.</span><span class="n">api_url_root</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">shng_url_root</span> <span class="o">+</span> <span class="s1">&#39;api&#39;</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">api2_url_root</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">shng_url_root</span> <span class="o">+</span> <span class="s1">&#39;api2&#39;</span>
 
-    <span class="k">def</span> <span class="nf">start</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">start</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Start the admin module</span>
 
@@ -5997,7 +5997,7 @@
 
         <span class="k">return</span>
 
-    <span class="k">def</span> <span class="nf">stop</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">stop</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
 
 <span class="sd">        &quot;&quot;&quot;</span>
@@ -6008,7 +6008,7 @@
             <span class="n">stop_method</span><span class="p">()</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">logger</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">_shortname</span><span class="si">}</span><span class="s2"> shut down &quot;</span><span class="p">)</span>
 
-    <span class="k">def</span> <span class="nf">add_stop_method</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">method</span><span class="p">,</span> <span class="n">classname</span><span class="o">=</span><span class="s1">&#39;&#39;</span><span class="p">):</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">add_stop_method</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">method</span><span class="p">,</span> <span class="n">classname</span><span class="o">=</span><span class="s1">&#39;&#39;</span><span class="p">):</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Class instances that implement their own stop() method should add those methods through this</span>
 <span class="sd">        Method, so the stop() methods of the admin module can stop those instances too when stopping the module.</span>
@@ -6022,7 +6022,7 @@
         <span class="bp">self</span><span class="o">.</span><span class="n">_stop_methods</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">method</span><span class="p">)</span>
 
 
-    <span class="k">def</span> <span class="nf">error_page</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">status</span><span class="p">,</span> <span class="n">message</span><span class="p">,</span> <span class="n">traceback</span><span class="p">,</span> <span class="n">version</span><span class="p">):</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">error_page</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">status</span><span class="p">,</span> <span class="n">message</span><span class="p">,</span> <span class="n">traceback</span><span class="p">,</span> <span class="n">version</span><span class="p">):</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Error 404 page, that redirects to index.html of Angular application</span>
 
@@ -6046,7 +6046,7 @@
             <span class="s2">&quot;error_page: status = </span><span class="si">{}</span><span class="s2">, message = </span><span class="si">{}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">status</span><span class="p">,</span> <span class="n">message</span><span class="p">))</span>
         <span class="k">return</span> <span class="n">page</span>
 
-    <span class="k">def</span> <span class="nf">_error_page</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">status</span><span class="p">,</span> <span class="n">message</span><span class="p">,</span> <span class="n">traceback</span><span class="p">,</span> <span class="n">version</span><span class="p">):</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">_error_page</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">status</span><span class="p">,</span> <span class="n">message</span><span class="p">,</span> <span class="n">traceback</span><span class="p">,</span> <span class="n">version</span><span class="p">):</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Generate html page for errors</span>
 
@@ -6093,14 +6093,14 @@
         <span class="k">return</span> <span class="n">result</span>
 
 
-<span class="k">def</span> <span class="nf">translate</span><span class="p">(</span><span class="n">s</span><span class="p">):</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">translate</span><span class="p">(</span><span class="n">s</span><span class="p">):</span>
     <span class="c1"># needed for Admin UI</span>
     <span class="k">return</span> <span class="n">s</span>
 
 
-<span class="k">class</span> <span class="nc">WebInterface</span><span class="p">(</span><span class="n">SystemData</span><span class="p">,</span> <span class="n">ItemData</span><span class="p">,</span> <span class="n">PluginData</span><span class="p">):</span>
+<span class="k">class</span><span class="w"> </span><span class="nc">WebInterface</span><span class="p">(</span><span class="n">SystemData</span><span class="p">,</span> <span class="n">ItemData</span><span class="p">,</span> <span class="n">PluginData</span><span class="p">):</span>
 
-    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">webif_dir</span><span class="p">,</span> <span class="n">module</span><span class="p">,</span> <span class="n">shng_url_root</span><span class="p">,</span> <span class="n">url_root</span><span class="p">):</span>
+    <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">webif_dir</span><span class="p">,</span> <span class="n">module</span><span class="p">,</span> <span class="n">shng_url_root</span><span class="p">,</span> <span class="n">url_root</span><span class="p">):</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">_sh</span> <span class="o">=</span> <span class="n">module</span><span class="o">.</span><span class="n">_sh</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">logger</span> <span class="o">=</span> <span class="n">logging</span><span class="o">.</span><span class="n">getLogger</span><span class="p">(</span><span class="vm">__name__</span><span class="p">)</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">module</span> <span class="o">=</span> <span class="n">module</span>
@@ -6115,7 +6115,7 @@
         <span class="k">return</span>
 
 
-<div class="viewcode-block" id="WebApi"><a class="viewcode-back" href="../../referenz/module/module_admin.html#modules.admin.WebApi">[Doku]</a><span class="k">class</span> <span class="nc">WebApi</span><span class="p">(</span><span class="n">RESTResource</span><span class="p">):</span>
+<div class="viewcode-block" id="WebApi"><a class="viewcode-back" href="../../referenz/module/module_admin.html#modules.admin.WebApi">[Doku]</a><span class="k">class</span><span class="w"> </span><span class="nc">WebApi</span><span class="p">(</span><span class="n">RESTResource</span><span class="p">):</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    :param webif_dir: Directory where the files of the web interface (shngadmin) are stored</span>
 <span class="sd">    :param module: Instance of the webif object</span>
@@ -6129,7 +6129,7 @@
 
     <span class="n">exposed</span> <span class="o">=</span> <span class="kc">True</span>
 
-    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">webif_dir</span><span class="p">,</span> <span class="n">module</span><span class="p">,</span> <span class="n">shng_url_root</span><span class="p">,</span> <span class="n">url_root</span><span class="p">):</span>
+    <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">webif_dir</span><span class="p">,</span> <span class="n">module</span><span class="p">,</span> <span class="n">shng_url_root</span><span class="p">,</span> <span class="n">url_root</span><span class="p">):</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">_sh</span> <span class="o">=</span> <span class="n">module</span><span class="o">.</span><span class="n">_sh</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">logger</span> <span class="o">=</span> <span class="n">logging</span><span class="o">.</span><span class="n">getLogger</span><span class="p">(</span><span class="vm">__name__</span><span class="p">)</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">module</span> <span class="o">=</span> <span class="n">module</span>
@@ -6169,7 +6169,7 @@
         <span class="k">return</span>
 
     <span class="nd">@cherrypy</span><span class="o">.</span><span class="n">expose</span><span class="p">([</span><span class="s1">&#39;home&#39;</span><span class="p">,</span> <span class="s1">&#39;&#39;</span><span class="p">])</span>
-    <span class="k">def</span> <span class="nf">index</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">index</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="k">return</span> <span class="s2">&quot;Give SmartHomeNG a REST.&quot;</span></div>
 </pre></div>
 

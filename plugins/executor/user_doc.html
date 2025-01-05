@@ -4,7 +4,7 @@
   <meta charset="utf-8" /><meta name="generator" content="Docutils 0.19: https://docutils.sourceforge.io/" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>executor &mdash; Dokumentation v1.10.0.3 v1.10.0.3 develop (Stand 4. Januar 2025, commit d19b92c) Dokumentation</title>
+  <title>executor &mdash; Dokumentation v1.10.0.3 v1.10.0.3 develop (Stand 5. Januar 2025, commit d19b92c) Dokumentation</title>
       <link rel="stylesheet" type="text/css" href="../../_static/pygments.css" />
       <link rel="stylesheet" type="text/css" href="../../_static/css/theme.css" />
       <link rel="stylesheet" type="text/css" href="../../_static/custom.css" />
@@ -5784,10 +5784,10 @@ Die Idee ist, dass Logiken mehr oder weniger 1:1 kopiert und getestet werden kö
 <section id="datenserien-fur-ein-item-ausgeben">
 <h4>Datenserien für ein Item ausgeben<a class="headerlink" href="#datenserien-fur-ein-item-ausgeben" title="Permalink to this heading"></a></h4>
 <p>Abfragen von Daten aus dem database plugin für ein spezifisches Item:</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">json</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">json</span>
 
-<span class="k">def</span> <span class="nf">myconverter</span><span class="p">(</span><span class="n">o</span><span class="p">):</span>
-    <span class="kn">import</span> <span class="nn">datetime</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">myconverter</span><span class="p">(</span><span class="n">o</span><span class="p">):</span>
+    <span class="kn">import</span><span class="w"> </span><span class="nn">datetime</span>
     <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">o</span><span class="p">,</span> <span class="n">datetime</span><span class="o">.</span><span class="n">datetime</span><span class="p">):</span>
       <span class="k">return</span> <span class="n">o</span><span class="o">.</span><span class="fm">__str__</span><span class="p">()</span>
 <span class="n">data</span> <span class="o">=</span> <span class="n">sh</span><span class="o">.&lt;</span><span class="n">your</span> <span class="n">item</span> <span class="n">here</span><span class="o">&gt;.</span><span class="n">series</span><span class="p">(</span><span class="s1">&#39;max&#39;</span><span class="p">,</span><span class="s1">&#39;1d&#39;</span><span class="p">,</span><span class="s1">&#39;now&#39;</span><span class="p">)</span>
@@ -5826,7 +5826,7 @@ Die Idee ist, dass Logiken mehr oder weniger 1:1 kopiert und getestet werden kö
 <section id="zahlen-der-datensatze-in-der-datenbank">
 <h4>Zählen der Datensätze in der Datenbank<a class="headerlink" href="#zahlen-der-datensatze-in-der-datenbank" title="Permalink to this heading"></a></h4>
 <p>Das folgende Snippet zeigt alle Datenbank-Items an und zählt die Einträge in der Datenbank. Vorsicht: Dies kann sehr lange dauern, wenn Sie eine große Anzahl von Einträgen mit Datenbankattributen haben.</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">lib.item</span> <span class="kn">import</span> <span class="n">Items</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">lib.item</span><span class="w"> </span><span class="kn">import</span> <span class="n">Items</span>
 <span class="n">items</span> <span class="o">=</span> <span class="n">Items</span><span class="o">.</span><span class="n">get_instance</span><span class="p">()</span>
 <span class="n">myfiller</span> <span class="o">=</span> <span class="s2">&quot;                                                            &quot;</span>
 <span class="n">allItems</span> <span class="o">=</span> <span class="n">items</span><span class="o">.</span><span class="n">return_items</span><span class="p">()</span>

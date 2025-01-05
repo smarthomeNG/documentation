@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>lib.item.items &mdash; Dokumentation v1.10.0.3 v1.10.0.3 develop (Stand 4. Januar 2025, commit d19b92c) Dokumentation</title>
+  <title>lib.item.items &mdash; Dokumentation v1.10.0.3 v1.10.0.3 develop (Stand 5. Januar 2025, commit d19b92c) Dokumentation</title>
       <link rel="stylesheet" type="text/css" href="../../../_static/pygments.css" />
       <link rel="stylesheet" type="text/css" href="../../../_static/css/theme.css" />
       <link rel="stylesheet" type="text/css" href="../../../_static/custom.css" />
@@ -5786,19 +5786,19 @@
 <span class="sd">:Note: This library is part of the core of SmartHomeNG. Regular plugins should not need to use this API.  It is manily implemented for plugins near to the core like **backend** and the core itself!</span>
 
 <span class="sd">&quot;&quot;&quot;</span>
-<span class="kn">import</span> <span class="nn">logging</span>
-<span class="kn">import</span> <span class="nn">re</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">logging</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">re</span>
 
-<span class="kn">import</span> <span class="nn">lib.utils</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">lib.utils</span>
 
-<span class="kn">from</span> <span class="nn">.item</span> <span class="kn">import</span> <span class="n">Item</span>
-<span class="kn">from</span> <span class="nn">.structs</span> <span class="kn">import</span> <span class="n">Structs</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">.item</span><span class="w"> </span><span class="kn">import</span> <span class="n">Item</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">.structs</span><span class="w"> </span><span class="kn">import</span> <span class="n">Structs</span>
 
 
 <span class="n">_items_instance</span> <span class="o">=</span> <span class="kc">None</span>    <span class="c1"># Pointer to the initialized instance of the Items class (for use by static methods)</span>
 
 
-<div class="viewcode-block" id="Items"><a class="viewcode-back" href="../../../lib/item_class_items.html#lib.item.Items">[Doku]</a><span class="k">class</span> <span class="nc">Items</span><span class="p">():</span>
+<div class="viewcode-block" id="Items"><a class="viewcode-back" href="../../../lib/item_class_items.html#lib.item.Items">[Doku]</a><span class="k">class</span><span class="w"> </span><span class="nc">Items</span><span class="p">():</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    Items loader class. (Item-methods from bin/smarthome.py are moved here.)</span>
 
@@ -5822,13 +5822,13 @@
 
     <span class="n">_item_methods</span> <span class="o">=</span> <span class="p">[</span><span class="n">name</span> <span class="k">for</span> <span class="n">name</span> <span class="ow">in</span> <span class="nb">dir</span><span class="p">(</span><span class="n">Item</span><span class="p">)</span> <span class="k">if</span> <span class="n">name</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">!=</span> <span class="s1">&#39;_&#39;</span><span class="p">]</span>
 
-    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">smarthome</span><span class="p">):</span>
+    <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">smarthome</span><span class="p">):</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">_sh</span> <span class="o">=</span> <span class="n">smarthome</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">logger</span> <span class="o">=</span> <span class="n">logging</span><span class="o">.</span><span class="n">getLogger</span><span class="p">(</span><span class="vm">__name__</span><span class="p">)</span>
 
         <span class="k">global</span> <span class="n">_items_instance</span>
         <span class="k">if</span> <span class="n">_items_instance</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
-            <span class="kn">import</span> <span class="nn">inspect</span>
+            <span class="kn">import</span><span class="w"> </span><span class="nn">inspect</span>
             <span class="n">curframe</span> <span class="o">=</span> <span class="n">inspect</span><span class="o">.</span><span class="n">currentframe</span><span class="p">()</span>
             <span class="n">calframe</span> <span class="o">=</span> <span class="n">inspect</span><span class="o">.</span><span class="n">getouterframes</span><span class="p">(</span><span class="n">curframe</span><span class="p">,</span> <span class="mi">4</span><span class="p">)</span>
             <span class="bp">self</span><span class="o">.</span><span class="n">logger</span><span class="o">.</span><span class="n">critical</span><span class="p">(</span><span class="s2">&quot;A second &#39;items&#39; object has been created. There should only be ONE instance of class &#39;Items&#39;!!! Called from: </span><span class="si">{}</span><span class="s2"> (</span><span class="si">{}</span><span class="s2">)&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">calframe</span><span class="p">[</span><span class="mi">1</span><span class="p">][</span><span class="mi">1</span><span class="p">],</span> <span class="n">calframe</span><span class="p">[</span><span class="mi">1</span><span class="p">][</span><span class="mi">3</span><span class="p">]))</span>
@@ -5844,7 +5844,7 @@
     <span class="c1"># -----------------------------------------------------------------------------------------</span>
 
 <div class="viewcode-block" id="Items.get_instance"><a class="viewcode-back" href="../../../lib/item_class_items.html#lib.item.Items.get_instance">[Doku]</a>    <span class="nd">@staticmethod</span>
-    <span class="k">def</span> <span class="nf">get_instance</span><span class="p">():</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">get_instance</span><span class="p">():</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Returns the instance of the Items class, to be used to access the items-api</span>
 
@@ -5869,11 +5869,11 @@
     <span class="c1">#   Following methods handle structs</span>
     <span class="c1"># -----------------------------------------------------------------------------------------</span>
 
-<div class="viewcode-block" id="Items.add_struct_definition"><a class="viewcode-back" href="../../../lib/item_class_items.html#lib.item.Items.add_struct_definition">[Doku]</a>    <span class="k">def</span> <span class="nf">add_struct_definition</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">plugin_name</span><span class="p">,</span> <span class="n">struct_name</span><span class="p">,</span> <span class="n">struct</span><span class="p">,</span> <span class="n">from_dir</span><span class="o">=</span><span class="s1">&#39;plugins&#39;</span><span class="p">):</span>
+<div class="viewcode-block" id="Items.add_struct_definition"><a class="viewcode-back" href="../../../lib/item_class_items.html#lib.item.Items.add_struct_definition">[Doku]</a>    <span class="k">def</span><span class="w"> </span><span class="nf">add_struct_definition</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">plugin_name</span><span class="p">,</span> <span class="n">struct_name</span><span class="p">,</span> <span class="n">struct</span><span class="p">,</span> <span class="n">from_dir</span><span class="o">=</span><span class="s1">&#39;plugins&#39;</span><span class="p">):</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">structs</span><span class="o">.</span><span class="n">add_struct_definition</span><span class="p">(</span><span class="n">plugin_name</span><span class="p">,</span> <span class="n">struct_name</span><span class="p">,</span> <span class="n">struct</span><span class="p">,</span> <span class="n">from_dir</span><span class="p">)</span></div>
 
 
-<div class="viewcode-block" id="Items.return_struct_definitions"><a class="viewcode-back" href="../../../lib/item_class_items.html#lib.item.Items.return_struct_definitions">[Doku]</a>    <span class="k">def</span> <span class="nf">return_struct_definitions</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="nb">all</span><span class="o">=</span><span class="kc">True</span><span class="p">):</span>
+<div class="viewcode-block" id="Items.return_struct_definitions"><a class="viewcode-back" href="../../../lib/item_class_items.html#lib.item.Items.return_struct_definitions">[Doku]</a>    <span class="k">def</span><span class="w"> </span><span class="nf">return_struct_definitions</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="nb">all</span><span class="o">=</span><span class="kc">True</span><span class="p">):</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Return all loaded structure template definitions</span>
 
@@ -5883,7 +5883,7 @@
         <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">structs</span><span class="o">.</span><span class="n">return_struct_definitions</span><span class="p">(</span><span class="nb">all</span><span class="p">)</span></div>
 
 
-<div class="viewcode-block" id="Items.load_itemdefinitions"><a class="viewcode-back" href="../../../lib/item_class_items.html#lib.item.Items.load_itemdefinitions">[Doku]</a>    <span class="k">def</span> <span class="nf">load_itemdefinitions</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">env_dir</span><span class="p">,</span> <span class="n">items_dir</span><span class="p">,</span> <span class="n">etc_dir</span><span class="p">,</span> <span class="n">plugins_dir</span><span class="p">):</span>
+<div class="viewcode-block" id="Items.load_itemdefinitions"><a class="viewcode-back" href="../../../lib/item_class_items.html#lib.item.Items.load_itemdefinitions">[Doku]</a>    <span class="k">def</span><span class="w"> </span><span class="nf">load_itemdefinitions</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">env_dir</span><span class="p">,</span> <span class="n">items_dir</span><span class="p">,</span> <span class="n">etc_dir</span><span class="p">,</span> <span class="n">plugins_dir</span><span class="p">):</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Load item definitions</span>
 
@@ -5985,7 +5985,7 @@
 
 
 
-<div class="viewcode-block" id="Items.add_item"><a class="viewcode-back" href="../../../lib/item_class_items.html#lib.item.Items.add_item">[Doku]</a>    <span class="k">def</span> <span class="nf">add_item</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">path</span><span class="p">,</span> <span class="n">item</span><span class="p">):</span>
+<div class="viewcode-block" id="Items.add_item"><a class="viewcode-back" href="../../../lib/item_class_items.html#lib.item.Items.add_item">[Doku]</a>    <span class="k">def</span><span class="w"> </span><span class="nf">add_item</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">path</span><span class="p">,</span> <span class="n">item</span><span class="p">):</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Function to to add an item to the dictionary of items.</span>
 <span class="sd">        If the path does not exist, it is created</span>
@@ -6005,7 +6005,7 @@
     <span class="c1">#        for child in self.__children:</span>
     <span class="c1">#            yield child</span>
 
-<div class="viewcode-block" id="Items.remove_item"><a class="viewcode-back" href="../../../lib/item_class_items.html#lib.item.Items.remove_item">[Doku]</a>    <span class="k">def</span> <span class="nf">remove_item</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">item</span><span class="p">):</span>
+<div class="viewcode-block" id="Items.remove_item"><a class="viewcode-back" href="../../../lib/item_class_items.html#lib.item.Items.remove_item">[Doku]</a>    <span class="k">def</span><span class="w"> </span><span class="nf">remove_item</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">item</span><span class="p">):</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Function to remove an item from the dictionary of items</span>
 <span class="sd">        and delete the item object.</span>
@@ -6033,7 +6033,7 @@
             <span class="bp">self</span><span class="o">.</span><span class="n">logger</span><span class="o">.</span><span class="n">warning</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Item </span><span class="si">{</span><span class="n">item</span><span class="o">.</span><span class="n">property</span><span class="o">.</span><span class="n">path</span><span class="si">}</span><span class="s2"> could not be removed due to incompatible plugins.&quot;</span><span class="p">)</span></div>
 
 
-<div class="viewcode-block" id="Items.get_toplevel_items"><a class="viewcode-back" href="../../../lib/item_class_items.html#lib.item.Items.get_toplevel_items">[Doku]</a>    <span class="k">def</span> <span class="nf">get_toplevel_items</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<div class="viewcode-block" id="Items.get_toplevel_items"><a class="viewcode-back" href="../../../lib/item_class_items.html#lib.item.Items.get_toplevel_items">[Doku]</a>    <span class="k">def</span><span class="w"> </span><span class="nf">get_toplevel_items</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Returns a list with all items defined at the top level</span>
 
@@ -6050,7 +6050,7 @@
 
 
 
-<div class="viewcode-block" id="Items.return_item"><a class="viewcode-back" href="../../../lib/item_class_items.html#lib.item.Items.return_item">[Doku]</a>    <span class="k">def</span> <span class="nf">return_item</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">string</span><span class="p">):</span>
+<div class="viewcode-block" id="Items.return_item"><a class="viewcode-back" href="../../../lib/item_class_items.html#lib.item.Items.return_item">[Doku]</a>    <span class="k">def</span><span class="w"> </span><span class="nf">return_item</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">string</span><span class="p">):</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Function to return the item for a given path</span>
 
@@ -6065,7 +6065,7 @@
             <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">__item_dict</span><span class="p">[</span><span class="n">string</span><span class="p">]</span></div>
 
 
-<div class="viewcode-block" id="Items.return_items"><a class="viewcode-back" href="../../../lib/item_class_items.html#lib.item.Items.return_items">[Doku]</a>    <span class="k">def</span> <span class="nf">return_items</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">ordered</span><span class="o">=</span><span class="kc">False</span><span class="p">):</span>
+<div class="viewcode-block" id="Items.return_items"><a class="viewcode-back" href="../../../lib/item_class_items.html#lib.item.Items.return_items">[Doku]</a>    <span class="k">def</span><span class="w"> </span><span class="nf">return_items</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">ordered</span><span class="o">=</span><span class="kc">False</span><span class="p">):</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Function to return a list with all defined items</span>
 
@@ -6084,7 +6084,7 @@
                 <span class="k">yield</span> <span class="bp">self</span><span class="o">.</span><span class="n">__item_dict</span><span class="p">[</span><span class="n">item</span><span class="p">]</span></div>
 
 
-<div class="viewcode-block" id="Items.match_items"><a class="viewcode-back" href="../../../lib/item_class_items.html#lib.item.Items.match_items">[Doku]</a>    <span class="k">def</span> <span class="nf">match_items</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">regex</span><span class="p">):</span>
+<div class="viewcode-block" id="Items.match_items"><a class="viewcode-back" href="../../../lib/item_class_items.html#lib.item.Items.match_items">[Doku]</a>    <span class="k">def</span><span class="w"> </span><span class="nf">match_items</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">regex</span><span class="p">):</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Function to match items against a regular expression</span>
 
@@ -6109,7 +6109,7 @@
             <span class="k">return</span> <span class="p">[</span><span class="bp">self</span><span class="o">.</span><span class="n">__item_dict</span><span class="p">[</span><span class="n">item</span><span class="p">]</span> <span class="k">for</span> <span class="n">item</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">__items</span> <span class="k">if</span> <span class="n">regex</span><span class="o">.</span><span class="n">match</span><span class="p">(</span><span class="n">item</span><span class="p">)]</span></div>
 
 
-    <span class="k">def</span> <span class="nf">_attribute_find</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">attr</span><span class="p">,</span> <span class="n">attr_list</span><span class="p">):</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">_attribute_find</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">attr</span><span class="p">,</span> <span class="n">attr_list</span><span class="p">):</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Find an attribute in an attribute list</span>
 
@@ -6150,7 +6150,7 @@
         <span class="k">return</span> <span class="n">result</span>
 
 
-<div class="viewcode-block" id="Items.find_items"><a class="viewcode-back" href="../../../lib/item_class_items.html#lib.item.Items.find_items">[Doku]</a>    <span class="k">def</span> <span class="nf">find_items</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">conf</span><span class="p">):</span>
+<div class="viewcode-block" id="Items.find_items"><a class="viewcode-back" href="../../../lib/item_class_items.html#lib.item.Items.find_items">[Doku]</a>    <span class="k">def</span><span class="w"> </span><span class="nf">find_items</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">conf</span><span class="p">):</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Function to find items that match the specified configuration</span>
 
@@ -6168,7 +6168,7 @@
                 <span class="k">yield</span> <span class="bp">self</span><span class="o">.</span><span class="n">__item_dict</span><span class="p">[</span><span class="n">item</span><span class="p">]</span></div>
 
 
-<div class="viewcode-block" id="Items.find_children"><a class="viewcode-back" href="../../../lib/item_class_items.html#lib.item.Items.find_children">[Doku]</a>    <span class="k">def</span> <span class="nf">find_children</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">parent</span><span class="p">,</span> <span class="n">conf</span><span class="p">):</span>
+<div class="viewcode-block" id="Items.find_children"><a class="viewcode-back" href="../../../lib/item_class_items.html#lib.item.Items.find_children">[Doku]</a>    <span class="k">def</span><span class="w"> </span><span class="nf">find_children</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">parent</span><span class="p">,</span> <span class="n">conf</span><span class="p">):</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Function to find children with the specified configuration</span>
 
@@ -6191,7 +6191,7 @@
         <span class="k">return</span> <span class="n">children</span></div>
 
 
-<div class="viewcode-block" id="Items.item_count"><a class="viewcode-back" href="../../../lib/item_class_items.html#lib.item.Items.item_count">[Doku]</a>    <span class="k">def</span> <span class="nf">item_count</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<div class="viewcode-block" id="Items.item_count"><a class="viewcode-back" href="../../../lib/item_class_items.html#lib.item.Items.item_count">[Doku]</a>    <span class="k">def</span><span class="w"> </span><span class="nf">item_count</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Return the number of defined items</span>
 
@@ -6201,7 +6201,7 @@
         <span class="k">return</span> <span class="nb">len</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">__items</span><span class="p">)</span></div>
 
 
-<div class="viewcode-block" id="Items.stop"><a class="viewcode-back" href="../../../lib/item_class_items.html#lib.item.Items.stop">[Doku]</a>    <span class="k">def</span> <span class="nf">stop</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">signum</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">frame</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+<div class="viewcode-block" id="Items.stop"><a class="viewcode-back" href="../../../lib/item_class_items.html#lib.item.Items.stop">[Doku]</a>    <span class="k">def</span><span class="w"> </span><span class="nf">stop</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">signum</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">frame</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Stop what all items are doing</span>
 
@@ -6213,7 +6213,7 @@
                 <span class="bp">self</span><span class="o">.</span><span class="n">__item_dict</span><span class="p">[</span><span class="n">item</span><span class="p">]</span><span class="o">.</span><span class="n">_lock</span><span class="o">.</span><span class="n">notify_all</span><span class="p">()</span></div>
 
 
-<div class="viewcode-block" id="Items.add_plugin_attribute"><a class="viewcode-back" href="../../../lib/item_class_items.html#lib.item.Items.add_plugin_attribute">[Doku]</a>    <span class="k">def</span> <span class="nf">add_plugin_attribute</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">plugin_name</span><span class="p">,</span> <span class="n">attribute_name</span><span class="p">,</span> <span class="n">attribute</span><span class="p">):</span>
+<div class="viewcode-block" id="Items.add_plugin_attribute"><a class="viewcode-back" href="../../../lib/item_class_items.html#lib.item.Items.add_plugin_attribute">[Doku]</a>    <span class="k">def</span><span class="w"> </span><span class="nf">add_plugin_attribute</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">plugin_name</span><span class="p">,</span> <span class="n">attribute_name</span><span class="p">,</span> <span class="n">attribute</span><span class="p">):</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Add an attribute definition to the dict of plugin specific item-attributes</span>
 
@@ -6237,7 +6237,7 @@
                 <span class="k">else</span><span class="p">:</span>
                     <span class="bp">self</span><span class="o">.</span><span class="n">logger</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Plugins &#39;</span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">plugin_attributes</span><span class="p">[</span><span class="n">attribute_name</span><span class="p">][</span><span class="s1">&#39;plugin&#39;</span><span class="p">]</span><span class="si">}</span><span class="s2">&#39; and &#39;</span><span class="si">{</span><span class="n">plugin_name</span><span class="si">}</span><span class="s2">&#39; define the same item-attribute &#39;</span><span class="si">{</span><span class="n">attribute_name</span><span class="si">}</span><span class="s2">&#39;&quot;</span><span class="p">)</span></div>
 
-<div class="viewcode-block" id="Items.add_plugin_attribute_prefix"><a class="viewcode-back" href="../../../lib/item_class_items.html#lib.item.Items.add_plugin_attribute_prefix">[Doku]</a>    <span class="k">def</span> <span class="nf">add_plugin_attribute_prefix</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">plugin_name</span><span class="p">,</span> <span class="n">prefix_name</span><span class="p">,</span> <span class="n">prefix</span><span class="p">):</span>
+<div class="viewcode-block" id="Items.add_plugin_attribute_prefix"><a class="viewcode-back" href="../../../lib/item_class_items.html#lib.item.Items.add_plugin_attribute_prefix">[Doku]</a>    <span class="k">def</span><span class="w"> </span><span class="nf">add_plugin_attribute_prefix</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">plugin_name</span><span class="p">,</span> <span class="n">prefix_name</span><span class="p">,</span> <span class="n">prefix</span><span class="p">):</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Add an attribute-prefix definition to the dict of plugin specific item-attribute prefixes</span>
 
@@ -6257,7 +6257,7 @@
                 <span class="bp">self</span><span class="o">.</span><span class="n">logger</span><span class="o">.</span><span class="n">error</span><span class="p">(</span><span class="s2">&quot;Plugins &#39;</span><span class="si">{}</span><span class="s2">&#39; and &#39;</span><span class="si">{}</span><span class="s2">&#39; define the same item-attribute-prefix &#39;</span><span class="si">{}</span><span class="s2">&#39;&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">plugin_attribute_prefixes</span><span class="p">[</span><span class="n">prefix_name</span><span class="p">][</span><span class="s1">&#39;plugin&#39;</span><span class="p">],</span> <span class="n">plugin_name</span><span class="p">,</span> <span class="n">prefix_name</span><span class="p">))</span></div>
 
 
-<div class="viewcode-block" id="Items.plugin_attribute_exists"><a class="viewcode-back" href="../../../lib/item_class_items.html#lib.item.Items.plugin_attribute_exists">[Doku]</a>    <span class="k">def</span> <span class="nf">plugin_attribute_exists</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">attribute_name</span><span class="p">):</span>
+<div class="viewcode-block" id="Items.plugin_attribute_exists"><a class="viewcode-back" href="../../../lib/item_class_items.html#lib.item.Items.plugin_attribute_exists">[Doku]</a>    <span class="k">def</span><span class="w"> </span><span class="nf">plugin_attribute_exists</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">attribute_name</span><span class="p">):</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Returns the type of the attribute&#39;s value</span>
 
@@ -6277,7 +6277,7 @@
         <span class="k">return</span> <span class="kc">False</span></div>
 
 
-<div class="viewcode-block" id="Items.get_plugin_attribute_type"><a class="viewcode-back" href="../../../lib/item_class_items.html#lib.item.Items.get_plugin_attribute_type">[Doku]</a>    <span class="k">def</span> <span class="nf">get_plugin_attribute_type</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">attribute_name</span><span class="p">):</span>
+<div class="viewcode-block" id="Items.get_plugin_attribute_type"><a class="viewcode-back" href="../../../lib/item_class_items.html#lib.item.Items.get_plugin_attribute_type">[Doku]</a>    <span class="k">def</span><span class="w"> </span><span class="nf">get_plugin_attribute_type</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">attribute_name</span><span class="p">):</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Returns the type of the attribute&#39;s value</span>
 
