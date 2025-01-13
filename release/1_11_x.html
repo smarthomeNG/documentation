@@ -4,7 +4,7 @@
   <meta charset="utf-8" /><meta name="generator" content="Docutils 0.19: https://docutils.sourceforge.io/" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Release 1.11.0 - tt. mmm 2025 &mdash; Dokumentation v1.10.0.3 v1.10.0.3 develop (Stand 13. Januar 2025, commit 1fdf607) Dokumentation</title>
+  <title>Release 1.11.0 - tt. mmm 2025 &mdash; Dokumentation v1.10.0.3 v1.10.0.3 develop (Stand 13. Januar 2025, commit b30ad10) Dokumentation</title>
       <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
       <link rel="stylesheet" type="text/css" href="../_static/css/theme.css" />
       <link rel="stylesheet" type="text/css" href="../_static/custom.css" />
@@ -5760,10 +5760,10 @@ sowie einige neue Plugins.</p>
 <p>Diese Release Notes sind ein Arbeitsstand des <strong>develop</strong> Branches.</p>
 <blockquote>
 <div><ul class="simple">
-<li><p>Berücksichtigt sind Commits im smarthome Repository bis incl. 31. Dezember 2024
+<li><p>Berücksichtigt sind Commits im smarthome Repository bis incl. 12. Januar 2025
 (…)</p></li>
-<li><p>Berücksichtigt sind Commits im plugins Repository bis incl. 31. Dezember 2024
-(…)</p></li>
+<li><p>Berücksichtigt sind Commits im plugins Repository bis incl. 13. Januar 2025
+(Merge pull request #981 from SergeoLacruz/develop)</p></li>
 </ul>
 </div></blockquote>
 </div>
@@ -6030,6 +6030,8 @@ zu unterstützten Python Versionen)</p>
 <li><p>Added SystemController()</p></li>
 <li><p>Added gui_type for boolean parameters</p></li>
 <li><p>Changed requirements for pyjwt because new version of pyjwt has a breaking change</p></li>
+<li><p>Fix typo in de translation</p></li>
+<li><p>Fixed bug in api_config that was introduced in summer 2024</p></li>
 </ul>
 </li>
 <li><p>modules.http:</p>
@@ -6094,6 +6096,7 @@ zu unterstützten Python Versionen)</p>
 <li><p>Workflows:</p>
 <ul>
 <li><p>Removed Python3.8 from unittests</p></li>
+<li><p>Ceckout fallback to plugins/develop</p></li>
 </ul>
 </li>
 <li><p>gitignore:</p>
@@ -6104,60 +6107,18 @@ zu unterstützten Python Versionen)</p>
 </ul>
 </section>
 <section id="neue-plugins">
-<span id="releasenotes-1-10-x-neue-plugins"></span><h3>Neue Plugins<a class="headerlink" href="#neue-plugins" title="Permalink to this heading"></a></h3>
+<span id="releasenotes-1-11-x-neue-plugins"></span><h3>Neue Plugins<a class="headerlink" href="#neue-plugins" title="Permalink to this heading"></a></h3>
 <p>Für Details zu den neuen Plugins, bitte die Dokumentation des jeweiligen Plugins unter
 <a class="reference external" href="http://www.smarthomeng.de/user/plugins_all.html">http://www.smarthomeng.de/user/plugins_all.html</a> konsultieren.</p>
 <ul class="simple">
-<li><p>githubplugin:</p>
-<ul>
-<li><p>Initial commit</p></li>
-<li><p>Improve api, add binding methods, add error checking</p></li>
-<li><p>Webif part 1</p></li>
-<li><p>Implemented plugin selection</p></li>
-<li><p>Implemented plugin installation</p></li>
-<li><p>Webif, install working</p></li>
-<li><p>Enable updating forks/branches/PRs from github</p></li>
-<li><p>Use user-definable name as plugin name, removed repoitem item</p></li>
-<li><p>Improve code, show rate limit, check clean work tree</p></li>
-<li><p>Rework error signaling, refactor WebIf code</p></li>
-<li><p>Fixed error signaling</p></li>
-<li><p>Let github signal rate limits</p></li>
-<li><p>Fix WebIf error display, name suggestion, cleanup code</p></li>
-<li><p>Fix integrating of datatables</p></li>
-<li><p>Fix dir scanning for branches with underscores</p></li>
-<li><p>Fix datatables init, sort fork list</p></li>
-<li><p>Remove init_repos, update error handling, improve rate limit display</p></li>
-<li><p>Fix error handling, add pull repo feature</p></li>
-<li><p>Updated docs, added plugin logo</p></li>
-<li><p>Prepare dynamic datatable (still disabled)</p></li>
-<li><p>Create priv_repos dir at startup</p></li>
-<li><p>Fix possible path/cwd issues</p></li>
-<li><p>Use get_basedir</p></li>
-<li><p>Fix all occurrences, not only one…</p></li>
-<li><p>[wip] rename old version, disable install on rate limit</p></li>
-<li><p>Rename old version, improve error logging</p></li>
-<li><p>Keep wt if still used, fix permissions for rmtree</p></li>
-<li><p>Try to solve non-empty dir problem</p></li>
-<li><p>Final changes for v1.0.0</p></li>
-<li><p>Fix detection of clean/ahead/behind</p></li>
-</ul>
-</li>
-<li><p>hue3: Anbindung des Philips/Signify Hue Systems über eine Hue Bridge unter Nutzung des neuen API v2</p>
-<ul>
-<li><p>set version to 3.0.1</p></li>
-</ul>
-</li>
-<li><p>panasonic_ac:</p>
-<ul>
-<li><p>New plugin to control Panasonic air conditioning units, still in develop state</p></li>
-<li><p>Updated user_doc.rst and added plugin logo</p></li>
-<li><p>Update to use released package pcomfortcloud from pypi</p></li>
-</ul>
-</li>
+<li><p>githubplugin: Plugin to install plugins from foreign GitHub repositories</p></li>
+<li><p>hue3: Anbindung des Philips/Signify Hue Systems über eine Hue Bridge unter Nutzung des neuen API v2</p></li>
+<li><p>panasonic_ac: New plugin to control Panasonic air conditioning units, still in develop state</p></li>
+<li><p>piusv: Plugin zum Auslesen Informationen aus der PIUSV+</p></li>
 </ul>
 </section>
 <section id="plugin-updates">
-<span id="releasenotes-1-10-x-updates-plugins"></span><h3>Plugin Updates<a class="headerlink" href="#plugin-updates" title="Permalink to this heading"></a></h3>
+<span id="releasenotes-1-11-x-updates-plugins"></span><h3>Plugin Updates<a class="headerlink" href="#plugin-updates" title="Permalink to this heading"></a></h3>
 <p>Für Details zu den Änderungen an den einzelnen Plugins, bitte die Dokumentation des jeweiligen Plugins unter
 <a class="reference external" href="http://www.smarthomeng.de/user/plugins_all.html">http://www.smarthomeng.de/user/plugins_all.html</a> konsultieren.</p>
 <ul class="simple">
@@ -6273,6 +6234,11 @@ zu unterstützten Python Versionen)</p>
 <li><p>Fix sh min version number</p></li>
 <li><p>Marked the plugin as being restartable</p></li>
 <li><p>Fix shift errors</p></li>
+</ul>
+</li>
+<li><p>executor:</p>
+<ul>
+<li><p>Fix example</p></li>
 </ul>
 </li>
 <li><p>homematic:</p>
@@ -6473,6 +6439,11 @@ zu unterstützten Python Versionen)</p>
 <li><p>Removed support for pymodbus2</p></li>
 </ul>
 </li>
+<li><p>smartmeter:</p>
+<ul>
+<li><p>Disabled DLMS asyncio</p></li>
+</ul>
+</li>
 <li><p>smartvisu:</p>
 <ul>
 <li><p>Fix for display of datetime object</p></li>
@@ -6501,11 +6472,22 @@ zu unterstützten Python Versionen)</p>
 <li><p>Code cleanup</p></li>
 <li><p>Update WebIf</p></li>
 <li><p>Bugfix</p></li>
-<li><p>Bump to 1.8.9</p></li>
-<li><p>Improve _handle_dpt3</p></li>
-<li><p>Make plugin restartable</p></li>
 </ul>
 </li>
+</ul>
+<blockquote>
+<div><ul class="simple">
+<li><p>Improve _handle_dpt3</p></li>
+</ul>
+<blockquote>
+<div><ul class="simple">
+<li><p>Make plugin restartable</p></li>
+<li><p>Bump to 1.8.10</p></li>
+<li><p>Bbugfix for dpt3 handling</p></li>
+</ul>
+</div></blockquote>
+</div></blockquote>
+<ul class="simple">
 <li><p>stateengine:</p>
 <ul>
 <li><p>Fix logging of header when directory is not created yet</p></li>
