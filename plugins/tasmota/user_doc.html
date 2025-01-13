@@ -5799,6 +5799,13 @@ folgenden Beispiel gezeigt:</p>
 <span class="w">    </span><span class="nt">tasmota_zb_attr</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Temperature</span>
 </pre></div>
 </div>
+<p>Das Plugin versucht eine ZigBee-Bridge automatisch zu erkennen. Zudem kann diese auch per Attribut dediziert definiert werden:</p>
+<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="nt">temp</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">type</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">num</span>
+<span class="w">    </span><span class="nt">tasmota_topic</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">ZB-GW03_01</span>
+<span class="w">    </span><span class="nt">tasmota_zb_device</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">bridge</span>
+</pre></div>
+</div>
 <p>Für die Nutzung von SML Devices über ein Tasmota-Gerät müssen in dem entsprechenden Item die drei Attribute
 <code class="docutils literal notranslate"><span class="pre">tasmota_topic</span></code>, <code class="docutils literal notranslate"><span class="pre">tasmota_sml_device</span></code> und <code class="docutils literal notranslate"><span class="pre">tasmota_sml_attr</span></code> konfiguriert werden, wie im
 folgenden Beispiel gezeigt:</p>
@@ -5879,7 +5886,7 @@ Siehe hierzu: <a class="reference external" href="https://tasmota.github.io/docs
 <li><p>„rf_send“: Zu sendende RF Daten bei Tasmota Device mit RF Sendemöglichkeit (SONOFF RF Bridge) -&gt; dict {‚RfSync‘: 12220, ‚RfLow‘: 440, ‚RfHigh‘: 1210, ‚RfCode‘:‘#F06104‘}, r/w</p></li>
 <li><p>„rf_key_send“: Zu sendender RF-Key Tasmota Device mit RF Sendemöglichkeit (SONOFF RF Bridge) -&gt; num [1-16], r/w</p></li>
 <li><p>„rf_key_recv“: Zu empfangender RF-Key Tasmota Device mit RF Sendemöglichkeit (SONOFF RF Bridge) -&gt; num [1-16], r/w</p></li>
-<li><p>rf_key: ‚RF Key‘</p></li>
+<li><p>„rf_key“: RF Key</p></li>
 <li><p>„zb_permit_join“: Schaltet das Pairing an der ZigBee Bridge ein/aus -&gt; bool, r/w</p></li>
 <li><p>„zb_forget“: Löscht das Zigbee-Gerät aus dem Item Wert aus der Liste bekannter Geräte in der Zigbee-Bridge -&gt; str, r/w</p></li>
 <li><p>„zb_ping“: Sendet ein Ping zum Zigbee-Gerät aus dem Item Wert -&gt; str, r/w</p></li>
