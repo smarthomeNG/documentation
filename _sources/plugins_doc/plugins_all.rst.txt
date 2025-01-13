@@ -72,6 +72,7 @@
    /plugins/philips_tv/user_doc
    /plugins/pioneer/user_doc
    /plugins/piratewthr/user_doc
+   /plugins/piusv/user_doc
    /plugins/pluggit/user_doc
    /plugins/prowl/user_doc
    /plugins/raumfeld_ng/user_doc
@@ -866,6 +867,15 @@
    |                                                                   |          | - `piratewthr Unterstützung <https://knx-user-forum.de/forum/supportforen/smarthome-py/1852685>`_                                                                     |                 |                 |
    |                                                                   |          |                                                                                                                                                                       |                 |                 |
    |                                                                   |          | Plugin Typ: **web**                                                                                                                                                   |                 |                 |
+   +-------------------------------------------------------------------+----------+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------+-----------------+-----------------+
+   | :doc:`piusv <config/piusv>`                                       | v0.1.0   | Plugin zum Auslesen Informationen aus der PIUSV+                                                                                                                      | SergeoLacruz    | SergeoLacruz    |
+   |                                                                   |          |                                                                                                                                                                       |                 |                 |
+   |                                                                   |          |                                                                                                                                                                       |                 |                 |
+   |                                                                   |          | .                                                                                                                                                                     |                 |                 |
+   |                                                                   |          |                                                                                                                                                                       |                 |                 |
+   |                                                                   |          | Plugin Typ: **interface**                                                                                                                                             |                 |                 |
+   |                                                                   |          |                                                                                                                                                                       |                 |                 |
+   |                                                                   |          | Plugin Status: **develop**                                                                                                                                            |                 |                 |
    +-------------------------------------------------------------------+----------+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------+-----------------+-----------------+
    | :doc:`plex <config/plex>`                                         | v1.0.1   | Erlaubt das Senden von Notifications an Plex Clients (wie RasPlex)                                                                                                    | rthill          | ?               |
    |                                                                   |          |                                                                                                                                                                       |                 |                 |

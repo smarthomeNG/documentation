@@ -103,6 +103,7 @@
    philips_tv.rst
    pioneer.rst
    piratewthr.rst
+   piusv.rst
    plex.rst
    pluggit.rst
    prowl.rst
