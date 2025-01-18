@@ -4,7 +4,7 @@
   <meta charset="utf-8" /><meta name="generator" content="Docutils 0.19: https://docutils.sourceforge.io/" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Class SmartDevicePlugin &mdash; Dokumentation v1.10.0.3 v1.10.0.3 develop (Stand 15. Januar 2025, commit 8f55945) Dokumentation</title>
+  <title>Class SmartDevicePlugin &mdash; Dokumentation v1.10.0.3 v1.10.0.3 develop (Stand 18. Januar 2025, commit 34c2f72) Dokumentation</title>
       <link rel="stylesheet" type="text/css" href="../../../_static/pygments.css" />
       <link rel="stylesheet" type="text/css" href="../../../_static/css/theme.css" />
       <link rel="stylesheet" type="text/css" href="../../../_static/custom.css" />
@@ -5752,12 +5752,9 @@
              
   <span class="target" id="index-0"></span><span class="target" id="index-1"></span><section id="class-smartdeviceplugin">
 <span id="index-2"></span><h1>Class SmartDevicePlugin<a class="headerlink" href="#class-smartdeviceplugin" title="Permalink to this heading"></a></h1>
-<p>Das SmartDevicePlugin (sdp) ist aus der Notwendigkeit geboren, für jedes neue Plugin und jedes neue Gerät aufs Neue das
-ganze Kern-Plugin neu zu erfinden - Item-Handling, Zuordnung von Items zu Befehlen (commands) und Kommunikation mit
-Netzwerk- oder seriellen Treibern oder Libraries.</p>
+<p>Das SmartDevicePlugin (sdp) ist aus der Notwendigkeit geboren, für jedes neue Plugin und jedes neue Gerät aufs Neue das ganze Kern-Plugin neu zu erfinden - Item-Handling, Zuordnung von Items zu Befehlen (commands) und Kommunikation mit Netzwerk- oder seriellen Treibern oder Libraries.</p>
 <p>Hierzu bietet die sdp-Klasse ein fertiges Plugin, aus dem mit minimalem Aufwand ein eigenes Plugin erstellt werden kann.</p>
-<p>Dazu besteht sdp aus mehreren modularen Ebenen, die hier zusammen mit den jeweiligen ausgetauschten Daten dargestellt
-werden:</p>
+<p>Dazu besteht sdp aus mehreren modularen Ebenen, die hier zusammen mit den jeweiligen ausgetauschten Daten dargestellt werden:</p>
 <table class="docutils align-default" id="id1">
 <caption><span class="caption-text">Ebenen von SDP</span><a class="headerlink" href="#id1" title="Link zu dieser Tabelle"></a></caption>
 <thead>
@@ -5938,7 +5935,7 @@ Die vorhandenen Methoden sind im Folgenden beschrieben.</p>
 <p>Zusätzlich werden die Methoden der Klasse <code class="docutils literal notranslate"><span class="pre">lib.utils.Utils</span></code> vererbt.</p>
 <dl class="py class">
 <dt class="sig sig-object py" id="lib.model.smartdeviceplugin.SmartDevicePlugin">
-<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">lib.model.smartdeviceplugin.</span></span><span class="sig-name descname"><span class="pre">SmartDevicePlugin</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kargs</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../../_modules/lib/model/smartdeviceplugin.html#SmartDevicePlugin"><span class="viewcode-link"><span class="pre">[Quellcode]</span></span></a><a class="headerlink" href="#lib.model.smartdeviceplugin.SmartDevicePlugin" title="Link zu dieser Definition"></a></dt>
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">lib.model.smartdeviceplugin.</span></span><span class="sig-name descname"><span class="pre">SmartDevicePlugin</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">sh</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">logger</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../../_modules/lib/model/smartdeviceplugin.html#SmartDevicePlugin"><span class="viewcode-link"><span class="pre">[Quellcode]</span></span></a><a class="headerlink" href="#lib.model.smartdeviceplugin.SmartDevicePlugin" title="Link zu dieser Definition"></a></dt>
 <dd><p>Bases: <a class="reference internal" href="smartplugin_class.html#lib.model.smartplugin.SmartPlugin" title="lib.model.smartplugin.SmartPlugin"><code class="xref py py-class docutils literal notranslate"><span class="pre">SmartPlugin</span></code></a></p>
 <p>The class SmartDevicePlugin implements the base class of smart-plugins
 designed especially for device connectivity.</p>
@@ -5954,6 +5951,11 @@ described if changed/overwritten.</p>
 <dt class="sig sig-object py" id="lib.model.smartdeviceplugin.SmartDevicePlugin.remove_item">
 <span class="sig-name descname"><span class="pre">remove_item</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">item</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../../_modules/lib/model/smartdeviceplugin.html#SmartDevicePlugin.remove_item"><span class="viewcode-link"><span class="pre">[Quellcode]</span></span></a><a class="headerlink" href="#lib.model.smartdeviceplugin.SmartDevicePlugin.remove_item" title="Link zu dieser Definition"></a></dt>
 <dd><p>remove item references from plugin</p>
+<dl class="field-list simple">
+<dt class="field-odd">Rückgabetyp<span class="colon">:</span></dt>
+<dd class="field-odd"><p><code class="xref py py-class docutils literal notranslate"><span class="pre">bool</span></code></p>
+</dd>
+</dl>
 </dd></dl>
 
 <dl class="py method">
@@ -5961,6 +5963,11 @@ described if changed/overwritten.</p>
 <span class="sig-name descname"><span class="pre">update_plugin_config</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../../_modules/lib/model/smartdeviceplugin.html#SmartDevicePlugin.update_plugin_config"><span class="viewcode-link"><span class="pre">[Quellcode]</span></span></a><a class="headerlink" href="#lib.model.smartdeviceplugin.SmartDevicePlugin.update_plugin_config" title="Link zu dieser Definition"></a></dt>
 <dd><p>update plugin configuration parameters and (re)run relevant
 configuration methods</p>
+<dl class="field-list simple">
+<dt class="field-odd">Rückgabetyp<span class="colon">:</span></dt>
+<dd class="field-odd"><p><code class="xref py py-class docutils literal notranslate"><span class="pre">bool</span></code></p>
+</dd>
+</dl>
 </dd></dl>
 
 <dl class="py method">
@@ -6026,6 +6033,7 @@ decide what to do with the item in future, like adding it to an
 internal array for future reference
 :type item: 
 :param item:    The item to process.
+:rtype: Callable | None
 :return:        Recall function for item updates</p>
 </dd></dl>
 
@@ -6039,10 +6047,10 @@ SmartHomeNG. It should write the changed value out to the device
 <dl class="field-list simple">
 <dt class="field-odd">Parameter<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>item</strong> – item to be updated towards the plugin</p></li>
-<li><p><strong>caller</strong> – if given it represents the callers name</p></li>
-<li><p><strong>source</strong> – if given it represents the source</p></li>
-<li><p><strong>dest</strong> – if given it represents the dest</p></li>
+<li><p><strong>item</strong> (<a class="reference internal" href="../../../lib/item_class_item.html#lib.item.item.Item" title="lib.item.item.Item"><em>Item</em></a>) – item to be updated towards the plugin</p></li>
+<li><p><strong>caller</strong> (<em>str</em><em> | </em><em>None</em>) – if given it represents the callers name</p></li>
+<li><p><strong>source</strong> (<em>str</em><em> | </em><em>None</em>) – if given it represents the source</p></li>
+<li><p><strong>dest</strong> (<em>str</em><em> | </em><em>None</em>) – if given it represents the dest</p></li>
 </ul>
 </dd>
 </dl>
@@ -6058,7 +6066,7 @@ from the device and writing it to the associated item.</p>
 <dt class="field-odd">Parameter<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
 <li><p><strong>command</strong> (<em>str</em>) – the command to send</p></li>
-<li><p><strong>value</strong> – the data to send, if applicable</p></li>
+<li><p><strong>value</strong> (<code class="xref py py-data docutils literal notranslate"><span class="pre">Optional</span></code>[<code class="xref py py-data docutils literal notranslate"><span class="pre">Any</span></code>]) – the data to send, if applicable</p></li>
 </ul>
 </dd>
 <dt class="field-even">Rückgabe<span class="colon">:</span></dt>
@@ -6079,8 +6087,8 @@ Processes data and dispatches value to plugin class</p>
 <dt class="field-odd">Parameter<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
 <li><p><strong>command</strong> (<em>str</em>) – the command in reply to which data was received</p></li>
-<li><p><strong>data</strong> – received data in ‚raw‘ connection format</p></li>
-<li><p><strong>by</strong> – client object / name / identifier</p></li>
+<li><p><strong>data</strong> (<em>Any</em>) – received data in ‚raw‘ connection format</p></li>
+<li><p><strong>by</strong> (<em>str</em><em> | </em><em>None</em>) – client object / name / identifier</p></li>
 </ul>
 </dd>
 </dl>
@@ -6096,8 +6104,8 @@ and update value</p>
 <dt class="field-odd">Parameter<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
 <li><p><strong>command</strong> (<em>str</em>) – command for or in reply to which data was received</p></li>
-<li><p><strong>value</strong> – data</p></li>
-<li><p><strong>by</strong> – str</p></li>
+<li><p><strong>value</strong> (<em>Any</em>) – data</p></li>
+<li><p><strong>by</strong> (<em>str</em><em> | </em><em>None</em>) – str</p></li>
 </ul>
 </dd>
 </dl>
@@ -6134,12 +6142,22 @@ Possible to check only for reading or writing</p>
 <dt class="sig sig-object py" id="lib.model.smartdeviceplugin.SmartDevicePlugin.get_lookup">
 <span class="sig-name descname"><span class="pre">get_lookup</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">lookup</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">mode</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'fwd'</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../../_modules/lib/model/smartdeviceplugin.html#SmartDevicePlugin.get_lookup"><span class="viewcode-link"><span class="pre">[Quellcode]</span></span></a><a class="headerlink" href="#lib.model.smartdeviceplugin.SmartDevicePlugin.get_lookup" title="Link zu dieser Definition"></a></dt>
 <dd><p>returns the lookup table for name &lt;lookup&gt;, None on error</p>
+<dl class="field-list simple">
+<dt class="field-odd">Rückgabetyp<span class="colon">:</span></dt>
+<dd class="field-odd"><p>list | None</p>
+</dd>
+</dl>
 </dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="lib.model.smartdeviceplugin.SmartDevicePlugin.has_recursive_custom_attribute">
 <span class="sig-name descname"><span class="pre">has_recursive_custom_attribute</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">index</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../../_modules/lib/model/smartdeviceplugin.html#SmartDevicePlugin.has_recursive_custom_attribute"><span class="viewcode-link"><span class="pre">[Quellcode]</span></span></a><a class="headerlink" href="#lib.model.smartdeviceplugin.SmartDevicePlugin.has_recursive_custom_attribute" title="Link zu dieser Definition"></a></dt>
-<dd></dd></dl>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Rückgabetyp<span class="colon">:</span></dt>
+<dd class="field-odd"><p><code class="xref py py-class docutils literal notranslate"><span class="pre">bool</span></code></p>
+</dd>
+</dl>
+</dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="lib.model.smartdeviceplugin.SmartDevicePlugin.set_custom_item">

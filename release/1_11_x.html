@@ -4,7 +4,7 @@
   <meta charset="utf-8" /><meta name="generator" content="Docutils 0.19: https://docutils.sourceforge.io/" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Release 1.11.0 - tt. mmm 2025 &mdash; Dokumentation v1.10.0.3 v1.10.0.3 develop (Stand 15. Januar 2025, commit 8f55945) Dokumentation</title>
+  <title>Release 1.11.0 - tt. mmm 2025 &mdash; Dokumentation v1.10.0.3 v1.10.0.3 develop (Stand 18. Januar 2025, commit 34c2f72) Dokumentation</title>
       <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
       <link rel="stylesheet" type="text/css" href="../_static/css/theme.css" />
       <link rel="stylesheet" type="text/css" href="../_static/custom.css" />
@@ -5921,21 +5921,24 @@ zu unterstützten Python Versionen)</p>
 </li>
 <li><p>sdp:</p>
 <ul>
-<li><p>Improvements</p></li>
-<li><p>Add version, cyclic error detection/reconnect</p></li>
-<li><p>Implement read after write</p></li>
-<li><p>Fix attr resolving</p></li>
-<li><p>Fix long cyclic recovery</p></li>
-<li><p>Several minor fixes/updates</p></li>
-<li><p>Adjust to smartplugin changes</p></li>
-<li><p>suspend/resume</p></li>
-<li><p>Fix missing parameter</p></li>
-<li><p>Move to sdp v1.0.2</p></li>
-<li><p>Pass plugin reference to connection/protocol</p></li>
+<li><p>Bump version number to 1.0.4</p></li>
+<li><p>Add valid_list item attribute, complete type hinting</p></li>
+<li><p>Enable raw sending of lookup values</p></li>
+<li><p>Improve reply pattern processing</p></li>
+<li><p>Add editable lookup tables</p></li>
+<li><p>Add regex-capable valid_list_re to command patterns</p></li>
+<li><p>Add delivery queue to serial connection for better timing</p></li>
+<li><p>Improve struct generation</p></li>
+<li><p>Fix automatic resend protocol detection</p></li>
 <li><p>Change to scheduler_remove_all</p></li>
-<li><p>Modify run logics</p></li>
-<li><p>Propose resend protocol</p></li>
-<li><p>Move command storing</p></li>
+<li><p>Suspend/resume</p></li>
+<li><p>Minor fixes/updates</p></li>
+<li><p>Implement read after write</p></li>
+<li><p>Update documentation</p></li>
+<li><p>Add version, cyclic error detection/reconnect</p></li>
+<li><p>Fix long cyclic recovery</p></li>
+<li><p>Adjust to smartplugin changes</p></li>
+<li><p>Pass plugin reference to connection/protocol</p></li>
 <li><p>Set protocol to resend if send_retries &gt; 0</p></li>
 <li><p>Query current value for command that was not successfully sent</p></li>
 <li><p>Fix and improve read command for querying after resend is not successful</p></li>
@@ -5943,13 +5946,7 @@ zu unterstützten Python Versionen)</p>
 <li><p>Join resend/jsonrpc parameters, cleanup</p></li>
 <li><p>Add minimum version check</p></li>
 <li><p>Make resending work with custom command values</p></li>
-<li><p>Correctly handle reply_patterns defined as lists for resend protocol</p></li>
-<li><p>Parse custom_parameters correctly for reply_pattern used for resend protocol</p></li>
-<li><p>Improve struct generation</p></li>
-<li><p>Add delivery queue to serial connection for better timing</p></li>
-<li><p>Connection.py aktualisieren</p></li>
 <li><p>Fix order of connect initialization, fix struct generation</p></li>
-<li><p>Fix sdp references</p></li>
 </ul>
 </li>
 <li><p>smartplugin:</p>
