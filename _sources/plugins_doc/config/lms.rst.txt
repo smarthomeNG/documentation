@@ -315,6 +315,15 @@ Legt fest, dass der Wert beim Start vom Gerät gelesen wird
  - Datentyp: **bool**
 
 
+sqb_valid_list
+==============
+
+
+Kommando, das eine valid_list(_re/_ci) definiert hat. Der Inhalt dieses Items ersetzt die Liste des entsprechenden Befehls.
+
+ - Datentyp: **str**
+
+
 sqb_write
 =========
 

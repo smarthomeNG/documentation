@@ -4,7 +4,7 @@
   <meta charset="utf-8" /><meta name="generator" content="Docutils 0.19: https://docutils.sourceforge.io/" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>lms &mdash; Dokumentation v1.10.0.3 v1.10.0.3 develop (Stand 18. Januar 2025, commit 9566bca) Dokumentation</title>
+  <title>lms &mdash; Dokumentation v1.10.0.3 v1.10.0.3 develop (Stand 19. Januar 2025, commit 9566bca) Dokumentation</title>
       <link rel="stylesheet" type="text/css" href="../../_static/pygments.css" />
       <link rel="stylesheet" type="text/css" href="../../_static/css/theme.css" />
       <link rel="stylesheet" type="text/css" href="../../_static/custom.css" />
@@ -5786,25 +5786,33 @@ wenn man den Itembaum nicht manuell aufbauen will, sondern structs nutzt (siehe 
 <h2>Struct Vorlagen<a class="headerlink" href="#struct-vorlagen" title="Permalink to this heading"></a></h2>
 <p>Der Itembaum sollte jedenfalls über die structs Funktion eingebunden werden. Mittels <cite>ALL</cite>
 werden die Ebenen Server, Database und Player unter dem selben Hauptitem angelegt, was aber
-nur in den seltensten Fällen Sinn machen dürfte. Stattdessen sollte ein einzigartiges Item für
-<cite>lms.server</cite> und <cite>lms.database</cite> angelegt werden. Das struct <cite>lms.player</cite> wird dann
+nur in den seltensten Fällen Sinn machen dürfte.
+Stattdessen sollte ein einzigartiges Item für
+<cite>lms.server</cite> und <cite>lms.database</cite> angelegt werden. Es gibt noch ein optionales Struct namens <cite>lms.server_plugins</cite>.</p>
+<p>Das struct <cite>lms.player</cite> (sowie das optionale <cite>lms.player_plugins</cite>) wird dann
 pro Abspielgerät genutzt, wobei hier wichtig ist, mittels <cite>lms.sqb_custom1</cite> die MAC Adresse
 des Players mit anzugeben.</p>
+<p>In Version 2.0.0 wurde die interne Struktur der Structs etwas abgeändert.</p>
 <div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="c1"># items/my.yaml</span>
 <span class="nt">squeezebox</span><span class="p">:</span>
 <span class="w">  </span><span class="nt">struct</span><span class="p">:</span>
 <span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">sdp_squeezebox.database</span>
 <span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">sdp_squeezebox.server</span>
+<span class="w">    </span><span class="c1">#- sdp_squeezebox.server_plugins</span>
 
 <span class="nt">squeezebox_player1</span><span class="p">:</span>
 <span class="w">    </span><span class="nt">sqb_custom1</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">&lt;MAC Adresse&gt;</span>
 
-<span class="w">    </span><span class="nt">struct</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">sdp_squeezebox.player</span>
+<span class="w">    </span><span class="nt">struct</span><span class="p">:</span>
+<span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">sdp_squeezebox.player</span>
+<span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">sdp_squeezebox.player_plugins</span>
 
 <span class="nt">squeezebox_player2</span><span class="p">:</span>
 <span class="w">    </span><span class="nt">sqb_custom1</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">&lt;MAC Adresse&gt;</span>
 
-<span class="w">    </span><span class="nt">struct</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">sdp_squeezebox.player</span>
+<span class="w">    </span><span class="nt">struct</span><span class="p">:</span>
+<span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">sdp_squeezebox.player</span>
+<span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">sdp_squeezebox.player_plugins</span>
 </pre></div>
 </div>
 </section>
