@@ -4,7 +4,7 @@
   <meta charset="utf-8" /><meta name="generator" content="Docutils 0.19: https://docutils.sourceforge.io/" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Aktionen &mdash; Dokumentation v1.10.0.3 v1.10.0.3 develop (Stand 19. Januar 2025, commit cfd3068) Dokumentation</title>
+  <title>Aktionen &mdash; Dokumentation v1.10.0.3 v1.10.0.3 develop (Stand 20. Januar 2025, commit cfd3068) Dokumentation</title>
       <link rel="stylesheet" type="text/css" href="../../../_static/pygments.css" />
       <link rel="stylesheet" type="text/css" href="../../../_static/css/theme.css" />
       <link rel="stylesheet" type="text/css" href="../../../_static/custom.css" />
@@ -5779,13 +5779,14 @@ kann für einzelne Aktionen individuell über die Angabe <code class="docutils l
 <ul class="simple">
 <li><p>Daemmerung: Höhe des Raffstores: 100(%), Lamellendrehung: 25(%)</p></li>
 <li><p>Nachfuehren: Höhe des Raffstores: 100(%), Lamellendrehung: je nach Sonnenausrichtung, aber erst, wenn eine Mindeständerung von 10 Grad vorhanden ist.</p></li>
-<li><p>Sonder: Ausführen der Logic myLogic mit dem Wert 42 und einer Verzögerung von 10 Sekunden.</p></li>
+<li><p>Sonder: Ausführen der Logic myLogic mit dem Wert 42 und einer Verzögerung von 10 Sekunden. Setzen eines Bool-Items auf True.</p></li>
 </ul>
 <div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="c1">#items/item.yaml</span>
 <span class="nt">raffstore1</span><span class="p">:</span>
 <span class="w">    </span><span class="nt">automatik</span><span class="p">:</span>
 <span class="w">        </span><span class="nt">struct</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">stateengine.general</span>
 <span class="w">        </span><span class="nt">rules</span><span class="p">:</span>
+<span class="w">            </span><span class="nt">se_item_boolean</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">raffstore1.updown</span><span class="w"> </span><span class="c1"># Definition eines boolschen Items</span>
 <span class="w">            </span><span class="nt">se_item_height</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">raffstore1.hoehe</span><span class="w"> </span><span class="c1"># Definition des zu ändernden Höhe-Items</span>
 <span class="w">            </span><span class="nt">se_item_lamella</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">raffstore1.lamelle</span><span class="w"> </span><span class="c1"># Definition des zu ändernden Lamellen-Items</span>
 <span class="w">            </span><span class="nt">se_status_lamella</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">raffstore1.lamelle.status</span><span class="w"> </span><span class="c1"># Definition des Lamellen Statusitems</span>
@@ -5815,6 +5816,9 @@ kann für einzelne Aktionen individuell über die Angabe <code class="docutils l
 <span class="w">                    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="s">&#39;logic:</span><span class="nv"> </span><span class="s">myLogic&#39;</span>
 <span class="w">                    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="s">&#39;value:</span><span class="nv"> </span><span class="s">42&#39;</span>
 <span class="w">                    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="s">&#39;delay:</span><span class="nv"> </span><span class="s">10&#39;</span>
+<span class="w">                </span><span class="nt">se_action_boolean</span><span class="p">:</span>
+<span class="w">                    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="s">&#39;function:</span><span class="nv"> </span><span class="s">set&#39;</span>
+<span class="w">                    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="s">&#39;to:</span><span class="nv"> </span><span class="s">value:True&#39;</span>
 <span class="w">                </span><span class="l l-Scalar l-Scalar-Plain">&lt;...&gt;</span>
 </pre></div>
 </div>
