@@ -4,7 +4,7 @@
   <meta charset="utf-8" /><meta name="generator" content="Docutils 0.19: https://docutils.sourceforge.io/" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>lms &mdash; Dokumentation v1.10.0.3 v1.10.0.3 develop (Stand 20. Januar 2025, commit cfd3068) Dokumentation</title>
+  <title>lms &mdash; Dokumentation v1.10.0.3 v1.10.0.3 develop (Stand 24. Januar 2025, commit cfd3068) Dokumentation</title>
       <link rel="stylesheet" type="text/css" href="../../_static/pygments.css" />
       <link rel="stylesheet" type="text/css" href="../../_static/css/theme.css" />
       <link rel="stylesheet" type="text/css" href="../../_static/custom.css" />
@@ -5792,7 +5792,8 @@ Stattdessen sollte ein einzigartiges Item für
 <p>Das struct <cite>lms.player</cite> (sowie das optionale <cite>lms.player_plugins</cite>) wird dann
 pro Abspielgerät genutzt, wobei hier wichtig ist, mittels <cite>lms.sqb_custom1</cite> die MAC Adresse
 des Players mit anzugeben.</p>
-<p>In Version 2.0.0 wurde die interne Struktur der Structs etwas abgeändert.</p>
+<p>In Version 2.0.0 wurde die interne Struktur der Structs etwas abgeändert, weshalb Zugriffe auf die Items in
+der Visu, in Logiken, etc. angepasst werden müssen.</p>
 <div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="c1"># items/my.yaml</span>
 <span class="nt">squeezebox</span><span class="p">:</span>
 <span class="w">  </span><span class="nt">struct</span><span class="p">:</span>
