@@ -4,7 +4,7 @@
   <meta charset="utf-8" /><meta name="generator" content="Docutils 0.19: https://docutils.sourceforge.io/" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Userfunctions &mdash; Dokumentation v1.10.0.3 v1.10.0.3 develop (Stand 24. Januar 2025, commit cfd3068) Dokumentation</title>
+  <title>Userfunctions &mdash; Dokumentation v1.10.0.3 v1.10.0.3 develop (Stand 26. Januar 2025, commit 771a5e4) Dokumentation</title>
       <link rel="stylesheet" type="text/css" href="../../_static/pygments.css" />
       <link rel="stylesheet" type="text/css" href="../../_static/css/theme.css" />
       <link rel="stylesheet" type="text/css" href="../../_static/custom.css" />
@@ -5013,6 +5013,7 @@
 </ul>
 </li>
 <li class="toctree-l3"><a class="reference internal" href="#reload-von-userfunctions">Reload von Userfunctions</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#zusatzliche-python-module">Zusätzliche Python Module</a></li>
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="../python/python.html">Python Environment <span class="bluesup">Update</span></a><ul>
@@ -5950,6 +5951,12 @@ man <strong>uf.reload(‚anhalter‘)</strong> eingeben und <strong>Prüfen</str
 <p>Man kann auch alle benutzerdefinierte Dateien neu laden, indem man <strong>uf.reload_all()</strong> eingibt und <strong>Prüfen</strong> klickt.</p>
 <p>Über die reload Funktionalität für Userfunctions können auch Userfunction Module neu geladen werden, die erst nach dem Start von
 SmartHomeNG erstellt wurden.</p>
+</section>
+<section id="zusatzliche-python-module">
+<h2>Zusätzliche Python Module<a class="headerlink" href="#zusatzliche-python-module" title="Permalink to this heading"></a></h2>
+<p>Wird ein zusätzliches Python Modul in einer Userfunction benötigt, so kann eine <code class="docutils literal notranslate"><span class="pre">requirements.txt</span></code> im Verzeichnis <code class="docutils literal notranslate"><span class="pre">functions</span></code> erstellt
+und in dieser Datei Namen und Versionen für die Installation via PIP notiert werden.
+In diesem Fall muss SmartHomeNG auf jeden Fall neu gestartet werden da die Überprüfung nur beim Start von SmartHomeNG erfolgt.</p>
 </section>
 </section>
 

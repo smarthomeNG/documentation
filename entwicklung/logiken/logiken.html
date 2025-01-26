@@ -4,7 +4,7 @@
   <meta charset="utf-8" /><meta name="generator" content="Docutils 0.19: https://docutils.sourceforge.io/" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Logiken under construction &mdash; Dokumentation v1.10.0.3 v1.10.0.3 develop (Stand 24. Januar 2025, commit cfd3068) Dokumentation</title>
+  <title>Logiken under construction &mdash; Dokumentation v1.10.0.3 v1.10.0.3 develop (Stand 26. Januar 2025, commit 771a5e4) Dokumentation</title>
       <link rel="stylesheet" type="text/css" href="../../_static/pygments.css" />
       <link rel="stylesheet" type="text/css" href="../../_static/css/theme.css" />
       <link rel="stylesheet" type="text/css" href="../../_static/custom.css" />
@@ -5013,6 +5013,7 @@
 </ul>
 </li>
 <li class="toctree-l3"><a class="reference internal" href="../../referenz/userfunctions/userfunctions.html#reload-von-userfunctions">Reload von Userfunctions</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../referenz/userfunctions/userfunctions.html#zusatzliche-python-module">Zusätzliche Python Module</a></li>
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="../../referenz/python/python.html">Python Environment <span class="bluesup">Update</span></a><ul>
@@ -5751,8 +5752,11 @@
   <section id="logiken-under-construction">
 <span id="index-0"></span><h1>Logiken <span class="bluesup">under construction</span><a class="headerlink" href="#logiken-under-construction" title="Permalink to this heading"></a></h1>
 <p>Eine Logik besteht aus einem Python Skript sowie einer Reihe von Parametern die den Aufruf (das Triggern) der Logik
-steuern. Eine Logik kan während der Laufzeit von SmartHomeNG geladen und entladen werden. Dadurch sind Veränderungen
+steuern. Eine Logik kann während der Laufzeit von SmartHomeNG geladen und entladen werden. Dadurch sind Veränderungen
 ein einer Logik möglich, ohne SmartHomeNG neu starten zu müssen.</p>
+<p>Wird ein zusätzliches Python Modul in einer Logik benötigt, so kann eine <code class="docutils literal notranslate"><span class="pre">requirements.txt</span></code> im Verzeichnis <code class="docutils literal notranslate"><span class="pre">logics</span></code> erstellt
+und in dieser Datei Namen und Versionen für die Installation via PIP notiert werden.
+In diesem Fall muss SmartHomeNG auf jeden Fall neu gestartet werden da die Überprüfung nur beim Start von SmartHomeNG erfolgt.</p>
 <section id="einfuhrung">
 <h2>Einführung<a class="headerlink" href="#einfuhrung" title="Permalink to this heading"></a></h2>
 <p>Das eigentliche Python Skript einer Logik muss im Verzeichnis <code class="docutils literal notranslate"><span class="pre">../logics</span></code> der SmartHomeNG Installation abgelegt
