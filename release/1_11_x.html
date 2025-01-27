@@ -4,7 +4,7 @@
   <meta charset="utf-8" /><meta name="generator" content="Docutils 0.19: https://docutils.sourceforge.io/" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Release 1.11.0 - tt. mmm 2025 &mdash; Dokumentation v1.10.0.3 v1.10.0.3 develop (Stand 27. Januar 2025, commit 81c20ad) Dokumentation</title>
+  <title>Release 1.11.0 - tt. mmm 2025 &mdash; Dokumentation v1.10.0.3 v1.10.0.3 develop (Stand 27. Januar 2025, commit b65f238) Dokumentation</title>
       <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
       <link rel="stylesheet" type="text/css" href="../_static/css/theme.css" />
       <link rel="stylesheet" type="text/css" href="../_static/custom.css" />
@@ -5761,10 +5761,10 @@ sowie einige neue Plugins.</p>
 <p>Diese Release Notes sind ein Arbeitsstand des <strong>develop</strong> Branches.</p>
 <blockquote>
 <div><ul class="simple">
-<li><p>Berücksichtigt sind Commits im smarthome Repository bis incl. 12. Januar 2025
-(…)</p></li>
-<li><p>Berücksichtigt sind Commits im plugins Repository bis incl. 13. Januar 2025
-(Merge pull request #981 from SergeoLacruz/develop)</p></li>
+<li><p>Berücksichtigt sind Commits im smarthome Repository bis incl. 27. Januar 2025
+(modules.mqtt: allow paho_mqtt 2.x)</p></li>
+<li><p>Berücksichtigt sind Commits im plugins Repository bis incl. 27. Januar 2025
+(Merge pull request #996 from onkelandy/denon)</p></li>
 </ul>
 </div></blockquote>
 </div>
@@ -5798,6 +5798,7 @@ zu unterstützten Python Versionen)</p>
 <li><p>github:</p>
 <ul>
 <li><p>Workflows: Fix unittest for forked repos in core</p></li>
+<li><p>Workflows: Update codeql.yml, remove set-output</p></li>
 <li><p>Modify gitignore structure</p></li>
 </ul>
 </li>
@@ -5923,6 +5924,7 @@ zu unterstützten Python Versionen)</p>
 <li><p>sdp:</p>
 <ul>
 <li><p>Bump version number to 1.0.4</p></li>
+<li><p>Add method to update reply_patterns</p></li>
 <li><p>Add valid_list item attribute, complete type hinting</p></li>
 <li><p>Enable raw sending of lookup values</p></li>
 <li><p>Improve reply pattern processing</p></li>
@@ -5973,6 +5975,13 @@ zu unterstützten Python Versionen)</p>
 <li><p>lib.network:</p>
 <ul>
 <li><p>Add serial connection reset error handling</p></li>
+</ul>
+</li>
+<li><p>lib.plugin:</p>
+<ul>
+<li><p>Add reload_plugin method</p></li>
+<li><p>Insert plugin references into sh.plugins also</p></li>
+<li><p>Refactor load_plugin</p></li>
 </ul>
 </li>
 <li><p>lib.shpypi:</p>
@@ -6043,6 +6052,8 @@ zu unterstützten Python Versionen)</p>
 </li>
 <li><p>modules.mqtt:</p>
 <ul>
+<li><p>Allow paho_mqtt 2.x</p></li>
+<li><p>Add compatibility to paho_mqtt 2.x</p></li>
 <li><p>Changed requirements - the lately released paho client 2.0 has breaking changes</p></li>
 <li><p>Added gui_type for boolean parameters</p></li>
 </ul>
@@ -6314,6 +6325,17 @@ zu unterstützten Python Versionen)</p>
 <li><p>Query power at startup</p></li>
 <li><p>Query shuffle and repeat at start</p></li>
 <li><p>Adjust clear command, however should still not be used (might depend on setup/server?)</p></li>
+<li><p>put older version 1.5.2 as backup in folder</p></li>
+<li><p>update playlists.available command</p></li>
+<li><p>update plugin.yaml struct</p></li>
+<li><p>add newclient command so players lookup gets correctly updated when new client is connected</p></li>
+<li><p>fix reading commands when getting new title info</p></li>
+<li><p>rename command playsong to playitem</p></li>
+<li><p>update docu</p></li>
+<li><p>update and restructure commands and structs. bump version to 2.0.0</p></li>
+<li><p>update, fix and improve commands, rename some correctly</p></li>
+<li><p>fix transform received data (keep %20 for spaces)</p></li>
+<li><p>update method code in init using type hint</p></li>
 </ul>
 </li>
 <li><p>modbus_tcp:</p>
