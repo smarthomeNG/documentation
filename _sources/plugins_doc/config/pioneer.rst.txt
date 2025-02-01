@@ -248,8 +248,8 @@ Anzahl Sendeversuche
  - Standardwert: **0**
 
 
-sendretry_cycle
-===============
+send_retries_cycle
+==================
 
 
 Pause zwischen Durchgängen von Sendeversuchen
