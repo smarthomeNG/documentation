@@ -5791,30 +5791,30 @@ nur in den seltensten Fällen Sinn machen dürfte.
 Stattdessen sollte ein einzigartiges Item für
 <cite>lms.server</cite> und <cite>lms.database</cite> angelegt werden. Es gibt noch ein optionales Struct namens <cite>lms.server_plugins</cite>.</p>
 <p>Das struct <cite>lms.player</cite> (sowie das optionale <cite>lms.player_plugins</cite>) wird dann
-pro Abspielgerät genutzt, wobei hier wichtig ist, mittels <cite>lms.sqb_custom1</cite> die MAC Adresse
+pro Abspielgerät genutzt, wobei hier wichtig ist, mittels <cite>lms.lms_custom1</cite> die MAC Adresse
 des Players mit anzugeben.</p>
 <p>In Version 2.0.0 wurde die interne Struktur der Structs etwas abgeändert, weshalb Zugriffe auf die Items in
-der Visu, in Logiken, etc. angepasst werden müssen.</p>
+der Visu, in Logiken, etc. angepasst werden müssen. Außerdem wurde der <cite>sqb_</cite> Prefix durch <cite>lms_</cite> ersetzt.</p>
 <div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="c1"># items/my.yaml</span>
 <span class="nt">squeezebox</span><span class="p">:</span>
 <span class="w">  </span><span class="nt">struct</span><span class="p">:</span>
-<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">sdp_squeezebox.database</span>
-<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">sdp_squeezebox.server</span>
-<span class="w">    </span><span class="c1">#- sdp_squeezebox.server_plugins</span>
+<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">lms.database</span>
+<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">lms.server</span>
+<span class="w">    </span><span class="c1">#- lms.server_plugins</span>
 
 <span class="nt">squeezebox_player1</span><span class="p">:</span>
-<span class="w">    </span><span class="nt">sqb_custom1</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">&lt;MAC Adresse&gt;</span>
+<span class="w">    </span><span class="nt">lms_custom1</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">&lt;MAC Adresse&gt;</span>
 
 <span class="w">    </span><span class="nt">struct</span><span class="p">:</span>
-<span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">sdp_squeezebox.player</span>
-<span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">sdp_squeezebox.player_plugins</span>
+<span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">lms.player</span>
+<span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">lms.player_plugins</span>
 
 <span class="nt">squeezebox_player2</span><span class="p">:</span>
-<span class="w">    </span><span class="nt">sqb_custom1</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">&lt;MAC Adresse&gt;</span>
+<span class="w">    </span><span class="nt">lms_custom1</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">&lt;MAC Adresse&gt;</span>
 
 <span class="w">    </span><span class="nt">struct</span><span class="p">:</span>
-<span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">sdp_squeezebox.player</span>
-<span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">sdp_squeezebox.player_plugins</span>
+<span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">lms.player</span>
+<span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">lms.player_plugins</span>
 </pre></div>
 </div>
 </section>

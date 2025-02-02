@@ -243,7 +243,7 @@ Item Attribute
 Das Plugin unterstützt folgende Item Attribute, die in den Dateien im Verzeichnis  ``../items`` verwendet werden:
 
 
-sqb_command
+lms_command
 ===========
 
 
@@ -252,7 +252,7 @@ Legt das angegebene Kommando für das Item fest
  - Datentyp: **str**
 
 
-sqb_custom1
+lms_custom1
 ===========
 
 
@@ -261,7 +261,7 @@ MAC-Adresse des Wiedergabegerätes
  - Datentyp: **str**
 
 
-sqb_lookup
+lms_lookup
 ==========
 
 
@@ -270,7 +270,7 @@ Der Inhalt der Lookup-Tabelle mit dem angegebenen Namen wird beim  Start einmali
  - Datentyp: **str**
 
 
-sqb_read
+lms_read
 ========
 
 
@@ -279,7 +279,7 @@ Item liest/erhält Werte vom Gerät
  - Datentyp: **bool**
 
 
-sqb_read_cycle
+lms_read_cycle
 ==============
 
 
@@ -288,7 +288,7 @@ Konfiguriert ein Intervall in Sekunden für regelmäßiges Lesen
  - Datentyp: **num**
 
 
-sqb_read_group
+lms_read_group
 ==============
 
 
@@ -297,16 +297,16 @@ Weist das Item der angegebenen Gruppe zum gesammelten Lesen zu. Mehrere Gruppen 
  - Datentyp: **list(str)**
 
 
-sqb_read_group_trigger
+lms_read_group_trigger
 ======================
 
 
-Wenn diesem Item ein beliebiger Wert zugewiesen wird, werden alle zum Lesen konfigurierten Items der angegebenen Gruppe neu vom Gerät gelesen, bei Gruppe 0 werden alle zum Lesen konfigurierten Items neu gelesen. Das Item kann nicht gleichzeitig mit sqb_command belegt werden.
+Wenn diesem Item ein beliebiger Wert zugewiesen wird, werden alle zum Lesen konfigurierten Items der angegebenen Gruppe neu vom Gerät gelesen, bei Gruppe 0 werden alle zum Lesen konfigurierten Items neu gelesen. Das Item kann nicht gleichzeitig mit lms_command belegt werden.
 
  - Datentyp: **str**
 
 
-sqb_read_initial
+lms_read_initial
 ================
 
 
@@ -315,7 +315,7 @@ Legt fest, dass der Wert beim Start vom Gerät gelesen wird
  - Datentyp: **bool**
 
 
-sqb_valid_list
+lms_valid_list
 ==============
 
 
@@ -324,7 +324,7 @@ Kommando, das eine valid_list(_re/_ci) definiert hat. Der Inhalt dieses Items er
  - Datentyp: **str**
 
 
-sqb_write
+lms_write
 =========
 
 

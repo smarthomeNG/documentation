@@ -5955,8 +5955,8 @@
 <section id="item-attribute">
 <h1>Item Attribute<a class="headerlink" href="#item-attribute" title="Permalink to this heading"></a></h1>
 <p>Das Plugin unterstützt folgende Item Attribute, die in den Dateien im Verzeichnis  <code class="docutils literal notranslate"><span class="pre">../items</span></code> verwendet werden:</p>
-<section id="sqb-command">
-<h2>sqb_command<a class="headerlink" href="#sqb-command" title="Permalink to this heading"></a></h2>
+<section id="lms-command">
+<h2>lms_command<a class="headerlink" href="#lms-command" title="Permalink to this heading"></a></h2>
 <p>Legt das angegebene Kommando für das Item fest</p>
 <blockquote>
 <div><ul class="simple">
@@ -5964,8 +5964,8 @@
 </ul>
 </div></blockquote>
 </section>
-<section id="sqb-custom1">
-<h2>sqb_custom1<a class="headerlink" href="#sqb-custom1" title="Permalink to this heading"></a></h2>
+<section id="lms-custom1">
+<h2>lms_custom1<a class="headerlink" href="#lms-custom1" title="Permalink to this heading"></a></h2>
 <p>MAC-Adresse des Wiedergabegerätes</p>
 <blockquote>
 <div><ul class="simple">
@@ -5973,8 +5973,8 @@
 </ul>
 </div></blockquote>
 </section>
-<section id="sqb-lookup">
-<h2>sqb_lookup<a class="headerlink" href="#sqb-lookup" title="Permalink to this heading"></a></h2>
+<section id="lms-lookup">
+<h2>lms_lookup<a class="headerlink" href="#lms-lookup" title="Permalink to this heading"></a></h2>
 <p>Der Inhalt der Lookup-Tabelle mit dem angegebenen Namen wird beim  Start einmalig als dict oder list in das Item geschrieben.    Durch Anhängen von „#&lt;mode&gt;“ an den Namen der Tabelle kann die Art  der Tabelle ausgewählt werden:  - fwd liefert die Tabelle Gerät -&gt; SmartHomeNG (Standard)  - rev liefert die Tabelle SmartHomeNG -&gt; Gerät  - rci liefert die Tabelle SmarthomeNG -&gt; Gerät in Kleinbuchstaben  - list liefert die Liste der Namen für SmartHomeNG (z.B. für Auswahllisten in der Visu)</p>
 <blockquote>
 <div><ul class="simple">
@@ -5982,8 +5982,8 @@
 </ul>
 </div></blockquote>
 </section>
-<section id="sqb-read">
-<h2>sqb_read<a class="headerlink" href="#sqb-read" title="Permalink to this heading"></a></h2>
+<section id="lms-read">
+<h2>lms_read<a class="headerlink" href="#lms-read" title="Permalink to this heading"></a></h2>
 <p>Item liest/erhält Werte vom Gerät</p>
 <blockquote>
 <div><ul class="simple">
@@ -5991,8 +5991,8 @@
 </ul>
 </div></blockquote>
 </section>
-<section id="sqb-read-cycle">
-<h2>sqb_read_cycle<a class="headerlink" href="#sqb-read-cycle" title="Permalink to this heading"></a></h2>
+<section id="lms-read-cycle">
+<h2>lms_read_cycle<a class="headerlink" href="#lms-read-cycle" title="Permalink to this heading"></a></h2>
 <p>Konfiguriert ein Intervall in Sekunden für regelmäßiges Lesen</p>
 <blockquote>
 <div><ul class="simple">
@@ -6000,8 +6000,8 @@
 </ul>
 </div></blockquote>
 </section>
-<section id="sqb-read-group">
-<h2>sqb_read_group<a class="headerlink" href="#sqb-read-group" title="Permalink to this heading"></a></h2>
+<section id="lms-read-group">
+<h2>lms_read_group<a class="headerlink" href="#lms-read-group" title="Permalink to this heading"></a></h2>
 <p>Weist das Item der angegebenen Gruppe zum gesammelten Lesen zu. Mehrere Gruppen können als Liste angegeben werden.</p>
 <blockquote>
 <div><ul class="simple">
@@ -6009,17 +6009,17 @@
 </ul>
 </div></blockquote>
 </section>
-<section id="sqb-read-group-trigger">
-<h2>sqb_read_group_trigger<a class="headerlink" href="#sqb-read-group-trigger" title="Permalink to this heading"></a></h2>
-<p>Wenn diesem Item ein beliebiger Wert zugewiesen wird, werden alle zum Lesen konfigurierten Items der angegebenen Gruppe neu vom Gerät gelesen, bei Gruppe 0 werden alle zum Lesen konfigurierten Items neu gelesen. Das Item kann nicht gleichzeitig mit sqb_command belegt werden.</p>
+<section id="lms-read-group-trigger">
+<h2>lms_read_group_trigger<a class="headerlink" href="#lms-read-group-trigger" title="Permalink to this heading"></a></h2>
+<p>Wenn diesem Item ein beliebiger Wert zugewiesen wird, werden alle zum Lesen konfigurierten Items der angegebenen Gruppe neu vom Gerät gelesen, bei Gruppe 0 werden alle zum Lesen konfigurierten Items neu gelesen. Das Item kann nicht gleichzeitig mit lms_command belegt werden.</p>
 <blockquote>
 <div><ul class="simple">
 <li><p>Datentyp: <strong>str</strong></p></li>
 </ul>
 </div></blockquote>
 </section>
-<section id="sqb-read-initial">
-<h2>sqb_read_initial<a class="headerlink" href="#sqb-read-initial" title="Permalink to this heading"></a></h2>
+<section id="lms-read-initial">
+<h2>lms_read_initial<a class="headerlink" href="#lms-read-initial" title="Permalink to this heading"></a></h2>
 <p>Legt fest, dass der Wert beim Start vom Gerät gelesen wird</p>
 <blockquote>
 <div><ul class="simple">
@@ -6027,8 +6027,8 @@
 </ul>
 </div></blockquote>
 </section>
-<section id="sqb-valid-list">
-<h2>sqb_valid_list<a class="headerlink" href="#sqb-valid-list" title="Permalink to this heading"></a></h2>
+<section id="lms-valid-list">
+<h2>lms_valid_list<a class="headerlink" href="#lms-valid-list" title="Permalink to this heading"></a></h2>
 <p>Kommando, das eine valid_list(_re/_ci) definiert hat. Der Inhalt dieses Items ersetzt die Liste des entsprechenden Befehls.</p>
 <blockquote>
 <div><ul class="simple">
@@ -6036,8 +6036,8 @@
 </ul>
 </div></blockquote>
 </section>
-<section id="sqb-write">
-<h2>sqb_write<a class="headerlink" href="#sqb-write" title="Permalink to this heading"></a></h2>
+<section id="lms-write">
+<h2>lms_write<a class="headerlink" href="#lms-write" title="Permalink to this heading"></a></h2>
 <p>Änderung des Items werden an das Gerät gesendet</p>
 <blockquote>
 <div><ul class="simple">
