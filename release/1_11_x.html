@@ -4,7 +4,7 @@
   <meta charset="utf-8" /><meta name="generator" content="Docutils 0.19: https://docutils.sourceforge.io/" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Release 1.11.0 - tt. mmm 2025 &mdash; Dokumentation v1.10.0.3 v1.10.0.3 develop (Stand 5. Februar 2025, commit 31f1a85) Dokumentation</title>
+  <title>Release 1.11.0 - tt. mmm 2025 &mdash; Dokumentation v1.10.0.3 v1.10.0.3 develop (Stand 5. Februar 2025, commit 1a343c4) Dokumentation</title>
       <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
       <link rel="stylesheet" type="text/css" href="../_static/css/theme.css" />
       <link rel="stylesheet" type="text/css" href="../_static/custom.css" />
@@ -5761,10 +5761,10 @@ sowie einige neue Plugins.</p>
 <p>Diese Release Notes sind ein Arbeitsstand des <strong>develop</strong> Branches.</p>
 <blockquote>
 <div><ul class="simple">
-<li><p>Berücksichtigt sind Commits im smarthome Repository bis incl. 27. Januar 2025
-(modules.mqtt: allow paho_mqtt 2.x)</p></li>
-<li><p>Berücksichtigt sind Commits im plugins Repository bis incl. 27. Januar 2025
-(Merge pull request #996 from onkelandy/denon)</p></li>
+<li><p>Berücksichtigt sind Commits im smarthome Repository bis incl. 05. Februar 2025
+(Merge pull request #714 from Morg42/develop)</p></li>
+<li><p>Berücksichtigt sind Commits im plugins Repository bis incl. 05. Februar 2025
+(Merge pull request #999 from onkelandy/lms)</p></li>
 </ul>
 </div></blockquote>
 </div>
@@ -6105,7 +6105,7 @@ zu unterstützten Python Versionen)</p>
 <li><p>Workflows:</p>
 <ul>
 <li><p>Removed Python3.8 from unittests</p></li>
-<li><p>Ceckout fallback to plugins/develop</p></li>
+<li><p>Checkout fallback to plugins/develop</p></li>
 </ul>
 </li>
 <li><p>gitignore:</p>
@@ -6336,6 +6336,10 @@ zu unterstützten Python Versionen)</p>
 <li><p>update, fix and improve commands, rename some correctly</p></li>
 <li><p>fix transform received data (keep %20 for spaces)</p></li>
 <li><p>update method code in init using type hint</p></li>
+<li><p>breaking change rename prefix „<a href="#id2"><span class="problematic" id="id3">sqb_</span></a>“ to „<a href="#id4"><span class="problematic" id="id5">lms_</span></a>“</p></li>
+<li><p>re-read players on new client and player (dis)connect as well as rename</p></li>
+<li><p>rename conflicting commands/items: id, path, remove and custom_skip.active, playlist.url, playlist.name</p></li>
+<li><p>update newclient command so it also rereads the players when a client gets „forgotten“/disabled</p></li>
 </ul>
 </li>
 <li><p>modbus_tcp:</p>
@@ -6568,7 +6572,7 @@ zu unterstützten Python Versionen)</p>
 <li><p>Fix list actions</p></li>
 <li><p>Fix issue tracking for action definitions, minor updates</p></li>
 <li><p>Re-fix time handling</p></li>
-<li><p>Make it possible to set value of list item by <a href="#id2"><span class="problematic" id="id3">se_set_</span></a>..: [foo, bar]</p></li>
+<li><p>Make it possible to set value of list item by <a href="#id6"><span class="problematic" id="id7">se_set_</span></a>..: [foo, bar]</p></li>
 <li><p>Improve zoom/scroll handling (esp. on page update, using cookies now)</p></li>
 <li><p>Improve visu compactness</p></li>
 <li><p>Use sh.items.return_item instead of sh.return_item</p></li>
