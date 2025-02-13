@@ -172,6 +172,7 @@ Modellauswahl
 
    - 
    - **AVR-X6300H**
+   - **AVR-X6300H-NA**
    - **AVR-X4300H**
    - **AVR-X3300W**
    - **AVR-X2300W**
@@ -246,8 +247,8 @@ Anzahl Sendeversuche
  - Standardwert: **0**
 
 
-sendretry_cycle
-===============
+send_retries_cycle
+==================
 
 
 Pause zwischen Durchgängen von Sendeversuchen
